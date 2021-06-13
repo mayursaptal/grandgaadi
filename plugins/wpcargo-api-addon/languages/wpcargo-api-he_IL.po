@@ -1,0 +1,235 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WPCargo API Addon\n"
+"POT-Creation-Date: 2021-02-01 15:32+0800\n"
+"PO-Revision-Date: 2021-02-01 15:33+0800\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: he_IL\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.4.2\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n==2 ? 1 : n>10 && n%10==0 ? "
+"2 : 3);\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: wpcargo-api.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+
+#: admin/classes/class-main.php:19
+msgid "WPCargo API Manager"
+msgstr "מנהל ה-API של WPCargo"
+
+#: admin/classes/class-main.php:37
+msgid "WPCargo API"
+msgstr "מטענים וכנסים"
+
+#: admin/classes/class-main.php:40
+msgid "API Key"
+msgstr "מפתח API"
+
+#: admin/classes/class-main.php:41
+msgid "Generate API Key"
+msgstr "מפתח ה-API של גוגל מפה"
+
+#: admin/classes/class-main.php:68
+msgid ""
+"Sorry you don't have enough permission to access this page. Please Contact "
+"Support or Administrator."
+msgstr "מצטערים שאין לך מספיק הקדמה כדי לגשת לדף זה. נא פנה למנהל."
+
+#: admin/includes/functions.php:703
+msgid "Username field 'username' is required."
+msgstr "שם משתמש: %s"
+
+#: admin/includes/functions.php:706
+msgid "Username is already exists, please try another username"
+msgstr "שם המשתמש כבר קיים, נא נסה שם משתמש אחר"
+
+#: admin/includes/functions.php:709
+msgid "Email field 'email' is required."
+msgstr "האם נדרש שדה?"
+
+#: admin/includes/functions.php:712
+msgid "Email is already exists, please try another email"
+msgstr "דואר אלקטרוני כבר קיים, אנא נסה דוא\"ל אחר"
+
+#: admin/includes/functions.php:715
+msgid "Password field 'password' is required."
+msgstr "סיסמה שאינה מתאימה."
+
+#: admin/includes/functions.php:718
+msgid ""
+"Warning! Please activate license for WPCargo API add on to be able to use "
+"WPCargo API"
+msgstr ""
+"אזהרה! נא הפעל רשיון עבור WPCargo API להוסיף כדי להיות מסוגל להשתמש WPCargo "
+"API"
+
+#: admin/includes/functions.php:718
+msgid "here"
+msgstr "כאן"
+
+#: admin/includes/functions.php:721
+msgid "You do not have permissions to view this data please purchase license."
+msgstr "אין לך הרשאות לתצוגה של נתונים אלה נא לרכוש רשיון."
+
+#: admin/includes/functions.php:724
+msgid "You do not have permissions to view this data."
+msgstr "אין לך הרשאות לתצוגת נתונים אלה."
+
+#: admin/includes/functions.php:727
+msgid "No route was found matching the URL and request method."
+msgstr "לא נמצא נתיב התום לכתובת ה- URL ולשיטת הבקשה."
+
+#: admin/includes/functions.php:730
+msgid "You do not have permissions to view this data. Something is missing."
+msgstr "אין לך הרשאות לתצוגת נתונים אלה."
+
+#: admin/includes/functions.php:733
+msgid "Access Denied!"
+msgstr "הגישה נדחתה"
+
+#: admin/includes/functions.php:736
+msgid "Access Granted!"
+msgstr "הגישה הוענקה!"
+
+#: admin/includes/functions.php:739
+msgid "Shipment Image can't be save. Wrong file format."
+msgstr "אין אפשרות לשמור את תמונת המשלוח. תבנית קובץ שגויה."
+
+#: admin/includes/functions.php:742
+msgid "Shipment not Found"
+msgstr "המשלוח לא נמצא!"
+
+#: admin/includes/functions.php:745
+msgid "Shipment already Exist"
+msgstr "דואר אלקטרוני קיים כבר."
+
+#: admin/includes/functions.php:748
+msgid "Shipment Added"
+msgstr "השדה נוסף בהצלחה!"
+
+#: admin/includes/functions.php:751
+msgid "Address Added"
+msgstr "כתובת"
+
+#: admin/includes/functions.php:754
+msgid "Address Updated"
+msgstr "עודכן ב"
+
+#: admin/includes/functions.php:757
+msgid "Shipment Updated"
+msgstr "המשלוח עודכן בהצלחה!"
+
+#: admin/includes/functions.php:760
+msgid "Add Shipment Failed"
+msgstr "העברת המשלוח נכשלה!"
+
+#: admin/includes/functions.php:763
+msgid "Add Address Failed"
+msgstr "נכשל."
+
+#: admin/includes/functions.php:766
+msgid "Update Address Failed"
+msgstr "העדכון נכשל"
+
+#: admin/includes/functions.php:769
+msgid "User"
+msgstr "בחר ספר משתמשים לייצוא"
+
+#: admin/includes/functions.php:772
+msgid "Registration was Successful"
+msgstr "רישום"
+
+#: admin/includes/functions.php:775
+msgid "There is no error, the file uploaded with success."
+msgstr "אין שגיאה, הקובץ שהועלה בהצלחה."
+
+#: admin/includes/functions.php:778
+msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
+msgstr "הקובץ שהועלה עולה על ההנחיה upload_max_filesize ב- php.ini."
+
+#: admin/includes/functions.php:781
+msgid ""
+"The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
+"the HTML form."
+msgstr "הקובץ שהועלה עולה על ההוראה MAX_FILE_SIZE שצוינה בטופס HTML."
+
+#: admin/includes/functions.php:784
+msgid "The uploaded file was only partially uploaded."
+msgstr "הקובץ לא עלה עד הסוף."
+
+#: admin/includes/functions.php:787
+msgid "No file was uploaded."
+msgstr "לא הועלה קובץ."
+
+#: admin/includes/functions.php:790
+msgid "Missing a temporary folder."
+msgstr "חסר הרשאות."
+
+#: admin/includes/functions.php:793
+msgid "Failed to write file to disk."
+msgstr "נכשלתי בכתיבת קובץ לדיסק."
+
+#: admin/includes/functions.php:796
+msgid "A PHP extension stopped the file upload."
+msgstr "סיומת PHP עצרה את העלאת הקובץ."
+
+#: admin/includes/functions.php:799
+msgid ""
+"This plugin requires <a href=\"http://wpcargo.com/\" target=\"_blank"
+"\">WPTaskForce License Helper</a> plugin to be active!"
+msgstr ""
+"תוסף זה דורש <a href=\"http://wpcargo.com/\" target=\"_blank\">Wptaskforce "
+"המסייע מסייע</a> תוסף להיות פעיל!"
+
+#: admin/includes/functions.php:802
+msgid ""
+"This plugin requires <a href=\"https://wordpress.org/plugins/wpcargo/\" "
+"target=\"_blank\">WPCargo</a> plugin to be active!"
+msgstr ""
+"תוסף זה דורש <a href=\"https://wordpress.org/plugins/wpcargo/\" target="
+"\"_blank\">Wpcargo</a> plugin להיות פעיל!"
+
+#: admin/includes/functions.php:805
+msgid "Cheating, uh?"
+msgstr "? רמאות, אה"
+
+#: templates/account-tpl.php:2
+msgid "Welcome back"
+msgstr "בחזרה ללוח בקרה"
+
+#: templates/account-tpl.php:3
+msgid "Your current Wpcargo API is"
+msgstr "ה- API הנוכחי של Wpcargo הוא"
+
+#: templates/account-tpl.php:3
+msgid "Reset"
+msgstr "איפוס"
+
+#. Plugin Name of the plugin/theme
+msgid "WPCargo API Addon"
+msgstr "מיתו את ה- API"
+
+#. Plugin URI of the plugin/theme
+msgid "http://wpcargo.com/"
+msgstr "http://wpcargo.com/"
+
+#. Description of the plugin/theme
+msgid ""
+"WPCargo API allows to share you WPCargo shipment data using API, Available "
+"shortcode [wpcargo_api_account]"
+msgstr ""
+"WPCargo API מאפשר לשתף אותך נתוני משלוח WPCargo באמצעות API, קוד קצר זמין "
+"[wpcargo_api_account]"
+
+#. Author of the plugin/theme
+msgid "<a href=\"http://wptaskforce.com/\">WPTaskForce</a>"
+msgstr "<a href=\"http://wptaskforce.com/\">כוח משימות</a>"

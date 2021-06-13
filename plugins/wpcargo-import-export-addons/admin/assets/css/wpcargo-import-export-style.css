@@ -1,0 +1,269 @@
+#require-fields ul li {
+	cursor: default;
+}
+#categorychecklist ul.children {
+	margin-left: 24px;
+}
+#wpc-import-export-checklist {
+	width: 100%;
+	float: left;
+}
+#multi-select-export {
+	width: 100%;
+	float: left;
+}
+#multi-select-import textarea#include_field_list, #multi-select-export textarea#include_field_list, #multi-select-import textarea#include_field_list, #multi-select-export textarea#include_field_list {
+	display: none;
+}
+#multi-select-export .col-xs-5 {
+	float: left;
+	width: 30%;
+}
+#multi-select-import .col-xs-5 {
+	float: left;
+	width: 20%;
+}
+#multi-select-export .row, #multi-select-import .row {
+	width: 100%;
+	overflow: hidden;
+	clear: both;
+}
+#multi-select-export .col-xs-2, #multi-select-import .col-xs-2 {
+	float: left;
+	width: 10%;
+}
+#multi-select-export .col-xs-2 .btn.btn-block {
+    background-color: #00a924;
+    color: #fff;
+    border: 0;
+    font-size: 16px;
+    line-height: 20px;
+    width: 45%!important;
+    padding: 2px 6px 3px;
+}
+#multi-select-export .col-xs-2 button, #multi-select-import .col-xs-2 button {
+	display: block;
+	margin: 12px auto;
+	width: 60%;
+}
+.row .col-xs-5 select#multiselect, .row .col-xs-5 select#multiselect_to {
+	width: 100%;
+}
+.wpc-import-wrap {
+	margin: 15px auto;
+}
+.wp-core-ui #wpbody #multi-select-export input.button.button-primary.button-large,
+input.button.button-primary.button-large {
+    border-radius: 0;
+    border: 0;
+    box-shadow: none;
+    font-size: 14px;
+    background-color: #00a924;
+    text-shadow: none;
+    margin-bottom: 15px;
+    line-height: 32px;
+    padding: 0 15px;
+    min-height: 32px;
+}
+#wpc-import-export-checklist input[type=checkbox]:checked:before{
+    margin: -1px 0 0 -1px;
+    background: #0db932;
+    text-shadow: 1px 1px 1px #148D44;
+    border: 1px solid #1A9E51;
+    font-size: 25px;
+    -webkit-font-smoothing: antialiased;
+    color: #fff;
+    text-align: center;
+    width: 24px;
+}
+#wpc-import-export-checklist input[type="checkbox"] {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    text-align: center;
+    color: #fff;
+    display: inline-block;
+    width: 26px;
+    height: 26px;
+    margin-right: 10px;
+	margin-bottom:5px;
+    background: #dbf5e0;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+    border: 1px solid #B2BFCA;
+}
+.wp-core-ui #wpbody #import-datepicker .import-datepicker {
+    line-height: 29px;
+}
+.wp-core-ui #wpbody #form-block #wpc-ie-form p strong {
+    font-size: 14px;
+    color: #00a924;
+}
+.wp-core-ui #wpbody #import-datepicker label {
+    font-weight: 600;
+    padding-right: 10px;
+}
+.wp-core-ui #wpbody #import-datepicker label[for="date-to"] {
+    padding-left: 10px;
+}
+.nav-tab {
+	transition: all ease-in-out .2s;
+}
+input[type=radio]:checked:before {
+    background-color: #00a924;
+}
+.nav-tab-active, 
+.nav-tab-active:focus, 
+.nav-tab-active:focus:active, 
+.nav-tab-active:hover {
+    border-bottom: 1px solid #f1f1f1;
+    background: #00a924;
+    color: #ffffff;
+}
+.nav-tab:focus, 
+.nav-tab:hover {
+    background-color: #00a924;
+    color: #fff;
+}
+#form-block {
+    overflow: hidden;
+    background-color: #fff;
+    padding: 20px 30px 30px;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    box-shadow: 0 1px 10px rgba(0, 0, 0, .05);
+    border: 1px solid rgb(244, 244, 244);
+}
+.nav-tab-wrapper, .wrap h2.nav-tab-wrapper, h1.nav-tab-wrapper {
+    border-bottom: 0px solid #ccc;
+}
+#wpc-import-export-checklist input.button.button-primary {
+    border-radius: 0;
+    border: 0;
+    box-shadow: none;
+    font-size: 14px;
+    background-color: #00a924;
+    text-shadow: none;
+    margin-bottom: 15px;
+    line-height: 32px;
+    padding: 0 15px;
+    min-height: 32px;
+}
+/* wpcargo Spinner */
+.wpc-loading {
+  position: fixed;
+  z-index: 999999;
+  height: 2em;
+  width: 2em;
+  overflow: show;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+/* Transparent Overlay */
+.wpc-loading:before {
+  content: '';
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.3);
+}
+/* :not(:required) hides these rules from IE9 and below */
+.wpc-loading:not(:required) {
+  /* hide "loading..." text */
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+.wpc-loading:not(:required):after {
+  content: '';
+  display: block;
+  font-size: 10px;
+  width: 1em;
+  height: 1em;
+  margin-top: -0.5em;
+  -webkit-animation: spinner 1500ms infinite linear;
+  -moz-animation: spinner 1500ms infinite linear;
+  -ms-animation: spinner 1500ms infinite linear;
+  -o-animation: spinner 1500ms infinite linear;
+  animation: spinner 1500ms infinite linear;
+  border-radius: 0.5em;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.75) 1.5em 0 0 0, rgba(0, 0, 0, 0.75) 1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) 0 1.5em 0 0, rgba(0, 0, 0, 0.75) -1.1em 1.1em 0 0, rgba(0, 0, 0, 0.5) -1.5em 0 0 0, rgba(0, 0, 0, 0.5) -1.1em -1.1em 0 0, rgba(0, 0, 0, 0.75) 0 -1.5em 0 0, rgba(0, 0, 0, 0.75) 1.1em -1.1em 0 0;
+  box-shadow: rgba(0, 0, 0, 0.75) 1.5em 0 0 0, rgba(0, 0, 0, 0.75) 1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) 0 1.5em 0 0, rgba(0, 0, 0, 0.75) -1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) -1.5em 0 0 0, rgba(0, 0, 0, 0.75) -1.1em -1.1em 0 0, rgba(0, 0, 0, 0.75) 0 -1.5em 0 0, rgba(0, 0, 0, 0.75) 1.1em -1.1em 0 0;
+}
+/* Animation */
+@-webkit-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-moz-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-o-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+ @media only screen and (max-width: 600px) {
+    #wpc-import-export-checklist, #multi-select-export {
+    	width: 100%;
+    	float: none;
+    }
+}

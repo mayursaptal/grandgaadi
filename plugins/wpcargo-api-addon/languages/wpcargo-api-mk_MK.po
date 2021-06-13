@@ -1,0 +1,233 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WPCargo API Addon\n"
+"POT-Creation-Date: 2021-02-01 15:34+0800\n"
+"PO-Revision-Date: 2021-02-01 15:36+0800\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: mk_MK\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.4.2\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n%10==1 && n%100!=11);\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: wpcargo-api.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+
+#: admin/classes/class-main.php:19
+msgid "WPCargo API Manager"
+msgstr ""
+
+#: admin/classes/class-main.php:37
+msgid "WPCargo API"
+msgstr ""
+
+#: admin/classes/class-main.php:40
+msgid "API Key"
+msgstr ""
+
+#: admin/classes/class-main.php:41
+msgid "Generate API Key"
+msgstr ""
+
+#: admin/classes/class-main.php:68
+msgid ""
+"Sorry you don't have enough permission to access this page. Please Contact "
+"Support or Administrator."
+msgstr ""
+
+#: admin/includes/functions.php:703
+msgid "Username field 'username' is required."
+msgstr ""
+
+#: admin/includes/functions.php:706
+msgid "Username is already exists, please try another username"
+msgstr ""
+
+#: admin/includes/functions.php:709
+msgid "Email field 'email' is required."
+msgstr ""
+
+#: admin/includes/functions.php:712
+msgid "Email is already exists, please try another email"
+msgstr ""
+
+#: admin/includes/functions.php:715
+msgid "Password field 'password' is required."
+msgstr ""
+
+#: admin/includes/functions.php:718
+msgid ""
+"Warning! Please activate license for WPCargo API add on to be able to use "
+"WPCargo API"
+msgstr ""
+
+#: admin/includes/functions.php:718
+msgid "here"
+msgstr "Вот"
+
+#: admin/includes/functions.php:721
+msgid "You do not have permissions to view this data please purchase license."
+msgstr ""
+
+#: admin/includes/functions.php:724
+msgid "You do not have permissions to view this data."
+msgstr "Немате дозволи за запишување во таа датотека."
+
+#: admin/includes/functions.php:727
+msgid "No route was found matching the URL and request method."
+msgstr ""
+
+#: admin/includes/functions.php:730
+msgid "You do not have permissions to view this data. Something is missing."
+msgstr ""
+
+#: admin/includes/functions.php:733
+msgid "Access Denied!"
+msgstr "Пристапот е одбиен"
+
+#: admin/includes/functions.php:736
+msgid "Access Granted!"
+msgstr ""
+
+#: admin/includes/functions.php:739
+msgid "Shipment Image can't be save. Wrong file format."
+msgstr ""
+
+#: admin/includes/functions.php:742
+msgid "Shipment not Found"
+msgstr "Пратката не е пронајдена"
+
+#: admin/includes/functions.php:745
+msgid "Shipment already Exist"
+msgstr ""
+
+#: admin/includes/functions.php:748
+msgid "Shipment Added"
+msgstr ""
+
+#: admin/includes/functions.php:751
+msgid "Address Added"
+msgstr ""
+
+#: admin/includes/functions.php:754
+msgid "Address Updated"
+msgstr ""
+
+#: admin/includes/functions.php:757
+msgid "Shipment Updated"
+msgstr ""
+
+#: admin/includes/functions.php:760
+msgid "Add Shipment Failed"
+msgstr ""
+
+#: admin/includes/functions.php:763
+msgid "Add Address Failed"
+msgstr ""
+
+#: admin/includes/functions.php:766
+msgid "Update Address Failed"
+msgstr ""
+
+#: admin/includes/functions.php:769
+msgid "User"
+msgstr "Корисник"
+
+#: admin/includes/functions.php:772
+msgid "Registration was Successful"
+msgstr ""
+
+#: admin/includes/functions.php:775
+msgid "There is no error, the file uploaded with success."
+msgstr "Нема грешка, датотеката се прикачи со успех."
+
+#: admin/includes/functions.php:778
+msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
+msgstr ""
+"Додадената датотека ја надминува директивата upload_max_filesize во php.ini."
+
+#: admin/includes/functions.php:781
+msgid ""
+"The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
+"the HTML form."
+msgstr ""
+"Додадената датотека ја надминува директивата MAX_FILE_SIZE што беше наведена "
+"во формуларот HTML."
+
+#: admin/includes/functions.php:784
+msgid "The uploaded file was only partially uploaded."
+msgstr "Додадениот фајл беше само делумно поставен."
+
+#: admin/includes/functions.php:787
+msgid "No file was uploaded."
+msgstr "Не е поставен ниту еден фајл."
+
+#: admin/includes/functions.php:790
+msgid "Missing a temporary folder."
+msgstr "Недостасува привремена папка."
+
+#: admin/includes/functions.php:793
+msgid "Failed to write file to disk."
+msgstr "Не успеав да ја напишам датотеката на дискот."
+
+#: admin/includes/functions.php:796
+msgid "A PHP extension stopped the file upload."
+msgstr "Продолжението PHP го стопираше поставувањето на датотеката."
+
+#: admin/includes/functions.php:799
+msgid ""
+"This plugin requires <a href=\"http://wpcargo.com/\" target=\"_blank"
+"\">WPTaskForce License Helper</a> plugin to be active!"
+msgstr ""
+"Овој приклучок бара додатокот <a href=\"http://wpcargo.com/\" target=\"_blank"
+"\">WPTaskForce Licence Helper</a> да биде активен!"
+
+#: admin/includes/functions.php:802
+msgid ""
+"This plugin requires <a href=\"https://wordpress.org/plugins/wpcargo/\" "
+"target=\"_blank\">WPCargo</a> plugin to be active!"
+msgstr ""
+"Овој приклучок бара додатокот <a href=\"https://wordpress.org/plugins/"
+"wpcargo/\" target=\"_blank\">WPCargo</a> да биде активен!"
+
+#: admin/includes/functions.php:805
+msgid "Cheating, uh?"
+msgstr "Мамење, а?"
+
+#: templates/account-tpl.php:2
+msgid "Welcome back"
+msgstr "Добредојде пак."
+
+#: templates/account-tpl.php:3
+msgid "Your current Wpcargo API is"
+msgstr ""
+
+#: templates/account-tpl.php:3
+msgid "Reset"
+msgstr "Ресетираj"
+
+#. Plugin Name of the plugin/theme
+msgid "WPCargo API Addon"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "http://wpcargo.com/"
+msgstr "http://wptaskforce.com/"
+
+#. Description of the plugin/theme
+msgid ""
+"WPCargo API allows to share you WPCargo shipment data using API, Available "
+"shortcode [wpcargo_api_account]"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "<a href=\"http://wptaskforce.com/\">WPTaskForce</a>"
+msgstr "<a href=\"http://www.wptaskforce.com/\">WPTaskForce</a>"

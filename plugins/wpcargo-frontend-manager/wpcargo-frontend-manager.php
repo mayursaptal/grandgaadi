@@ -1,0 +1,74 @@
+<?php
+/*
+ * Plugin Name: WPCargo Frontend Manager
+ * Plugin URI: http://wptaskforce.com/
+ * Description: WPCargo Frontend Manager provides user dashboard in the frontend of your site and mobile responsive ready. Available shortcode [wpcfe_registration]
+ * Author: <a href="http://www.wptaskforce.com/">WPTaskForce</a>
+ * Text Domain: wpcargo-frontend-manager
+ * Domain Path: /languages
+ * Version: 5.3.2
+ */
+if (!defined('ABSPATH')) {
+    exit; // Exit if accessed directly
+}
+//* Defined constant
+define( 'WPCFE_FILE', __FILE__ );
+define( 'WPCFE_URL', plugin_dir_url( WPCFE_FILE ) );
+define( 'WPCFE_PATH', plugin_dir_path( WPCFE_FILE ) );
+define( 'WPCFE_TEXTDOMAIN', 'wpcargo-frontend-manager' );
+define( 'WPCFE_VERSION', '5.3.2' );
+define( 'WPCFE_DB_VERSION', '1.0.1' );
+define( 'WPCFE_HOME_URL', home_url() );
+define( 'WPCFE_BASENAME', plugin_basename( WPCFE_FILE ) );
+define( 'WPCFE_DB_REPORTS',  'wpcfe_reports' );
+require_once( WPCFE_PATH.'admin/includes/functions.php');
+require_once( WPCFE_PATH.'admin/includes/widgets.php');
+require_once( WPCFE_PATH.'admin/includes/language.php');
+require_once( WPCFE_PATH.'admin/includes/pdf-helper.php');
+require_once( WPCFE_PATH.'admin/includes/country-list.php');
+require_once( WPCFE_PATH.'admin/includes/hooks.php');
+require_once( WPCFE_PATH.'admin/includes/print-hooks.php');
+require_once( WPCFE_PATH.'admin/includes/ajax.php');
+require_once( WPCFE_PATH.'admin/includes/settings.php');
+require_once( WPCFE_PATH.'admin/classes/class-core.php');
+require_once( WPCFE_PATH.'admin/classes/class-menus.php');
+require_once( WPCFE_PATH.'admin/classes/class-scripts.php');
+require_once( WPCFE_PATH.'admin/classes/class-pages.php' );
+require_once( WPCFE_PATH.'admin/classes/database.php' );
+//** Load Plugin text domain
+add_action( 'plugins_loaded', 'wpc_frontend_manager_load_textdomain' );
+function wpc_frontend_manager_load_textdomain() {
+	load_plugin_textdomain( 'wpcargo-frontend-manager', false, '/wpcargo-frontend-manager/languages' );
+}
+add_action( 'plugins_loaded', 'wpcfe_generate_report_dbtable' );
+function wpcfe_generate_report_dbtable(){
+    $WPCFE_DATABASE = new WPCFE_DATABASE;
+    $WPCFE_DATABASE->create_report(); 
+}
+//** Create track page
+register_activation_hook( WPCFE_FILE, array( 'WPCFE_Admin', 'add_wpcfe_custom_pages' ) );
+register_activation_hook(WPCFE_FILE, array( 'WPCFE_DATABASE', 'create_report' ) );
+add_action( 'upgrader_process_complete', function( $upgrader_object, $options ) {
+    if ($options['action'] == 'update' && $options['type'] == 'plugin' ) {
+        if( !array_key_exists( 'plugins', $options ) ){
+            return false;
+        }
+        foreach($options['plugins'] as $each_plugin) {
+            if ( $each_plugin == WPCFE_BASENAME ) {
+                wpcfe_generate_report_dbtable();
+                break;
+            }
+        }
+    }
+}, 10, 2 );
+// Load the auto-update class
+add_action( 'init', 'wpc_frontend_manager_activate_au' );
+function wpc_frontend_manager_activate_au(){
+    require_once( WPCFE_PATH.'admin/classes/wp_autoupdate.php');
+    $plugin_remote_path = 'http://wpcargo.com/repository/wpcargo-frontend-manager/updates-7.2.php';
+    new WPCargo_Frontend_Manager_AutoUpdate ( WPCFE_VERSION, $plugin_remote_path, WPCFE_BASENAME );
+}
+// Create new custom Role
+register_activation_hook( __FILE__, 'wpcfe_regroles_on_plugin_activation' );
+register_deactivation_hook( __FILE__, 'wpcfe_regroles_on_plugin_deactivation' );
+add_action( 'plugins_loaded', 'wpcfe_regroles_on_plugin_update' );

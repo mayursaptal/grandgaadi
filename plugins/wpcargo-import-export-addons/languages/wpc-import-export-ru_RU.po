@@ -1,0 +1,485 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WPCargo Import and Export Add-ons\n"
+"POT-Creation-Date: 2021-04-08 15:55+0800\n"
+"PO-Revision-Date: 2021-04-08 15:55+0800\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ru_RU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.4.2\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: wpcargo-import-export-addons.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+
+#: admin/classes/class-import-export.php:66
+msgid "Export"
+msgstr "Экспорт"
+
+#: admin/classes/class-import-export.php:68
+msgid "Import"
+msgstr "Импорт"
+
+#: admin/includes/functions.php:7
+msgid "There is no error, the file uploaded with success."
+msgstr "Ошибки нет, файл загружен успешно."
+
+#: admin/includes/functions.php:8
+msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
+msgstr ""
+"Загруженный файл превысил разрешенный размер (upload_max_filesize в php.ini)."
+
+#: admin/includes/functions.php:9
+msgid ""
+"The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
+"the HTML form."
+msgstr ""
+"Загружаемый Вами файл превышает значение MAX_FILE_SIZE, указанный для данной "
+"HTML-формы."
+
+#: admin/includes/functions.php:10
+msgid "The uploaded file was only partially uploaded."
+msgstr "Файл был загружен частично"
+
+#: admin/includes/functions.php:11
+msgid "No file was uploaded."
+msgstr "Файл не был загружен."
+
+#: admin/includes/functions.php:12
+msgid "Missing a temporary folder."
+msgstr "Отсутствует временная папка."
+
+#: admin/includes/functions.php:13
+msgid "Failed to write file to disk."
+msgstr "Не удалось записать файл на диск."
+
+#: admin/includes/functions.php:14
+msgid "A PHP extension stopped the file upload."
+msgstr "Расширение PHP остановило загрузку файла"
+
+#: admin/includes/functions.php:42
+msgid "Import / Export"
+msgstr "Импорт / Экспорт"
+
+#: admin/includes/functions.php:124 admin/templates/form-export.tpl.php:4
+#: templates/export.tpl.php:7
+msgid "Shipper Name"
+msgstr "Имя грузоотза"
+
+#: admin/includes/functions.php:129
+msgid "Shipper Phone Number"
+msgstr "Номер телефона грузоотправителя"
+
+#: admin/includes/functions.php:134
+msgid "Shipper Address"
+msgstr "Адрес грузоотза:"
+
+#: admin/includes/functions.php:139
+msgid "Shipper Email"
+msgstr "Отправка электронной почты"
+
+#: admin/includes/functions.php:144
+msgid "Receiver Name"
+msgstr "Имя получателя"
+
+#: admin/includes/functions.php:149
+msgid "Receiver Phone Number"
+msgstr "Номер телефона получателя"
+
+#: admin/includes/functions.php:154
+msgid "Receiver Address"
+msgstr "Адрес получателя"
+
+#: admin/includes/functions.php:159
+msgid "Receiver Email"
+msgstr "Получатель почты"
+
+#: admin/includes/functions.php:164
+msgid "Agent Name"
+msgstr "Имя агента"
+
+#: admin/includes/functions.php:169
+msgid "Type of Shipment"
+msgstr "Тип отгрузки"
+
+#: admin/includes/functions.php:174
+msgid "Courier"
+msgstr "Курьер"
+
+#: admin/includes/functions.php:179
+msgid "Mode"
+msgstr "Режим"
+
+#: admin/includes/functions.php:184
+msgid "Quantity"
+msgstr "Количество"
+
+#: admin/includes/functions.php:189
+msgid "Total Freight"
+msgstr "Общий объем перевозок"
+
+#: admin/includes/functions.php:194
+msgid "Carrier Reference No."
+msgstr "Номер ссылки перевозчика"
+
+#: admin/includes/functions.php:199
+msgid "Origin"
+msgstr "Источник"
+
+#: admin/includes/functions.php:204
+msgid "Pickup Date"
+msgstr "Дата отправки"
+
+#: admin/includes/functions.php:209
+msgid "Comments"
+msgstr "Комментарии"
+
+#: admin/includes/functions.php:214
+msgid "Weight"
+msgstr "Вес"
+
+#: admin/includes/functions.php:219
+msgid "Packages"
+msgstr "Пакеты"
+
+#: admin/includes/functions.php:224
+msgid "Product"
+msgstr "Товар"
+
+#: admin/includes/functions.php:229
+msgid "Payment Mode"
+msgstr "Форма оплаты"
+
+#: admin/includes/functions.php:234
+msgid "Carrier"
+msgstr "Перевозчик"
+
+#: admin/includes/functions.php:239
+msgid "Departure Time"
+msgstr "Время отправления"
+
+#: admin/includes/functions.php:244
+msgid "Destination"
+msgstr "Место назначения"
+
+#: admin/includes/functions.php:249
+msgid "Pickup Time"
+msgstr "Время отправки"
+
+#: admin/includes/functions.php:254
+msgid "Expected Delivery Date"
+msgstr "Ожидаемая дата поставки"
+
+#: admin/includes/functions.php:261
+msgid "Package Details"
+msgstr "Сведения о пакете"
+
+#: admin/includes/functions.php:266
+msgid "Shipment History"
+msgstr "История отгрузки"
+
+#: admin/includes/functions.php:271
+msgid "Shipment Status"
+msgstr "Статус груза"
+
+#: admin/includes/functions.php:389
+msgid "Please activate your license key"
+msgstr "Пожалуйста, активируйте ключ лицензии"
+
+#: admin/includes/functions.php:389
+msgid "here"
+msgstr "здесь"
+
+#: admin/includes/functions.php:392
+msgid "ShipmentID"
+msgstr "ShipmentID"
+
+#: admin/includes/functions.php:395
+msgid "Shipment Title"
+msgstr "Название отгрузки"
+
+#: admin/includes/functions.php:398
+msgid "Shipment Category"
+msgstr "Категория отгрузки"
+
+#: admin/includes/functions.php:401
+msgid "Assigned Client"
+msgstr "Назначенный клиент"
+
+#: admin/includes/functions.php:404
+msgid "No Result Found!"
+msgstr "Ничего не найдено!"
+
+#: admin/includes/functions.php:407
+msgid "Wrong file header format, Please Download CSV template as template."
+msgstr ""
+"Неправильный формат заголовка файла, пожалуйста, скачайте шаблон CSV в "
+"качестве шаблона."
+
+#: admin/includes/functions.php:410
+msgid ""
+"Something went wrong, Please check your file header or Change your file "
+"Delimeter according to your file Delimiter."
+msgstr ""
+"Что-то пошло не так, пожалуйста, проверьте заголовок файла или измените файл "
+"Delimeter в соответствии с вашим файлом Delimiter."
+
+#: admin/includes/functions.php:413
+msgid "Wrong file upload format, it must .csv format"
+msgstr "Неправильный формат загрузки файлов, он должен формат .csv"
+
+#: admin/includes/functions.php:416
+msgid "Data Processed."
+msgstr "Обработанные данные"
+
+#: admin/includes/functions.php:419
+msgid "Loading..."
+msgstr "Загрузка..."
+
+#: admin/includes/functions.php:422
+msgid ""
+"data is being process, Please wait while processing the file to download."
+msgstr ""
+"данные обрабатываются, пожалуйста, подождите во время обработки файла для "
+"загрузки."
+
+#: admin/includes/functions.php:457
+msgid "Cheating, uh?"
+msgstr "Обман, а?"
+
+#: admin/includes/hooks.php:146 admin/includes/hooks.php:147
+#: admin/includes/hooks.php:154 admin/includes/hooks.php:155
+#: admin/includes/hooks.php:250 admin/includes/settings.php:55
+msgid "Import/Export"
+msgstr "Импорт/Экспорт"
+
+#: admin/includes/hooks.php:176
+msgid "Shipment Import/ Export"
+msgstr "Импорт/экспорт грузов"
+
+#: admin/includes/hooks.php:235 admin/templates/form-export.tpl.php:82
+#: templates/export.tpl.php:87
+msgid "Export Shipment"
+msgstr "Экспортная отгрузка"
+
+#: admin/includes/hooks.php:236 templates/import.tpl.php:26
+msgid "Import Shipment"
+msgstr "Импортная отгрузка"
+
+#: admin/includes/settings.php:27 admin/includes/settings.php:28
+#: admin/includes/settings.php:34 admin/includes/settings.php:35
+#: admin/templates/settings.tpl.php:1
+msgid "Import/Export Settings"
+msgstr "Импорт/экспорт настроек"
+
+#: admin/includes/settings.php:45
+msgid "Settings"
+msgstr "Настройки"
+
+#: admin/includes/settings.php:46
+msgid "License"
+msgstr "Лицензия"
+
+#: admin/includes/shortcodes.php:6 admin/includes/shortcodes.php:12
+msgid "Sorry, You are not allowed to Access this Importer."
+msgstr "К сожалению, Вы не можете получить доступ к этому импортеру."
+
+#: admin/includes/shortcodes.php:18 admin/templates/form-export.tpl.php:36
+msgid "Date Range"
+msgstr "Диапазон дат"
+
+#: admin/includes/shortcodes.php:19
+msgid "From :"
+msgstr "От :"
+
+#: admin/includes/shortcodes.php:20
+msgid "To :"
+msgstr "Нужная валюта:"
+
+#: admin/includes/shortcodes.php:21
+msgid "Export File"
+msgstr "Экспорт файла"
+
+#: admin/includes/shortcodes.php:118
+msgid "Length : "
+msgstr "Длина"
+
+#: admin/includes/shortcodes.php:118
+msgid "Width : "
+msgstr "Ширина"
+
+#: admin/includes/shortcodes.php:118
+msgid "Height : "
+msgstr "Высота"
+
+#: admin/includes/shortcodes.php:118
+msgid "Description : "
+msgstr "Описание: "
+
+#: admin/includes/shortcodes.php:133
+msgid "No Shipment Found"
+msgstr "Груз не найден!"
+
+#: admin/templates/form-export.tpl.php:5 templates/export.tpl.php:12
+msgid "Registered Shipper"
+msgstr "Зарегистрированный грузоотза"
+
+#: admin/templates/form-export.tpl.php:15 templates/export.tpl.php:14
+msgid "-- Registered Shipper --"
+msgstr "-- Зарегистрированный грузоотза --"
+
+#: admin/templates/form-export.tpl.php:24 templates/export.tpl.php:23
+msgid "Status"
+msgstr "Статус"
+
+#: admin/templates/form-export.tpl.php:26
+msgid "Select Status"
+msgstr "Выберите статус"
+
+#: admin/templates/form-export.tpl.php:37
+msgid "From : "
+msgstr "От: "
+
+#: admin/templates/form-export.tpl.php:39
+msgid "To : "
+msgstr "Кому: "
+
+#: admin/templates/form-export.tpl.php:46
+msgid "Select Fields"
+msgstr "Выберите Поля"
+
+#: admin/templates/form-import.tpl.php:19
+msgid "Choose a file from your computer:"
+msgstr "Выберите файл с компьютера:"
+
+#: admin/templates/form-import.tpl.php:25
+msgid "Import CSV"
+msgstr "Импорт CSV"
+
+#: admin/templates/form-import.tpl.php:27 templates/import.tpl.php:29
+msgid "Instructions on how to Import Shipment "
+msgstr "Инструкции о том, как импортировать грузы "
+
+#: admin/templates/form-import.tpl.php:29 templates/import.tpl.php:31
+msgid "Download CSV template"
+msgstr "Скачать шаблон CSV"
+
+#: admin/templates/form-import.tpl.php:29 templates/import.tpl.php:31
+msgid "as template for Importing data."
+msgstr "в качестве шаблона для импорта данных."
+
+#: admin/templates/form-import.tpl.php:30
+msgid "Delete Column(s) that are not needed."
+msgstr "Удалить колонку (ы), которые не нужны."
+
+#: admin/templates/form-import.tpl.php:31 templates/import.tpl.php:33
+msgid "Add Data to each Cell."
+msgstr "Добавляйте данные в каждую ячейку."
+
+#: admin/templates/form-import.tpl.php:32 templates/import.tpl.php:34
+msgid "Import CSV template."
+msgstr "Шаблон импорта CSV."
+
+#: admin/templates/settings.tpl.php:9
+msgid "Disabled in Frontend Manager Dashboard"
+msgstr "Отключен в панели мониторинга frontend Manager"
+
+#: admin/templates/settings.tpl.php:12
+msgid ""
+"Note: This will disable the Import/Export menu in the frontend manager "
+"dashboard."
+msgstr ""
+"Примечание: Это отключит меню импорта/экспорта в панели мониторинга "
+"интерфейса менеджера."
+
+#: admin/templates/settings.tpl.php:16
+msgid "Restrict user roles"
+msgstr "Ограничение ролей пользователей"
+
+#: admin/templates/settings.tpl.php:27
+msgid ""
+"Note: This will restrict selected roles to access the Import/Export page in "
+"the frontend manager dashboard."
+msgstr ""
+"Примечание: Это ограничит выбранные роли для доступа к странице импорта/"
+"экспорта в панели интерфейса менеджера."
+
+#: admin/templates/settings.tpl.php:31
+msgid "Save Settings"
+msgstr "Сохранить настройки"
+
+#: templates/export.tpl.php:25
+msgid "-- Status --"
+msgstr "Статус:"
+
+#: templates/export.tpl.php:35 templates/export.tpl.php:41
+msgid "YYYY-MM-DD"
+msgstr "ГГГГ-ММ-ДД"
+
+#: templates/export.tpl.php:36
+msgid "Start"
+msgstr "Начало"
+
+#: templates/export.tpl.php:42
+msgid "End"
+msgstr "Конец"
+
+#: templates/export.tpl.php:52
+msgid "Available Fields"
+msgstr "Доступные поля"
+
+#: templates/export.tpl.php:72
+msgid "Selected Fields"
+msgstr "Выбранные поля"
+
+#: templates/import.tpl.php:7
+msgid "Import CSV File"
+msgstr "Импорт CSV файл"
+
+#: templates/import.tpl.php:32
+msgid ""
+"Delete Column(s) that are not needed, make sure no empty header column this "
+"cause data mapping error."
+msgstr ""
+"Удалить столбец (ы), которые не нужны, убедитесь, что нет пустой столбец "
+"заголовка этой причиной ошибки отображения данных."
+
+#: templates/restricted.tpl.php:4
+msgid "Sorry your are not allowed to access this page!"
+msgstr "Извините, что не можете получить доступ к этой странице!"
+
+#: templates/restricted.tpl.php:5
+msgid "Please contact administrator for your permission."
+msgstr ""
+"Пожалуйста, свяжитесь с администратором для получения вашего разрешения."
+
+#. Plugin Name of the plugin/theme
+msgid "WPCargo Import and Export Add-ons"
+msgstr "Дополнения к импорту и экспорту WPCargo"
+
+#. Plugin URI of the plugin/theme
+#. Author URI of the plugin/theme
+msgid "http://www.wpcargo.com"
+msgstr "http://www.wpcargo.com"
+
+#. Description of the plugin/theme
+msgid ""
+"Allows you to Import/Export your shipments or to make backups. Requires "
+"WPCargo plugin to work."
+msgstr ""
+"Позволяет импортировать/экспортировать ваши поставки или делать резервные "
+"копии. Требуется WPCargo плагин для работы."
+
+#. Author of the plugin/theme
+msgid "<a href=\"http://wptaskforce.com/\">WPTaskforce</a>"
+msgstr "<a href=\"http://wptaskforce.com/\">WPTaskForce</a>"

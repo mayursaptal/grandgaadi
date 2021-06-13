@@ -1,0 +1,244 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WPCargo API Addon\n"
+"POT-Creation-Date: 2021-02-01 15:30+0800\n"
+"PO-Revision-Date: 2021-02-01 15:31+0800\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ro_RO\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.4.2\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n==0 || (n!=1 && n%100>=1 && n"
+"%100<=19) ? 1 : 2);\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: wpcargo-api.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+
+#: admin/classes/class-main.php:19
+msgid "WPCargo API Manager"
+msgstr "WPCargo API Manager"
+
+#: admin/classes/class-main.php:37
+msgid "WPCargo API"
+msgstr "WPCargo API"
+
+#: admin/classes/class-main.php:40
+msgid "API Key"
+msgstr "API Key"
+
+#: admin/classes/class-main.php:41
+msgid "Generate API Key"
+msgstr "Cheie API Google Map"
+
+#: admin/classes/class-main.php:68
+msgid ""
+"Sorry you don't have enough permission to access this page. Please Contact "
+"Support or Administrator."
+msgstr ""
+"Ne pare rău că nu aveți suficient de premission pentru a accesa această "
+"pagină. Contactați administratorul."
+
+#: admin/includes/functions.php:703
+msgid "Username field 'username' is required."
+msgstr "Nume utilizator: %s"
+
+#: admin/includes/functions.php:706
+msgid "Username is already exists, please try another username"
+msgstr ""
+"Numele de utilizator există deja, vă rugăm să încercați un alt nume de "
+"utilizator"
+
+#: admin/includes/functions.php:709
+msgid "Email field 'email' is required."
+msgstr "Este necesar Field?"
+
+#: admin/includes/functions.php:712
+msgid "Email is already exists, please try another email"
+msgstr "E-mailul există deja, încercați un alt e-mail"
+
+#: admin/includes/functions.php:715
+msgid "Password field 'password' is required."
+msgstr "Este necesară \"parola\" câmpului parolă."
+
+#: admin/includes/functions.php:718
+msgid ""
+"Warning! Please activate license for WPCargo API add on to be able to use "
+"WPCargo API"
+msgstr ""
+"Avertizare! Vă rugăm să activați licență pentru WPCargo API adăuga pe pentru "
+"a putea utiliza WPCargo API"
+
+#: admin/includes/functions.php:718
+msgid "here"
+msgstr "aici"
+
+#: admin/includes/functions.php:721
+msgid "You do not have permissions to view this data please purchase license."
+msgstr ""
+"Nu aveți permisiuni pentru a vizualiza aceste date, vă rugăm să "
+"achiziționați licență."
+
+#: admin/includes/functions.php:724
+msgid "You do not have permissions to view this data."
+msgstr "Nu aveți permisiuni pentru a vizualiza aceste date."
+
+#: admin/includes/functions.php:727
+msgid "No route was found matching the URL and request method."
+msgstr ""
+"Nu s-a găsit nicio rută care să corespundă metodei URL și a solicitării."
+
+#: admin/includes/functions.php:730
+msgid "You do not have permissions to view this data. Something is missing."
+msgstr "Nu aveți permisiuni pentru a vizualiza aceste date. Ceva lipsește."
+
+#: admin/includes/functions.php:733
+msgid "Access Denied!"
+msgstr "Acces refuzat"
+
+#: admin/includes/functions.php:736
+msgid "Access Granted!"
+msgstr "Acces refuzat"
+
+#: admin/includes/functions.php:739
+msgid "Shipment Image can't be save. Wrong file format."
+msgstr "Imaginea de expediere nu se poate salva. Format de fișier greșit."
+
+#: admin/includes/functions.php:742
+msgid "Shipment not Found"
+msgstr "Transportul nu a fost găsit!"
+
+#: admin/includes/functions.php:745
+msgid "Shipment already Exist"
+msgstr "E-mail există deja."
+
+#: admin/includes/functions.php:748
+msgid "Shipment Added"
+msgstr "Livrare adăugată"
+
+#: admin/includes/functions.php:751
+msgid "Address Added"
+msgstr "Câmp adăugat cu succes!"
+
+#: admin/includes/functions.php:754
+msgid "Address Updated"
+msgstr "Actualizat de"
+
+#: admin/includes/functions.php:757
+msgid "Shipment Updated"
+msgstr "Expediere actualizat cu succes!"
+
+#: admin/includes/functions.php:760
+msgid "Add Shipment Failed"
+msgstr "Transferul de expediere nu a reușit!"
+
+#: admin/includes/functions.php:763
+msgid "Add Address Failed"
+msgstr "Eșuat."
+
+#: admin/includes/functions.php:766
+msgid "Update Address Failed"
+msgstr "Actualizare adresă nereușită"
+
+#: admin/includes/functions.php:769
+msgid "User"
+msgstr "Selectare carte utilizator de exportat"
+
+#: admin/includes/functions.php:772
+msgid "Registration was Successful"
+msgstr "Înregistrare"
+
+#: admin/includes/functions.php:775
+msgid "There is no error, the file uploaded with success."
+msgstr "Nu există nici o eroare, fișierul încărcat cu succes."
+
+#: admin/includes/functions.php:778
+msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
+msgstr "Fișierul încărcat depășește directiva upload_max_filesize în php.ini."
+
+#: admin/includes/functions.php:781
+msgid ""
+"The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
+"the HTML form."
+msgstr ""
+"Fișierul încărcat depășește MAX_FILE_SIZE directivă care a fost specificată "
+"în formularul HTML."
+
+#: admin/includes/functions.php:784
+msgid "The uploaded file was only partially uploaded."
+msgstr "Fișierul încărcat a fost încărcat doar parțial."
+
+#: admin/includes/functions.php:787
+msgid "No file was uploaded."
+msgstr "Nu a fost încărcat nici un fișier."
+
+#: admin/includes/functions.php:790
+msgid "Missing a temporary folder."
+msgstr "Lipsește dosarul temporar."
+
+#: admin/includes/functions.php:793
+msgid "Failed to write file to disk."
+msgstr "Nu s-a reușit scrierea fișierului pe disc."
+
+#: admin/includes/functions.php:796
+msgid "A PHP extension stopped the file upload."
+msgstr "O extensie PHP a oprit încărcarea fișierului."
+
+#: admin/includes/functions.php:799
+msgid ""
+"This plugin requires <a href=\"http://wpcargo.com/\" target=\"_blank"
+"\">WPTaskForce License Helper</a> plugin to be active!"
+msgstr ""
+"Acest plug-in necesită <a href=\"http://wpcargo.com/\" target=\"_blank"
+"\">WPTaskForce License Helper</a> plug-in pentru a fi activ!"
+
+#: admin/includes/functions.php:802
+msgid ""
+"This plugin requires <a href=\"https://wordpress.org/plugins/wpcargo/\" "
+"target=\"_blank\">WPCargo</a> plugin to be active!"
+msgstr ""
+"Acest plug-in necesită <a href=\"https://wordpress.org/plugins/wpcargo/\" "
+"target=\"_blank\">WPCargo</a> plug-in pentru a fi activ!"
+
+#: admin/includes/functions.php:805
+msgid "Cheating, uh?"
+msgstr "Să trișezi?"
+
+#: templates/account-tpl.php:2
+msgid "Welcome back"
+msgstr "Bine ai revenit"
+
+#: templates/account-tpl.php:3
+msgid "Your current Wpcargo API is"
+msgstr "API-ul wpcargo actual este"
+
+#: templates/account-tpl.php:3
+msgid "Reset"
+msgstr "Reset"
+
+#. Plugin Name of the plugin/theme
+msgid "WPCargo API Addon"
+msgstr "WPCargo API Addon"
+
+#. Plugin URI of the plugin/theme
+msgid "http://wpcargo.com/"
+msgstr "http://wpcargo.com/"
+
+#. Description of the plugin/theme
+msgid ""
+"WPCargo API allows to share you WPCargo shipment data using API, Available "
+"shortcode [wpcargo_api_account]"
+msgstr ""
+"WPCargo API vă permite să vă partajați WPCargo date de expediere folosind "
+"API, Disponibil shortcode [wpcargo_api_account]"
+
+#. Author of the plugin/theme
+msgid "<a href=\"http://wptaskforce.com/\">WPTaskForce</a>"
+msgstr "<a href=\"http://wptaskforce.com/\">WPTaskForce</a>"

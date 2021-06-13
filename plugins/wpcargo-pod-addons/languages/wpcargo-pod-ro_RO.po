@@ -1,0 +1,539 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WPCargo Proof of Delivery Add-ons\n"
+"POT-Creation-Date: 2021-01-27 14:34+0800\n"
+"PO-Revision-Date: 2021-01-27 14:34+0800\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ro_RO\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.4.2\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n==0 || (n!=1 && n%100>=1 && n"
+"%100<=19) ? 1 : 2);\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: wpcargo-pod.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+
+#: admin/classes/class-api.php:204
+msgid "Unregistered Status."
+msgstr "Stare neînregistrată."
+
+#: admin/classes/class-api.php:211 admin/classes/class-api.php:233
+msgid "Account role denied."
+msgstr "Rol de cont refuzat."
+
+#: admin/classes/class-api.php:255
+msgid "You are not assigned to this shipment"
+msgstr "Nu sunteți asociat la această livrare"
+
+#: admin/classes/class-pod.php:275 admin/includes/dashboard.php:120
+#: admin/includes/dashboard.php:131 admin/includes/dashboard.php:146
+#: admin/templates/report.php:5 templates/driver-report.php:7
+msgid "Driver"
+msgstr "Driver"
+
+#: admin/classes/class-pod.php:278 admin/includes/dashboard.php:133
+#: admin/includes/dashboard.php:148 admin/templates/report.php:8
+#: templates/driver-report.php:9
+msgid "-- Select Driver --"
+msgstr "-- Selectați Driver --"
+
+#: admin/classes/wpc-pod-settings.php:17 admin/classes/wpc-pod-settings.php:18
+#: admin/classes/wpc-pod-settings.php:24 admin/classes/wpc-pod-settings.php:25
+#: admin/classes/wpc-pod-settings.php:66 admin/classes/wpc-pod-settings.php:85
+#: admin/classes/wpc-pod-settings.php:107
+msgid "Proof of Delivery Settings"
+msgstr "Dovada setărilor de livrare"
+
+#: admin/classes/wpc-pod-settings.php:33 admin/classes/wpc-pod-settings.php:34
+#: admin/classes/wpc-pod-settings.php:40 admin/classes/wpc-pod-settings.php:41
+msgid "POD APP Settings"
+msgstr "Setări aplicație POD"
+
+#: admin/classes/wpc-pod-settings.php:108
+msgid "POD APP"
+msgstr "APLICAȚIA POD"
+
+#: admin/includes/api.php:87
+msgid "POD APP settings is NOT set-up."
+msgstr "Setările POD APP NU este configurat."
+
+#: admin/includes/api.php:87
+msgid "Click Here"
+msgstr "Click aici"
+
+#: admin/includes/api.php:87
+msgid "This may affect your POD application."
+msgstr "Acest lucru poate afecta aplicația POD."
+
+#: admin/includes/dashboard.php:24 admin/includes/dashboard.php:28
+#: templates/wpc-pod-account.tpl.php:56
+msgid "Sign"
+msgstr "Autentificare"
+
+#: admin/includes/dashboard.php:31
+msgid "Signed"
+msgstr "Autentificare"
+
+#: admin/includes/dashboard.php:43 templates/assigned-driver.tpl.php:5
+#: templates/wpc-pod-results.tpl.php:9
+msgid "Proof of Delivery"
+msgstr "Dovada de livrare"
+
+#: admin/includes/dashboard.php:49
+msgid "Loading..."
+msgstr "Se incarca..."
+
+#: admin/includes/dashboard.php:165
+msgid "Disable Email for Driver?"
+msgstr "Dezactivați e-mailul pentru driver?"
+
+#: admin/includes/dashboard.php:205 admin/includes/dashboard.php:250
+#: admin/includes/functions.php:493 templates/driver-report.php:4
+msgid "Driver Report"
+msgstr "Driver"
+
+#: admin/includes/dashboard.php:215 admin/templates/wpc-pod-settings.tpl.php:63
+#: templates/route-planner.php:4
+msgid "Driver Route Planner"
+msgstr "Planificator traseu driver"
+
+#: admin/includes/dashboard.php:238
+msgid "Driver Route"
+msgstr "Ruta șoferului"
+
+#: admin/includes/functions.php:119 templates/route-planner-script.php:68
+msgid "Shipment Number"
+msgstr "Nume expeditor:"
+
+#: admin/includes/functions.php:120
+msgid "Registered Shipper"
+msgstr "Expeditor înregistrat"
+
+#: admin/includes/functions.php:128 templates/wpc-pod-sign-header-cf.tpl.php:36
+msgid "Shipment Status"
+msgstr "Stare expediere"
+
+#: admin/includes/functions.php:400
+msgid "No shipment found to generate report"
+msgstr "Nu s-a găsit nicio livrare pentru a genera raport"
+
+#: admin/includes/functions.php:403
+msgid "Please wait while generating file..."
+msgstr "Așteptați în timp ce generați fișierul..."
+
+#: admin/includes/functions.php:427
+#, php-format
+msgid ""
+"Google API key required to run the Driver Route Planner. Add API here <a "
+"href=\"%s\" class=\"btn btn-primary btn-sm\">Here</a>"
+msgstr ""
+"Tasta API Google necesară pentru a executa Planificatorul de rute pentru "
+"drivere. Adăugați API <a href=\"%s\" class=\"btn btn-primary btn-sm\">aici "
+"Aici</a>"
+
+#: admin/includes/functions.php:434
+msgid "No address found."
+msgstr "Nu s-a găsit nicio pagină!"
+
+#: admin/includes/functions.php:496
+msgid "WPCargo Proof of Delivery"
+msgstr "WPCargo Dovada de livrare"
+
+#: admin/includes/functions.php:499
+msgid "Please activate your license key <a href=\""
+msgstr "Activați cheia de licență <a href=\""
+
+#: admin/includes/functions.php:502
+msgid "Google Map API Key is not activated."
+msgstr "Google Map API Key nu este activat."
+
+#: admin/includes/functions.php:505
+msgid ""
+"Sorry you are not allowed to access this page, This page are only for "
+"WPCargo Driver users."
+msgstr ""
+"Ne pare rău că nu vi se permite să acceseze această pagină, Această pagină "
+"sunt numai pentru utilizatorii WPCargo Driver."
+
+#: admin/includes/functions.php:508
+msgid "Your current signature"
+msgstr "Semnătura curentă"
+
+#: admin/includes/functions.php:511
+msgid "Signature Successfully Saved!"
+msgstr "Semnătură salvată cu succes!"
+
+#: admin/includes/functions.php:514
+msgid "Error on saving!"
+msgstr "Eroare la salvare!"
+
+#: admin/includes/functions.php:517
+msgid "Sorry you don't have enough permission to access this page."
+msgstr ""
+"Ne pare rău că nu aveți suficiente permisiuni pentru a accesa această pagină."
+
+#: admin/includes/functions.php:520
+msgid "Delivered"
+msgstr "Livrate"
+
+#: admin/includes/functions.php:523
+msgid "Cancelled"
+msgstr "Anulat"
+
+#: admin/includes/functions.php:526
+msgid "Back to Dashboard"
+msgstr "Inapoi la Panou"
+
+#: admin/includes/functions.php:529
+msgid "Cheating, uh?"
+msgstr "Să trișezi?"
+
+#: admin/includes/functions.php:532
+msgid ""
+"This plugin requires <a href=\"https://wordpress.org/plugins/wpcargo/\" "
+"target=\"_blank\">WPCargo</a> plugin to be active!"
+msgstr ""
+"Acest plug-in necesită <a href=\"https://wordpress.org/plugins/wpcargo/\" "
+"target=\"_blank\">WPCargo</a> plug-in pentru a fi activ!"
+
+#: admin/includes/functions.php:535
+msgid ""
+"This plugin requires <a href=\"http://wpcargo.com/\" target=\"_blank"
+"\">WPTaskForce License Helper</a> plugin to be active!"
+msgstr ""
+"Acest plug-in necesită <a href=\"http://wpcargo.com/\" target=\"_blank"
+"\">WPTaskForce License Helper</a> plug-in pentru a fi activ!"
+
+#: admin/includes/functions.php:538
+msgid ""
+"This plugin requires <strong>WPCargo Frontend Manager</strong> plugin to be "
+"active!"
+msgstr ""
+"Acest plug-in necesită <strong>WPCargo Frontend Manager</strong> plug-in "
+"pentru a fi activ!"
+
+#: admin/templates/report.php:16 templates/driver-report.php:17
+#: templates/wpc-pod-sign.tpl.php:57
+msgid "Status"
+msgstr "Stare"
+
+#: admin/templates/report.php:19 templates/driver-report.php:19
+#: templates/wpc-pod-sign.tpl.php:59
+msgid "-- Select Status --"
+msgstr "- Selectați Stare..."
+
+#: admin/templates/report.php:27 templates/driver-report.php:26
+msgid "Date Range"
+msgstr "Interval de date"
+
+#: admin/templates/report.php:29 templates/driver-report.php:28
+msgid "From"
+msgstr "De la"
+
+#: admin/templates/report.php:30 templates/driver-report.php:31
+msgid "To"
+msgstr "La"
+
+#: admin/templates/report.php:35 templates/driver-report.php:34
+msgid "Export Report"
+msgstr "Exportă raport"
+
+#: admin/templates/wpc-pod-add.tpl.php:7 admin/templates/wpc-pod-edit.tpl.php:7
+msgid "Do you want to display it on vehicles page?"
+msgstr "Îl afișați pe pagina vehiculelor?"
+
+#: admin/templates/wpc-pod-settings.tpl.php:12
+msgid "Exclude Status for Driver"
+msgstr "Excludere stare pentru driver"
+
+#: admin/templates/wpc-pod-settings.tpl.php:30
+msgid ""
+"Note: This options applicable only in front end dashboard. It will exclude "
+"the shipment status in updating the shipment."
+msgstr "Notă: Aceste opțiuni se aplică numai în tabloul de bord front-end."
+
+#: admin/templates/wpc-pod-settings.tpl.php:34
+msgid "Select shipper fields to display when driver update shipment"
+msgstr ""
+"Selectarea câmpurilor expeditorului de afișat când se actualizează "
+"expedierea driverului"
+
+#: admin/templates/wpc-pod-settings.tpl.php:48
+msgid "Select receiver fields to display when driver update shipment"
+msgstr ""
+"Selectarea câmpurilor receptorului de afișat la actualizarea driverului"
+
+#: admin/templates/wpc-pod-settings.tpl.php:66
+msgid "Point of Orgin / Warehouse"
+msgstr "Punctul de Orgin / Depozit"
+
+#: admin/templates/wpc-pod-settings.tpl.php:72
+msgid "Note: Dag the map marker to generate Point of Orgin / Warehouse Address"
+msgstr ""
+"Notă: Dag marcatorul hărții pentru a genera Punctul de Orgin / Adresa "
+"depozitului"
+
+#: admin/templates/wpc-pod-settings.tpl.php:78
+msgid "Display status to Map Route"
+msgstr "Afișare stare la Rută hartă"
+
+#: admin/templates/wpc-pod-settings.tpl.php:96
+msgid "Note: This display the shipments in the Map Route."
+msgstr "Notă: Aceasta afișează livrările pe ruta hartă."
+
+#: admin/templates/wpc-pod-settings.tpl.php:100
+msgid "Receiver Address Field"
+msgstr "Adresa receptorului:"
+
+#: admin/templates/wpc-pod-settings.tpl.php:113
+msgid "Note: This field will serve as address for the map."
+msgstr "Notă: Acest câmp va servi drept adresă pentru hartă."
+
+#: admin/templates/wpc-pod-signature-metabox.tpl.php:5
+#: admin/templates/wpc-podapp-settings.tpl.php:39
+#: templates/assigned-driver.tpl.php:10
+msgid "Signature"
+msgstr "Semnătură"
+
+#: admin/templates/wpc-pod-signature-metabox.tpl.php:11
+msgid "Proof of Acknowledgment"
+msgstr "Dovada confirmării"
+
+#: admin/templates/wpc-pod-signature-metabox.tpl.php:23
+msgid "POD Image"
+msgstr "Imagine POD"
+
+#: admin/templates/wpc-pod-signature-metabox.tpl.php:37
+msgid "Delete"
+msgstr "Șterge"
+
+#: admin/templates/wpc-pod-signature-metabox.tpl.php:48
+msgid "Add Images / Upload Files"
+msgstr "Adăugare imagini / Încărcare fișiere"
+
+#: admin/templates/wpc-podapp-settings.tpl.php:9
+msgid ""
+"Note: This settings are only use for the WPCargo Driver APP mobile "
+"Application."
+msgstr ""
+"Notă: Aceste setări sunt utilizate numai pentru aplicația mobilă WPCargo "
+"Driver APP."
+
+#: admin/templates/wpc-podapp-settings.tpl.php:12
+msgid "Select Shipment status to display in Delivered Tab"
+msgstr "Selectați Stare livrare de afișat în fila Livrare"
+
+#: admin/templates/wpc-podapp-settings.tpl.php:15
+#: admin/templates/wpc-podapp-settings.tpl.php:26
+msgid "Choose One"
+msgstr "Alege Una"
+
+#: admin/templates/wpc-podapp-settings.tpl.php:23
+msgid "Select Shipment status to display in Cancelled Tab"
+msgstr "Selectați Stare livrare de afișat în fila Revocată"
+
+#: admin/templates/wpc-podapp-settings.tpl.php:35
+msgid "Remove required attributes on the Following Fields"
+msgstr "Eliminarea atributelor necesare în următoarele câmpuri"
+
+#: admin/templates/wpc-podapp-settings.tpl.php:43
+msgid "Photo"
+msgstr "Fotografie"
+
+#: admin/templates/wpc-podapp-settings.tpl.php:47
+msgid "Location"
+msgstr "Locatie"
+
+#: admin/templates/wpc-podapp-settings.tpl.php:51
+msgid "Remarks"
+msgstr "Observaţii"
+
+#: templates/assigned-driver.tpl.php:16
+msgid "Images"
+msgstr "Imagini"
+
+#: templates/route-planner-script.php:64
+msgid "Route Segment"
+msgstr "Segment traseu"
+
+#: templates/route-planner-script.php:65
+msgid "to"
+msgstr "catre"
+
+#: templates/route-planner-script.php:74
+msgid "Directions request failed due to"
+msgstr "Solicitarea directiei a esuat din cauza"
+
+#: templates/wpc-pod-account.tpl.php:9
+msgid "Search"
+msgstr "Caută"
+
+#: templates/wpc-pod-account.tpl.php:11
+msgid "Pending"
+msgstr "În așteptare"
+
+#: templates/wpc-pod-account.tpl.php:22
+msgid "Tracking Number"
+msgstr "Număr urmărire"
+
+#: templates/wpc-pod-account.tpl.php:30
+msgid "Action"
+msgstr "Actiune"
+
+#: templates/wpc-pod-account.tpl.php:64
+msgid "No shipment assigned found."
+msgstr "Nu s-a găsit nicio expediere."
+
+#: templates/wpc-pod-bcode.tpl.php:9
+msgid "Stop"
+msgstr "Stop"
+
+#: templates/wpc-pod-bcode.tpl.php:13
+msgid "Device Selection"
+msgstr "Selectaredispozitiv"
+
+#: templates/wpc-pod-bcode.tpl.php:23
+msgid "Images will display here after the scan..."
+msgstr "Imaginile vor fi afișate aici după scanare..."
+
+#: templates/wpc-pod-header-cf.tpl.php:11
+#: templates/wpc-pod-sign-header-cf.tpl.php:16
+#: templates/wpc-pod-sign-header.tpl.php:11
+msgid "Shipper"
+msgstr "Transportator"
+
+#: templates/wpc-pod-header-cf.tpl.php:21
+#: templates/wpc-pod-sign-header-cf.tpl.php:26
+#: templates/wpc-pod-sign-header.tpl.php:18
+msgid "Receiver"
+msgstr "Destinatar"
+
+#: templates/wpc-pod-header.tpl.php:11 templates/wpc-pod-sign-header.tpl.php:12
+msgid "Shipper Name:"
+msgstr "Nume expeditor:"
+
+#: templates/wpc-pod-header.tpl.php:12 templates/wpc-pod-header.tpl.php:18
+#: templates/wpc-pod-sign-header.tpl.php:13
+#: templates/wpc-pod-sign-header.tpl.php:20
+msgid "Phone:"
+msgstr "Telefon:"
+
+#: templates/wpc-pod-header.tpl.php:13 templates/wpc-pod-header.tpl.php:19
+#: templates/wpc-pod-sign-header.tpl.php:14
+#: templates/wpc-pod-sign-header.tpl.php:21
+msgid "Email:"
+msgstr "E-mail"
+
+#: templates/wpc-pod-header.tpl.php:14 templates/wpc-pod-sign-header.tpl.php:15
+msgid "Shipper Address:"
+msgstr "Adresa expeditorului:"
+
+#: templates/wpc-pod-header.tpl.php:17 templates/wpc-pod-sign-header.tpl.php:19
+msgid "Receiver Name:"
+msgstr "Nume receptor:"
+
+#: templates/wpc-pod-header.tpl.php:20 templates/wpc-pod-sign-header.tpl.php:22
+msgid "Receiver Address:"
+msgstr "Adresa receptorului:"
+
+#: templates/wpc-pod-results.tpl.php:15
+msgid "POD Signature"
+msgstr "Semnătura POD"
+
+#: templates/wpc-pod-results.tpl.php:21
+msgid "POD Images"
+msgstr "Imagini POD"
+
+#: templates/wpc-pod-sign.tpl.php:28
+msgid "ADD IMAGES"
+msgstr "ADĂUGARE IMAGINI"
+
+#: templates/wpc-pod-sign.tpl.php:30
+msgid "Your current captured images:"
+msgstr "Imaginile capturate curent:"
+
+#: templates/wpc-pod-sign.tpl.php:52
+msgid "Location:"
+msgstr "Locație:"
+
+#: templates/wpc-pod-sign.tpl.php:70
+msgid "Remarks:"
+msgstr "Observații:"
+
+#: templates/wpc-pod-sign.tpl.php:80
+msgid "Update"
+msgstr "Actualizare"
+
+#: templates/wpc-pod-sign.tpl.php:129 templates/wpc-pod-sign.tpl.php:131
+msgid "Upload Images"
+msgstr "Încarcă imagini"
+
+#: templates/wpc-pod-signature-form.tpl.php:14
+msgid "Sign below"
+msgstr "Înregistrați-vă mai jos"
+
+#: templates/wpc-pod-signature-form.tpl.php:15
+msgid "Please click the <b>save</b> button after you signed."
+msgstr "Faceți clic pe butonul <b>salvare</b> după ce ați semnat."
+
+#: templates/wpc-pod-signature-form.tpl.php:23
+msgid "Save"
+msgstr "Salvează"
+
+#: templates/wpc-pod-signature-form.tpl.php:26
+msgid "Clear"
+msgstr "Sterge"
+
+#: templates/wpc-pod-signature-form.tpl.php:38
+msgid "Generated signature"
+msgstr "Semnătură generată"
+
+#: templates/wpc-pod-signature-form.tpl.php:42
+msgid "Your current signature:"
+msgstr "Semnătura curentă:"
+
+#: templates/wpc-pod-signature-form.tpl.php:79
+msgid "Please provide signature first."
+msgstr "Vă rugăm să furnizați semnătura mai întâi."
+
+#: wpcargo-pod.php:58
+msgid "Your current captured images"
+msgstr "Imaginile capturate curent"
+
+#: wpcargo-pod.php:71
+msgid "WPCargo Driver"
+msgstr "WPCargo Driver"
+
+#. Plugin Name of the plugin/theme
+msgid "WPCargo Proof of Delivery Add-ons"
+msgstr "WPCargo Dovada de livrare Suplimente"
+
+#. Plugin URI of the plugin/theme
+msgid "http://wpcargo.com/"
+msgstr "http://wpcargo.com/"
+
+#. Description of the plugin/theme
+msgid ""
+"This Add-ons will let you add images and signature on your shipment. This "
+"offers the ability to record delivery and collection operations with proof "
+"using a computer, tablets or mobile devices running Android and iOS mobile "
+"systems/Operating systems. Available shortcode [wpc_driver_accounts]."
+msgstr ""
+"Aceste programe de completare vă vor permite să adăugați imagini și "
+"semnături pe expediere. Acest lucru oferă posibilitatea de a înregistra "
+"operațiuni de livrare și colectare cu dovada folosind un computer, tablete "
+"sau dispozitive mobile care rulează sisteme mobile Android și iOS / sisteme "
+"de operare. Cod scurt disponibil [wpc_driver_accounts]."
+
+#. Author of the plugin/theme
+msgid "<a href=\"http://wptaskforce.com/\">WPTaskForce</a>"
+msgstr "<a href=\"http://wptaskforce.com/\">WPTaskForce</a>"

@@ -1,0 +1,531 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WPCargo Proof of Delivery Add-ons\n"
+"POT-Creation-Date: 2021-01-27 14:35+0800\n"
+"PO-Revision-Date: 2021-01-27 14:36+0800\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: mk_MK\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.4.2\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n%10==1 && n%100!=11);\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: wpcargo-pod.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+
+#: admin/classes/class-api.php:204
+msgid "Unregistered Status."
+msgstr "Статус"
+
+#: admin/classes/class-api.php:211 admin/classes/class-api.php:233
+msgid "Account role denied."
+msgstr "сметка"
+
+#: admin/classes/class-api.php:255
+msgid "You are not assigned to this shipment"
+msgstr "Не ви е дозволено да ја ажурирате оваа активност."
+
+#: admin/classes/class-pod.php:275 admin/includes/dashboard.php:120
+#: admin/includes/dashboard.php:131 admin/includes/dashboard.php:146
+#: admin/templates/report.php:5 templates/driver-report.php:7
+msgid "Driver"
+msgstr "Управувач"
+
+#: admin/classes/class-pod.php:278 admin/includes/dashboard.php:133
+#: admin/includes/dashboard.php:148 admin/templates/report.php:8
+#: templates/driver-report.php:9
+msgid "-- Select Driver --"
+msgstr "Избери страница"
+
+#: admin/classes/wpc-pod-settings.php:17 admin/classes/wpc-pod-settings.php:18
+#: admin/classes/wpc-pod-settings.php:24 admin/classes/wpc-pod-settings.php:25
+#: admin/classes/wpc-pod-settings.php:66 admin/classes/wpc-pod-settings.php:85
+#: admin/classes/wpc-pod-settings.php:107
+msgid "Proof of Delivery Settings"
+msgstr "Поддесувања"
+
+#: admin/classes/wpc-pod-settings.php:33 admin/classes/wpc-pod-settings.php:34
+#: admin/classes/wpc-pod-settings.php:40 admin/classes/wpc-pod-settings.php:41
+msgid "POD APP Settings"
+msgstr "Зачувај Промени"
+
+#: admin/classes/wpc-pod-settings.php:108
+msgid "POD APP"
+msgstr "SIXT апликација"
+
+#: admin/includes/api.php:87
+msgid "POD APP settings is NOT set-up."
+msgstr "Зачувај Промени"
+
+#: admin/includes/api.php:87
+msgid "Click Here"
+msgstr "КЛИКНИ ОВДЕ"
+
+#: admin/includes/api.php:87
+msgid "This may affect your POD application."
+msgstr "Ова може да влијае на вашата апликација POD."
+
+#: admin/includes/dashboard.php:24 admin/includes/dashboard.php:28
+#: templates/wpc-pod-account.tpl.php:56
+msgid "Sign"
+msgstr "НАЈАВИ СЕ"
+
+#: admin/includes/dashboard.php:31
+msgid "Signed"
+msgstr "Знак"
+
+#: admin/includes/dashboard.php:43 templates/assigned-driver.tpl.php:5
+#: templates/wpc-pod-results.tpl.php:9
+msgid "Proof of Delivery"
+msgstr "Испорака до"
+
+#: admin/includes/dashboard.php:49
+msgid "Loading..."
+msgstr "Се вчитува ..."
+
+#: admin/includes/dashboard.php:165
+msgid "Disable Email for Driver?"
+msgstr "Избери страница"
+
+#: admin/includes/dashboard.php:205 admin/includes/dashboard.php:250
+#: admin/includes/functions.php:493 templates/driver-report.php:4
+msgid "Driver Report"
+msgstr "Управувач"
+
+#: admin/includes/dashboard.php:215 admin/templates/wpc-pod-settings.tpl.php:63
+#: templates/route-planner.php:4
+msgid "Driver Route Planner"
+msgstr "Управувач"
+
+#: admin/includes/dashboard.php:238
+msgid "Driver Route"
+msgstr "Управувач"
+
+#: admin/includes/functions.php:119 templates/route-planner-script.php:68
+msgid "Shipment Number"
+msgstr "Име на испраќачот"
+
+#: admin/includes/functions.php:120
+msgid "Registered Shipper"
+msgstr "Регистриран испраќач"
+
+#: admin/includes/functions.php:128 templates/wpc-pod-sign-header-cf.tpl.php:36
+msgid "Shipment Status"
+msgstr "Статус на пратка"
+
+#: admin/includes/functions.php:400
+msgid "No shipment found to generate report"
+msgstr "Создадете извештај"
+
+#: admin/includes/functions.php:403
+msgid "Please wait while generating file..."
+msgstr "Почекајте додека се симнува% 1"
+
+#: admin/includes/functions.php:427
+#, php-format
+msgid ""
+"Google API key required to run the Driver Route Planner. Add API here <a "
+"href=\"%s\" class=\"btn btn-primary btn-sm\">Here</a>"
+msgstr ""
+
+#: admin/includes/functions.php:434
+msgid "No address found."
+msgstr "Адреса на испраќачот"
+
+#: admin/includes/functions.php:496
+msgid "WPCargo Proof of Delivery"
+msgstr "Вид на испорака"
+
+#: admin/includes/functions.php:499
+msgid "Please activate your license key <a href=\""
+msgstr "Активирајте го клучот за лиценца"
+
+#: admin/includes/functions.php:502
+msgid "Google Map API Key is not activated."
+msgstr "API клуч"
+
+#: admin/includes/functions.php:505
+msgid ""
+"Sorry you are not allowed to access this page, This page are only for "
+"WPCargo Driver users."
+msgstr "Не ви е дозволено да ја видите оваа нишка."
+
+#: admin/includes/functions.php:508
+msgid "Your current signature"
+msgstr "Вашиот тековен уред."
+
+#: admin/includes/functions.php:511
+msgid "Signature Successfully Saved!"
+msgstr "Барање за кредит е успешно поднесено."
+
+#: admin/includes/functions.php:514
+msgid "Error on saving!"
+msgstr "пронајдени се грешки (а)!"
+
+#: admin/includes/functions.php:517
+msgid "Sorry you don't have enough permission to access this page."
+msgstr "Немате доволно средства за овa барање"
+
+#: admin/includes/functions.php:520
+msgid "Delivered"
+msgstr "Испорачано"
+
+#: admin/includes/functions.php:523
+msgid "Cancelled"
+msgstr "Прекинато"
+
+#: admin/includes/functions.php:526
+msgid "Back to Dashboard"
+msgstr "Контролна табла"
+
+#: admin/includes/functions.php:529
+msgid "Cheating, uh?"
+msgstr "Мамење, а?"
+
+#: admin/includes/functions.php:532
+msgid ""
+"This plugin requires <a href=\"https://wordpress.org/plugins/wpcargo/\" "
+"target=\"_blank\">WPCargo</a> plugin to be active!"
+msgstr ""
+"Овој приклучок бара додатокот <a href=\"https://wordpress.org/plugins/"
+"wpcargo/\" target=\"_blank\">WPCargo</a> да биде активен!"
+
+#: admin/includes/functions.php:535
+msgid ""
+"This plugin requires <a href=\"http://wpcargo.com/\" target=\"_blank"
+"\">WPTaskForce License Helper</a> plugin to be active!"
+msgstr ""
+"Овој приклучок бара додатокот <a href=\"http://wpcargo.com/\" target=\"_blank"
+"\">WPTaskForce Licence Helper</a> да биде активен!"
+
+#: admin/includes/functions.php:538
+msgid ""
+"This plugin requires <strong>WPCargo Frontend Manager</strong> plugin to be "
+"active!"
+msgstr ""
+"Овој приклучок бара додаток за <strong>додатоци за прилагодено поле на "
+"WPCargo за</strong> да биде активен!"
+
+#: admin/templates/report.php:16 templates/driver-report.php:17
+#: templates/wpc-pod-sign.tpl.php:57
+msgid "Status"
+msgstr "Статус"
+
+#: admin/templates/report.php:19 templates/driver-report.php:19
+#: templates/wpc-pod-sign.tpl.php:59
+msgid "-- Select Status --"
+msgstr "- Изберете статус -"
+
+#: admin/templates/report.php:27 templates/driver-report.php:26
+msgid "Date Range"
+msgstr "Опсег на датуми"
+
+#: admin/templates/report.php:29 templates/driver-report.php:28
+msgid "From"
+msgstr "Од"
+
+#: admin/templates/report.php:30 templates/driver-report.php:31
+msgid "To"
+msgstr "До"
+
+#: admin/templates/report.php:35 templates/driver-report.php:34
+msgid "Export Report"
+msgstr "Експорт CSV"
+
+#: admin/templates/wpc-pod-add.tpl.php:7 admin/templates/wpc-pod-edit.tpl.php:7
+msgid "Do you want to display it on vehicles page?"
+msgstr "Дали сакате да го прикажете на страницата со резултати?"
+
+#: admin/templates/wpc-pod-settings.tpl.php:12
+msgid "Exclude Status for Driver"
+msgstr "Избери страница"
+
+#: admin/templates/wpc-pod-settings.tpl.php:30
+msgid ""
+"Note: This options applicable only in front end dashboard. It will exclude "
+"the shipment status in updating the shipment."
+msgstr ""
+"Белешка: Овие опции се применуваат само во контролната табла од предната "
+"страна. Тоа ќе го исклучи статусот на пратка при ажурирање на пратката."
+
+#: admin/templates/wpc-pod-settings.tpl.php:34
+msgid "Select shipper fields to display when driver update shipment"
+msgstr "ÐÐµÐ¼Ð° Ð´Ð¾ÑÑÐ°Ð¿ÐµÐ½ LDAP Ð/ Ð- ÑÐ»ÑÐ¶Ð¸ÑÐµÐ»"
+
+#: admin/templates/wpc-pod-settings.tpl.php:48
+msgid "Select receiver fields to display when driver update shipment"
+msgstr "ÐÐµÐ¼Ð° Ð´Ð¾ÑÑÐ°Ð¿ÐµÐ½ LDAP Ð/ Ð- ÑÐ»ÑÐ¶Ð¸ÑÐµÐ»"
+
+#: admin/templates/wpc-pod-settings.tpl.php:66
+msgid "Point of Orgin / Warehouse"
+msgstr "Точка на продажба"
+
+#: admin/templates/wpc-pod-settings.tpl.php:72
+msgid "Note: Dag the map marker to generate Point of Orgin / Warehouse Address"
+msgstr ""
+"Белешка: Закачете го обележувачот на мапата за да генерирате Адреса на "
+"Точката на Оргин / Магацин"
+
+#: admin/templates/wpc-pod-settings.tpl.php:78
+msgid "Display status to Map Route"
+msgstr "Прикажи карта на страница со резултати?"
+
+#: admin/templates/wpc-pod-settings.tpl.php:96
+msgid "Note: This display the shipments in the Map Route."
+msgstr "Белешка: Ова ги прикажува пратките на рутата на картата."
+
+#: admin/templates/wpc-pod-settings.tpl.php:100
+msgid "Receiver Address Field"
+msgstr "Адреса на примачот"
+
+#: admin/templates/wpc-pod-settings.tpl.php:113
+msgid "Note: This field will serve as address for the map."
+msgstr "Белешка: Ова поле ќе служи како адреса за картата."
+
+#: admin/templates/wpc-pod-signature-metabox.tpl.php:5
+#: admin/templates/wpc-podapp-settings.tpl.php:39
+#: templates/assigned-driver.tpl.php:10
+msgid "Signature"
+msgstr "Потпис"
+
+#: admin/templates/wpc-pod-signature-metabox.tpl.php:11
+msgid "Proof of Acknowledgment"
+msgstr "Поддесувања"
+
+#: admin/templates/wpc-pod-signature-metabox.tpl.php:23
+msgid "POD Image"
+msgstr "Слика"
+
+#: admin/templates/wpc-pod-signature-metabox.tpl.php:37
+msgid "Delete"
+msgstr "Избриши"
+
+#: admin/templates/wpc-pod-signature-metabox.tpl.php:48
+msgid "Add Images / Upload Files"
+msgstr "Додади Слика"
+
+#: admin/templates/wpc-podapp-settings.tpl.php:9
+msgid ""
+"Note: This settings are only use for the WPCargo Driver APP mobile "
+"Application."
+msgstr ""
+"Белешка: Овие поставки се користат само за мобилната апликација WPCargo "
+"Driver APP."
+
+#: admin/templates/wpc-podapp-settings.tpl.php:12
+msgid "Select Shipment status to display in Delivered Tab"
+msgstr "Статус на пратка да се прикаже во Табулаторот за нарачки на таблата"
+
+#: admin/templates/wpc-podapp-settings.tpl.php:15
+#: admin/templates/wpc-podapp-settings.tpl.php:26
+msgid "Choose One"
+msgstr "Одбери"
+
+#: admin/templates/wpc-podapp-settings.tpl.php:23
+msgid "Select Shipment status to display in Cancelled Tab"
+msgstr "Статус на пратка да се прикаже во Табулаторот за нарачки на таблата"
+
+#: admin/templates/wpc-podapp-settings.tpl.php:35
+msgid "Remove required attributes on the Following Fields"
+msgstr ""
+
+#: admin/templates/wpc-podapp-settings.tpl.php:43
+msgid "Photo"
+msgstr "Слика"
+
+#: admin/templates/wpc-podapp-settings.tpl.php:47
+msgid "Location"
+msgstr "Локациjа"
+
+#: admin/templates/wpc-podapp-settings.tpl.php:51
+msgid "Remarks"
+msgstr "Забелешки"
+
+#: templates/assigned-driver.tpl.php:16
+msgid "Images"
+msgstr "Слики"
+
+#: templates/route-planner-script.php:64
+msgid "Route Segment"
+msgstr "Сегмент на рута"
+
+#: templates/route-planner-script.php:65
+msgid "to"
+msgstr "на"
+
+#: templates/route-planner-script.php:74
+msgid "Directions request failed due to"
+msgstr "Барањето за отстранување не успеа."
+
+#: templates/wpc-pod-account.tpl.php:9
+msgid "Search"
+msgstr "Барај"
+
+#: templates/wpc-pod-account.tpl.php:11
+msgid "Pending"
+msgstr "Се чека."
+
+#: templates/wpc-pod-account.tpl.php:22
+msgid "Tracking Number"
+msgstr "Број на следење"
+
+#: templates/wpc-pod-account.tpl.php:30
+msgid "Action"
+msgstr "Дејствие"
+
+#: templates/wpc-pod-account.tpl.php:64
+msgid "No shipment assigned found."
+msgstr "Не е пронајдена историја на пратка"
+
+#: templates/wpc-pod-bcode.tpl.php:9
+msgid "Stop"
+msgstr "Стоп"
+
+#: templates/wpc-pod-bcode.tpl.php:13
+msgid "Device Selection"
+msgstr "Уред"
+
+#: templates/wpc-pod-bcode.tpl.php:23
+msgid "Images will display here after the scan..."
+msgstr "Сликите ќе се прикажат тука по скенирањето ..."
+
+#: templates/wpc-pod-header-cf.tpl.php:11
+#: templates/wpc-pod-sign-header-cf.tpl.php:16
+#: templates/wpc-pod-sign-header.tpl.php:11
+msgid "Shipper"
+msgstr "Име на испраќачот"
+
+#: templates/wpc-pod-header-cf.tpl.php:21
+#: templates/wpc-pod-sign-header-cf.tpl.php:26
+#: templates/wpc-pod-sign-header.tpl.php:18
+msgid "Receiver"
+msgstr "Примач"
+
+#: templates/wpc-pod-header.tpl.php:11 templates/wpc-pod-sign-header.tpl.php:12
+msgid "Shipper Name:"
+msgstr "Име на испраќачот:"
+
+#: templates/wpc-pod-header.tpl.php:12 templates/wpc-pod-header.tpl.php:18
+#: templates/wpc-pod-sign-header.tpl.php:13
+#: templates/wpc-pod-sign-header.tpl.php:20
+msgid "Phone:"
+msgstr "Телефон:"
+
+#: templates/wpc-pod-header.tpl.php:13 templates/wpc-pod-header.tpl.php:19
+#: templates/wpc-pod-sign-header.tpl.php:14
+#: templates/wpc-pod-sign-header.tpl.php:21
+msgid "Email:"
+msgstr "Е-маил:"
+
+#: templates/wpc-pod-header.tpl.php:14 templates/wpc-pod-sign-header.tpl.php:15
+msgid "Shipper Address:"
+msgstr "Адреса на испраќачот"
+
+#: templates/wpc-pod-header.tpl.php:17 templates/wpc-pod-sign-header.tpl.php:19
+msgid "Receiver Name:"
+msgstr "Име на примачот"
+
+#: templates/wpc-pod-header.tpl.php:20 templates/wpc-pod-sign-header.tpl.php:22
+msgid "Receiver Address:"
+msgstr "Адреса на примачот"
+
+#: templates/wpc-pod-results.tpl.php:15
+msgid "POD Signature"
+msgstr "Потпис"
+
+#: templates/wpc-pod-results.tpl.php:21
+msgid "POD Images"
+msgstr "Слики"
+
+#: templates/wpc-pod-sign.tpl.php:28
+msgid "ADD IMAGES"
+msgstr "Додади Слика"
+
+#: templates/wpc-pod-sign.tpl.php:30
+msgid "Your current captured images:"
+msgstr "Вашиот тековен уред."
+
+#: templates/wpc-pod-sign.tpl.php:52
+msgid "Location:"
+msgstr "Локација:"
+
+#: templates/wpc-pod-sign.tpl.php:70
+msgid "Remarks:"
+msgstr "Забелешки"
+
+#: templates/wpc-pod-sign.tpl.php:80
+msgid "Update"
+msgstr "Ажирирај"
+
+#: templates/wpc-pod-sign.tpl.php:129 templates/wpc-pod-sign.tpl.php:131
+msgid "Upload Images"
+msgstr "Прикачи нови слики"
+
+#: templates/wpc-pod-signature-form.tpl.php:14
+msgid "Sign below"
+msgstr "Под"
+
+#: templates/wpc-pod-signature-form.tpl.php:15
+msgid "Please click the <b>save</b> button after you signed."
+msgstr "Кликнете на копчето <b> зачувај </b> откако ќе се потпишете."
+
+#: templates/wpc-pod-signature-form.tpl.php:23
+msgid "Save"
+msgstr "Сочувај"
+
+#: templates/wpc-pod-signature-form.tpl.php:26
+msgid "Clear"
+msgstr "Исчисти"
+
+#: templates/wpc-pod-signature-form.tpl.php:38
+msgid "Generated signature"
+msgstr "Потпис"
+
+#: templates/wpc-pod-signature-form.tpl.php:42
+msgid "Your current signature:"
+msgstr "Потпис"
+
+#: templates/wpc-pod-signature-form.tpl.php:79
+msgid "Please provide signature first."
+msgstr "Ве молиме внесете име"
+
+#: wpcargo-pod.php:58
+msgid "Your current captured images"
+msgstr "Вашите моментални зафатени слики"
+
+#: wpcargo-pod.php:71
+msgid "WPCargo Driver"
+msgstr "Управувач"
+
+#. Plugin Name of the plugin/theme
+msgid "WPCargo Proof of Delivery Add-ons"
+msgstr "Именик"
+
+#. Plugin URI of the plugin/theme
+msgid "http://wpcargo.com/"
+msgstr "http://wptaskforce.com/"
+
+#. Description of the plugin/theme
+msgid ""
+"This Add-ons will let you add images and signature on your shipment. This "
+"offers the ability to record delivery and collection operations with proof "
+"using a computer, tablets or mobile devices running Android and iOS mobile "
+"systems/Operating systems. Available shortcode [wpc_driver_accounts]."
+msgstr ""
+"Овие додатоци ќе ви овозможат да додадете слики и потпис на вашата пратка. "
+"Ова нуди можност за снимање на операции за испорака и наплата со доказ со "
+"помош на компјутер, таблети или мобилни уреди кои работат на мобилни системи "
+"Андроид и iOS / оперативни системи. Достапен краток код "
+"[wpc_driver_accounts]."
+
+#. Author of the plugin/theme
+msgid "<a href=\"http://wptaskforce.com/\">WPTaskForce</a>"
+msgstr "<a href=\"http://www.wptaskforce.com/\">WPTaskForce</a>"

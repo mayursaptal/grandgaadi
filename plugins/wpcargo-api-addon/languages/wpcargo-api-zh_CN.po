@@ -1,0 +1,232 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WPCargo API Addon\n"
+"POT-Creation-Date: 2021-02-01 15:31+0800\n"
+"PO-Revision-Date: 2021-02-01 15:32+0800\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.4.2\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: wpcargo-api.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+
+#: admin/classes/class-main.php:19
+msgid "WPCargo API Manager"
+msgstr "Wpcargo API 管理器"
+
+#: admin/classes/class-main.php:37
+msgid "WPCargo API"
+msgstr "WPCargo API"
+
+#: admin/classes/class-main.php:40
+msgid "API Key"
+msgstr "API密钥"
+
+#: admin/classes/class-main.php:41
+msgid "Generate API Key"
+msgstr "谷歌地图API密钥"
+
+#: admin/classes/class-main.php:68
+msgid ""
+"Sorry you don't have enough permission to access this page. Please Contact "
+"Support or Administrator."
+msgstr "很抱歉，您没有足够的权限访问此页面。请联系支持人员或管理员。"
+
+#: admin/includes/functions.php:703
+msgid "Username field 'username' is required."
+msgstr "用户名: %s"
+
+#: admin/includes/functions.php:706
+msgid "Username is already exists, please try another username"
+msgstr "用户名已存在，请尝试其他用户名"
+
+#: admin/includes/functions.php:709
+msgid "Email field 'email' is required."
+msgstr "请填写邮箱"
+
+#: admin/includes/functions.php:712
+msgid "Email is already exists, please try another email"
+msgstr "电子邮件已存在，请尝试其他电子邮件"
+
+#: admin/includes/functions.php:715
+msgid "Password field 'password' is required."
+msgstr "请填写密码"
+
+#: admin/includes/functions.php:718
+msgid ""
+"Warning! Please activate license for WPCargo API add on to be able to use "
+"WPCargo API"
+msgstr "警告！请激活 Wpcargo API 添加的许可证， 以便能够使用 Wpcargo Api"
+
+#: admin/includes/functions.php:718
+msgid "here"
+msgstr "这里"
+
+#: admin/includes/functions.php:721
+msgid "You do not have permissions to view this data please purchase license."
+msgstr "您没有查看此数据的权限，请购买许可证。"
+
+#: admin/includes/functions.php:724
+msgid "You do not have permissions to view this data."
+msgstr "您没有查看此数据的权限。"
+
+#: admin/includes/functions.php:727
+msgid "No route was found matching the URL and request method."
+msgstr "未找到与 URL 和请求方法匹配的路由。"
+
+#: admin/includes/functions.php:730
+msgid "You do not have permissions to view this data. Something is missing."
+msgstr "您没有查看此数据的权限。缺少一些东西。"
+
+#: admin/includes/functions.php:733
+msgid "Access Denied!"
+msgstr "拒绝访问"
+
+#: admin/includes/functions.php:736
+msgid "Access Granted!"
+msgstr "拒绝访问"
+
+#: admin/includes/functions.php:739
+msgid "Shipment Image can't be save. Wrong file format."
+msgstr "无法保存装运图像。文件格式错误。"
+
+#: admin/includes/functions.php:742
+msgid "Shipment not Found"
+msgstr "未找到装运"
+
+#: admin/includes/functions.php:745
+msgid "Shipment already Exist"
+msgstr "电子邮件已存在。"
+
+#: admin/includes/functions.php:748
+msgid "Shipment Added"
+msgstr "字段已成功添加！"
+
+#: admin/includes/functions.php:751
+msgid "Address Added"
+msgstr "字段已成功添加！"
+
+#: admin/includes/functions.php:754
+msgid "Address Updated"
+msgstr "更新到"
+
+#: admin/includes/functions.php:757
+msgid "Shipment Updated"
+msgstr "发货更新成功！"
+
+#: admin/includes/functions.php:760
+msgid "Add Shipment Failed"
+msgstr "添加发货失败"
+
+#: admin/includes/functions.php:763
+msgid "Add Address Failed"
+msgstr "添加地址失败"
+
+#: admin/includes/functions.php:766
+msgid "Update Address Failed"
+msgstr "更新失败"
+
+#: admin/includes/functions.php:769
+msgid "User"
+msgstr "用户"
+
+#: admin/includes/functions.php:772
+msgid "Registration was Successful"
+msgstr "注册成功"
+
+#: admin/includes/functions.php:775
+msgid "There is no error, the file uploaded with success."
+msgstr "没有错误，文件上传成功。"
+
+#: admin/includes/functions.php:778
+msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
+msgstr "上传的文件超过了php.ini中的upload_max_filesize指令限制。"
+
+#: admin/includes/functions.php:781
+msgid ""
+"The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
+"the HTML form."
+msgstr "上载的文件超出了HTML表单中指定的MAX_FILE_SIZE指令。"
+
+#: admin/includes/functions.php:784
+msgid "The uploaded file was only partially uploaded."
+msgstr "上传的文件仅部分上传。"
+
+#: admin/includes/functions.php:787
+msgid "No file was uploaded."
+msgstr "没有上传文件。"
+
+#: admin/includes/functions.php:790
+msgid "Missing a temporary folder."
+msgstr "缺少临时文件夹。"
+
+#: admin/includes/functions.php:793
+msgid "Failed to write file to disk."
+msgstr "无法将文件写入磁盘。"
+
+#: admin/includes/functions.php:796
+msgid "A PHP extension stopped the file upload."
+msgstr "PHP扩展停止了文件上传。"
+
+#: admin/includes/functions.php:799
+msgid ""
+"This plugin requires <a href=\"http://wpcargo.com/\" target=\"_blank"
+"\">WPTaskForce License Helper</a> plugin to be active!"
+msgstr ""
+"此插件要求<a href=\"http://wpcargo.com/\" target=\"_blank\">WPTaskForce 许可"
+"证帮助器</a>插件处于活动状态！"
+
+#: admin/includes/functions.php:802
+msgid ""
+"This plugin requires <a href=\"https://wordpress.org/plugins/wpcargo/\" "
+"target=\"_blank\">WPCargo</a> plugin to be active!"
+msgstr ""
+"此插件需要<a href=\"https://wordpress.org/plugins/wpcargo/\" target=\"_blank"
+"\">WPCargo</a>插件处于活动状态！"
+
+#: admin/includes/functions.php:805
+msgid "Cheating, uh?"
+msgstr "作弊，嗯？"
+
+#: templates/account-tpl.php:2
+msgid "Welcome back"
+msgstr "欢迎您回来"
+
+#: templates/account-tpl.php:3
+msgid "Your current Wpcargo API is"
+msgstr "您当前捕获的图像"
+
+#: templates/account-tpl.php:3
+msgid "Reset"
+msgstr "重置"
+
+#. Plugin Name of the plugin/theme
+msgid "WPCargo API Addon"
+msgstr "地点 API"
+
+#. Plugin URI of the plugin/theme
+msgid "http://wpcargo.com/"
+msgstr "http://wpcargo.com/"
+
+#. Description of the plugin/theme
+msgid ""
+"WPCargo API allows to share you WPCargo shipment data using API, Available "
+"shortcode [wpcargo_api_account]"
+msgstr ""
+"WPCargo API 允许使用 API 共享 WPCargo 货件数据，可用短码 "
+"[wpcargo_api_account]"
+
+#. Author of the plugin/theme
+msgid "<a href=\"http://wptaskforce.com/\">WPTaskForce</a>"
+msgstr "<a href=\"http://wptaskforce.com/\">WPTaskForce</a>"

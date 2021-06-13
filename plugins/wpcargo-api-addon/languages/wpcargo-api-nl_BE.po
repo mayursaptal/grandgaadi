@@ -1,0 +1,245 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WPCargo API Addon\n"
+"POT-Creation-Date: 2021-02-01 15:36+0800\n"
+"PO-Revision-Date: 2021-02-01 15:37+0800\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: nl_BE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.4.2\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: wpcargo-api.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+
+#: admin/classes/class-main.php:19
+msgid "WPCargo API Manager"
+msgstr "WPCargo API Manager"
+
+#: admin/classes/class-main.php:37
+msgid "WPCargo API"
+msgstr "WPCargo API"
+
+#: admin/classes/class-main.php:40
+msgid "API Key"
+msgstr "API Sleutel"
+
+#: admin/classes/class-main.php:41
+msgid "Generate API Key"
+msgstr "API-sleutel genereren"
+
+#: admin/classes/class-main.php:68
+msgid ""
+"Sorry you don't have enough permission to access this page. Please Contact "
+"Support or Administrator."
+msgstr ""
+"Sorry dat je niet genoeg toestemming hebt om deze pagina te openen. Neem "
+"contact op met ondersteuning of beheerder."
+
+#: admin/includes/functions.php:703
+msgid "Username field 'username' is required."
+msgstr "Gebruikersnaam veld 'gebruikersnaam' is vereist."
+
+#: admin/includes/functions.php:706
+msgid "Username is already exists, please try another username"
+msgstr "Gebruikersnaam bestaat al, probeer een andere gebruikersnaam"
+
+#: admin/includes/functions.php:709
+msgid "Email field 'email' is required."
+msgstr "E-mailveld 'e-mail' is vereist."
+
+#: admin/includes/functions.php:712
+msgid "Email is already exists, please try another email"
+msgstr "E-mail bestaat al, probeer een andere e-mail"
+
+#: admin/includes/functions.php:715
+msgid "Password field 'password' is required."
+msgstr "Wachtwoord veld 'wachtwoord' is vereist."
+
+#: admin/includes/functions.php:718
+msgid ""
+"Warning! Please activate license for WPCargo API add on to be able to use "
+"WPCargo API"
+msgstr ""
+"Waarschuwing! Activeer de licentie voor WPCargo API add-on om WPCargo API te "
+"kunnen gebruiken"
+
+#: admin/includes/functions.php:718
+msgid "here"
+msgstr "hier"
+
+#: admin/includes/functions.php:721
+msgid "You do not have permissions to view this data please purchase license."
+msgstr ""
+"U hebt geen machtigingen om deze gegevens te bekijken, neem dan een "
+"aankooplicentie."
+
+#: admin/includes/functions.php:724
+msgid "You do not have permissions to view this data."
+msgstr "U hebt geen machtigingen om deze gegevens te bekijken."
+
+#: admin/includes/functions.php:727
+msgid "No route was found matching the URL and request method."
+msgstr ""
+"Er is geen route gevonden die overeenkomt met de URL- en aanvraagmethode."
+
+#: admin/includes/functions.php:730
+msgid "You do not have permissions to view this data. Something is missing."
+msgstr ""
+"U hebt geen machtigingen om deze gegevens te bekijken. Er ontbreekt iets."
+
+#: admin/includes/functions.php:733
+msgid "Access Denied!"
+msgstr "Toegang geweigerd!"
+
+#: admin/includes/functions.php:736
+msgid "Access Granted!"
+msgstr "Toegang verleend!"
+
+#: admin/includes/functions.php:739
+msgid "Shipment Image can't be save. Wrong file format."
+msgstr ""
+"Verzendafbeelding kan niet worden opgeslagen. Verkeerde bestandsindeling."
+
+#: admin/includes/functions.php:742
+msgid "Shipment not Found"
+msgstr "Zending niet gevonden"
+
+#: admin/includes/functions.php:745
+msgid "Shipment already Exist"
+msgstr "Verzending bestaat al"
+
+#: admin/includes/functions.php:748
+msgid "Shipment Added"
+msgstr "Verzending toegevoegd"
+
+#: admin/includes/functions.php:751
+msgid "Address Added"
+msgstr "Adres toegevoegd"
+
+#: admin/includes/functions.php:754
+msgid "Address Updated"
+msgstr "Adres bijgewerkt"
+
+#: admin/includes/functions.php:757
+msgid "Shipment Updated"
+msgstr "Verzending bijgewerkt"
+
+#: admin/includes/functions.php:760
+msgid "Add Shipment Failed"
+msgstr "Verzending toevoegen is mislukt"
+
+#: admin/includes/functions.php:763
+msgid "Add Address Failed"
+msgstr "Adres toevoegen is mislukt"
+
+#: admin/includes/functions.php:766
+msgid "Update Address Failed"
+msgstr "Adres bijwerken is mislukt"
+
+#: admin/includes/functions.php:769
+msgid "User"
+msgstr "Gebruiker"
+
+#: admin/includes/functions.php:772
+msgid "Registration was Successful"
+msgstr "Registratie is geslaagd"
+
+#: admin/includes/functions.php:775
+msgid "There is no error, the file uploaded with success."
+msgstr "Er is geen fout, het bestand geüpload met succes."
+
+#: admin/includes/functions.php:778
+msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
+msgstr "Het geuploade bestand is groter dan de upload_max_filesize in php.ii."
+
+#: admin/includes/functions.php:781
+msgid ""
+"The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
+"the HTML form."
+msgstr ""
+"Het geüploade bestand overschrijdt de MAX_FILE_SIZE richtlijn die in het "
+"HTML-formulier is opgegeven."
+
+#: admin/includes/functions.php:784
+msgid "The uploaded file was only partially uploaded."
+msgstr "Het geüploade bestand is slechts gedeeltelijk geüpload."
+
+#: admin/includes/functions.php:787
+msgid "No file was uploaded."
+msgstr "Er is geen bestand geüpload."
+
+#: admin/includes/functions.php:790
+msgid "Missing a temporary folder."
+msgstr "Een tijdelijke map ontbreekt."
+
+#: admin/includes/functions.php:793
+msgid "Failed to write file to disk."
+msgstr "Kan het bestand niet naar schijf schrijven."
+
+#: admin/includes/functions.php:796
+msgid "A PHP extension stopped the file upload."
+msgstr "Een PHP-extensie heeft het uploaden van bestanden gestopt."
+
+#: admin/includes/functions.php:799
+msgid ""
+"This plugin requires <a href=\"http://wpcargo.com/\" target=\"_blank"
+"\">WPTaskForce License Helper</a> plugin to be active!"
+msgstr ""
+"Deze plugin vereist <a href=\"http://wpcargo.com/\" target=\"_blank"
+"\">WPTaskForce License Helper</a> plugin om actief te zijn!"
+
+#: admin/includes/functions.php:802
+msgid ""
+"This plugin requires <a href=\"https://wordpress.org/plugins/wpcargo/\" "
+"target=\"_blank\">WPCargo</a> plugin to be active!"
+msgstr ""
+"Deze plugin vereist <a href=\"https://wordpress.org/plugins/wpcargo/\" "
+"target=\"_blank\">WPCargo</a> plugin om actief te zijn!"
+
+#: admin/includes/functions.php:805
+msgid "Cheating, uh?"
+msgstr "Vreemdgaan, uh?"
+
+#: templates/account-tpl.php:2
+msgid "Welcome back"
+msgstr "Blij je terug te zien"
+
+#: templates/account-tpl.php:3
+msgid "Your current Wpcargo API is"
+msgstr "Uw huidige Wpcargo API is"
+
+#: templates/account-tpl.php:3
+msgid "Reset"
+msgstr "Terugzetten"
+
+#. Plugin Name of the plugin/theme
+msgid "WPCargo API Addon"
+msgstr "WPCargo API Addon"
+
+#. Plugin URI of the plugin/theme
+msgid "http://wpcargo.com/"
+msgstr ""
+"Deze plugin vereist <a href=\"http://wpcargo.com/\" target=\"_blank"
+"\">WPTaskForce License Helper</a> plugin om actief te zijn!"
+
+#. Description of the plugin/theme
+msgid ""
+"WPCargo API allows to share you WPCargo shipment data using API, Available "
+"shortcode [wpcargo_api_account]"
+msgstr ""
+"WPCargo API maakt het mogelijk om u te delen WPCargo verzendgegevens met "
+"behulp van API, Beschikbare shortcode [wpcargo_api_account]"
+
+#. Author of the plugin/theme
+msgid "<a href=\"http://wptaskforce.com/\">WPTaskForce</a>"
+msgstr "<a href=\"http://wptaskforce.com/\">WPTaskForce</a>"
