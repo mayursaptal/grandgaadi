@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Shipment</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-item>
+    <ion-label class="ion-text-wrap">
+      <div>Cash on Delivery Amount</div>
+      {{codAmmount}}
+    </ion-label>
+  </ion-item>
+
+  <ion-item>
+    <ion-label class="ion-text-wrap">
+      <div>Contact Name</div>
+      {{consigneename}}
+    </ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-label class="ion-text-wrap">
+      <div>Contact Details</div>
+      {{consigneeContact}}
+    </ion-label>
+  </ion-item>
+
+  <ion-item>
+    <ion-label class="ion-text-wrap">
+      <div>
+        Reference Number
+      </div>
+      {{referenceNumber}}
+    </ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-label class="ion-text-wrap">
+      <div>Shipment Description</div>
+      {{shipmentPackages}}
+    </ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-label>Shipment status</ion-label>
+    <ion-select [value]="shipmentStatus" [(ngModel)]="shipmentStatus" ok-text="Okay" cancel-text="Cancel">
+      <ion-select-option *ngFor=" let value of  status" value="{{value}}">{{value}}</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Remark </ion-label>
+    <ion-textarea [value]="remark" [(ngModel)]="remark"></ion-textarea>
+  </ion-item>
+
+  <br><br>
+  <div class="btn">
+    <ion-button (click)="onSave()" shape="round">
+      Update
+    </ion-button>
+  </div>
+
+
+</ion-content>

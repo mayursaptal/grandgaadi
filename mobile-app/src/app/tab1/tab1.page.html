@@ -1,0 +1,46 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Pending
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="chevron-down-circle-outline" pullingText="Pull to refresh"
+      refreshingSpinner="circles" refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+  <ion-searchbar #searchbar animated (keyup)="handleInput(searchbar.value)"></ion-searchbar>
+  <br>
+  <ion-list>
+    <ion-item *ngFor="let shipment of shipments; index as i" (click)="showShipment(shipment)"
+      [ngClass]="{'hide': shipment.status == 'DELIVERED' || shipment.status != 'OUT FOR DELIVERY'}">
+      <ion-label *ngIf=" shipment.status != 'DELIVERED' && shipment.status == 'OUT FOR DELIVERY' ">
+        <h2><span style="display: inline-block;min-width: 100px;">Contact:</span>
+          {{shipment.consignee_name}} </h2>
+        <h3><span style="display: inline-block;min-width: 100px;">Ref. No.:</span> {{shipment.reference_number}}</h3>
+        <p><span style="display: inline-block;min-width: 100px;">Contact No .:</span> {{shipment.consignee_contact}}</p>
+        <ion-button>
+          {{shipment.status}}
+        </ion-button>
+
+
+        <a class="whatapp-link" 
+          href="{{url+shipment.consignee_contact}}?text=Hi, good day, this is {{driver}} from GRANDGAADI Package Delivery Service LLC, you have a shipment from  {{shipment.shipper_name}}. of waybill number  {{shipment.reference_number}} of cash on delivery  {{shipment.cod_amount}}. kindly share your location for delivery."
+          target="_blank">
+          <ion-icon class="logo-whatapp" name="logo-whatsapp"></ion-icon>
+        </a>
+
+        <a class="whatapp-link" style="margin-left: 10px;"
+        href="tel:{{shipment.consignee_contact}}"
+        target="_blank">
+        <ion-icon name="call"></ion-icon>
+
+      </a>
+
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,33 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Completed
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="chevron-down-circle-outline" pullingText="Pull to refresh"
+      refreshingSpinner="circles" refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+  <br>
+  <div class="btn">
+    <h3>COD Amount: {{codAmmount}}</h3>
+  </div>
+  <ion-searchbar #searchbar1 animated (keyup)="handleInput(searchbar1.value)"></ion-searchbar>
+  <br>
+  <ion-list>
+    <ion-item *ngFor="let shipment of shipments; index as i" [ngClass]="{'hide': shipment.status != 'DELIVERED'}">
+      <ion-label *ngIf=" shipment.status == 'DELIVERED'">
+        <h2><span style="display: inline-block;min-width: 100px;">Contact:</span> {{shipment.consignee_name}} </h2>
+        <h3><span style="display: inline-block;min-width: 100px;">Ref. No.:</span> {{shipment.reference_number}}</h3>
+        <p><span style="display: inline-block;min-width: 100px;">Contact No .:</span> {{shipment.consignee_contact}}</p>
+        <ion-button color="success">
+          {{shipment.status}}
+        </ion-button>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

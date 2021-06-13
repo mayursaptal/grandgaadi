@@ -1,0 +1,22 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Profile
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" style="text-align: center;">
+  <div >
+    <img width="500" src="./../../assets/avatar.svg">
+  </div>
+  <br>
+  <div class="text-center">
+    <h1> {{displayName}} </h1>
+    <h1> {{userEmail}} </h1>
+  </div>
+  <br>
+  <div class="btn">
+    <ion-button shape="round" (click)="logout()">Logout</ion-button>
+  </div>
+</ion-content>
