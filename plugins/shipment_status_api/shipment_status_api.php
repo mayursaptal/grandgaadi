@@ -5,8 +5,8 @@
  * Plugin Name: Shipmanet Status api 
  * Author Name: Mayur Saptal
  * Description: save and show shipment status based on refrence no
- * Version: 0.0.1
- * License: 0.0.1
+ * Version: 0.0.2
+ * License: 2.0
  * License URL: http://www.gnu.org/licenses/gpl-2.0.txt
  * text-domain: shipment_status_api
  * Author: Mayur Saptal (mayursaptal@gmail.com)
