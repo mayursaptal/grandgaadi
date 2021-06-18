@@ -340,7 +340,7 @@ function bulk_report_function(){
             @$meta['consignee_name'][0],
             @$meta['cod_amount'][0],
             @$meta['wpcargo_destination'][0],
-            $last_update['status'],
+            $meta['wpcargo_status'][0],
             @$user_id[@$meta['wpcargo_driver'][0]], 
             // user data
             $last_update['date'],
