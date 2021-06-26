@@ -19,7 +19,9 @@ const routes: Routes = [
   {
     path: 'pod',
     loadChildren: () => import('./pod/pod.module').then( m => m.PodPageModule)
-  }
+  },
+ 
+
 ];
 @NgModule({
   imports: [
