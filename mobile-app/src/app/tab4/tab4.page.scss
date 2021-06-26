@@ -1,0 +1,39 @@
+.whatapp-link{
+    position: relative;
+    color:#25D366 ;
+    font-size: 50px;
+    left: 50px;
+    top: 5px;
+}
+.dashbaordlist .pending {
+    color: #fff;
+    margin: 10px;
+    padding: 30px 20px;
+    background-color: #ff370a;
+    border-radius: 5px;
+}
+
+
+.dashbaordlist .delivered {
+    margin: 10px;
+    padding: 30px 20px;
+    color: #fff;
+    background-color: #2fb92f;
+    border-radius: 5px;
+}
+
+
+.dashbaordlist .cod {
+    margin: 10px;
+    padding: 30px 20px;
+    color: #fff;
+    background-color: #3880ff;
+    border-radius: 5px;
+}
+
+.dashbaordlist
+ion-label {
+    width: 100px;
+    display: inline-block;
+    font-weight: 800;
+}
