@@ -35,146 +35,165 @@ $shipper_contact 	= str_replace(wpccf_search_metakey_code(), wpccf_replace_metak
 ?>
 
 <?php do_action('wpc_label_before_header_information', $shipmentDetails['shipmentID']); ?>
-<div id="account-copy" class="copy-section">
-	<table class="shipment-header-table" cellpadding="0" cellspacing="0" style="border: 1px solid #000;width: 100%;padding:10px;">
-		<tr >
+<div>
+	<table class="shipment-header-table" cellpadding="0" cellspacing="0" style="border: 1px solid #000;width: 100%;padding:10px;font-size:14px !important">
+		<tr>
 			<td class="align-center" style="width: 70%;align-items: center;">
-				<?php echo the_custom_logo() ?> <h1 style="font-weight: 800;">GRANDGAADI PACKAGE DELIVERY SERVICE LLC.</h1>
+				<?php echo the_custom_logo() ?> <h1 style="font-weight: 800;font-size:18px !important">GRANDGAADI PACKAGE DELIVERY SERVICE LLC.</h1>
 				<table class="shipment-info-table" cellpadding="0" cellspacing="0" style="border: 1px solid #000;width: 100%;text-align:left;margin:10px auto;padding:0;">
-						<tr>
-							<th style="padding-left: 8px;">ORDER DETAILS</th>
-						</tr>
-						<tr >
+					<tr>
+						<th style="padding-left: 8px;">ORDER DETAILS</th>
+					</tr>
+					<tr>
 
-		
-							<td>
-								<?php echo  $header_cell2 ; ?><br>
-								
-								<?php 
-								$total_weight = 0;
-								
-								foreach($shipmentDetails['packages'] as $val){
-									
-										
-									$total_weight +=	@($val["wpc-pm-weight"]);
-										
-									
-									
-									}?>		
-									WEIGHT : <?php echo $total_weight ?>	<br>		
-									<?php echo  $content_cell8; ?><br>
-							</td>
-						</tr>
-					
+
+						<td>
+							<?php echo  $header_cell2; ?><br>
+
+							<?php
+							$total_weight = 0;
+
+							foreach ($shipmentDetails['packages'] as $val) {
+
+
+								$total_weight +=	@($val["wpc-pm-weight"]);
+							} ?>
+							WEIGHT : <?php echo $total_weight ?> <br>
+							<?php echo  $content_cell8; ?><br>
+						</td>
+					</tr>
+
 				</table>
 				<table class="shipment-info-table" cellpadding="0" cellspacing="0" style="border: 1px solid #000;width: 100%;margin:10px auto;padding:0;text-align:left">
-					
-							<tr >
-								<th style="padding-left: 8px;">SENDER DETAILS</th>
-							</tr>
-							<tr >
-								<td>
-								<?php 
-								$SHIPPER_CONTACT = 0;
-								// $SHIPPER_CONTACT= $shipmentDetails['shipper_contact'];
+
+					<tr>
+						<th style="padding-left: 8px;">SENDER DETAILS</th>
+					</tr>
+					<tr>
+						<td>
+							<?php
+							$SHIPPER_CONTACT = 0;
+							// $SHIPPER_CONTACT= $shipmentDetails['shipper_contact'];
 
 
 
-								// var_dump($shipmentDetails);
+							// var_dump($shipmentDetails);
 
-								foreach($shipmentDetails as $key=>$val){
-										// var_dump("Key",$kay=>"Value",$val);
-									// $SHIPPER_NAME= 
-									// var_dump($val["shipper_name"]);
-									// $SHIPPER_CONTACT=
-									//  var_dump($val[" shipper_contact"]);
-									
-									}
-									?>	
-									Name : <?php echo  $content_cell1; ?><br>
-									<!-- add sender  phone number  -->
-									PHONE:<?php echo $shipper_contact ?><br>
-									<?php echo  $content_cell4; ?><br>
+							foreach ($shipmentDetails as $key => $val) {
+								// var_dump("Key",$kay=>"Value",$val);
+								// $SHIPPER_NAME= 
+								// var_dump($val["shipper_name"]);
+								// $SHIPPER_CONTACT=
+								//  var_dump($val[" shipper_contact"]);
 
-								</td>
-							</tr>
+							}
+							?>
+							Name : <?php echo  $content_cell1; ?><br>
+							<!-- add sender  phone number  -->
+							PHONE:<?php echo $shipper_contact ?><br>
+							<?php echo  $content_cell4; ?><br>
 
-						
+						</td>
+					</tr>
+
+
 				</table>
 				<table class="shipment-info-table" cellpadding="0" cellspacing="0" style="border: 1px solid #000;width: 100%;margin:10px auto;padding:0;text-align:left">
-					
-							<tr >
-								<th style="padding-left: 8px;">RECEIVER DETAILS </th>
-							</tr>
-							<tr>
-								<td style=" display: flex; justify-content: left;">
-									NAME:<?php echo  $content_cell2 ; ?><br>
-									<?php echo $header_cell9?><br>
-									<?php echo  $content_cell5; ?><br>
-								</td>
-							</tr>
+
+					<tr>
+						<th style="padding-left: 8px;">RECEIVER DETAILS </th>
+					</tr>
+					<tr>
+						<td style=" display: flex; justify-content: left;">
+							NAME:<?php echo  $content_cell2; ?><br>
+							<?php echo $header_cell9 ?><br>
+							<?php echo  $content_cell5; ?><br>
+						</td>
+					</tr>
 				</table>
 				<table class="shipment-info-table" cellpadding="0" cellspacing="0" style="border: 1px solid #000;width: 100%;margin:10px auto;padding:0;text-align:left">
-					
-							<tr >
-								<th style="padding-left: 8px;">PROOF OF DELIVERY</th>
-							</tr>
-							<tr>
-								<td style=" display: flex; justify-content: left;">
-									NAME: <br>
-									ID Number:<br>
-									Signature :
-								</td>
-							</tr>
+
+					<tr>
+						<th style="padding-left: 8px;">TERMS & CONDITIONS</th>
+					</tr>
+					<tr>
+						<td style=" display: flex; justify-content: left;">
+							GrandGaadi Package Delivery Service LLC is not liable for any exchange or refund, For any complaints, kindly contact the shipper details
+						</td>
+					</tr>
 				</table>
 			</td>
-	<td rowspan="2" class="align-center" style="width: 30%;">
-		<img style="float: none !important; margin: 5px !important; width: 200px;height: 50px;" src="<?php echo $shipmentDetails['barcode']; ?>" alt="<?php echo get_the_title($shipmentDetails['shipmentID']); ?>" />
-		<p style="margin:10px;padding:0;font-weight: bold;"><?php echo $header_cell6; ?><br></p>
-	
-		<table class="shipment-info-table" cellpadding="0" cellspacing="0" style="border: 1px solid #000;width: 100%;margin:10px auto;padding:10px;text-align:left">
-			
+			<td rowspan="2" class="align-center" style="width: 30%; text-align: center;">
+				<img style="float: none !important; margin: 5px !important; width: auto;height: 40px;" src="<?php echo $shipmentDetails['barcode']; ?>" alt="<?php echo get_the_title($shipmentDetails['shipmentID']); ?>" />
+				<p style="margin:10px;padding:0;font-weight: bold;"><?php echo $header_cell6; ?><br></p>
+
+				<table class="shipment-info-table" cellpadding="0" cellspacing="0" style="border: 1px solid #000;width: 100%;margin:10px auto;padding:10px;text-align:left">
+
 					<tr>
 						<th style="padding-left: 8px;">PRODUCT DESCRIPTION</th>
 					</tr>
-					<tr >
-						
+					<tr>
+
 						<td>
-						 <?php echo  $content_cell7; ?><br>
+							<?php echo  $content_cell7; ?><br>
 						</td>
 					</tr>
-			
-			</table>
-<table class="shipment-info-table" cellpadding="0" cellspacing="0" style="border: 1px solid #000; width:100%;margin:10px auto;padding:10px;">
-			<tr rowspan="3">
-				<tr >
+
+				</table>
+				<table class="shipment-info-table" cellpadding="0" cellspacing="0" style="border: 1px solid #000; width:100%;margin:10px auto;padding:10px;">
+					<tr rowspan="3">
+					<tr>
 					<tr class="align-center">
-					<td style="font-weight: 600; font-size: 16px;"><?php echo $header_cell3; ?><br></td>
+						<td style="font-weight: 600; font-size: 16px;"><?php echo $header_cell3; ?><br></td>
 					</tr>
 					<tr class="align-center">
-					<td style="font-weight: 600; font-size: 14px;">		
-					<?php echo $header_cell5; ?>
-					</td>
+						<td style="font-weight: 600; font-size: 14px;">
+							<?php echo $header_cell5; ?>
+						</td>
 					</tr>
 					<tr class="align-center">
-					<td>
-					<?php echo $header_cell4; ?>
-					</td>
+						<td>
+							<?php echo $header_cell4; ?>
+						</td>
 					</tr>
+
 					<tr class="align-center">
-					<td>
-						<!-- add Scan Code -->
-						<img style="float: none !important; margin: 5px !important; width: 200px;height: 50px;" src="<?php echo $shipmentDetails['barcode']; ?>" alt="<?php echo get_the_title($shipmentDetails['shipmentID']); ?>" />
-						<p style="margin:10px;padding:0;font-weight: bold;"><?php echo $header_cell6; ?><br></p>
-					</td>
+						<td>
+
+							<table class="shipment-info-table" cellpadding="0" cellspacing="0" style="border: 1px solid #000;width: 100%;margin:10px auto;padding:10px;text-align:left">
+
+								<tr>
+									<th style="padding-left: 8px;">PROOF OF DELIVERY</th>
+								</tr>
+								<tr>
+
+									<td>
+									Receiver Name:
+									</td>
+								</tr>
+								<tr>
+
+									<td>
+									Emirates ID /No.:
+									</td>
+								</tr>
+								<tr>
+
+									<td>
+									Receiver Sign::
+									</td>
+								</tr>
+
+							</table>
+
+						</td>
 					</tr>
-					
-				</tr>
-<tr>
-</table>
-	
-	</td>
-	</tr>
+
+
+				</table>
+
+			</td>
+		</tr>
 	</table>
 	<?php
 	/*$mp_settings = $shipmentDetails['packageSettings'];
@@ -554,12 +573,38 @@ $shipper_contact 	= str_replace(wpccf_search_metakey_code(), wpccf_replace_metak
 <div style="text-align: center; margin:12px 0;">
 	<a href="#" class="button button-secondary print" onclick="wpcargo_print('print-label')"><span class="ti-printer"></span> <?php esc_html_e('Print File', 'wpcargo-custom-field'); ?></a>
 </div>*/
-?>
-<style>
-.notice{
-	display:none;
-}
-.error{
-	display:none;
-}
-</style>
+	?>
+	<style>
+		.notice {
+			display: none;
+		}
+
+		.error {
+			display: none;
+		}
+
+		table,
+		td,
+		th {
+			border: 1px solid black;
+		}
+
+		table {
+
+			border-collapse: collapse;
+		}
+
+		@media screen,
+		print {
+			.page_break {
+				page-break-before: auto !important;
+			}
+
+			table {page-break-inside: avoid;}
+
+		}
+	</style>
+
+	<div style="height:50px">
+
+	</div>

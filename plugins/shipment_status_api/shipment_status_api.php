@@ -199,8 +199,9 @@ add_shortcode('SSI_BULK_REPORT', 'ssi_bulkreport');
 add_action('wp', 'bulk_report_function');
 
 
-function bulk_report_function(){
-    if($_POST['update_bulk']){
+function bulk_report_function()
+{
+    if ($_POST['update_bulk']) {
 
         $ids = $_POST['ids'];
 
@@ -209,12 +210,12 @@ function bulk_report_function(){
         $status = $_POST['status'];
 
         $posts = array();
-        foreach( $ids  as $id){
-            if( $driver){
-                update_post_meta($id , 'wpcargo_driver' , $driver);
+        foreach ($ids  as $id) {
+            if ($driver) {
+                update_post_meta($id, 'wpcargo_driver', $driver);
             }
-        
-            if($status){
+
+            if ($status) {
 
 
 
@@ -223,7 +224,7 @@ function bulk_report_function(){
 
 
                 $data = (unserialize($meta['wpcargo_shipments_update'][0]));
-        
+
                 if (!is_array($data)) {
                     $data = unserialize($data);
                 }
@@ -233,38 +234,34 @@ function bulk_report_function(){
                     'date' => date('Y-m-d'),
                     'time' => date('h:m'),
                     'status' => $status,
-					'updated-by' => wp_get_current_user()->display_name
-                 
+                    'updated-by' => wp_get_current_user()->display_name
+
                 );
 
 
-                update_post_meta($id , 'wpcargo_status' , $status);
+                update_post_meta($id, 'wpcargo_status', $status);
 
 
-                update_post_meta($id , 'wpcargo_shipments_update' , $data);
-
-              
+                update_post_meta($id, 'wpcargo_shipments_update', $data);
             }
-          
         }
 
 
         echo "updated successfully ";
         exit();
-
     }
 
-    if($_POST['ids']){
+    if ($_POST['ids']) {
         $ids = $_POST['ids'];
 
         $posts = array();
-        foreach( $ids  as $id){
+        foreach ($ids  as $id) {
             $posts[] = get_post_meta($id);
         }
 
         $header = [array(
             // "SHIPMENT ID",
-        
+
             "REFERENCE NUMBER",
             "ASSIGNED CLIENT",
             "CONSIGNEE NAME",
@@ -277,102 +274,149 @@ function bulk_report_function(){
             'LAST REMARK'
         )];
 
-     
-    $users = get_users(array('fields' => array('ID', 'display_name ')));
+
+        $users = get_users(array('fields' => array('ID', 'display_name ')));
 
 
-    $user_id = array();
+        $user_id = array();
 
-    foreach ($users  as $user) {
-        $user_id[$user->ID] = $user->display_name;
-    }
-
-
-
-    foreach ($posts as $post) {
-
-
-        $meta =   $post;
-
-
-
-        $data = (unserialize($meta['wpcargo_shipments_update'][0]));
-
-        if (!is_array($data)) {
-            $data = unserialize($data);
+        foreach ($users  as $user) {
+            $user_id[$user->ID] = $user->display_name;
         }
 
 
-        $last_update = array();
-        $last_date = '';
-        $last_time = '';
-        foreach ($data as $dts) {
-            if ($last_date == '') {
-                $last_date = $dts['date'];
-                $last_time = $dts['time'];
-                $last_update = $dts;
-            }
-            if (strtotime($dts['date']) > strtotime($last_date)) {
-                $last_date = $dts['date'];
-                $last_time = $dts['time'];
-                $last_update = $dts;
-            }
-            if (strtotime($dts['date']) ==  strtotime($last_date)) {
 
-                if (strtotime($dts['time']) ==  strtotime($last_time)) {
+        foreach ($posts as $post) {
+
+
+            $meta =   $post;
+
+
+
+            $data = (unserialize($meta['wpcargo_shipments_update'][0]));
+
+            if (!is_array($data)) {
+                $data = unserialize($data);
+            }
+
+
+            $last_update = array();
+            $last_date = '';
+            $last_time = '';
+            foreach ($data as $dts) {
+                if ($last_date == '') {
                     $last_date = $dts['date'];
                     $last_time = $dts['time'];
                     $last_update = $dts;
                 }
+                if (strtotime($dts['date']) > strtotime($last_date)) {
+                    $last_date = $dts['date'];
+                    $last_time = $dts['time'];
+                    $last_update = $dts;
+                }
+                if (strtotime($dts['date']) ==  strtotime($last_date)) {
+
+                    if (strtotime($dts['time']) ==  strtotime($last_time)) {
+                        $last_date = $dts['date'];
+                        $last_time = $dts['time'];
+                        $last_update = $dts;
+                    }
+                }
             }
+
+
+
+
+
+
+            $header[] = array(
+                // $post->post_title,
+                //access by key
+                @$meta['reference_number'][0],
+                @$user_id[@$meta['registered_shipper'][0]],
+                @$meta['consignee_name'][0],
+                @$meta['cod_amount'][0],
+                @$meta['wpcargo_destination'][0],
+                $meta['wpcargo_status'][0],
+                @$user_id[@$meta['wpcargo_driver'][0]],
+                // user data
+                $last_update['date'],
+                @$meta['wpcargo_pickup_date_picker'][0],
+                $last_update['remarks'],
+            );
         }
 
 
 
-   
+        // create new spreadsheet//
+        $spreadsheet = new Spreadsheet();
+        $sheet = $spreadsheet->getActiveSheet();
+        $sheet->fromArray($header, NULL, 'A1');
 
+        // redirect output to client browser
+        header('Content-Disposition: attachment;filename="myfile.xlsx"');
+        header('Cache-Control: max-age=0');
 
-        $header[] = array(
-            // $post->post_title,
-            //access by key
-            @$meta['reference_number'][0],
-            @$user_id[@$meta['registered_shipper'][0]],
-            @$meta['consignee_name'][0],
-            @$meta['cod_amount'][0],
-            @$meta['wpcargo_destination'][0],
-            $meta['wpcargo_status'][0],
-            @$user_id[@$meta['wpcargo_driver'][0]], 
-            // user data
-            $last_update['date'],
-            @$meta['wpcargo_pickup_date_picker'][0],
-            $last_update['remarks'],
-        );
+        $writer = new Xlsx($spreadsheet);
+
+        $path = wp_upload_dir()['path'] . '/myfile.xlsx';
+        $url = wp_upload_dir()['url'] . '/myfile.xlsx';
+        $writer->save($path);
+
+        echo  $url;
+        exit();
     }
+}
 
 
-   
-// create new spreadsheet//
+
+function bulk_import_output()
+{
+    ob_start();
+    include_once plugin_dir_path(__FILE__) . 'view/bulk_import.php';
+    $template = ob_get_contents();
+    ob_end_clean();
+    echo $template;
+}
+add_shortcode('BULK_IMPORT', 'bulk_import_output');
+
+
+if (@$_GET['getsample']) {
+
+
+
+    $key_maping = array(
+        'post_title' => "REFERENCE NUMBER",
+        'wpcargo_pickup_date_picker' => "Pickup Date",
+        "wpcargo_type_of_shipment" => "Type of Shipment",
+        "shipper_name" => "Shipper Name",
+        "shipper_adress" => "SHIPPER ADRESS",
+        "shipper_contact" => "SHIPPER CONTACT",
+        "consignee_name" => "CONSIGNEE NAME",
+        "wpcargo_receiver_addres" => "Address",
+        "consignee_contact" => "CONSIGNEE CONTACT",
+        "cod_amount" => "COD AMOUNT",
+        "wpcargo_origin_field" => "Origin",
+        "wpcargo_destination" => "Destination)",
+        "wpcargo_courier" => "Courier",
+        "payment_wpcargo_mode_field" => "Payment Mode",
+        "wpc-multiple-package" => "Package Details",
+        "wpcargo_status" => "Shipment Status",
+        "wpcargo_comments" => "Comments",
+        'wpc-pm-qty' => 'Qty',
+        'wpc-pm-piece-type' => 'Piece Type',
+        'wpc-pm-description' => 'Description',
+        'wpc-pm-weight' =>  'Weight (kg)'
+    );
+
+    $header = [$key_maping];
     $spreadsheet = new Spreadsheet();
     $sheet = $spreadsheet->getActiveSheet();
     $sheet->fromArray($header, NULL, 'A1');
-
     // redirect output to client browser
-    header('Content-Disposition: attachment;filename="myfile.xlsx"');
+    header('Content-Disposition: attachment;filename="sample.xlsx"');
     header('Cache-Control: max-age=0');
-
     $writer = new Xlsx($spreadsheet);
-
-    $path = wp_upload_dir()['path'].'/myfile.xlsx';
-    $url = wp_upload_dir()['url'].'/myfile.xlsx';
-    $writer->save($path);
-
-    echo  $url;
-    exit();
-
-
-      
-    }
-    
-    
+    $writer->save('php://output');
+    die();
 }
-
