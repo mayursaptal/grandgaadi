@@ -5,30 +5,26 @@
     left: 50px;
     top: 5px;
 }
-.dashbaordlist .pending {
+ .pending {
     color: #fff;
-    margin: 10px;
-    padding: 30px 20px;
-    background-color: #ff370a;
-    border-radius: 5px;
+    background-color: hsl(180deg 51% 52%);;
 }
 
-
-.dashbaordlist .delivered {
-    margin: 10px;
-    padding: 30px 20px;
+.shipment {
     color: #fff;
-    background-color: #2fb92f;
-    border-radius: 5px;
+    background-color: #e43c3c;
 }
-
-
-.dashbaordlist .cod {
-    margin: 10px;
-    padding: 30px 20px;
+ .delivered {
+ 
     color: #fff;
-    background-color: #3880ff;
-    border-radius: 5px;
+    background-color: #ffb251;
+ } 
+
+
+ .cod {
+    color: #fff;
+    background-color: #a567a3;
+ 
 }
 
 .dashbaordlist
@@ -36,4 +32,37 @@ ion-label {
     width: 100px;
     display: inline-block;
     font-weight: 800;
+}
+
+.card{
+    height: 142px;
+    border-radius: 26px;
+    padding: 5%;
+    width: 45%;
+    margin: 2%;
+}
+.digit{
+   font-size: 30px;
+   font-family: 'Courier New', Courier, monospace;
+   align-items: center;
+}
+.codamount{
+    font-size: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    align-items: center; 
+}
+
+
+.dasholder {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+h2{
+    font-family: sans-serif;  
+     justify-content: center;
+     font-size: 25px;
+     display: flex;
+    flex-wrap: wrap;
 }

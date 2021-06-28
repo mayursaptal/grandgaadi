@@ -13,15 +13,21 @@ export class Tab4Page {
   url: string = 'https://wa.me/';
 
   public driver: any;
-  public codCount: any;
-  public deliveredCount: any;
-  public pendingCount: any;
+  public codCount: any = 0;
+  public deliveredCount: any = 0;
+  public pendingCount: any= 0;
   public shipments: any[];
-  public codAmount: any;
+  public codAmount: any=0;
+  public totalShipment: any =0;
+  public displayName: any;
+  public userEmail: any;
   constructor(public api: ApiService, private router: Router) {
     this.shipments = this.api.shipments;
     const param = [];
     this.driver = JSON.parse(localStorage.getItem('userdata')).user_nicename;
+    const userdata = JSON.parse(localStorage.getItem('userdata'));
+    this.displayName  = userdata.display_name;
+    this.userEmail    = userdata.user_email;
     const apikey = localStorage.getItem('apikey');
     this.api.get(apikey + '/driver').subscribe(
       (data: any) => {
@@ -36,11 +42,11 @@ export class Tab4Page {
     );
   }
 
-  async getAllShipments() {
+   getAllShipments() {
     const apikey = localStorage.getItem('apikey');
     this.api.shipments = [];
     for (let index = 2; index < 11; index++) {
-      await this.api.get(apikey + '/driver/page/' + index).subscribe(
+      this.api.get(apikey + '/driver/page/' + index).subscribe(
         (data: any) => {
           this.api.loaderhide();
           if (data) {
@@ -56,6 +62,7 @@ export class Tab4Page {
             this.pendingCount = 0;
             this.deliveredCount = this.api.shipments.filter(x => x.status === 'DELIVERED').length;
             this.pendingCount = this.api.shipments.filter(x => x.status != 'DELIVERED').length;
+            this.totalShipment = this.api.shipments.length;
             for (let index = 0; index < this.api.shipments.length; index++) {
               const element = this.api.shipments[index];
               if (element.status === 'DELIVERED') {
@@ -63,7 +70,8 @@ export class Tab4Page {
                   let cod = element.cod_amount;
 
                   this.codCount += parseFloat(cod);
-                  this.codAmount = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'AED' }).format(this.codCount)
+                  this.codAmount=this.codCount 
+                  // this.codAmount = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'AED' }).format(this.codCount)
                 }
               }
 
@@ -118,9 +126,13 @@ export class Tab4Page {
     });
   }
   onPending() {
-    this.router.navigateByUrl("/tabs/tab1")
+    this.router.navigateByUrl("/tabs/pending")
   }
   onDeliver() {
-    this.router.navigateByUrl("/tabs/tab2")
+    this.router.navigateByUrl("/tabs/delivered")
+  }
+  logout() {
+    localStorage.clear();
+    this.router.navigateByUrl('login');
   }
 }

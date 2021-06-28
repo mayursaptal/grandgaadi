@@ -3,9 +3,15 @@
     <ion-title>
       Dashboard
     </ion-title>
+    <ion-button slot="end" (click)="logout()">
+      Logout
+    </ion-button>
   </ion-toolbar>
-</ion-header>
 
+</ion-header>
+<div>
+
+</div>
 <ion-content [fullscreen]="true">
   <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
     <ion-refresher-content pullingIcon="chevron-down-circle-outline" pullingText="Pull to refresh"
@@ -14,18 +20,69 @@
   </ion-refresher>
   <!-- <ion-searchbar #searchbar animated (keyup)="handleInput(searchbar.value)"></ion-searchbar> -->
   <br>
-  <div class="dashbaordlist">
-    <div class="pending" (click)="onPending()">
-      <ion-label>Pending</ion-label>
-      {{pendingCount}}
+  <div class="row dasholder">
+    <div style="width: 100%;padding: 20px;">
+      <div class="row">
+        <!-- <ion-card style="border-radius: 10px;background-color: rgb(200, 215, 226);padding: 10px;"> -->
+        <h2>
+          <ion-icon name="person" style="font-size: 30px;
+            border: 1px solid;
+            border-radius: 50%;
+            padding: 3px;
+            color: #47525d;"></ion-icon>
+          &nbsp;&nbsp;
+          {{displayName}}
+        </h2>
+        <!-- </ion-card> -->
+
+
+      </div>
     </div>
-    <div class="delivered" (click)="onDeliver()">
-      <ion-label>Delivered</ion-label>
-      {{deliveredCount}}
-    </div>
-    <div class="cod">
-      <ion-label>COD</ion-label>
-      {{codAmount}}
-    </div>
+    <ion-card class="shipment card">
+      <span style="font-size: 18px;">
+        <ion-label>Total shipment</ion-label>
+      </span>
+      <br>
+      <br>
+      <span class="digit">{{totalShipment}}</span>
+    </ion-card>
+    <ion-card (click)="onPending()" class="pending card">
+      <span style="font-size: 18px;">
+        <ion-label>Pending</ion-label>
+        &nbsp;
+        &nbsp;
+        <ion-icon name="time"></ion-icon>
+      </span>
+      <br>
+      <br>
+      <span class="digit">{{pendingCount}}</span>
+    </ion-card>
+
+    <ion-card (click)="onDeliver()" class="delivered card">
+      <span style="font-size: 18px;">
+        <ion-label>Delivered</ion-label>
+        &nbsp;
+        &nbsp;
+        <ion-icon name="checkmark-circle-outline"></ion-icon>
+
+      </span>
+      <br>
+      <br>
+      <span class="digit">{{deliveredCount}}</span>
+    </ion-card>
+    <ion-card class="cod card">
+      <span style="font-size: 18px;">
+        <ion-label>COD</ion-label>
+        &nbsp;
+        &nbsp;
+        <ion-icon name="cash"></ion-icon>
+      </span>
+
+      <br>
+      <br>
+      <span>AED</span>
+      <br>
+      <span class="digit">{{codAmount}}</span>
+    </ion-card>
   </div>
 </ion-content>
