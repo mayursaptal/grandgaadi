@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { ApiService } from '../Service/api.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { ApiService } from '../Service/api.service';
 export class Tab2Page {
   public codAmmount: any;
   public shipments: any[];
-  constructor(public api: ApiService) {
+  constructor(public api: ApiService,private router:Router) {
     this.shipments = this.api.shipments;
     this.calculate();
   }
@@ -83,5 +84,8 @@ export class Tab2Page {
       return (test1 || test2 || test3) && (currentValue.status == 'DELIVERED');
     });
   }
-
+  logout() {
+    localStorage.clear();
+    this.router.navigateByUrl('login');
+  }
 }

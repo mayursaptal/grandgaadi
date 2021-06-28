@@ -1,8 +1,11 @@
 <ion-header [translucent]="true">
-  <ion-toolbar color="success">
+  <ion-toolbar >
     <ion-title>
       Pending
     </ion-title>
+    <ion-button slot="end" (click)="logout()">
+      Logout
+    </ion-button>
   </ion-toolbar>
 </ion-header>
 
@@ -14,31 +17,38 @@
   </ion-refresher>
   <ion-searchbar #searchbar animated (keyup)="handleInput(searchbar.value)"></ion-searchbar>
   <br>
-  <ion-list>
+  <ion-list id="list">
     <ion-item *ngFor="let shipment of shipments; index as i" (click)="showShipment(shipment)"
       [ngClass]="{'hide': shipment.status == 'DELIVERED' || shipment.status != 'OUT FOR DELIVERY'}">
       <ion-label *ngIf=" shipment.status != 'DELIVERED' && shipment.status == 'OUT FOR DELIVERY' ">
-        <h2><span style="display: inline-block;min-width: 100px;">Contact:</span>
-          {{shipment.consignee_name}} </h2>
-        <h3><span style="display: inline-block;min-width: 100px;">Ref. No.:</span> {{shipment.reference_number}}</h3>
-        <p><span style="display: inline-block;min-width: 100px;">Contact No .:</span> {{shipment.consignee_contact}}</p>
-        <ion-button>
+       <div class="pendingbox">
+        <ion-icon name="logo-dropbox" style="font-size: x-large;"></ion-icon>
+        &nbsp;
+        {{shipment.reference_number}}
+       
+       </div>
+       
+        <!-- <h2><span style="display: inline-block;min-width: 100px;">Contact:</span>
+          {{shipment.consignee_name}} </h2> -->
+        <!-- <h3><span style="display: inline-block;min-width: 100px;">Ref. No.:</span> {{shipment.reference_number}}</h3> -->
+        <!-- <p><span style="display: inline-block;min-width: 100px;">Contact No .:</span> {{shipment.consignee_contact}}</p> -->
+        <!-- <ion-button>
           {{shipment.status}}
-        </ion-button>
+        </ion-button> -->
 
 
-        <a class="whatapp-link" 
+        <!-- <a class="whatapp-link" 
           href="{{url+shipment.consignee_contact}}?text=Hi, good day, this is {{driver}} from GRANDGAADI Package Delivery Service LLC, you have a shipment from  {{shipment.shipper_name}}. of waybill number  {{shipment.reference_number}} of cash on delivery  {{shipment.cod_amount}}. kindly share your location for delivery."
           target="_blank">
           <ion-icon class="logo-whatapp" name="logo-whatsapp"></ion-icon>
-        </a>
+        </a> -->
 
-        <a class="whatapp-link" style="margin-left: 10px;"
+        <!-- <a class="whatapp-link" style="margin-left: 10px;"
         href="tel:{{shipment.consignee_contact}}"
         target="_blank">
         <ion-icon name="call"></ion-icon>
 
-      </a>
+      </a> -->
 
       </ion-label>
     </ion-item>

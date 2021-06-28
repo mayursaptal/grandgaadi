@@ -1,11 +1,12 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
+      <ion-back-button (click)="onBack()"></ion-back-button>
     </ion-buttons>
     <ion-title>Shipment</ion-title>
   </ion-toolbar>
 </ion-header>
+
 
 
 <ion-content>
@@ -57,10 +58,34 @@
 
   <br><br>
   <div class="btn">
-    <ion-button (click)="onSave()" shape="round">
+    <ion-button (click)="onSave()">
       Update
     </ion-button>
   </div>
+  <div class="row">
 
 
+
+
+  </div>
+  <ion-fab vertical="bottom" horizontal="end">
+    <ion-fab-button>
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+
+    <ion-fab-list side="top">
+      <ion-fab-button><a class="whatapp-link" 
+          href="{{url+activeShipment.consignee_contact}}?text=Hi, good day, this is {{driver}} from GRANDGAADI Package Delivery Service LLC, you have a shipment from  {{activeShipment.shipper_name}}. of waybill number  {{activeShipment.reference_number}} of cash on delivery  {{activeShipment.cod_amount}}. kindly share your location for delivery."
+          target="_blank">
+          <ion-icon class="logo-whatapp" name="logo-whatsapp"></ion-icon>
+        </a></ion-fab-button>
+      <ion-fab-button> <a class="call-link"  href="tel:{{activeShipment.consignee_contact}}"
+          target="_blank">
+          <ion-icon name="call"></ion-icon>
+
+        </a></ion-fab-button>
+
+    </ion-fab-list>
+
+  </ion-fab>
 </ion-content>

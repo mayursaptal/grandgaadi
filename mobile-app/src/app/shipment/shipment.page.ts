@@ -99,4 +99,7 @@ export class ShipmentPage implements OnInit {
       }
     );
   }
+  onBack(){
+    this.router.navigateByUrl("/tabs/pending");
+  }
 }

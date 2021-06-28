@@ -92,4 +92,8 @@ export class Tab1Page {
       );
     });
   }
+  logout() {
+    localStorage.clear();
+    this.router.navigateByUrl('login');
+  }
 }
