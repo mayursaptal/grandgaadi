@@ -35,13 +35,16 @@ export class ShipmentPage implements OnInit {
     'COD not ready'
   ];
   date: Date;
+  driver: any;
 
   constructor(
     private router: Router,
     public api: ApiService,
     private route: ActivatedRoute,
     private datePipe: DatePipe
-  ) {}
+  ) {
+    this.driver = JSON.parse(localStorage.getItem('userdata')).user_nicename;
+  }
 
   ngOnInit() {
     this.route.queryParams.subscribe((params) => {

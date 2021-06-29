@@ -9,12 +9,12 @@
     background: hsl(240deg 8% 93%);
     padding: 20px;
     color: rgb(0 0 0 / 80%);
-    border-radius: 3px;
+    border-radius: 10px;
 }
 
 #list  ion-item:nth-child(even)  .pendingbox{
     background: hsl(11deg 45% 91%);
     padding: 20px;
     color: rgba(0, 0, 0, 0.8);
-    border-radius: 3px;
+    border-radius: 10px;
 }
