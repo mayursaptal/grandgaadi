@@ -36,7 +36,9 @@ export class ShipmentPage implements OnInit {
   ];
   date: Date;
   driver: any;
-
+  countrycode: string = '91';
+  url: string = 'https://wa.me/';
+  shipper_name: any;
   constructor(
     private router: Router,
     public api: ApiService,
@@ -60,6 +62,7 @@ export class ShipmentPage implements OnInit {
       ];
       this.shipmentStatus = this.activeShipment[0].status;
       this.shipmentNumber = this.activeShipment[0].post_title;
+      this.shipper_name =this.activeShipment[0].shipper_name;
     });
   }
 

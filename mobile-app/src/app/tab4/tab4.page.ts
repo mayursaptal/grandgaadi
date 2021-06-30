@@ -15,77 +15,97 @@ export class Tab4Page {
   public driver: any;
   public codCount: any = 0;
   public deliveredCount: any = 0;
-  public pendingCount: any= 0;
+  public pendingCount: any = 0;
   public shipments: any[];
-  public codAmount: any=0;
-  public totalShipment: any =0;
+  public codAmount: any = 0;
+  public totalShipment: any = 0;
   public displayName: any;
   public userEmail: any;
+  resp: any;
   constructor(public api: ApiService, private router: Router) {
     this.shipments = this.api.shipments;
     const param = [];
     this.driver = JSON.parse(localStorage.getItem('userdata')).user_nicename;
     const userdata = JSON.parse(localStorage.getItem('userdata'));
-    this.displayName  = userdata.display_name;
-    this.userEmail    = userdata.user_email;
+    this.displayName = userdata.display_name;
+    this.userEmail = userdata.user_email;
+
     const apikey = localStorage.getItem('apikey');
-    this.api.get(apikey + '/driver').subscribe(
-      (data: any) => {
-        this.api.loaderhide();
-        this.shipments = this.api.shipments = data;
-        this.getAllShipments();
-      },
-      (error) => {
-        this.api.toastMsg('Something went wrong');
-        this.api.loaderhide();
-      }
-    );
-  }
 
-   getAllShipments() {
-    const apikey = localStorage.getItem('apikey');
-    this.api.shipments = [];
-    for (let index = 2; index < 11; index++) {
-      this.api.get(apikey + '/driver/page/' + index).subscribe(
-        (data: any) => {
-          this.api.loaderhide();
-          if (data) {
-            this.api.shipments = this.shipments = [
-              ...this.api.shipments,
-              ...data,
-            ];
-            // console.log(this.api.shipments);
+    let fun = async () => {
 
-
-            this.codCount = 0.0;
-            this.deliveredCount = 0;
-            this.pendingCount = 0;
-            this.deliveredCount = this.api.shipments.filter(x => x.status === 'DELIVERED').length;
-            this.pendingCount = this.api.shipments.filter(x => x.status != 'DELIVERED').length;
-            this.totalShipment = this.api.shipments.length;
-            for (let index = 0; index < this.api.shipments.length; index++) {
-              const element = this.api.shipments[index];
-              if (element.status === 'DELIVERED') {
-                if (element.cod_amount) {
-                  let cod = element.cod_amount;
-
-                  this.codCount += parseFloat(cod);
-                  this.codAmount=this.codCount 
-                  // this.codAmount = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'AED' }).format(this.codCount)
-                }
-              }
-
-
-            }
-          }
-        },
-        (error) => {
-          // this.api.toastMsg('Something went wrong');
-          this.api.loaderhide();
-        }
-      );
+    
+      this.resp = await this.api.get(apikey + '/driver').toPromise();
+      this.shipments = this.api.shipments = this.resp;
+     await this.getAllShipments();   
+      // this.api.loaderhide();
     }
 
+    fun()
+
+
+
+    // this.api.get(apikey + '/driver').subscribe(
+    //   (data: any) => {
+
+    // },
+    //   (error) => {
+    //     this.api.toastMsg('Something went wrong');
+    //     this.api.loaderhide();
+    // //   }
+    // );
+  }
+
+  async getAllShipments() {
+    const apikey = localStorage.getItem('apikey');
+    this.api.shipments = [];
+    this.api.loaderShow();
+    // this.api.loaderhide();
+    for (let index = 2; index < 11; index++) {
+      this.resp = await this.api.get(apikey + '/driver/page/' + index).toPromise();
+      // this.api.get(apikey + '/driver/page/' + index).subscribe(
+      //   (data: any) => {
+
+      if (this.resp) {
+        this.api.shipments = this.shipments = [
+          ...this.api.shipments,
+          ...this.resp,
+        ];
+        // console.log(this.api.shipments);
+
+
+        this.codCount = 0.0;
+        this.deliveredCount = 0;
+        this.pendingCount = 0;
+        this.deliveredCount = this.api.shipments.filter(x => x.status === 'DELIVERED').length;
+        this.pendingCount = this.api.shipments.filter(x => x.status != 'DELIVERED').length;
+        this.totalShipment = this.api.shipments.length;
+        for (let index = 0; index < this.api.shipments.length; index++) {
+          const element = this.api.shipments[index];
+          if (element.status === 'DELIVERED') {
+            if (element.cod_amount) {
+              let cod = element.cod_amount;
+
+              this.codCount += parseFloat(cod);
+              this.codAmount = this.codCount
+              // this.codAmount = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'AED' }).format(this.codCount)
+            }
+          }
+
+
+        }
+
+      }
+      // }
+      //   (error) => {
+      //     // this.api.toastMsg('Something went wrong');
+      //     this.api.loaderhide();
+      //   }
+      // );
+    }
+    this.api.loaderhide();
+
+    return true;
   }
 
   doRefresh(event) {
