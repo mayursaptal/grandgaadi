@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { element } from 'protractor';
@@ -15,7 +16,7 @@ export class Tab1Page {
   public counts: any = 0;
   public driver: any;
   public shipments: any[];
-  constructor(public api: ApiService, private router: Router) {
+  constructor(public api: ApiService, private router: Router, private datePipe: DatePipe) {
     this.shipments = this.api.shipments;
     const param = [];
     this.driver = JSON.parse(localStorage.getItem('userdata')).user_nicename;
@@ -42,16 +43,36 @@ export class Tab1Page {
         (data: any) => {
           this.api.loaderhide();
           this.counts++;
-          console.log(this.counts);
+          
           if (data) {
             this.api.shipments = this.shipments = [
               ...this.api.shipments,
               ...data,
             ];
+
+            this.api.shipments = this.api.shipments.filter((shipment) => {
+              let history = shipment.shipment_history;
+              
+              let flag = false;
+              var d = new Date();
+              var date= this.datePipe.transform(d, 'yyyy-MM-dd');
+             
+              for (let index = 0; index < history.length; index++) {
+                const element = history[index];
+                if (element.status === "OUT FOR DELIVERY") {
+                  if (element.date === date) {
+                    
+                    
+                    flag = true;
+                  }
+                }
+              }
+              return flag;
+            });
           }
         },
+        
         (error) => {
-          // this.api.toastMsg('Something went wrong');
           this.api.loaderhide();
         }
       );

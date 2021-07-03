@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { count } from 'node:console';
@@ -24,8 +25,9 @@ export class Tab4Page {
   public counts: any = 0;
 
   resp: any;
-  constructor(public api: ApiService, private router: Router) {
+  constructor(public api: ApiService, private router: Router,private datePipe: DatePipe) {
     this.shipments = this.api.shipments;
+    console.log(this.shipments);
     const param = [];
     this.driver = JSON.parse(localStorage.getItem('userdata')).user_nicename;
     const userdata = JSON.parse(localStorage.getItem('userdata'));
@@ -49,13 +51,14 @@ export class Tab4Page {
 
   async getAllShipments() {
     const apikey = localStorage.getItem('apikey');
+    
     this.api.shipments = [];
     this.api.loaderShow();
     for (let index = 2; index < 11; index++) {
       this.resp = await this.api.get(apikey + '/driver/page/' + index).toPromise();
 
       this.counts++;
-      console.log(this.counts);
+      // console.log(this.counts);
       if (this.resp) {
 
         this.api.shipments = this.shipments = [
@@ -66,14 +69,17 @@ export class Tab4Page {
 
         this.api.shipments = this.api.shipments.filter((shipment) => {
           let history = shipment.shipment_history;
+          
           let flag = false;
           var d = new Date();
-          var month = (d.getMonth() + 1) < 10 ? "0" + (d.getMonth() + 1) : (d.getMonth() + 1);
-          var date = (d.getFullYear() + "-" + month + "-" + d.getDate());
+          var date= this.datePipe.transform(d, 'yyyy-MM-dd');
+         
           for (let index = 0; index < history.length; index++) {
             const element = history[index];
-            if (element.status == "OUT FOR DELIVERY") {
-              if (element.date == date) {
+            if (element.status === "OUT FOR DELIVERY") {
+              if (element.date === date) {
+                
+                console.log(element.date === date);
                 flag = true;
               }
             }
