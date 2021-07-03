@@ -21,6 +21,8 @@ export class Tab4Page {
   public totalShipment: any = 0;
   public displayName: any;
   public userEmail: any;
+  public counts: any = 0;
+
   resp: any;
   constructor(public api: ApiService, private router: Router) {
     this.shipments = this.api.shipments;
@@ -31,48 +33,55 @@ export class Tab4Page {
     this.userEmail = userdata.user_email;
 
     const apikey = localStorage.getItem('apikey');
+    this.api.get(apikey + '/driver').subscribe(
+      (data: any) => {
+        this.counts = 0;
+        this.api.shipments = this.shipments = data;
+        this.getAllShipments();
+      },
+      (error) => {
+        this.api.toastMsg('Something went wrong');
+        this.api.loaderhide();
+      }
+    );
 
-    let fun = async () => {
-
-    
-      this.resp = await this.api.get(apikey + '/driver').toPromise();
-      this.shipments = this.api.shipments = this.resp;
-     await this.getAllShipments();   
-      // this.api.loaderhide();
-    }
-
-    fun()
-
-
-
-    // this.api.get(apikey + '/driver').subscribe(
-    //   (data: any) => {
-
-    // },
-    //   (error) => {
-    //     this.api.toastMsg('Something went wrong');
-    //     this.api.loaderhide();
-    // //   }
-    // );
   }
 
   async getAllShipments() {
     const apikey = localStorage.getItem('apikey');
     this.api.shipments = [];
     this.api.loaderShow();
-    // this.api.loaderhide();
     for (let index = 2; index < 11; index++) {
       this.resp = await this.api.get(apikey + '/driver/page/' + index).toPromise();
-      // this.api.get(apikey + '/driver/page/' + index).subscribe(
-      //   (data: any) => {
 
+      this.counts++;
+      console.log(this.counts);
       if (this.resp) {
+
         this.api.shipments = this.shipments = [
           ...this.api.shipments,
           ...this.resp,
         ];
-        // console.log(this.api.shipments);
 
+
+        this.api.shipments = this.api.shipments.filter((shipment) => {
+          let history = shipment.shipment_history;
+          let flag = false;
+          var d = new Date();
+          var month = (d.getMonth() + 1) < 10 ? "0" + (d.getMonth() + 1) : (d.getMonth() + 1);
+          var date = (d.getFullYear() + "-" + month + "-" + d.getDate());
+          for (let index = 0; index < history.length; index++) {
+            const element = history[index];
+            if (element.status == "OUT FOR DELIVERY") {
+              if (element.date == date) {
+                flag = true;
+              }
+            }
+          }
+          return flag;
+        });
+
+        console.log(this.api.shipments);
 
         this.codCount = 0.0;
         this.deliveredCount = 0;
@@ -88,20 +97,10 @@ export class Tab4Page {
 
               this.codCount += parseFloat(cod);
               this.codAmount = this.codCount
-              // this.codAmount = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'AED' }).format(this.codCount)
             }
           }
-
-
         }
-
       }
-      // }
-      //   (error) => {
-      //     // this.api.toastMsg('Something went wrong');
-      //     this.api.loaderhide();
-      //   }
-      // );
     }
     this.api.loaderhide();
 
@@ -113,6 +112,7 @@ export class Tab4Page {
     const apikey = localStorage.getItem('apikey');
     this.api.get(apikey + '/driver').subscribe(
       (data: any) => {
+        this.counts = 0;
         this.api.loaderhide();
         event.target.complete();
         this.api.shipments = this.shipments = data;

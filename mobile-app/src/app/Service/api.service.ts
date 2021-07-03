@@ -40,16 +40,20 @@ export class ApiService {
   }
 
   async loaderShow() {
+
+
     this.loading = await this.loadingController.create({
       message: 'Please wait...',
       duration: 1000,
     });
     await this.loading.present();
+
   }
 
   async loaderhide() {
     if (this.loading) {
       await this.loading.onDidDismiss();
+      this.loading = null;
     }
   }
 
@@ -90,5 +94,5 @@ export class ApiService {
     return this.http.get(this.wpcargoUrl + url, header);
   }
 
- 
+
 }

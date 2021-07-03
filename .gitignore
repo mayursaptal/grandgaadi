@@ -1,2 +1,4 @@
 mobile-app/node_modules/
 .vscode/
+mobile-app/android/
+mobile-app/www/

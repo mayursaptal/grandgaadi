@@ -12,7 +12,7 @@ import { ApiService } from '../Service/api.service';
 export class Tab1Page {
   countrycode: string = '91';
   url: string = 'https://wa.me/';
-
+  public counts: any = 0;
   public driver: any;
   public shipments: any[];
   constructor(public api: ApiService, private router: Router) {
@@ -23,6 +23,7 @@ export class Tab1Page {
     this.api.get(apikey + '/driver').subscribe(
       (data: any) => {
         this.api.loaderhide();
+        this.counts = 0;
         this.shipments = this.api.shipments = data;
         this.getAllShipments();
       },
@@ -40,6 +41,8 @@ export class Tab1Page {
       this.api.get(apikey + '/driver/page/' + index).subscribe(
         (data: any) => {
           this.api.loaderhide();
+          this.counts++;
+          console.log(this.counts);
           if (data) {
             this.api.shipments = this.shipments = [
               ...this.api.shipments,
@@ -61,6 +64,7 @@ export class Tab1Page {
     this.api.get(apikey + '/driver').subscribe(
       (data: any) => {
         this.api.loaderhide();
+        this.counts = 0;
         event.target.complete();
         this.api.shipments = this.shipments = data;
         this.getAllShipments();

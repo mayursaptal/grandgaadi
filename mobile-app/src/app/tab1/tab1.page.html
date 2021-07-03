@@ -15,6 +15,13 @@
       refreshingSpinner="circles" refreshingText="Refreshing...">
     </ion-refresher-content>
   </ion-refresher>
+
+  <div *ngIf="counts != 9">
+
+    <ion-progress-bar type="indeterminate"></ion-progress-bar>
+
+  </div>
+  
   <ion-searchbar #searchbar animated (keyup)="handleInput(searchbar.value)"></ion-searchbar>
   <br>
   <ion-list id="list">
