@@ -20,6 +20,7 @@ export class ShipmentPage implements OnInit {
   public shipmentStatus: any;
   public remark: any;
   public status: any[] = [
+    'VECHICLE BREAKDOWN STATUS',
     'LOCATION CHANGE',
     'CUSTOMER REQUEST TO CANCEL',
     'DELIVERED',
@@ -30,9 +31,8 @@ export class ShipmentPage implements OnInit {
     'FUTURE DELIVERY',
     'COD NOT READY',
     'CONSIGNEE NOT AVAILABLE',
-    'Invalid number',
-    'Bad address', 
-    'COD not ready'
+    'INVALID NUMBER',
+    'BAD ADDRESS'
   ];
   date: Date;
   driver: any;
