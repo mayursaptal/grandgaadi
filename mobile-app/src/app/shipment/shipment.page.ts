@@ -20,7 +20,7 @@ export class ShipmentPage implements OnInit {
   public shipmentStatus: any;
   public remark: any;
   public status: any[] = [
-    'MISROUTE',
+    'LOCATION CHANGE',
     'CUSTOMER REQUEST TO CANCEL',
     'DELIVERED',
     'BAD ADRESS',
