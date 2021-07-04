@@ -12,10 +12,10 @@ export class TabsPage {
   constructor(public api: ApiService) {
     const param = [];
     const apikey = localStorage.getItem('apikey');
-    this.api.get(apikey + '/driver').subscribe((data: any) => {
+    this.api.get(apikey ).subscribe((data: any) => {
       this.api.loaderhide();
       this.api.shipments = data;
-      this.getAllShipments();
+      // this.getAllShipments();
     }, error => {
       this.api.toastMsg('Something went wrong');
       this.api.loaderhide();

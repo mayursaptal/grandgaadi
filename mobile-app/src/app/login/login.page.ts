@@ -26,8 +26,14 @@ export class LoginPage implements OnInit {
         this.api.apikey = data.data.api_key;
         localStorage.setItem('apikey', data.data.api_key);
         localStorage.setItem('userdata', JSON.stringify(data.data));
-        this.router.navigateByUrl('tabs');
         this.api.toastMsg('Login Successfull');
+        this.router.navigateByUrl('tabs')
+        .then(() => {
+          window.location.reload();
+        });
+      
+
+       
       } else {
         this.api.toastMsg(data.data.message);
       }

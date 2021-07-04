@@ -90,7 +90,7 @@ export class ApiService {
         'application/x-www-form-urlencoded'
       ),
     };
-    // this.loaderShow();
+    this.loaderShow();
     return this.http.get(this.wpcargoUrl + url, header);
   }
 

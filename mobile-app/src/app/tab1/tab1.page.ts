@@ -21,12 +21,14 @@ export class Tab1Page {
     const param = [];
     this.driver = JSON.parse(localStorage.getItem('userdata')).user_nicename;
     const apikey = localStorage.getItem('apikey');
-    this.api.get(apikey + '/driver').subscribe(
+    this.api.get(apikey).subscribe(
       (data: any) => {
         this.api.loaderhide();
         this.counts = 0;
         this.shipments = this.api.shipments = data;
-        this.getAllShipments();
+        // this.getAllShipments();
+        this.calculate();
+
       },
       (error) => {
         this.api.toastMsg('Something went wrong');
@@ -43,35 +45,35 @@ export class Tab1Page {
         (data: any) => {
           this.api.loaderhide();
           this.counts++;
-          
+
           if (data) {
-            this.api.shipments = this.shipments = [
+            this.api.shipments = [
               ...this.api.shipments,
               ...data,
             ];
 
             this.api.shipments = this.api.shipments.filter((shipment) => {
               let history = shipment.shipment_history;
-              
+
               let flag = false;
               var d = new Date();
-              var date= this.datePipe.transform(d, 'yyyy-MM-dd');
-             
+              var date = this.datePipe.transform(d, 'yyyy-MM-dd');
+
               for (let index = 0; index < history.length; index++) {
                 const element = history[index];
                 if (element.status === "OUT FOR DELIVERY") {
                   if (element.date === date) {
-                    
-                    
                     flag = true;
                   }
                 }
               }
               return flag;
             });
+
+            this.shipments = this.api.shipments;
           }
         },
-        
+
         (error) => {
           this.api.loaderhide();
         }
@@ -79,16 +81,40 @@ export class Tab1Page {
     }
   }
 
+  calculate() {
+    this.api.shipments = this.api.shipments.filter((shipment) => {
+      let history = shipment.shipment_history;
+
+      let flag = false;
+      var d = new Date();
+      var date = this.datePipe.transform(d, 'yyyy-MM-dd');
+
+      for (let index = 0; index < history.length; index++) {
+        const element = history[index];
+        if (element.status === "OUT FOR DELIVERY") {
+          if (element.date === date) {
+            flag = true;
+          }
+        }
+      }
+      return flag;
+    });
+
+    this.shipments = this.api.shipments;
+  }
+
   doRefresh(event) {
     const param = [];
     const apikey = localStorage.getItem('apikey');
-    this.api.get(apikey + '/driver').subscribe(
+    this.api.get(apikey).subscribe(
       (data: any) => {
         this.api.loaderhide();
         this.counts = 0;
         event.target.complete();
         this.api.shipments = this.shipments = data;
-        this.getAllShipments();
+        this.calculate();
+
+        // this.getAllShipments();
       },
       (error) => {
         this.api.toastMsg('Something went wrong');

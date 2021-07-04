@@ -25,9 +25,10 @@ export class Tab4Page {
   public counts: any = 0;
 
   resp: any;
-  constructor(public api: ApiService, private router: Router,private datePipe: DatePipe) {
+
+
+  ngOnInit(): void {
     this.shipments = this.api.shipments;
-    console.log(this.shipments);
     const param = [];
     this.driver = JSON.parse(localStorage.getItem('userdata')).user_nicename;
     const userdata = JSON.parse(localStorage.getItem('userdata'));
@@ -35,11 +36,12 @@ export class Tab4Page {
     this.userEmail = userdata.user_email;
 
     const apikey = localStorage.getItem('apikey');
-    this.api.get(apikey + '/driver').subscribe(
+    this.api.get(apikey).subscribe(
       (data: any) => {
         this.counts = 0;
         this.api.shipments = this.shipments = data;
-        this.getAllShipments();
+        // this.getAllShipments();
+        this.calculate();
       },
       (error) => {
         this.api.toastMsg('Something went wrong');
@@ -47,11 +49,53 @@ export class Tab4Page {
       }
     );
 
+
+    window.addEventListener('storage', () => {
+      this.driver = JSON.parse(localStorage.getItem('userdata')).user_nicename;
+      const userdata = JSON.parse(localStorage.getItem('userdata'));
+      this.displayName = userdata.display_name;
+      this.userEmail = userdata.user_email;
+    }, false);
+
+  }
+  
+  constructor(public api: ApiService, private router: Router, private datePipe: DatePipe) {
+
+    this.shipments = this.api.shipments;
+    const param = [];
+    this.driver = JSON.parse(localStorage.getItem('userdata')).user_nicename;
+    const userdata = JSON.parse(localStorage.getItem('userdata'));
+    this.displayName = userdata.display_name;
+    this.userEmail = userdata.user_email;
+
+    const apikey = localStorage.getItem('apikey');
+    this.api.get(apikey).subscribe(
+      (data: any) => {
+        this.counts = 0;
+        this.api.shipments = this.shipments = data;
+        // this.getAllShipments();
+        this.calculate();
+      },
+      (error) => {
+        this.api.toastMsg('Something went wrong');
+        this.api.loaderhide();
+      }
+    );
+
+
+    window.addEventListener('storage', () => {
+      this.driver = JSON.parse(localStorage.getItem('userdata')).user_nicename;
+      const userdata = JSON.parse(localStorage.getItem('userdata'));
+      this.displayName = userdata.display_name;
+      this.userEmail = userdata.user_email;
+    }, false);
+
+
   }
 
   async getAllShipments() {
     const apikey = localStorage.getItem('apikey');
-    
+
     this.api.shipments = [];
     this.api.loaderShow();
     for (let index = 2; index < 11; index++) {
@@ -69,26 +113,21 @@ export class Tab4Page {
 
         this.api.shipments = this.api.shipments.filter((shipment) => {
           let history = shipment.shipment_history;
-          
+
           let flag = false;
           var d = new Date();
-          var date= this.datePipe.transform(d, 'yyyy-MM-dd');
-         
+          var date = this.datePipe.transform(d, 'yyyy-MM-dd');
+
           for (let index = 0; index < history.length; index++) {
             const element = history[index];
             if (element.status === "OUT FOR DELIVERY") {
-              if (element.date === date) {
-                
-                console.log(element.date === date);
+              if (element.date == date) {
                 flag = true;
               }
             }
           }
           return flag;
         });
-
-        console.log(this.api.shipments);
-
         this.codCount = 0.0;
         this.deliveredCount = 0;
         this.pendingCount = 0;
@@ -113,16 +152,61 @@ export class Tab4Page {
     return true;
   }
 
+  calculate() {
+    this.api.shipments = this.api.shipments.filter((shipment) => {
+      let history = shipment.shipment_history;
+
+      let flag = false;
+      var d = new Date();
+      var date = this.datePipe.transform(d, 'yyyy-MM-dd');
+
+      for (let index = 0; index < history.length; index++) {
+        const element = history[index];
+        if (element.status === "OUT FOR DELIVERY") {
+          if (element.date == date) {
+            flag = true;
+          }
+        }
+      }
+      return flag;
+    });
+    this.codCount = 0.0;
+    this.deliveredCount = 0;
+    this.pendingCount = 0;
+    this.deliveredCount = this.api.shipments.filter(x => x.status === 'DELIVERED').length;
+    this.pendingCount = this.api.shipments.filter(x => x.status != 'DELIVERED').length;
+    this.totalShipment = this.api.shipments.length;
+    for (let index = 0; index < this.api.shipments.length; index++) {
+      const element = this.api.shipments[index];
+      if (element.status === 'DELIVERED') {
+        if (element.cod_amount) {
+          let cod = element.cod_amount;
+          this.codCount += parseFloat(cod);
+          this.codAmount = this.codCount
+        }
+      }
+    }
+  }
+
+
   doRefresh(event) {
+
+    this.driver = JSON.parse(localStorage.getItem('userdata')).user_nicename;
+    const userdata = JSON.parse(localStorage.getItem('userdata'));
+    this.displayName = userdata.display_name;
+    this.userEmail = userdata.user_email;
+
+
     const param = [];
     const apikey = localStorage.getItem('apikey');
-    this.api.get(apikey + '/driver').subscribe(
+    this.api.get(apikey).subscribe(
       (data: any) => {
         this.counts = 0;
         this.api.loaderhide();
         event.target.complete();
         this.api.shipments = this.shipments = data;
-        this.getAllShipments();
+        // this.getAllShipments();
+        this.calculate();
       },
       (error) => {
         this.api.toastMsg('Something went wrong');
