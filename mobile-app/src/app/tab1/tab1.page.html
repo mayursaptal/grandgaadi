@@ -1,5 +1,5 @@
 <ion-header [translucent]="true">
-  <ion-toolbar >
+  <ion-toolbar>
     <ion-title>
       Pending
     </ion-title>
@@ -21,20 +21,20 @@
     <ion-progress-bar type="indeterminate"></ion-progress-bar>
 
   </div> -->
-  
+
   <ion-searchbar #searchbar animated (keyup)="handleInput(searchbar.value)"></ion-searchbar>
   <br>
   <ion-list id="list">
     <ion-item *ngFor="let shipment of shipments; index as i" (click)="showShipment(shipment)"
       [ngClass]="{'hide': shipment.status == 'DELIVERED' || shipment.status != 'OUT FOR DELIVERY'}">
       <ion-label *ngIf=" shipment.status != 'DELIVERED' && shipment.status == 'OUT FOR DELIVERY' ">
-       <div class="pendingbox">
-        <ion-icon name="logo-dropbox" style="font-size: x-large;"></ion-icon>
-        &nbsp;
-        {{shipment.reference_number}}
-       
-       </div>
-       
+        <div class="pendingbox">
+          <ion-icon name="logo-dropbox" style="font-size: x-large;"></ion-icon>
+          &nbsp;
+          {{shipment.reference_number}}
+
+        </div>
+
         <!-- <h2><span style="display: inline-block;min-width: 100px;">Contact:</span>
           {{shipment.consignee_name}} </h2> -->
         <!-- <h3><span style="display: inline-block;min-width: 100px;">Ref. No.:</span> {{shipment.reference_number}}</h3> -->
@@ -57,7 +57,15 @@
 
       </a> -->
 
+
+
+
       </ion-label>
     </ion-item>
   </ion-list>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="scanner()">
+      <ion-icon name="scan-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

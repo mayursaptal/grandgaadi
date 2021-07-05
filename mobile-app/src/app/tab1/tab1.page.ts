@@ -147,4 +147,8 @@ export class Tab1Page {
     localStorage.clear();
     this.router.navigateByUrl('login');
   }
+
+  scanner(){
+    this.router.navigateByUrl('scanner');
+  }
 }

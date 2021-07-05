@@ -19,7 +19,11 @@ const routes: Routes = [
   {
     path: 'pod',
     loadChildren: () => import('./pod/pod.module').then( m => m.PodPageModule)
+  },  {
+    path: 'scanner',
+    loadChildren: () => import('./scanner/scanner.module').then( m => m.ScannerPageModule)
   },
+
  
 
 ];
