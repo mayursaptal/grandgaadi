@@ -39,6 +39,7 @@ export class ShipmentPage implements OnInit {
   countrycode: string = '91';
   url: string = 'https://wa.me/';
   shipper_name: any;
+  address : any;
   constructor(
     private router: Router,
     public api: ApiService,
@@ -49,10 +50,32 @@ export class ShipmentPage implements OnInit {
   }
 
   ngOnInit() {
+
+    console.log(this.api.shipments);
+
+
+    if( this.api.shipments == undefined ){
+      this.router.navigateByUrl('tabs/dashboard');
+      return;
+    }
+
     this.route.queryParams.subscribe((params) => {
       this.activeShipment = this.api.shipments.filter((currentValue) => {
-        return currentValue.ID == params.id;
+
+        console.log(currentValue.reference_number);
+        console.log(params.id);
+
+        return currentValue.reference_number == params.id || currentValue.post_title == params.id ;
       });
+
+
+
+      if(this.activeShipment.length == 0 || this.api.shipments == undefined ){
+        this.router.navigateByUrl('tabs/dashboard');
+        return;
+      }
+
+
       this.id = this.activeShipment[0].ID;
       this.consigneename = this.activeShipment[0].consignee_name;
       this.codAmmount = this.activeShipment[0].cod_amount;
@@ -63,6 +86,7 @@ export class ShipmentPage implements OnInit {
       this.shipmentStatus = this.activeShipment[0].status;
       this.shipmentNumber = this.activeShipment[0].post_title;
       this.shipper_name =this.activeShipment[0].shipper_name;
+      this.address = this.activeShipment[0].wpcargo_receiver_address;
     });
   }
 

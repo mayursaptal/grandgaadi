@@ -1,11 +1,32 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button (click)="onBack()"></ion-back-button>
+    </ion-buttons>
     <ion-title>Scanner</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div id="scanner">
+  <!-- <div id="scanner">
     
-  </div>
+  </div> -->
+
+  <ion-grid>
+    <ion-row>
+      <ion-col
+        size="6"
+        *ngFor="let photo of photoService.photos; index as position"
+      >
+        <ion-img [src]="photo.webviewPath" > </ion-img>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  
+  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+    <ion-fab-button (click)="addPhotoToGallery()">
+      <ion-icon name="camera"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
 </ion-content>

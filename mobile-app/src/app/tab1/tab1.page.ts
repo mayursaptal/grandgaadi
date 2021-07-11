@@ -125,7 +125,7 @@ export class Tab1Page {
   }
 
   showShipment(data) {
-    this.router.navigateByUrl('shipment?id=' + data.ID);
+    this.router.navigateByUrl('shipment?id=' + data.reference_number);
   }
 
   handleInput(value) {
