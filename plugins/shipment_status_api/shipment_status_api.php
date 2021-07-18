@@ -20,9 +20,9 @@ require "view/vendor/autoload.php";
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
-// ini_set('display_errors', 1);
-// ini_set('display_startup_errors', 1);
-// error_reporting(E_ALL);
+//  ini_set('display_errors', 1);
+//   ini_set('display_startup_errors', 1);
+//   error_reporting(E_ALL);
 
 add_action('rest_api_init', function () {
     register_rest_route('gg-shipment/v1', '/update-tracking/(?P<id>[^/]+)', array(
@@ -367,8 +367,36 @@ function bulk_report_function()
         exit();
     }
 }
+function client_import_output()
+{
+    ob_start();
+    include_once plugin_dir_path(__FILE__) . 'view/client_import.php';
+    $template = ob_get_contents();
+    ob_end_clean();
+    echo $template;
+}
+add_shortcode('CLIENT_IMPORT', 'client_import_output');
+
+function driver_import_output()
+{
+    ob_start();
+    include_once plugin_dir_path(__FILE__) . 'view/driver_import.php';
+    $template = ob_get_contents();
+    ob_end_clean();
+    echo $template;
+}
+add_shortcode('DRIVER_REPORT', 'driver_import_output');
 
 
+function dispatch_import_output()
+{
+    ob_start();
+    include_once plugin_dir_path(__FILE__) . 'view/dispatch_report.php';
+    $template = ob_get_contents();
+    ob_end_clean();
+    echo $template;
+}
+add_shortcode('DISPATCH_REPORT', 'dispatch_import_output');
 
 function bulk_import_output()
 {
@@ -419,4 +447,621 @@ if (@$_GET['getsample']) {
     $writer = new Xlsx($spreadsheet);
     $writer->save('php://output');
     die();
+}
+
+//////My work
+
+
+if (@$_GET['clientData']) {
+
+    $query_args = array(
+        'orderby' => 'ID',
+        'order' => 'DESC',
+        'post_status'       => 'publish',
+        'posts_per_page'   => 10000,
+        'post_type' =>   'wpcargo_shipment',
+        'suppress_filters' => false,
+        'meta_query' => array(
+            array(
+                'key'     => 'registered_shipper',
+                'value'   => $_GET['client'],
+                'compare' => '=',
+            ), 
+            array(
+                'key'     => 'wpcargo_status',
+                'compare' => '=',
+                'value'   => 'DELIVERED',
+            )
+        )
+    );
+
+    
+    
+    
+    $start_date  = $_GET['from'];
+    $end_date  = $_GET['to'];
+
+    // if ($start_date && $end_date) {
+
+    //     $query_args['date_query'] =
+    //         array(
+    //             'relation'   => 'OR',
+    //             array(
+    //                 array(
+    //                     'column' => 'post_date',
+    //                     'after' => $start_date . ' 00:00:00',
+    //                     'before' => $end_date . ' 23:59:59',
+    //                 ),
+    //                 array(
+    //                     'column' => 'post_modified',
+    //                     'after' => $start_date . ' 00:00:00',
+    //                     'before' => $end_date . ' 23:59:59',
+    //                 )
+    //             )
+    //         );
+    // }
+
+
+    $posts = get_posts($query_args);
+
+    // $header is an array containing column headers
+      $header = [array(
+        // "GRANDGAADI PACKAGE DELIVERY SERVICE LLC,
+        // ASSIGNED CLIENT NAME&nbsp :
+        //   DELIVERED DATE :
+        //   SHIPMENT STATUS :",    
+        "ID",
+         'PICKUP DATE', 
+         "REFERENCE NUMBER",
+         "CONSIGNEE NAME",
+         "LAST STATUS",
+         "LAST UPDATE DATE",
+        "COD AMOUNT",
+        "REMARK",
+  
+     )]; 
+
+
+    $users = get_users(array('fields' => array('ID', 'display_name ')));
+
+
+    $user_id = array();
+
+    foreach ($users  as $user) {
+        $user_id[$user->ID] = $user->display_name;
+    }
+
+
+$countor = array();
+    
+    foreach ($posts as $post) {
+
+
+        $meta =   (get_post_meta($post->ID));
+        $data = (unserialize($meta['wpcargo_shipments_update'][0]));
+
+        if (!is_array($data)) {
+            $data = unserialize($data);
+        }
+
+
+        $last_update = array();
+        $last_date = '';
+        $last_time = '';
+//         foreach ($data as $dts) {
+//             if ($last_date == '') {
+//                 $last_date = $dts['date'];
+//                 $last_time = $dts['time'];
+//                 $last_update = $dts;
+//             }
+//             if (strtotime($dts['date']) > strtotime($last_date)) {
+//                 $last_date = $dts['date'];
+//                 $last_time = $dts['time'];
+//                 $last_update = $dts;
+//             }
+//             if (strtotime($dts['date']) ==  strtotime($last_date)) {
+
+//                 if (strtotime($dts['time']) ==  strtotime($last_time)) {
+//                     $last_date = $dts['date'];
+//                     $last_time = $dts['time'];
+//                     $last_update = $dts;
+//                 }
+//             }
+//         }
+
+ 
+        $last_date = @$meta['wpcargo_pickup_date_picker'][0];
+        $last_date = $post->post_date ;
+        $last_update = end($data);
+       
+
+// 		$last_date = $last_update['date'];
+        
+        if (strtotime($last_date)  > strtotime($end_date)) {
+            continue;
+        }
+
+
+        if (strtotime($last_date)  < strtotime($start_date)) {
+            continue;
+        }
+        
+// 		echo $last_date . '<br>';
+
+
+        $countor[$meta['wpcargo_status'][0]]['count'] = $countor[$meta['wpcargo_status'][0]]['count'] + 1;
+// 		$countor[$meta['wpcargo_status'][0]]['id'][$post->ID] =  @$meta['reference_number'][0];
+// 		$countor[$meta['wpcargo_status'][0]]['date'][$post->ID] =   @$meta['wpcargo_pickup_date_picker'][0];
+// 		$countor[$meta['wpcargo_status'][0]]['date'][$post->ID] =  date('d-m-Y' , strtotime($last_date));
+        
+        
+        
+        $header[] = array(
+        
+           'reference_number' => @$meta['reference_number'][0],
+            'wpcargo_pickup_date_picker'=>    @$meta['wpcargo_pickup_date_picker'][0],
+            'reference_number' => @$meta['reference_number'][0],
+           'consignee_name' =>@$meta['consignee_name'][0],
+           'status' => @$meta['wpcargo_status'][0],
+          'date'  =>$last_update['date'],  
+          'cod_amount'=>  @$meta['cod_amount'][0],		
+
+            'remarks' =>$last_update['remarks'],
+        );
+    }
+    
+
+// 	echo "<pre>";
+
+//     var_dump(  $countor);
+//     die(); 
+// $data=["GRANDGAADI PACKAGE DELIVERY SERVICE LLC,
+//      ASSIGNED CLIENT NAME&nbsp :
+//        DELIVERED DATE :
+//        SHIPMENT STATUS :" ]
+if($_GET['download'])
+{
+    $spreadsheet = new Spreadsheet();
+   
+    $sheet = $spreadsheet->getActiveSheet();
+    $sheet= $spreadsheet->getActiveSheet()->mergeCells('C1:H1');
+    $sheet->setCellValue('C1', 'GRANDGAADI PACKAGE DELIVERY SERVICE LLC');
+    $sheet= $spreadsheet->getActiveSheet()->mergeCells('A2:C2');
+    $sheet->setCellValue('A2', 'ASSIGNED CLIENT NAME :');
+    $sheet= $spreadsheet->getActiveSheet()->mergeCells('D2:H2');
+    $sheet->setCellValue('D2', 'ASSIGNED CLIENT NAME');
+
+
+    $sheet= $spreadsheet->getActiveSheet()->mergeCells('A3:C3');
+    $sheet->setCellValue('A3', 'DELIVERED DATE :');
+    $sheet= $spreadsheet->getActiveSheet()->mergeCells('D3:H3');
+    $sheet->setCellValue('D3',$_GET['from']  .' - ' .  $_GET['to']);
+
+    $sheet= $spreadsheet->getActiveSheet()->mergeCells('A4:C4');
+    $sheet->setCellValue('A4', 'SHIPMENT STATUS :');
+    $sheet= $spreadsheet->getActiveSheet()->mergeCells('D4:H4');
+    $sheet->setCellValue('D4', 'SHIPMENT STATUS');
+    
+
+    $sheet->fromArray($header, NULL, 'A6');
+
+    // redirect output to client browser
+    header('Content-Disposition: attachment;filename="myfile.xlsx"');
+    header('Cache-Control: max-age=0');
+
+    $writer = new Xlsx($spreadsheet);
+    $writer->save('php://output');
+
+    exit();
+}
+
+}
+
+
+
+if (@$_GET['driverData']) {
+
+
+    $total_cod = 0;
+    $query_args = array(
+        'orderby' => 'ID',
+        'order' => 'DESC',
+        'post_status'       => 'publish',
+        'posts_per_page'   => 10000,
+        'post_type' =>   'wpcargo_shipment',
+        'suppress_filters' => false,
+        'meta_query' => array(
+            array(
+                'key'     => 'registered_shipper',
+                'value'   => $_GET['driver'],
+                'compare' => '=',
+            ), 
+         
+        )
+    );
+
+    
+    
+    
+    $start_date  = $_GET['from'];
+    $end_date  = $_GET['to'];
+
+    // if ($start_date && $end_date) {
+
+    //     $query_args['date_query'] =
+    //         array(
+    //             'relation'   => 'OR',
+    //             array(
+    //                 array(
+    //                     'column' => 'post_date',
+    //                     'after' => $start_date . ' 00:00:00',
+    //                     'before' => $end_date . ' 23:59:59',
+    //                 ),
+    //                 array(
+    //                     'column' => 'post_modified',
+    //                     'after' => $start_date . ' 00:00:00',
+    //                     'before' => $end_date . ' 23:59:59',
+    //                 )
+    //             )
+    //         );
+    // }
+
+
+    $posts = get_posts($query_args);
+
+    // $header=[array(
+        // GRANDGAADI PACKAGE DELIVERY SERVICE LLC (DRS SHEET)
+    // " DRIVER NAME:",
+    //  "DELIVERED DATE:",
+    //  "TOTAL COD AMOUNT :",
+    // )]
+    // $header is an array containing column headers
+    $header = [array(
+        "ID",
+        "REFERENCE NUMBER",
+        "CONSIGNEE NAME",
+        "CONSIGNEE CONTACT",
+        "STATUS",
+        "COD AMOUNT",
+        'LAST REMARK',
+        
+    )];
+
+
+    $users = get_users(array('fields' => array('ID', 'display_name ')));
+
+
+    $user_id = array();
+
+    foreach ($users  as $user) {
+        $user_id[$user->ID] = $user->display_name;
+    }
+
+
+$countor = array();
+    
+    foreach ($posts as $post) {
+
+
+        $meta =   (get_post_meta($post->ID));
+        $data = (unserialize($meta['wpcargo_shipments_update'][0]));
+
+        if (!is_array($data)) {
+            $data = unserialize($data);
+        }
+
+
+        $last_update = array();
+        $last_date = '';
+        $last_time = '';
+//         foreach ($data as $dts) {
+//             if ($last_date == '') {
+//                 $last_date = $dts['date'];
+//                 $last_time = $dts['time'];
+//                 $last_update = $dts;
+//             }
+//             if (strtotime($dts['date']) > strtotime($last_date)) {
+//                 $last_date = $dts['date'];
+//                 $last_time = $dts['time'];
+//                 $last_update = $dts;
+//             }
+//             if (strtotime($dts['date']) ==  strtotime($last_date)) {
+
+//                 if (strtotime($dts['time']) ==  strtotime($last_time)) {
+//                     $last_date = $dts['date'];
+//                     $last_time = $dts['time'];
+//                     $last_update = $dts;
+//                 }
+//             }
+//         }
+
+ 
+        $last_date = @$meta['wpcargo_pickup_date_picker'][0];
+        $last_date = $post->post_date ;
+        $last_update = end($data);
+       
+
+// 		$last_date = $last_update['date'];
+        
+        if (strtotime($last_date)  > strtotime($end_date)) {
+            continue;
+        }
+
+
+        if (strtotime($last_date)  < strtotime($start_date)) {
+            continue;
+        }
+        
+// 		echo $last_date . '<br>';
+
+
+        $countor[$meta['wpcargo_status'][0]]['count'] = $countor[$meta['wpcargo_status'][0]]['count'] + 1;
+// 		$countor[$meta['wpcargo_status'][0]]['id'][$post->ID] =  @$meta['reference_number'][0];
+// 		$countor[$meta['wpcargo_status'][0]]['date'][$post->ID] =   @$meta['wpcargo_pickup_date_picker'][0];
+// 		$countor[$meta['wpcargo_status'][0]]['date'][$post->ID] =  date('d-m-Y' , strtotime($last_date));
+        
+
+        $total_cod =$total_cod + @$meta['cod_amount'][0];
+         $header[] = array(
+            'reference_number'=>@$meta['reference_number'][0],
+            'reference_number'=>@$meta['reference_number'][0],
+            'consignee_name'=>@$meta['consignee_name'][0],
+            'consignee_contact'=>@$meta['consignee_contact'][0],
+            'comment_status'=>@$meta['comment_status'][0],
+            'cod_amount'=>@$meta['cod_amount'][0],
+            'remarks'=>$last_update['remarks'],
+
+ 
+        );
+    }
+    
+
+// 	echo "<pre>";
+
+//     var_dump(  $countor);
+//     die();
+
+if($_GET['download'])
+{
+   $spreadsheet = new Spreadsheet();
+    $sheet = $spreadsheet->getActiveSheet();
+    $sheet= $spreadsheet->getActiveSheet()->mergeCells('C1:H1');
+    $sheet->setCellValue('C1', 'GRANDGAADI PACKAGE DELIVERY SERVICE LLC (DRS SHEET)');
+    $sheet= $spreadsheet->getActiveSheet()->mergeCells('A2:C2');
+    $sheet->setCellValue('A2',  "DRIVER NAME :");
+    $sheet= $spreadsheet->getActiveSheet()->mergeCells('D2:H2');
+    $sheet->setCellValue('D2',  $user_id[ $_GET['driver']] );
+
+
+    $sheet= $spreadsheet->getActiveSheet()->mergeCells('A3:C3');
+    $sheet->setCellValue('A3', "DELIVERED DATE :");
+    $sheet= $spreadsheet->getActiveSheet()->mergeCells('D3:H3');
+    $sheet->setCellValue('D3', $_GET['from']  .' - ' .  $_GET['to']);
+
+
+    $sheet= $spreadsheet->getActiveSheet()->mergeCells('A4:C4');
+    $sheet->setCellValue('A4',"TOTAL COD AMOUNT :");
+    $sheet= $spreadsheet->getActiveSheet()->mergeCells('D4:H4');
+    $sheet->setCellValue('D4',$total_cod);
+    $sheet->fromArray($header, NULL, 'A5');
+
+    // redirect output to client browser
+    header('Content-Disposition: attachment;filename="myfile.xlsx"');
+    header('Cache-Control: max-age=0');
+
+    $writer = new Xlsx($spreadsheet);
+    $writer->save('php://output');
+
+    exit();
+}
+}
+
+
+
+if (@$_GET['dispatchData']) {
+
+    
+        $query_args = array(
+            'orderby' => 'ID',
+            'order' => 'DESC',
+            'post_status'       => 'publish',
+            'posts_per_page'   => 10000,
+            'post_type' =>   'wpcargo_shipment',
+            'suppress_filters' => false,
+            'meta_query' => array(
+                array(
+                    'key'     => 'registered_shipper',
+                    'value'   => $_GET['drive'],
+                    'compare' => '=',
+                ), 
+                // array(
+                //     'key'     => 'wpcargo_status',
+                //     'compare' => '=',
+                //     'value'   => 'DELIVERED',
+                // )
+            )
+        );
+    
+        
+        
+        
+        $start_date  = $_GET['from'];
+        $end_date  = $_GET['to'];
+    
+        // if ($start_date && $end_date) {
+    
+        //     $query_args['date_query'] =
+        //         array(
+        //             'relation'   => 'OR',
+        //             array(
+        //                 array(
+        //                     'column' => 'post_date',
+        //                     'after' => $start_date . ' 00:00:00',
+        //                     'before' => $end_date . ' 23:59:59',
+        //                 ),
+        //                 array(
+        //                     'column' => 'post_modified',
+        //                     'after' => $start_date . ' 00:00:00',
+        //                     'before' => $end_date . ' 23:59:59',
+        //                 )
+        //             )
+        //         );
+        // }
+    
+    
+        $posts = get_posts($query_args);
+        // $header=[array(
+            // GRANDGAADI PACKAGE DELIVERY SERVICE LLC (DRS SHEET)
+        // " ASSIGNED CLIENT NAME:",
+        // " DELIVERED DATE :",
+        // " SERVICE STATUS :" ,
+        // " UPDATED BY:",   
+        // )]
+        // $header is an array containing column headers
+        $header = [array(
+            "ID",
+            "REFERENCE NUMBER",
+             "CONSIGNEE NAME",
+             "CONSIGNEE ADDRESS",
+             "CONSIGNEE CONTACT",
+            "DESCRIPTION",
+            "COD AMOUNT",
+            "RECEIVER SIGN",
+      
+        )];
+    
+    
+        $users = get_users(array('fields' => array('ID', 'display_name ')));
+    
+    
+        $user_id = array();
+    
+        foreach ($users  as $user) {
+            $user_id[$user->ID] = $user->display_name;
+        }
+    
+    
+    $countor = array();
+        
+        foreach ($posts as $post) {
+    
+    
+            $meta =   (get_post_meta($post->ID));
+            $data = (unserialize($meta['wpcargo_shipments_update'][0]));
+    
+            if (!is_array($data)) {
+                $data = unserialize($data);
+            }
+    
+    
+            $last_update = array();
+            $last_date = '';
+            $last_time = '';
+    //         foreach ($data as $dts) {
+    //             if ($last_date == '') {
+    //                 $last_date = $dts['date'];
+    //                 $last_time = $dts['time'];
+    //                 $last_update = $dts;
+    //             }
+    //             if (strtotime($dts['date']) > strtotime($last_date)) {
+    //                 $last_date = $dts['date'];
+    //                 $last_time = $dts['time'];
+    //                 $last_update = $dts;
+    //             }
+    //             if (strtotime($dts['date']) ==  strtotime($last_date)) {
+    
+    //                 if (strtotime($dts['time']) ==  strtotime($last_time)) {
+    //                     $last_date = $dts['date'];
+    //                     $last_time = $dts['time'];
+    //                     $last_update = $dts;
+    //                 }
+    //             }
+    //         }
+    
+     
+            $last_date = @$meta['wpcargo_pickup_date_picker'][0];
+            $last_date = $post->post_date ;
+            $last_update = end($data);
+           
+
+    // 		$last_date = $last_update['date'];
+            
+            if (strtotime($last_date)  > strtotime($end_date)) {
+                continue;
+            }
+    
+    
+            if (strtotime($last_date)  < strtotime($start_date)) {
+                continue;
+            }
+            
+    // 		echo $last_date . '<br>';
+            $countor[$meta['wpcargo_status'][0]]['count'] = $countor[$meta['wpcargo_status'][0]]['count'] + 1;
+    // 		$countor[$meta['wpcargo_status'][0]]['id'][$post->ID] =  @$meta['reference_number'][0];
+    // 		$countor[$meta['wpcargo_status'][0]]['date'][$post->ID] =   @$meta['wpcargo_pickup_date_picker'][0];
+    // 		$countor[$meta['wpcargo_status'][0]]['date'][$post->ID] =  date('d-m-Y' , strtotime($last_date));
+            
+            
+    $packages = $meta['packages'];
+   $packages[0]['wpc-pm-description'];
+
+            $header[] = array(
+              
+                 'reference_number'   =>   @$meta['reference_number'][0],
+                 'reference_number'   =>   @$meta['reference_number'][0],
+                 'consignee_name'  =>   @$meta['consignee_name'][0],
+                 'wpcargo_receiver_address'    =>  @$meta['wpcargo_receiver_address'][0],
+                 'consignee_contact'    => @$meta['consignee_contact'][0],
+
+                 'wpc-multiple-package'=>unserialize(unserialize(@$meta['wpc-multiple-package'][0] ))[0]['wpc-pm-description'],
+
+           
+                'cod_amount' =>  @$meta['cod_amount'][0],
+                'remarks'   =>  $last_update['remarks'],		
+            );
+        }
+        
+
+  
+if($_GET['download'])
+{
+        $spreadsheet = new Spreadsheet();
+        $sheet = $spreadsheet->getActiveSheet();
+
+        $sheet= $spreadsheet->getActiveSheet()->mergeCells('C1:H1');
+        $sheet->setCellValue('C1', 'GRANDGAADI PACKAGE DELIVERY SERVICE LLC (DRS SHEET)');
+
+        $sheet= $spreadsheet->getActiveSheet()->mergeCells('A2:C2');
+        $sheet->setCellValue('A2', "ASSIGNED CLIENT NAME : ");
+        $sheet= $spreadsheet->getActiveSheet()->mergeCells('D2:H2');
+        $sheet->setCellValue('D2', "ASSIGNED CLIENT NAME ");
+
+        $sheet= $spreadsheet->getActiveSheet()->mergeCells('A3:C3');
+        $sheet->setCellValue('A3',  " DELIVERED DATE : ");
+        $sheet= $spreadsheet->getActiveSheet()->mergeCells('D3:H3');
+        $sheet->setCellValue('D3',  $_GET['from']  .' - ' .  $_GET['to']);
+
+        $sheet= $spreadsheet->getActiveSheet()->mergeCells('A4:C4');
+        $sheet->setCellValue('A4'," SERVICE STATUS : ");
+        $sheet= $spreadsheet->getActiveSheet()->mergeCells('D4:H4');
+        $sheet->setCellValue('D4'," SERVICE STATUS  ");
+
+        $sheet= $spreadsheet->getActiveSheet()->mergeCells('A5:C5');
+        $sheet->setCellValue('A5', " UPDATED BY : " );
+        $sheet= $spreadsheet->getActiveSheet()->mergeCells('D5:H5');
+        $sheet->setCellValue('D5', " UPDATED BY  " );
+
+
+        $sheet->fromArray($header, NULL, 'A7');
+    
+        // redirect output to client browser
+        header('Content-Disposition: attachment;filename="myfile.xlsx"');
+        header('Cache-Control: max-age=0');
+    
+        $writer = new Xlsx($spreadsheet);
+        $writer->save('php://output');
+
+        exit();
+
+    }
 }
