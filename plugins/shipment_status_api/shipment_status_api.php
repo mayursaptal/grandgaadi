@@ -5,7 +5,7 @@
  * Plugin Name: Shipmanet Status api 
  * Author Name: Mayur Saptal
  * Description: save and show shipment status based on refrence no
- * Version: 0.0.2
+ * Version: 2.0
  * License: 2.0
  * License URL: http://www.gnu.org/licenses/gpl-2.0.txt
  * text-domain: shipment_status_api
@@ -13,7 +13,7 @@
  */
 
 
-
+date_default_timezone_set('Asia/Dubai');
 
 require "view/vendor/autoload.php";
 
@@ -208,6 +208,7 @@ function bulk_report_function()
         $driver = $_POST['driver'];
 
         $status = $_POST['status'];
+        date_default_timezone_set('Asia/Dubai');
 
         $posts = array();
         foreach ($ids  as $id) {
@@ -234,7 +235,7 @@ function bulk_report_function()
                     'date' => date('Y-m-d'),
                     'time' => date('h:m'),
                     'status' => $status,
-                    'updated-by' => wp_get_current_user()->display_name
+                    'updated-name' => wp_get_current_user()->display_name
 
                 );
 
