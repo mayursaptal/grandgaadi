@@ -39,7 +39,9 @@ export class ShipmentPage implements OnInit {
   countrycode: string = '91';
   url: string = 'https://wa.me/';
   shipper_name: any;
-  address : any;
+  address: any;
+  shipments: any;
+  counts: 1;
   constructor(
     private router: Router,
     public api: ApiService,
@@ -49,13 +51,57 @@ export class ShipmentPage implements OnInit {
     this.driver = JSON.parse(localStorage.getItem('userdata')).user_nicename;
   }
 
+
+  getAllShipments() {
+    const apikey = localStorage.getItem('apikey');
+    this.api.shipments = [];
+    for (let index = 2; index < 11; index++) {
+      this.api.get(apikey + '/driver/page/' + index).subscribe(
+        (data: any) => {
+          this.api.loaderhide();
+          this.counts++;
+
+          if (data) {
+            this.api.shipments = [
+              ...this.api.shipments,
+              ...data,
+            ];
+
+            this.api.shipments = this.api.shipments.filter((shipment) => {
+              let history = shipment.shipment_history;
+
+              let flag = false;
+              var d = new Date();
+              var date = this.datePipe.transform(d, 'yyyy-MM-dd');
+
+              for (let index = 0; index < history.length; index++) {
+                const element = history[index];
+                if (element.status === "OUT FOR DELIVERY") {
+                  if (element.date === date) {
+                    flag = true;
+                  }
+                }
+              }
+              return flag;
+            });
+
+            this.shipments = this.api.shipments;
+          }
+        },
+
+        (error) => {
+          this.api.loaderhide();
+        }
+      );
+    }
+  }
+
+
   ngOnInit() {
 
-    console.log(this.api.shipments);
 
-
-    if( this.api.shipments == undefined ){
-      this.router.navigateByUrl('tabs/dashboard');
+    if (this.api.shipments == undefined) {
+      this.router.navigateByUrl('tabs/pending');
       return;
     }
 
@@ -65,13 +111,13 @@ export class ShipmentPage implements OnInit {
         console.log(currentValue.reference_number);
         console.log(params.id);
 
-        return currentValue.reference_number == params.id || currentValue.post_title == params.id ;
+        return currentValue.reference_number == params.id || currentValue.post_title == params.id;
       });
 
 
 
-      if(this.activeShipment.length == 0 || this.api.shipments == undefined ){
-        this.router.navigateByUrl('tabs/dashboard');
+      if (this.activeShipment.length == 0 || this.api.shipments == undefined) {
+        this.router.navigateByUrl('tabs/pending');
         return;
       }
 
@@ -85,7 +131,7 @@ export class ShipmentPage implements OnInit {
       ];
       this.shipmentStatus = this.activeShipment[0].status;
       this.shipmentNumber = this.activeShipment[0].post_title;
-      this.shipper_name =this.activeShipment[0].shipper_name;
+      this.shipper_name = this.activeShipment[0].shipper_name;
       this.address = this.activeShipment[0].wpcargo_receiver_address;
     });
   }
@@ -105,7 +151,7 @@ export class ShipmentPage implements OnInit {
       },
     ];
 
- 
+
     this.activeShipment[0].shipment_history.push(history);
     const param = {
       shipment: this.shipmentNumber,
@@ -129,7 +175,7 @@ export class ShipmentPage implements OnInit {
       }
     );
   }
-  onBack(){
+  onBack() {
     this.router.navigateByUrl("/tabs/pending");
   }
 }

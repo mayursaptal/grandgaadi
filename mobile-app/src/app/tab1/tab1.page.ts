@@ -149,6 +149,6 @@ export class Tab1Page {
   }
 
   scanner(){
-    this.router.navigateByUrl('scanner');
+    this.router.navigateByUrl('scanner2');
   }
 }

@@ -23,6 +23,10 @@ const routes: Routes = [
     path: 'scanner',
     loadChildren: () => import('./scanner/scanner.module').then( m => m.ScannerPageModule)
   },
+  {
+    path: 'scanner2',
+    loadChildren: () => import('./scanner2/scanner2.module').then( m => m.Scanner2PageModule)
+  },
 
  
 
