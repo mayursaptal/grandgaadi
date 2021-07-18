@@ -134,10 +134,6 @@ if ($inputFileName) {
 
         update_post_meta($id, 'wpcargo_shipments_update_demo', $history);
         update_post_meta($id, 'wpcargo_shipments_update', $history);
-
-        //      update_post_meta($id,'total_payments',$amount);
-
-
     }
 
     echo ("Imported Successfully<br>");

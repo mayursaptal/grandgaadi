@@ -1,6 +1,3 @@
-
-
-
 <?php
 
 if (@$_GET['driverData']) {
@@ -16,21 +13,21 @@ if (@$_GET['driverData']) {
         'suppress_filters' => false,
         'meta_query' => array(
             array(
-                'key'     => 'registered_shipper',
+                'key'     => 'wpcargo_driver',
                 'value'   => $_GET['driver'],
                 'compare' => '=',
-            ), 
-         
+            ),
+
         )
     );
 
-    
-    
-    
+
+
+
     $start_date  = $_GET['from'];
     $end_date  = $_GET['to'];
 
-  
+
 
 
     $posts = get_posts($query_args);
@@ -38,15 +35,7 @@ if (@$_GET['driverData']) {
 
 
     // $header is an array containing column headers
-    $header = [array(
-        "REFERENCE NUMBER",
-        "CONSIGNEE NAME",
-        "CONSIGNEE CONTACT",
-        "STATUS",
-        "COD AMOUNT",
-        'LAST REMARK',
-        
-    )];
+    $header = [];
 
 
     $users = get_users(array('fields' => array('ID', 'display_name ')));
@@ -59,8 +48,8 @@ if (@$_GET['driverData']) {
     }
 
 
-$countor = array();
-    
+    $countor = array();
+
     foreach ($posts as $post) {
 
 
@@ -76,13 +65,13 @@ $countor = array();
         $last_date = '';
         $last_time = '';
 
- 
-        $last_date = @$meta['wpcargo_pickup_date_picker'][0];
-        $last_date = $post->post_date ;
-        $last_update = end($data);
-       
 
-        
+        $last_date = @$meta['wpcargo_pickup_date_picker'][0];
+        $last_date = $post->post_date;
+        $last_update = end($data);
+
+
+
         if (strtotime($last_date)  > strtotime($end_date)) {
             continue;
         }
@@ -91,41 +80,30 @@ $countor = array();
         if (strtotime($last_date)  < strtotime($start_date)) {
             continue;
         }
-        
+        // $countor[$meta['wpcargo_status'][0]]['count'] = $countor[$meta['wpcargo_status'][0]]['count'] + 1;
 
-
-
-        $countor[$meta['wpcargo_status'][0]]['count'] = $countor[$meta['wpcargo_status'][0]]['count'] + 1;
-
-        
-
-  
-         $header[] = array(
-            
-            'reference_number'=>@$meta['reference_number'][0],
-            'consignee_name'=>@$meta['consignee_name'][0],
-            'consignee_contact'=>@$meta['consignee_contact'][0],
-            'comment_status'=>@$meta['comment_status'][0],
-            'cod_amount'=>@$meta['cod_amount'][0],
-            'remarks'=>$last_update['remarks'],
-
- 
+        $header[] = array(
+            'reference_number' => @$meta['reference_number'][0],
+            'consignee_name' => @$meta['consignee_name'][0],
+            'consignee_contact' => @$meta['consignee_contact'][0],
+            'status' => @$meta['wpcargo_status'][0],
+            'cod_amount' => @$meta['cod_amount'][0] ? @$meta['cod_amount'][0] : 0,
+            'remarks' => $last_update['remarks'] ? $last_update['remarks'] : '-',
         );
     }
-    
-    if($_GET['download'])
-    {
+
+    if ($_GET['download']) {
         $spreadsheet = new Spreadsheet();
         $sheet = $spreadsheet->getActiveSheet();
         $sheet->fromArray($header, NULL, 'A1');
-    
+
         // redirect output to client browser
         header('Content-Disposition: attachment;filename="myfile.xlsx"');
         header('Cache-Control: max-age=0');
-    
+
         $writer = new Xlsx($spreadsheet);
         $writer->save('php://output');
-    
+
         exit();
     }
 }
@@ -136,24 +114,24 @@ $args = array(
     'role'    => "wpcargo_driver",
 
 );
-$drivers= get_users($args);
+$drivers = get_users($args);
 
 ?>
 
-<form class="formargin"  id="formargin" method="get" enctype="multipart/form-data">
+<form class="formargin" id="formargin" method="get" enctype="multipart/form-data">
     <h2> Driver Report </h2>
 
     <div class="row">
         <div class="col-6 ">
             <label>Driver </label><br>
-            <select style="display: block !important;" class="form-control" name="client" required placeholder="Client">
-                <option >
-                    --select--
+            <select style="display: block !important;" class="form-control" name="driver" required placeholder="Client">
+                <option>
+                    Select Driver
                 </option>
                 <?php
-                    foreach ($drivers as $driver) {
+                foreach ($drivers as $driver) {
                 ?>
-                <option value="<?php echo  $driver->ID ?>"><?php echo  $driver->display_name ?></option>
+                    <option <?php echo $_GET['driver'] ==  $driver->ID ? 'selected' : '' ?> value="<?php echo  $driver->ID ?>"><?php echo  $driver->display_name ?></option>
                 <?php } ?>
 
             </select>
@@ -164,19 +142,17 @@ $drivers= get_users($args);
         <label>Data Range</label>
         <div class="d-flex flex-row bd-highlight mr-4">
 
-            <input class="form-control wpccf-datepicker picker__input col-6  " placeholder="From" type="date"
-                name="from">
+            <input class="form-control wpccf-datepicker picker__input col-6  " placeholder="From" type="date" value="<?php echo $_GET['from'] ?>" name="from">
 
 
-            <input class="form-control wpccf-datepicker picker__input col-6 ml-2" placeholder="To" type="date"
-                name="to">
+            <input class="form-control wpccf-datepicker picker__input col-6 ml-2" placeholder="To" type="date" value="<?php echo $_GET['to'] ?>" name="to">
             <input type="hidden" name="driverData" value="true">
-          
+
         </div>
 
         <input type="reset" class="btn btn-primary btn-sm mt-20 ml-0" value="Reset">
         <input type="submit" class="btn btn-primary btn-sm ml-2 " value="search">
-        <button  onclick="myFunction()" id="formdata" class="btn btn-primary btn-sm ml-2">Export</button>
+        <button onclick="myFunction(event)" id="formdata" class="btn btn-primary btn-sm ml-2">Export</button>
     </div>
 
 
@@ -191,11 +167,11 @@ $drivers= get_users($args);
                 <tr>
                     <br>
                     <br>
-                  
+
                 </tr>
                 <tr>
                     <th class="form-check">
-                        ID
+                        SL NO
                     </th>
                     <th class="table-header">Referance Number</th>
                     <th class="table-header">Consignee Name</th>
@@ -207,24 +183,27 @@ $drivers= get_users($args);
                 </tr>
             </thead>
             <tbody>
-            <?php
-                 foreach ($header as $value)
-       {
-?>
+                <?php
 
-                <tr>
-                    <td><?php echo  $value['reference_number']?></td>
-                    <td>
-                        <?php echo  $value['reference_number']?>
-                    </td>
-                    <td><?php echo  $value['consignee_name']?></td>
-                    <td><?php echo $value['consignee_contact']?></td>
-                    <td><?php echo  $value['comment_status']?></td>
-                    <td><?php echo  $value['cod_amount']?></td>
-                    <td><?php echo  $value['remarks']?></td>
+                $count = 1;
+                foreach ($header as $value) {
+                ?>
 
-                </tr>
-<?php } ?>
+                    <tr>
+                        <td>
+                            <?php echo  $count++ ?>
+                        </td>
+                        <td> <?php echo  $value['reference_number'] ?></td>
+
+
+                        <td><?php echo  $value['consignee_name'] ?></td>
+                        <td><?php echo $value['consignee_contact'] ?></td>
+                        <td><?php echo  $value['status'] ?></td>
+                        <td><?php echo  $value['cod_amount'] ?></td>
+                        <td><?php echo  $value['remarks'] ?></td>
+
+                    </tr>
+                <?php } ?>
             </tbody>
         </table>
     </div>
@@ -236,7 +215,7 @@ $drivers= get_users($args);
     }
 
     .formargin {
-        margin-top: 50px; 
+        margin-top: 50px;
         overflow: hidden;
         height: 100%;
     }
@@ -279,6 +258,10 @@ $drivers= get_users($args);
         margin-bottom: 5px;
     }
 
+    .tablediv td {
+        text-align: left;
+    }
+
     @media screen and (min-width: 992px) {
 
         .tablediv {
@@ -287,19 +270,19 @@ $drivers= get_users($args);
     }
 </style>
 <script>
-    function myFunction() {
+    function myFunction(event) {
         console.log("Driver");
-       
+        event.preventDefault();
         var elements = document.getElementById("formargin").elements;
-      
-        var obj ={};
-         
-        for(var i = 0 ; i < elements.length ; i++){
+
+        var obj = {};
+
+        for (var i = 0; i < elements.length; i++) {
             var item = elements.item(i);
-            obj[item.name] = item.value; 
+            obj[item.name] = item.value;
         }
-        var url="/driver_report/?client="+obj['client']+"&from="+obj['from']+"&to="+obj['to']+"&driverData=true&download=true";
-        window.open(url,'_blank');
-    
+        var url = "/driver_report/?driver=" + obj['driver'] + "&from=" + obj['from'] + "&to=" + obj['to'] + "&driverData=true&download=true";
+        window.open(url, '_blank');
+
     }
 </script>

@@ -15,14 +15,14 @@ use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 if (@$_GET['ssi_download']) {
 
-//     ini_set('max_execution_time', 300); //300 seconds = 5 minutes
+    //     ini_set('max_execution_time', 300); //300 seconds = 5 minutes
     ini_set("memory_limit", -1);
     ini_set('max_execution_time', 0); //0=NOLIMIT
 
     $query_args = array(
         'orderby' => 'ID',
         'order' => 'DESC',
-		'post_status'       => 'publish',
+        'post_status'       => 'publish',
         'posts_per_page'   => 10000,
         'post_type' =>   'wpcargo_shipment',
         'suppress_filters' => false,
@@ -35,9 +35,9 @@ if (@$_GET['ssi_download']) {
         )
     );
 
-	
-	
-	
+
+
+
     $start_date  = $_GET['from'];
     $end_date  = $_GET['to'];
 
@@ -80,13 +80,13 @@ if (@$_GET['ssi_download']) {
         "CONSIGNEE NAME",
         "COD AMOUNT",
         "DESTINATION",
-		"STATUS",
-      
+        "STATUS",
+
         "DRIVER NAME",
         "LAST UPDATE DATE",
-// 		  "LAST STATUS",
-		'PICKUP DATE',
-		'LAST REMARK',
+        // 		  "LAST STATUS",
+        'PICKUP DATE',
+        'LAST REMARK',
     )];
 
 
@@ -100,8 +100,8 @@ if (@$_GET['ssi_download']) {
     }
 
 
-$countor = array();
-	
+    $countor = array();
+
     foreach ($posts as $post) {
 
 
@@ -116,33 +116,33 @@ $countor = array();
         $last_update = array();
         $last_date = '';
         $last_time = '';
-//         foreach ($data as $dts) {
-//             if ($last_date == '') {
-//                 $last_date = $dts['date'];
-//                 $last_time = $dts['time'];
-//                 $last_update = $dts;
-//             }
-//             if (strtotime($dts['date']) > strtotime($last_date)) {
-//                 $last_date = $dts['date'];
-//                 $last_time = $dts['time'];
-//                 $last_update = $dts;
-//             }
-//             if (strtotime($dts['date']) ==  strtotime($last_date)) {
+        //         foreach ($data as $dts) {
+        //             if ($last_date == '') {
+        //                 $last_date = $dts['date'];
+        //                 $last_time = $dts['time'];
+        //                 $last_update = $dts;
+        //             }
+        //             if (strtotime($dts['date']) > strtotime($last_date)) {
+        //                 $last_date = $dts['date'];
+        //                 $last_time = $dts['time'];
+        //                 $last_update = $dts;
+        //             }
+        //             if (strtotime($dts['date']) ==  strtotime($last_date)) {
 
-//                 if (strtotime($dts['time']) ==  strtotime($last_time)) {
-//                     $last_date = $dts['date'];
-//                     $last_time = $dts['time'];
-//                     $last_update = $dts;
-//                 }
-//             }
-//         }
+        //                 if (strtotime($dts['time']) ==  strtotime($last_time)) {
+        //                     $last_date = $dts['date'];
+        //                     $last_time = $dts['time'];
+        //                     $last_update = $dts;
+        //                 }
+        //             }
+        //         }
 
- 
-		$last_date = @$meta['wpcargo_pickup_date_picker'][0];
-		$last_date = $post->post_date ;
-		$last_update = end($data);
-// 		$last_date = $last_update['date'];
-		
+
+        $last_date = @$meta['wpcargo_pickup_date_picker'][0];
+        $last_date = $post->post_date;
+        $last_update = end($data);
+        // 		$last_date = $last_update['date'];
+
         if (strtotime($last_date)  > strtotime($end_date)) {
             continue;
         }
@@ -151,19 +151,19 @@ $countor = array();
         if (strtotime($last_date)  < strtotime($start_date)) {
             continue;
         }
-		
-// 		echo $last_date . '<br>';
-		
 
-		
+        // 		echo $last_date . '<br>';
 
-		$countor[$meta['wpcargo_status'][0]]['count'] = $countor[$meta['wpcargo_status'][0]]['count'] + 1;
-// 		$countor[$meta['wpcargo_status'][0]]['id'][$post->ID] =  @$meta['reference_number'][0];
-// 		$countor[$meta['wpcargo_status'][0]]['date'][$post->ID] =   @$meta['wpcargo_pickup_date_picker'][0];
-// 		$countor[$meta['wpcargo_status'][0]]['date'][$post->ID] =  date('d-m-Y' , strtotime($last_date));
-		
-		
-		
+
+
+
+        $countor[$meta['wpcargo_status'][0]]['count'] = $countor[$meta['wpcargo_status'][0]]['count'] + 1;
+        // 		$countor[$meta['wpcargo_status'][0]]['id'][$post->ID] =  @$meta['reference_number'][0];
+        // 		$countor[$meta['wpcargo_status'][0]]['date'][$post->ID] =   @$meta['wpcargo_pickup_date_picker'][0];
+        // 		$countor[$meta['wpcargo_status'][0]]['date'][$post->ID] =  date('d-m-Y' , strtotime($last_date));
+
+
+
         $header[] = array(
             // $post->post_title,
             @$meta['reference_number'][0],
@@ -171,19 +171,19 @@ $countor = array();
             @$meta['consignee_name'][0],
             @$meta['cod_amount'][0],
             @$meta['wpcargo_destination'][0],
-			$meta['wpcargo_status'][0],
+            $meta['wpcargo_status'][0],
             @$user_id[@$meta['wpcargo_driver'][0]],
             $last_update['date'],
-// 			$last_update['status'],
-			@$meta['wpcargo_pickup_date_picker'][0],
-			 $last_update['remarks'],
+            // 			$last_update['status'],
+            @$meta['wpcargo_pickup_date_picker'][0],
+            $last_update['remarks'],
         );
     }
 
-// 	echo "<pre>";
+    // 	echo "<pre>";
 
-//     var_dump(  $countor);
-//     die();
+    //     var_dump(  $countor);
+    //     die();
 
     $spreadsheet = new Spreadsheet();
     $sheet = $spreadsheet->getActiveSheet();

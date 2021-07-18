@@ -1,4 +1,3 @@
-
 <?php
 
 
@@ -16,7 +15,7 @@ if (@$_GET['clientData']) {
                 'key'     => 'registered_shipper',
                 'value'   => $_GET['client'],
                 'compare' => '=',
-            ), 
+            ),
             array(
                 'key'     => 'wpcargo_status',
                 'compare' => '=',
@@ -25,53 +24,14 @@ if (@$_GET['clientData']) {
         )
     );
 
-    
-    
-    
+
+
+
     $start_date  = $_GET['from'];
     $end_date  = $_GET['to'];
 
-    // if ($start_date && $end_date) {
-
-    //     $query_args['date_query'] =
-    //         array(
-    //             'relation'   => 'OR',
-    //             array(
-    //                 array(
-    //                     'column' => 'post_date',
-    //                     'after' => $start_date . ' 00:00:00',
-    //                     'before' => $end_date . ' 23:59:59',
-    //                 ),
-    //                 array(
-    //                     'column' => 'post_modified',
-    //                     'after' => $start_date . ' 00:00:00',
-    //                     'before' => $end_date . ' 23:59:59',
-    //                 )
-    //             )
-    //         );
-    // }
-
-
     $posts = get_posts($query_args);
 
-
-
-//      <div class=" col-4 ml-2">
-//     <p>ASSIGNED CLIENT NAME&nbsp :---</p>
-//     <p> DELIVERED DATE :---</p>
-//     <p> SHIPMENT STATUS :- DELIVERED</p>
-// </div>
-    // $header is an array containing column headers
-    //   $header = [array(
-    //      "REFERENCE NUMBER",
-    //      'PICKUP DATE', 
-    //      "CONSIGNEE NAME",
-    //      "LAST STATUS",
-    //      "LAST UPDATE DATE",
-    //     "COD AMOUNT",
-    //     "REMARK",
-  
-    //  )]; 
 
 
     $users = get_users(array('fields' => array('ID', 'display_name ')));
@@ -84,8 +44,8 @@ if (@$_GET['clientData']) {
     }
 
 
-$countor = array();
-    
+    $countor = array();
+
     foreach ($posts as $post) {
 
 
@@ -102,13 +62,13 @@ $countor = array();
         $last_time = '';
 
 
- 
-        $last_date = @$meta['wpcargo_pickup_date_picker'][0];
-        $last_date = $post->post_date ;
-        $last_update = end($data);
-       
 
-        
+        $last_date = @$meta['wpcargo_pickup_date_picker'][0];
+        $last_date = $post->post_date;
+        $last_update = end($data);
+
+
+
         if (strtotime($last_date)  > strtotime($end_date)) {
             continue;
         }
@@ -117,44 +77,43 @@ $countor = array();
         if (strtotime($last_date)  < strtotime($start_date)) {
             continue;
         }
-        
+
 
 
 
         $countor[$meta['wpcargo_status'][0]]['count'] = $countor[$meta['wpcargo_status'][0]]['count'] + 1;
 
-        
-        
-        
-        $header[] = array(
-        
-           'reference_number' => @$meta['reference_number'][0],
-            'wpcargo_pickup_date_picker'=>    @$meta['wpcargo_pickup_date_picker'][0],
-           'consignee_name' =>@$meta['consignee_name'][0],
-           'status' => @$meta['wpcargo_status'][0],
-          'date'  =>$last_update['date'],  
-          'cod_amount'=>  @$meta['cod_amount'][0],		
 
-            'remarks' =>$last_update['remarks'],
+
+        @$meta['wpcargo_pickup_date_picker'][0] = date('d/m/Y', strtotime(@$meta['wpcargo_pickup_date_picker'][0]));
+        $last_update['date'] = date('d/m/Y', strtotime($last_update['date']));
+
+        $header[] = array(
+
+            'reference_number' => @$meta['reference_number'][0],
+            'wpcargo_pickup_date_picker' =>    @$meta['wpcargo_pickup_date_picker'][0],
+            'consignee_name' => @$meta['consignee_name'][0],
+            'status' => @$meta['wpcargo_status'][0],
+            'date'  => $last_update['date'],
+            'cod_amount' =>  @$meta['cod_amount'][0] ?  @$meta['cod_amount'][0] : 0,
+            'remarks' => $last_update['remarks']  ? $last_update['remarks'] : '-',
         );
     }
 
-if($_GET['download'])
-{
-    $spreadsheet = new Spreadsheet();
-    $sheet = $spreadsheet->getActiveSheet();
-    $sheet->fromArray($header, NULL, 'A1');
+    if ($_GET['download']) {
+        $spreadsheet = new Spreadsheet();
+        $sheet = $spreadsheet->getActiveSheet();
+        $sheet->fromArray($header, NULL, 'A1');
 
-    // redirect output to client browser
-    header('Content-Disposition: attachment;filename="myfile.xlsx"');
-    header('Cache-Control: max-age=0');
+        // redirect output to client browser
+        header('Content-Disposition: attachment;filename="myfile.xlsx"');
+        header('Cache-Control: max-age=0');
 
-    $writer = new Xlsx($spreadsheet);
-    $writer->save('php://output');
+        $writer = new Xlsx($spreadsheet);
+        $writer->save('php://output');
 
-    exit();
-}
-
+        exit();
+    }
 }
 
 ?>
@@ -170,9 +129,8 @@ $users = get_users($args);
 
 
 
-?> 
-<form class="formargin"  id=
-"formargin" method="get" enctype="multipart/form-data">
+?>
+<form class="formargin" id="formargin" method="get" enctype="multipart/form-data">
     <h2> Client Report </h2>
 
     <div class="row">
@@ -180,35 +138,30 @@ $users = get_users($args);
             <label>Client </label><br>
             <select style="display: block !important;" class="form-control" name="client" required placeholder="Client">
                 <option>
-                    --select--
+                    Select Client
                 </option>
                 <?php
-                    foreach ($users as $user) {
+                foreach ($users as $user) {
                 ?>
-                <option value="<?php echo  $user->ID ?>"><?php echo  $user->display_name ?></option>
+                    <option <?php echo $user->ID == $_GET['client']  ? 'selected'  : '' ?> value="<?php echo  $user->ID ?>"><?php echo  $user->display_name ?></option>
                 <?php } ?>
 
             </select>
         </div>
-   
+
     </div>
 
     <div class=" p-0 col-6">
         <label>Data Range</label>
         <div class="d-flex flex-row bd-highlight ">
-
-            <input class="form-control wpccf-datepicker picker__input col-6  " placeholder="From" type="date"
-                name="from">
-
-
-            <input class="form-control wpccf-datepicker picker__input col-6 ml-2 " placeholder="To" type="date"
-                name="to">
+            <input class="form-control wpccf-datepicker picker__input col-6  " placeholder="From" type="date" value="<?php echo @$_GET['from'] ?>" name="from">
+            <input class="form-control wpccf-datepicker picker__input col-6 ml-2 " placeholder="To" type="date" value="<?php echo @$_GET['to'] ?>" name="to">
             <input type="hidden" name="clientData" value="true">
         </div>
 
         <input type="reset" class="btn btn-primary btn-sm mt-20 ml-0" value="Reset">
         <input type="submit" class="btn btn-primary btn-sm ml-2 " value="search">
-        <button onclick="clientFunction()" class="btn btn-primary btn-sm ml-2" >Export</button>
+        <button onclick="clientFunction(event)" class="btn btn-primary btn-sm ml-2">Export</button>
     </div>
 
 </form>
@@ -220,7 +173,7 @@ $users = get_users($args);
             <thead>
                 <tr>
                     <th class="form-check">
-                        ID
+                        SL NO
                     </th>
                     <th class="table-header">Pick Up Date</th>
                     <th class="table-header">Referance Number</th>
@@ -234,41 +187,40 @@ $users = get_users($args);
                 </tr>
             </thead>
             <tbody>
-          
-     <?php
-      foreach ($header as  $value)
-       {
-        $totalCOD =$totalCOD+$value['cod_amount'];
-?>
-                <tr>
-                    <td >
-                    <?php echo  $value['reference_number']?>
-                    </td>
-                    <td><?php echo  $value['wpcargo_pickup_date_picker']?></td>   
-                    <td>
-                        <?php echo  $value['reference_number']?>
-                    </td>  
-                    <td><?php echo  $value['consignee_name']?></td>
-                    <td><?php echo  $value['status']?></td>
-                    <td> <?php echo  $value['date']?></td>
-                    <td> <?php echo  $value['cod_amount']?></td>
-                    <td> <?php echo  $value['remarks']?></td>
 
-                </tr>
-           
+                <?php
+                $count = 1;
+                foreach ($header as  $value) {
+                    $totalCOD = $totalCOD + $value['cod_amount'];
+                ?>
+                    <tr>
+                        <td>
+                            <?php echo  $count++ ?>
+                        </td>
+                        <td><?php echo  $value['wpcargo_pickup_date_picker'] ?></td>
+                        <td>
+                            <?php echo  $value['reference_number'] ?>
+                        </td>
+                        <td><?php echo  $value['consignee_name'] ?></td>
+                        <td><?php echo  $value['status'] ?></td>
+                        <td> <?php echo  $value['date'] ?></td>
+                        <td> <?php echo  $value['cod_amount'] ?></td>
+                        <td> <?php echo  $value['remarks'] ?></td>
+
+                    </tr>
+
                 <?php } ?>
-                      <tr>
-                    <td colspan="5" style="text-align:left;">TOTAL SHIPMENT DELIVERED</td>
-                    <td><?php echo count($header)?>
+                <tr>
+                    <td colspan="6" style="text-align:left;">TOTAL SHIPMENT DELIVERED</td>
+                    <td><?php echo count($header) ?>
                     <td>
 
                 </tr>
                 <tr>
-                    <td colspan="5" style="text-align:left">TOTAL COD AMOUNT </td>
-                    <td></td>
-                    <td><?php   echo $totalCOD?></td>
+                    <td colspan="6" style="text-align:left">TOTAL COD AMOUNT </td>
+                    <td><?php echo $totalCOD ?></td>
 
-                </tr> 
+                </tr>
             </tbody>
         </table>
     </div>
@@ -312,6 +264,10 @@ $users = get_users($args);
         overflow-y: hidden;
     }
 
+    .tablediv td {
+        text-align: left;
+    }
+
     p {
         margin-bottom: 5px;
     }
@@ -330,19 +286,16 @@ $users = get_users($args);
 </style>
 
 <script>
-     function clientFunction() {
-       console.log("client");
-       var elements = document.getElementById("formargin").elements;
-     
-       var obj ={};
-        
-       for(var i = 0 ; i < elements.length ; i++){
-           var item = elements.item(i);
-            obj[item.name] = item.value; 
-         
-       }
-   
-      var url="/client-report/?client="+obj['client']+"&from="+obj['from']+"&to="+obj['to']+"&clientData=true&download=true";
-      window.open(url,'_blank');
-   }
-    </script>
+    function clientFunction(event) {
+        event.preventDefault();
+        var elements = document.getElementById("formargin").elements;
+        var obj = {};
+        for (var i = 0; i < elements.length; i++) {
+            var item = elements.item(i);
+            obj[item.name] = item.value;
+
+        }
+        var url = "/client-report/?client=" + obj['client'] + "&from=" + obj['from'] + "&to=" + obj['to'] + "&clientData=true&download=true";
+        window.open(url, '_blank');
+    }
+</script>
