@@ -12,7 +12,7 @@
         </div>
         <div class="row col-md-12 mb-4">
             <?php do_action( 'wpcr_before_receiving_form_fields'  ); ?>
-            <?php foreach( wpcargo_history_fields() as $history_name => $history_value ): ?>
+            <?php foreach( $wpcr_dfields as $history_name => $history_value ): ?>
                 <?php
                     $picker_class = '';
                     $value = '';
@@ -26,9 +26,8 @@
                     $select_class = ( $history_value['field'] == 'select' ) ? 'browser-default' : '';
                     $width_class = ( $history_name == 'remarks' ) ? 'col-md-12' : 'col-md-6';
                     $location_class = ( $history_name == 'location' ) ? 'status_location' : '';
-			
-					$value = trim(str_replace('am' , '' ,  str_replace('pm' , '' , $value)));
-			
+                    $value = trim(str_replace('am' , '' ,  str_replace('pm' , '' , $value)));
+
                 ?>
                 <div class="<?php echo $width_class; ?> mb-4 receiving-input">
                     <label for="wpc-receiving-<?php echo $history_name; ?>"><?php echo $history_value['label'];?></label><br />

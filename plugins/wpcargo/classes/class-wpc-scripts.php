@@ -8,7 +8,7 @@ class WPCargo_Scripts{
 		add_action( 'wp_print_styles', array( $this, 'dequeue_scripts' ), 100 );
 	}
 	function frontend_scripts(){
-		global $post;
+		global $wpcargo, $post;
 		$page_url = get_the_permalink( );
 		// Styles
 		wp_register_style('wpcargo-custom-bootstrap-styles', WPCARGO_PLUGIN_URL . 'assets/css/main.min.css', array(), WPCARGO_VERSION );
@@ -21,8 +21,11 @@ class WPCargo_Scripts{
 		wp_enqueue_style( 'wpcargo-datetimepicker' );
 		// Scripts
 		$translation_array = array(
-			'ajax_url'  => admin_url( 'admin-ajax.php' ),
-			'pageURL' 	=> $page_url
+			'ajax_url'  		=> admin_url( 'admin-ajax.php' ),
+			'pageURL' 			=> $page_url,
+			'date_format' 		=> $wpcargo->date_format,
+			'time_format' 		=> $wpcargo->time_format,
+			'datetime_format' 	=> $wpcargo->datetime_format
 		);
 		wp_register_script( 'wpcargo-js', WPCARGO_PLUGIN_URL.'assets/js/wpcargo.js', array( 'jquery' ), WPCARGO_VERSION, false );
 		wp_register_script( 'wpcargo-datetimepicker', WPCARGO_PLUGIN_URL . 'admin/assets/js/jquery.datetimepicker.full.min.js', array( 'jquery' ), WPCARGO_VERSION, false );

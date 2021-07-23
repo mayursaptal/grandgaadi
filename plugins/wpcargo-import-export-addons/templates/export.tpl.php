@@ -18,6 +18,17 @@
                     </select>
                 </section>
             <?php endif; ?>
+            <?php if( !empty( $category_list ) ): ?>
+                <section class="form-group">
+                    <label for="shtax"><?php _e( 'Category', 'wpc-import-export' ); ?></label>
+                    <select name="shtax" class="form-control browser-default custom-select shtax" id="shtax">
+                        <option value=""><?php _e('-- Category --', 'wpc-import-export' ); ?></option>
+                        <?php foreach( $category_list as $tax ): ?>
+                            <option value="<?php  echo $tax->term_id; ?>" ><?php echo $tax->name; ?></option>
+                        <?php endforeach; ?>      
+                    </select>
+                </section>
+            <?php endif; ?>
             <?php if( !empty( $wpcargo->status ) ): ?>
                 <section class="form-group">
                     <label for="shipment_status"><?php _e( 'Status', 'wpc-import-export' ); ?></label>

@@ -172,7 +172,7 @@ function wpcargo_track_shipment_history_details( $shipment ) {
 		<?php
 	}
 	$template = wpcargo_include_template( 'result-shipment-history.tpl' );
-	require_once( $template );
+	require( $template );
 }
 add_action('wpcargo_after_track_details', 'wpcargo_track_shipment_history_details', 10, 1);
 /*
@@ -502,7 +502,7 @@ function wpcargo_invoice_site_info_callback( $shipmentDetails ){
 function wpcargo_invoice_shipper_info_callback( $shipmentDetails ){
     global $WPCCF_Fields, $wpcargo;
     ?>
-    <p style="font-size:1.2rem;margin-bottom:18px;"><strong><?php esc_html_e('SHIPPER DETAILS:', 'wpcargo-frontend-manager'); ?></strong></p>
+    <p style="font-size:1.2rem;margin-bottom:18px;"><strong><?php esc_html_e('SHIPPER DETAILS:', 'wpcargo'); ?></strong></p>
     <?php
     if( class_exists( 'WPCCF_Fields' ) ){
         echo $WPCCF_Fields->get_fields_data( 'shipper_info', $shipmentDetails['shipmentID']);
@@ -519,7 +519,7 @@ function wpcargo_invoice_shipper_info_callback( $shipmentDetails ){
 function wpcargo_invoice_receiver_info_callback( $shipmentDetails ){
     global $WPCCF_Fields, $wpcargo;
     ?>
-    <p style="font-size:1.2rem;margin-bottom:18px;"><strong><?php esc_html_e('RECEIVER DETAILS:', 'wpcargo-frontend-manager'); ?></strong></p>
+    <p style="font-size:1.2rem;margin-bottom:18px;"><strong><?php esc_html_e('RECEIVER DETAILS:', 'wpcargo'); ?></strong></p>
     <section id="section-to">
     <?php 
         if( class_exists( 'WPCCF_Fields' ) ){
@@ -554,11 +554,14 @@ function wpcargo_end_invoice_section_callback( $shipmentDetails ){
     if( !wpcargo_package_settings()->frontend_enable ){
         return false;
     }
+    $shipment 		= new stdClass;
+	$shipment->ID 	= $shipmentDetails['shipmentID'];
+	$shipment->post_title = get_the_title( $shipmentDetails['shipmentID'] );
     ?>
     <tr>
         <td colspan="2">
-            <p style="font-size:1.2rem;margin-bottom:18px;"><strong><?php esc_html_e('PACKAGE DETAILS:', 'wpcargo-frontend-manager'); ?></strong></p>
-            <table id="package-table" style="width:100%;">
+            <h1 style="margin-bottom:18px;"><?php esc_html_e('PACKAGE DETAILS:', 'wpcargo'); ?></h1>
+            <table id="package-table" style="width:100%;margin-bottom:18px;">
                 <thead>
                     <tr>
                         <?php foreach ( wpcargo_package_fields() as $key => $value): ?>
@@ -585,6 +588,7 @@ function wpcargo_end_invoice_section_callback( $shipmentDetails ){
                     <?php endforeach; ?>
                 </tbody>
             </table>
+            <?php do_action( 'wpcargo_after_package_totals', $shipment ); ?>
         </td>
     </tr>
     <?php

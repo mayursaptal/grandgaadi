@@ -6,7 +6,7 @@
         <div class="container-fluid">
             <!-- Brand -->
             <a class="navbar-brand waves-effect d-sm-inline-block d-md-inline-block d-lg-none" href="<?php echo bloginfo('url'); ?>">
-                <img src="<?php echo wpcfe_dashboard_logo_url(); ?>" class="img-fluid" alt="<?php esc_html_e( 'Site Logo', 'wpcargo-frontend-manager' ); ?>" style="width: auto;" />
+                <img src="<?php echo wpcfe_dashboard_logo_url(); ?>" class="img-fluid" alt="<?php esc_html_e( 'Site Logo', 'wpcargo-frontend-manager' ); ?>" style="width: auto; margin:0 auto" />
             </a>
             <!-- Collapse -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMobileMenuContent"
@@ -118,8 +118,8 @@
     <!-- Navbar -->
     <!-- Sidebar -->
     <div class="sidebar-fixed position-fixed">
-        <a class="logo-wrapper waves-effect" href="<?php echo bloginfo('url'); ?>">
-        	<img src="<?php echo wpcfe_dashboard_logo_url(); ?>" class="img-fluid" alt="<?php esc_html_e( 'Site Logo', 'wpcargo-frontend-manager' ); ?>" style="width: auto;" />
+        <a class="logo-wrapper waves-effect d-block text-center" href="<?php echo bloginfo('url'); ?>">
+        	<img src="<?php echo wpcfe_dashboard_logo_url(); ?>" class="img-fluid" alt="<?php esc_html_e( 'Site Logo', 'wpcargo-frontend-manager' ); ?>" style="width: auto; margin:0 auto" />
         </a>
         <div class="list-group list-group-flush">
 			<?php

@@ -21,14 +21,14 @@ function wpcargo_pod_dashboard_registered_scripts( $script ){
 }
 // Add Shipment table header "Sign"
 function wpcargo_pod_dashboard_table_header_action(){
-	echo '<th class="text-center">'.apply_filters( 'pod_table_header_sign_label', esc_html__('Sign', 'wpcargo-pod' ) ).'</th>';
+	echo '<th class="text-center">'.apply_filters( 'pod_table_header_sign_label', _e('Sign', 'wpcargo-pod' ) ).'</th>';
 }
 function wpcargo_pod_dashboard_table_table_action( $shipment_id ){
 	$signature = get_post_meta($shipment_id, 'wpcargo-pod-signature', true);
-	$btn_label = apply_filters( 'pod_table_header_sign_label', esc_html__('Sign', 'wpcargo-pod' ) );
+	$btn_label = apply_filters( 'pod_table_header_sign_label', __('Sign', 'wpcargo-pod' ) );
 	$btn_color = 'btn-outline-info';
 	if( $signature ){
-		$btn_label = apply_filters( 'pod_table_header_signed_label', esc_html__('Signed', 'wpcargo-pod' ) );
+		$btn_label = apply_filters( 'pod_table_header_signed_label', __('Signed', 'wpcargo-pod' ) );
 		$btn_color = 'btn-outline-blue-grey';
 	}
 	echo '<td class="text-center"><button type="button" class="show-signaturepad btn '.$btn_color.' btn-rounded btn-small waves-effect px-3 py-1" data-toggle="modal" data-target="#pod-modal" data-id="'.$shipment_id.'">'.$btn_label.'</button></td>';
@@ -40,19 +40,20 @@ function wpcargo_pod_after_admin_page_load_action(){
 		<div class="modal-dialog modal-lg modal-frame modal-top" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="podModalPreview"><?php echo apply_filters( 'pod_modal_title', esc_html__('Proof of Delivery', 'wpcargo-pod' ) ) ?></h5>
+					<h5 class="modal-title" id="podModalPreview"><?php echo apply_filters( 'pod_modal_title', __('Proof of Delivery', 'wpcargo-pod' ) ) ?></h5>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
 				<div class="modal-body my-4">
-					<?php echo esc_html__('Loading...', 'wpcargo-pod' ); ?>
+					<?php _e('Loading...', 'wpcargo-pod' ); ?>
 				</div>
 			</div>
 		</div>
 	</div>
 	<!-- Modal -->
 	<?php
+	do_action('wpcargo_pod_after_sign_modal');
 }
 function wpcargo_pod_show_shignaturepad() {
 	global $wpcargo;
@@ -117,7 +118,7 @@ function wpcargo_pod_assign_driver_save( $shipment_id, $data ){
 		update_post_meta( $shipment_id, 'wpcargo_driver', (int)$data['wpcargo_driver'] );
         // check if the driver is changed Send email notification
         if( $old_driver != (int)$data['wpcargo_driver'] && wpcargo_pod_can_send_email_driver() ){
-            wpcargo_assign_shipment_email( $shipment_id, (int)$data['wpcargo_driver'], esc_html__( 'Driver', 'wpcargo-pod' ) );
+            wpcargo_assign_shipment_email( $shipment_id, (int)$data['wpcargo_driver'], _e( 'Driver', 'wpcargo-pod' ) );
         }
     }elseif( isset( $data['wpcargo_driver'] ) && !(int)$data['wpcargo_driver'] ){
         update_post_meta( $shipment_id, 'wpcargo_driver', '' );
@@ -125,12 +126,15 @@ function wpcargo_pod_assign_driver_save( $shipment_id, $data ){
 }
 function wpcargo_pod_assign_driver_dropdown( $shipment_id ){
 	$assigned_driver = get_post_meta( $shipment_id, 'wpcargo_driver', true );
+	if( !can_wpcfe_assign_driver() ){
+		return false;
+	}
 	?>
 	<div class="form-group">
 		<div class="select-no-margin">
 			<label><?php esc_html_e( 'Driver','wpcargo-pod' ); ?></label>
 			<select id="wpcargo_driver" name="wpcargo_driver" class="form-control browser-default mdb-select" >
-				<option value=""><?php echo apply_filters( 'pod_assign_vehicle_label', esc_html__( '-- Select Driver --', 'wpcargo-pod' ) ); ?></option>
+				<option value=""><?php echo apply_filters( 'pod_assign_vehicle_label', _e( '-- Select Driver --', 'wpcargo-pod' ) ); ?></option>
 				<?php foreach( wpcargo_pod_get_drivers() as $driverID => $driver_name ): ?>
 					<option value="<?php echo $driverID; ?>" <?php selected( get_post_meta( $shipment_id, 'wpcargo_driver', true ), $driverID ); ?>><?php echo $driver_name; ?></option>
 				<?php endforeach; ?>
@@ -143,9 +147,9 @@ function wpcargo_pod_wpcfe_bulk_update_form_fields(){
 	?>
 	<div class="form-group">
 		<div class="select-no-margin">
-			<label><?php esc_html_e( 'Driver','wpcargo-pod' ); ?></label>
+			<label><?php _e( 'Driver','wpcargo-pod' ); ?></label>
 			<select id="wpcargo_driver" name="wpcargo_driver" class="form-control browser-default mdb-select" >
-				<option value=""><?php echo apply_filters( 'pod_assign_vehicle_label', esc_html__( '-- Select Driver --', 'wpcargo-pod' ) ); ?></option>
+				<option value=""><?php echo apply_filters( 'pod_assign_vehicle_label', __( '-- Select Driver --', 'wpcargo-pod' ) ); ?></option>
 				<?php foreach( wpcargo_pod_get_drivers() as $driverID => $driver_name ): ?>
 					<option value="<?php echo $driverID; ?>"><?php echo $driver_name; ?></option>
 				<?php endforeach; ?>
@@ -266,10 +270,44 @@ add_action( 'wpcpod_after_route_planner', 'wpcpod_dashboard_route_script_callbac
 // Driver Report page restriction
 function driver_report_page_restriction(){
 	global $post;
-// 	if( wpcargo_pod_create_report_page() == $post->ID && !can_export_wpcpod_report() ){
-// 		$dashboard = get_the_permalink( wpcfe_admin_page() );
-// 		wp_redirect( $dashboard );
-//         die;
-// 	}
+	if( wpcargo_pod_create_report_page() == $post->ID && !can_export_wpcpod_report() ){
+		$dashboard = get_the_permalink( wpcfe_admin_page() );
+		wp_redirect( $dashboard );
+        die;
+	}
 }
 add_action( 'template_redirect', 'driver_report_page_restriction' );
+function wpcpod_after_sign_popup_form_callback(){
+    $shmap_api          		= get_option('shmap_api');
+    $shmap_country_restrict     = get_option('shmap_country_restrict');
+    if( empty( $shmap_api ) ){
+    	return;
+    }
+    ?>
+    <script>
+    /*
+    ** Google map Script Auto Complete location
+    */   
+    function wpcpodGetPlaceDynamic() {
+        var defaultBounds = new google.maps.LatLngBounds(
+            new google.maps.LatLng(-33.8902, 151.1759),
+            new google.maps.LatLng(-33.8474, 151.2631)
+        );
+        var input = document.getElementsByClassName('wpcargo-pod-location');
+        var options = {
+            bounds: defaultBounds,
+            types: ['geocode'],
+            <?php if( !empty( $shmap_country_restrict ) ): ?>
+                componentRestrictions: {country: "<?php echo $shmap_country_restrict; ?>"}
+            <?php endif; ?>
+        };
+        for (i = 0; i < input.length; i++) {
+            autocomplete = new google.maps.places.Autocomplete(input[i], options);
+        }
+        <?php do_action( 'wpcpod_after_get_dynamic_place' ); ?>
+    }
+    </script>
+    <?php
+    echo wpcargo_map_script( 'wpcpodGetPlaceDynamic' );
+}
+add_action( 'wpcpod_after_sign_popup_form', 'wpcpod_after_sign_popup_form_callback', 10 );

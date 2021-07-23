@@ -56,7 +56,7 @@ jQuery(document).ready(function($){
         }, 6000);
 	}
 	if( notification.length != 0 ){
-		showNotification( 'success', notification.message, notification.icon );
+		showNotification( notification.status , notification.message, notification.icon );
 	}
     $('.wpcfe-delete-shipment').on('click', function(e){
         e.preventDefault();
@@ -357,8 +357,8 @@ jQuery(document).ready(function($){
                         $('.wpcfe-shipments').each( function(){ //iterate all listed checkbox items
                             this.checked = status; //change ".checkbox" checked status
                         });
-                        // download_file( $data.file_url, $data.file_name );
-                        window.open($data.file_url,'_blank');
+						  window.open($data.file_url,'_blank');
+                       // download_file( $data.file_url, $data.file_name );
                         return;
                     }
                 }
@@ -392,9 +392,8 @@ jQuery(document).ready(function($){
                     alert( downloadFileErrorMessage );
                     return;
                 } else {
-                    
-                //    download_file( $data.file_url, $data.file_name );
-                        window.open($data.file_url,'_blank');
+                    //download_file( $data.file_url, $data.file_name );
+                    window.open($data.file_url,'_blank');
                     return;
                 }
             }

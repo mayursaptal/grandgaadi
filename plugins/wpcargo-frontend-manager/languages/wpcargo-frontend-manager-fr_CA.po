@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WPCargo Frontend Manager\n"
-"POT-Creation-Date: 2021-04-07 14:57+0800\n"
-"PO-Revision-Date: 2021-04-07 14:59+0800\n"
+"POT-Creation-Date: 2021-04-22 11:38+0800\n"
+"PO-Revision-Date: 2021-04-22 11:39+0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr_CA\n"
@@ -33,7 +33,7 @@ msgstr "--Sélectionnez Un--"
 msgid "Add Images / Upload Files"
 msgstr "Ajouter des images / Télécharger des fichiers"
 
-#: admin/classes/class-fields.php:298 admin/includes/functions.php:1124
+#: admin/classes/class-fields.php:298 admin/includes/functions.php:1130
 msgid "Email"
 msgstr "Courriel"
 
@@ -1210,18 +1210,17 @@ msgstr "Waybill"
 
 #: admin/includes/functions.php:259
 msgid "Shipper Information"
-msgstr "Informations sur les expéditeurs"
+msgstr "Renseignements sur l’expéditeur"
 
 #: admin/includes/functions.php:261
 msgid "Receiver Information"
-msgstr "Informations sur le récepteur"
+msgstr "Renseignements sur le récepteur"
 
 #: admin/includes/functions.php:263 templates/waybill.tpl.php:74
 msgid "Shipment Information"
 msgstr "Information de livraison"
 
-#: admin/includes/functions.php:277 admin/includes/functions.php:654
-#: templates/shipments.php:74
+#: admin/includes/functions.php:277 admin/includes/functions.php:660
 msgid "Default"
 msgstr "Défaut"
 
@@ -1233,238 +1232,262 @@ msgstr "Page actuelle"
 msgid "Total page"
 msgstr "Total de la page"
 
-#: admin/includes/functions.php:469 admin/includes/hooks.php:68
+#: admin/includes/functions.php:469 admin/includes/hooks.php:64
 msgid "Pending Client"
 msgstr "Client en attente"
 
-#: admin/includes/functions.php:705
+#: admin/includes/functions.php:711
 msgid "Shipment "
 msgstr "Expédition"
 
-#: admin/includes/functions.php:705
+#: admin/includes/functions.php:711
 msgid " has been successfully saved."
 msgstr " a été sauvé avec succès."
 
-#: admin/includes/functions.php:711
+#: admin/includes/functions.php:717
 msgid "Something went wrong saving your shipment. Please reload and try again"
 msgstr ""
 "Quelque chose s’est mal passé en sauvant votre envoi. S’il vous plaît "
 "recharger et essayer à nouveau"
 
-#: admin/includes/functions.php:728
+#: admin/includes/functions.php:734
 msgid "Shipper Name"
 msgstr "Nom de l’expéditeur"
 
-#: admin/includes/functions.php:733
+#: admin/includes/functions.php:739
 msgid "Receiver Name"
 msgstr "Nom du récepteur"
 
-#: admin/includes/functions.php:953
+#: admin/includes/functions.php:959
 msgid "Previous"
 msgstr "Précédent"
 
-#: admin/includes/functions.php:954
+#: admin/includes/functions.php:960
 msgid "Next"
 msgstr "Suivant"
 
-#: admin/includes/functions.php:955
+#: admin/includes/functions.php:961
 msgid "Shipment Pagination"
 msgstr "Pagination d’expédition"
 
-#: admin/includes/functions.php:999
+#: admin/includes/functions.php:1005
 msgid "First"
 msgstr "Première"
 
-#: admin/includes/functions.php:1001
+#: admin/includes/functions.php:1007
 msgid "previous"
 msgstr "précédent"
 
-#: admin/includes/functions.php:1016
+#: admin/includes/functions.php:1022
 msgid "next"
 msgstr "suivant"
 
-#: admin/includes/functions.php:1020
+#: admin/includes/functions.php:1026
 msgid "Last"
 msgstr "Dernier"
 
-#: admin/includes/functions.php:1089 templates/account.tpl.php:73
+#: admin/includes/functions.php:1095 templates/account.tpl.php:73
 msgid "First Name"
 msgstr "Prénom"
 
-#: admin/includes/functions.php:1099 templates/account.tpl.php:77
+#: admin/includes/functions.php:1105 templates/account.tpl.php:77
 msgid "Last Name"
 msgstr "Nom"
 
-#: admin/includes/functions.php:1109 templates/account.tpl.php:51
+#: admin/includes/functions.php:1115 templates/account.tpl.php:51
 #: templates/account.tpl.php:81
 msgid "Phone"
 msgstr "Téléphone"
 
-#: admin/includes/functions.php:1134
+#: admin/includes/functions.php:1140
 msgid "Company"
 msgstr "Entreprise"
 
-#: admin/includes/functions.php:1144
+#: admin/includes/functions.php:1150
 msgid "Address line 1"
 msgstr "Adresse ligne 1"
 
-#: admin/includes/functions.php:1154
+#: admin/includes/functions.php:1160
 msgid "Address line 2"
 msgstr "Adresse ligne 2"
 
-#: admin/includes/functions.php:1164
+#: admin/includes/functions.php:1170
 msgid "City"
 msgstr "Ville"
 
-#: admin/includes/functions.php:1174
+#: admin/includes/functions.php:1180
 msgid "Postcode / ZIP"
 msgstr "Code postal"
 
-#: admin/includes/functions.php:1184
+#: admin/includes/functions.php:1190
 msgid "Country"
 msgstr "Pays"
 
-#: admin/includes/functions.php:1194
+#: admin/includes/functions.php:1200
 msgid "State / County"
 msgstr "Province / Departement"
 
-#: admin/includes/functions.php:1249 admin/includes/functions.php:1297
+#: admin/includes/functions.php:1258 admin/includes/functions.php:1306
 msgid "Orders"
 msgstr "Commandes"
 
-#: admin/includes/functions.php:1270
+#: admin/includes/functions.php:1279
 msgid "Profile"
 msgstr "Profil"
 
-#: admin/includes/functions.php:1289
+#: admin/includes/functions.php:1298
 msgid "Shipments"
 msgstr "Expéditions"
 
-#: admin/includes/hooks.php:56
+#: admin/includes/hooks-shipment.php:25
+msgid "Tracking Number"
+msgstr "Numéro de suivi"
+
+#: admin/includes/hooks-shipment.php:33 templates/filter-shipment.php:7
+msgid "Status"
+msgstr "État"
+
+#: admin/includes/hooks-shipment.php:40 admin/includes/hooks-shipment.php:47
+#: templates/orders.tpl.php:33
+msgid "View"
+msgstr "Voir"
+
+#: admin/includes/hooks-shipment.php:54 templates/orders.tpl.php:8
+msgid "Shipment Type"
+msgstr "Type d’expédition"
+
+#: admin/includes/hooks-shipment.php:62 admin/includes/hooks.php:689
+#: templates/shipments.php:24 templates/shipments.php:82
+msgid "Print"
+msgstr "Imprimer"
+
+#: admin/includes/hooks-shipment.php:87 admin/includes/hooks.php:581
+#: templates/account.tpl.php:134 templates/bulk-assign-shipment.tpl.php:26
+#: templates/profile.tpl.php:69
+msgid "Update"
+msgstr "Mettre à jour"
+
+#: admin/includes/hooks-shipment.php:100 admin/includes/hooks-shipment.php:107
+#: templates/shipment-history.tpl.php:64 templates/shipments.php:34
+#: templates/shipments.php:92
+msgid "Delete"
+msgstr "Supprimer"
+
+#: admin/includes/hooks.php:54
 msgid "Client Approval"
 msgstr "Approbation du client"
 
-#: admin/includes/hooks.php:64
+#: admin/includes/hooks.php:61
 msgid "Disabled"
 msgstr "Désactivé"
 
-#: admin/includes/hooks.php:70
+#: admin/includes/hooks.php:66
 msgid "Approved"
 msgstr "Approuvé"
 
-#: admin/includes/hooks.php:89 admin/includes/hooks.php:665
+#: admin/includes/hooks.php:85 admin/includes/hooks.php:638
 msgid "Hi there,"
 msgstr "Salut,"
 
-#: admin/includes/hooks.php:90 admin/includes/hooks.php:666
+#: admin/includes/hooks.php:86 admin/includes/hooks.php:639
 #, php-format
 msgid "Welcome to %s! Here's how to log in:"
 msgstr "Bienvenue à %s! Voici comment vous connecter :"
 
-#: admin/includes/hooks.php:91
+#: admin/includes/hooks.php:87
 #, php-format
 msgid "Login URL:  %s"
 msgstr "URL de connexion : %s"
 
-#: admin/includes/hooks.php:92 admin/includes/hooks.php:668
-#: admin/includes/hooks.php:688
+#: admin/includes/hooks.php:88 admin/includes/hooks.php:641
+#: admin/includes/hooks.php:661
 #, php-format
 msgid "Username: %s"
 msgstr "Nom d'utilisateur : %s"
 
-#: admin/includes/hooks.php:93
+#: admin/includes/hooks.php:89
 #, php-format
 msgid "Password: %s"
 msgstr "Mot de passe : %s"
 
-#: admin/includes/hooks.php:94
+#: admin/includes/hooks.php:90
 #, php-format
 msgid "If you have any problems, please contact our support at %s."
 msgstr "Si vous avez des problèmes, veuillez contacter notre support à %s."
 
-#: admin/includes/hooks.php:95 admin/includes/hooks.php:672
+#: admin/includes/hooks.php:91 admin/includes/hooks.php:645
 msgid "Thank you for trusting us!"
 msgstr "Merci de nous faire confiance!"
 
-#: admin/includes/hooks.php:114 admin/includes/hooks.php:437
+#: admin/includes/hooks.php:110 admin/includes/hooks.php:404
 msgid "Client"
 msgstr "Client"
 
-#: admin/includes/hooks.php:116
+#: admin/includes/hooks.php:112
 msgid "-- Select Client --"
 msgstr "-- Sélectionnez le client --"
 
-#: admin/includes/hooks.php:132 admin/includes/hooks.php:464
+#: admin/includes/hooks.php:128 admin/includes/hooks.php:431
 msgid "Agent"
 msgstr "Le courtier"
 
-#: admin/includes/hooks.php:134
+#: admin/includes/hooks.php:130
 msgid "-- Select Agent --"
 msgstr "Sélectionnez Agent"
 
-#: admin/includes/hooks.php:151 admin/includes/hooks.php:448
+#: admin/includes/hooks.php:147 admin/includes/hooks.php:415
 msgid "Employee"
 msgstr "Employé"
 
-#: admin/includes/hooks.php:153
+#: admin/includes/hooks.php:149
 msgid "-- Select Employee --"
 msgstr "-- Sélectionnez employé --"
 
-#: admin/includes/hooks.php:168
+#: admin/includes/hooks.php:164
 msgid "Dashboard"
 msgstr "Tableau de bord"
 
-#: admin/includes/hooks.php:173 templates/orders.tpl.php:8
-msgid "Shipment Type"
-msgstr "Type d’expédition"
-
-#: admin/includes/hooks.php:221 admin/includes/hooks.php:224
-#: admin/includes/hooks.php:244 templates/orders.tpl.php:7
+#: admin/includes/hooks.php:188 admin/includes/hooks.php:191
+#: admin/includes/hooks.php:211 templates/orders.tpl.php:7
 #: templates/shipments.php:15 templates/shipments.php:16
 msgid "Shipment Number"
 msgstr "Nom de l’expéditeur"
 
-#: admin/includes/hooks.php:270
+#: admin/includes/hooks.php:237
 msgid "Bulk Assign"
 msgstr "Affectation en bloc"
 
-#: admin/includes/hooks.php:372
+#: admin/includes/hooks.php:339
 msgid "Select Template"
 msgstr "Choisir la mise en page"
 
-#: admin/includes/hooks.php:404
+#: admin/includes/hooks.php:371
 msgid "BOL"
 msgstr "BOL (bol)"
 
-#: admin/includes/hooks.php:415
+#: admin/includes/hooks.php:382
 msgid "Not a member?"
 msgstr "Vous n’avez pas de membre ?"
 
-#: admin/includes/hooks.php:415 templates/registration.tpl.php:3
+#: admin/includes/hooks.php:382 templates/registration.tpl.php:3
 #: templates/registration.tpl.php:9
 msgid "Registration"
 msgstr "Inscription"
 
-#: admin/includes/hooks.php:415 templates/registration-form.tpl.php:44
+#: admin/includes/hooks.php:382 templates/registration-form.tpl.php:44
 msgid "Register"
 msgstr "S'inscrire"
 
-#: admin/includes/hooks.php:608 templates/account.tpl.php:134
-#: templates/bulk-assign-shipment.tpl.php:26 templates/profile.tpl.php:69
-#: templates/shipments.php:58
-msgid "Update"
-msgstr "Mettre à jour"
-
-#: admin/includes/hooks.php:663 admin/includes/hooks.php:684
+#: admin/includes/hooks.php:636 admin/includes/hooks.php:657
 msgid "From: "
 msgstr "De : "
 
-#: admin/includes/hooks.php:669 admin/includes/hooks.php:689
+#: admin/includes/hooks.php:642 admin/includes/hooks.php:662
 #, php-format
 msgid "Email: %s"
 msgstr "Courriel: %s"
 
-#: admin/includes/hooks.php:670
+#: admin/includes/hooks.php:643
 msgid ""
 "Password: The one you entered in the registration form. (For security "
 "reason, we save encripted password)"
@@ -1472,24 +1495,19 @@ msgstr ""
 "Mot de passe : celui que vous avez inscrit dans le formulaire d’inscription. "
 "(Pour des raisons de sécurité, nous économisons mot de passe encripted)"
 
-#: admin/includes/hooks.php:671
+#: admin/includes/hooks.php:644
 #, php-format
 msgid "If you have any problems, please contact me at %s."
 msgstr "Si vous avez des problèmes, s’il vous plaît contactez-moi à %s."
 
-#: admin/includes/hooks.php:686
+#: admin/includes/hooks.php:659
 msgid "Hi Admin,"
 msgstr "Salut Admin,"
 
-#: admin/includes/hooks.php:687
+#: admin/includes/hooks.php:660
 #, php-format
 msgid "New user registration on your site %s:"
 msgstr "Enregistrement de l&#8217;utilisateur Nouveau sur votre site %s:"
-
-#: admin/includes/hooks.php:716 templates/shipments.php:24
-#: templates/shipments.php:55 templates/shipments.php:130
-msgid "Print"
-msgstr "Imprimer"
 
 #: admin/includes/language.php:9
 msgid "Please activate your license key for WPCargo Frontend Manager"
@@ -1973,10 +1991,6 @@ msgstr "Liste des envois"
 msgid "Copyright"
 msgstr "Droit d’auteur"
 
-#: templates/filter-shipment.php:7 templates/shipments.php:51
-msgid "Status"
-msgstr "État"
-
 #: templates/filter-shipment.php:9
 msgid "All Status"
 msgstr "Tous les statuts"
@@ -2047,15 +2061,15 @@ msgstr "Connexion"
 msgid "Username/E-mail"
 msgstr "Nom d’utilisateur/e-mail"
 
-#: templates/login.php:39
+#: templates/login.php:44
 msgid "Remember me"
 msgstr "Se souvenir de moi"
 
-#: templates/login.php:43
+#: templates/login.php:48
 msgid "Forgot password?"
 msgstr "Mot de passe oublié?"
 
-#: templates/login.php:47
+#: templates/login.php:53
 msgid "Login"
 msgstr "Connexion"
 
@@ -2146,11 +2160,6 @@ msgstr "Montant"
 msgid "Orders Account"
 msgstr "Compte de commandes"
 
-#: templates/orders.tpl.php:33 templates/shipments.php:53
-#: templates/shipments.php:88
-msgid "View"
-msgstr "Voir"
-
 #: templates/profile.tpl.php:26 templates/registration-form.tpl.php:7
 msgid "Personal Information"
 msgstr "Information personnelle"
@@ -2199,12 +2208,6 @@ msgstr "Veuillez contacter l’administrateur pour votre permission."
 msgid "History Records"
 msgstr "Records d’histoire"
 
-#: templates/shipment-history.tpl.php:64 templates/shipments.php:34
-#: templates/shipments.php:61 templates/shipments.php:114
-#: templates/shipments.php:140
-msgid "Delete"
-msgstr "Supprimer"
-
 #: templates/shipment-history.tpl.php:73
 msgid "No Shipment History Found."
 msgstr "Aucun historique d’expédition trouvé."
@@ -2213,11 +2216,7 @@ msgstr "Aucun historique d’expédition trouvé."
 msgid "Search"
 msgstr "Recherche"
 
-#: templates/shipments.php:48
-msgid "Tracking Number"
-msgstr "Numéro de suivi"
-
-#: templates/shipments.php:158
+#: templates/shipments.php:110
 msgid "No shipment found!"
 msgstr "Aucune expédition trouvée!"
 

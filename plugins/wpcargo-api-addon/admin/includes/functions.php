@@ -77,7 +77,7 @@ function wpcapi_get_user_shipments($userID, $page = 1, $all = false, $status = '
 	global $wpdb;
 	$userdata 	= get_userdata($userID);
 	$user_roles = $userdata->roles;
-	$per_page 	= 12;
+	$per_page 	= 1000;
 	$offset 	= ($page - 1) * $per_page;
 	$sql 		= '';
 	$admin_role = array('administrator', 'wpcargo_api_manager', 'wpc_shipment_manager');
@@ -390,7 +390,7 @@ function wpcapi_get_user_address($userID, $page = 1, $book = 'shipper', $all = f
 	global $wpdb;
 	$userdata 	= get_userdata($userID);
 	$user_roles = $userdata->roles;
-	$per_page 	= 12;
+	$per_page 	= 1000;
 	$offset 	= ($page - 1) * $per_page;
 	$sql 		= '';
 	$admin_role = array('administrator', 'wpcargo_api_manager', 'wpc_shipment_manager');
@@ -408,14 +408,14 @@ function wpcapi_get_user_address($userID, $page = 1, $book = 'shipper', $all = f
 function wpcapi_get_user_shipment_page_number($userID)
 {
 	$total_items = wpcapi_get_user_shipment_total($userID);
-	$per_page 	 = 12;
+	$per_page 	 = 1000;
 	return ceil($total_items / $per_page);
 }
 
 function wpcapi_get_user_address_page_number($userID, $book)
 {
 	$total_items = wpcapi_get_user_address_total($userID, $book);
-	$per_page 	 = 12;
+	$per_page 	 = 1000;
 	return ceil($total_items / $per_page);
 }
 

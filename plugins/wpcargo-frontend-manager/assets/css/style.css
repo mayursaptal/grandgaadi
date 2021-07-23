@@ -20,6 +20,10 @@
 .sidebar-fixed .logo-wrapper img {
 	max-height: 85px;
 }
+.sidebar-fixed .list-group .list-group-item {
+    border-radius: 0 !important;
+    padding: .6rem 1.25rem;
+}
 span.toggle-password {
     position: absolute;
     display: inline-block;

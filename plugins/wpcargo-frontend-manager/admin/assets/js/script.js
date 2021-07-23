@@ -42,8 +42,7 @@ jQuery(document).ready(function($){
                         $('#the-list .check-column input[type="checkbox"]').each( function(){ //iterate all listed checkbox items
                             this.checked = false; //change ".checkbox" checked status
                         });
-                        // download_file( $data.file_url, $data.file_name );
-                        window.open($data.file_url,'_blank');
+                        download_file( $data.file_url, $data.file_name );
                         return;
                     }
                 }
@@ -85,4 +84,4 @@ jQuery(document).ready(function($){
             _window.close();
         }
     }
-})
+});

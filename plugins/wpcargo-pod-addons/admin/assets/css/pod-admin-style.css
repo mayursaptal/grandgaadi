@@ -194,6 +194,14 @@ div#pod-wpc-img-wrap {
 .wpcargo.shipment-vehicles img.img-signature {
 	width: 500px;
 }
+body #wpcargo-pod-signature-img #remove-signature.button-danger{
+	background-color: #900 !important;
+	border-color: #900 !important ;
+}
+body #wpcargo-pod-signature-img #remove-signature.button-danger:hover{
+	background-color: #ff1313 !important;
+	border-color: #ff1313 !important ;
+}
 .alert {
     position: relative;
     padding: .75rem 1.25rem;
@@ -210,6 +218,18 @@ div#pod-wpc-img-wrap {
     color: #155724;
     background-color: #d4edda;
     border-color: #c3e6cb;
+}
+.sign-response{
+    font-size: 15px;
+    padding: 12px 18px;
+}
+.sign-response.response-success{
+	background-color: #acfbac;
+	color: green;
+}
+.sign-response.response-error{
+	background-color: #ffc5ca;
+	color: #721c24;
 }
 @media only screen and ( max-width: 800px ) {
 .box-pop-up .box-group {

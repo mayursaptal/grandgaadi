@@ -2,7 +2,7 @@
 	global $wpcargo;
 	$user_roles 		= wpcfe_current_user_role();
 ?>
-<?php if( in_array( 'wpcargo_client', (array)$user_roles ) && empty( array_intersect( $user_roles, wpcfe_assign_driver_roles() ) ) ): ?>
+<?php if( in_array( 'wpcargo_client', (array)$user_roles ) && !can_wpcfe_client_assign_user() ): ?>
 	<input type="hidden" name="registered_shipper" id="registered_shipper" value="<?php echo get_current_user_id(); ?>">
 <?php else: ?>
 	<div id="wpcfe-misc-assign-user" class="card mb-4">

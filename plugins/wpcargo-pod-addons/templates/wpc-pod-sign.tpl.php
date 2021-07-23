@@ -1,3 +1,4 @@
+<?php do_action( 'wpcpod_before_sign_popup_form' ); ?>
 <form method="post" action="">
 	<?php wp_nonce_field( 'wpcargo_pod_sign_action', 'wpcargo_pod_sign_nonce' ); ?>
 	<div id="pod-pop-up">
@@ -82,6 +83,7 @@
 		</div>
     </div>
 </form>
+<?php do_action( 'wpcpod_after_sign_popup_form' ); ?>
 <script>
 	jQuery(document).ready(function ($) {
     	function remove_gallery_img(){

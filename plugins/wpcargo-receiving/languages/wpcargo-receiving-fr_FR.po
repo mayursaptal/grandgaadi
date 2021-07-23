@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WPCargo Receiving Add-ons\n"
-"POT-Creation-Date: 2021-03-31 08:16+0800\n"
-"PO-Revision-Date: 2021-03-31 08:16+0800\n"
+"POT-Creation-Date: 2021-07-16 10:34+0800\n"
+"PO-Revision-Date: 2021-07-16 10:34+0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.4.2\n"
+"X-Generator: Poedit 3.0\n"
 "X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
@@ -65,10 +65,42 @@ msgstr "Expédition mise à jour Succesfully!"
 msgid "Cheating, uh?"
 msgstr "Tricher, e uh ?"
 
-#: admin/admin.php:59 admin/classes/wpc-receiving-loader.php:332
+#: admin/admin.php:59 admin/classes/wpc-receiving-loader.php:337
 #: admin/templates/wpc-receiving-submenu.tpl.php:17 includes/functions.php:41
 msgid "Receiving"
 msgstr "Recevoir"
+
+#: admin/admin.php:72
+msgid "Client"
+msgstr "Client"
+
+#: admin/admin.php:74
+msgid "Select Client"
+msgstr "Sélectionner un client"
+
+#: admin/admin.php:92
+msgid "Agent"
+msgstr "Agent"
+
+#: admin/admin.php:94
+msgid "Select Agent"
+msgstr "Sélectionner un conseiller"
+
+#: admin/admin.php:112
+msgid "Employee"
+msgstr "Employé"
+
+#: admin/admin.php:114
+msgid "Select employee"
+msgstr "Sélectionner un employé"
+
+#: admin/admin.php:135
+msgid "Driver"
+msgstr "Chauffeur"
+
+#: admin/admin.php:137
+msgid "Select Driver"
+msgstr "-- Sélectionner les travailleurs --"
 
 #: admin/classes/wpc-receiving-metabox.php:11
 msgid "Branch History"

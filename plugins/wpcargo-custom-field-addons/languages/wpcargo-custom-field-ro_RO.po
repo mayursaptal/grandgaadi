@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WPCargo Custom Field Add-ons\n"
-"POT-Creation-Date: 2021-02-02 15:36+0800\n"
-"PO-Revision-Date: 2021-02-02 15:36+0800\n"
+"POT-Creation-Date: 2021-07-08 16:28+0800\n"
+"PO-Revision-Date: 2021-07-08 16:30+0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ro_RO\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.4.2\n"
+"X-Generator: Poedit 3.0\n"
 "X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n==0 || (n!=1 && n%100>=1 && n"
 "%100<=19) ? 1 : 2);\n"
@@ -84,7 +84,7 @@ msgstr ""
 "WPCargo Custom Field Add-ons plugin-ul necesită <a href=\"http://wpcargo."
 "com/\">WPTaskForce Licență Helper</a> plug-in pentru a activa!"
 
-#: admin/classes/wpc-cf-form-builder.php:324
+#: admin/classes/wpc-cf-form-builder.php:342
 msgid "You do not have permissions to view this data."
 msgstr "Nu aveți permisiuni pentru a vizualiza aceste date."
 
@@ -99,14 +99,14 @@ msgstr "Număr de telefon"
 
 #: admin/classes/wpc-cf-install-db.php:55
 #: admin/classes/wpc-cf-install-db.php:102 admin/includes/functions.php:185
-#: admin/templates/label-settings.tpl.php:111
+#: admin/templates/label-settings.tpl.php:114
 msgid "Address"
 msgstr "Adresa"
 
 #: admin/classes/wpc-cf-install-db.php:66
 #: admin/classes/wpc-cf-install-db.php:113 admin/includes/functions.php:184
-#: admin/templates/label-settings.tpl.php:111
 #: admin/templates/label-settings.tpl.php:114
+#: admin/templates/label-settings.tpl.php:117
 msgid "Email"
 msgstr "E-mail"
 
@@ -115,12 +115,12 @@ msgid "Receiver Name"
 msgstr "Nume receptor"
 
 #: admin/classes/wpc-cf-install-db.php:135
-#: admin/templates/label-settings.tpl.php:122
+#: admin/templates/label-settings.tpl.php:125
 msgid "Type of Shipment"
 msgstr "Tip de expediere"
 
 #: admin/classes/wpc-cf-install-db.php:146
-#: admin/templates/label-settings.tpl.php:84
+#: admin/templates/label-settings.tpl.php:87
 msgid "Courier"
 msgstr "Curier"
 
@@ -137,37 +137,37 @@ msgid "Total Freight"
 msgstr "Total mărfuri"
 
 #: admin/classes/wpc-cf-install-db.php:217
-#: admin/templates/label-settings.tpl.php:89
+#: admin/templates/label-settings.tpl.php:92
 msgid "Carrier"
 msgstr "Transportator"
 
 #: admin/classes/wpc-cf-install-db.php:228
-#: admin/templates/label-settings.tpl.php:92
+#: admin/templates/label-settings.tpl.php:95
 msgid "Carrier Reference No."
 msgstr "Nr. de referință al transportatorului"
 
 #: admin/classes/wpc-cf-install-db.php:239
-#: admin/templates/label-settings.tpl.php:95
+#: admin/templates/label-settings.tpl.php:98
 msgid "Departure Time"
 msgstr "Ora de plecare"
 
 #: admin/classes/wpc-cf-install-db.php:259
-#: admin/templates/label-settings.tpl.php:78
+#: admin/templates/label-settings.tpl.php:81
 msgid "Origin"
 msgstr "Origine"
 
 #: admin/classes/wpc-cf-install-db.php:270
-#: admin/templates/label-settings.tpl.php:81
+#: admin/templates/label-settings.tpl.php:84
 msgid "Destination"
 msgstr "Destinație"
 
 #: admin/classes/wpc-cf-install-db.php:281
-#: admin/templates/label-settings.tpl.php:67
+#: admin/templates/label-settings.tpl.php:70
 msgid "Pickup Date"
 msgstr "Data preluării"
 
 #: admin/classes/wpc-cf-install-db.php:292
-#: admin/templates/label-settings.tpl.php:70
+#: admin/templates/label-settings.tpl.php:73
 msgid "Pickup Time"
 msgstr "Ora preluării"
 
@@ -435,13 +435,13 @@ msgstr "Informații despre receptor"
 
 #: admin/templates/form-field-add.tpl.php:88
 #: admin/templates/form-field-edit.tpl.php:103
-msgid "Do you want to display on search form?"
-msgstr "Afișați în formularul de căutare?"
+msgid "Do you want to display on tracking page form?"
+msgstr "Afișați în formularul de pagină de urmărire?"
 
 #: admin/templates/form-field-add.tpl.php:92
 #: admin/templates/form-field-edit.tpl.php:107
-msgid "Is field required on search form?"
-msgstr "Câmpul este necesar în formularul de căutare?"
+msgid "Is field required on tracking page form?"
+msgstr "Câmpul este obligatoriu în formularul de pagină de urmărire?"
 
 #: admin/templates/form-field-add.tpl.php:96
 #: admin/templates/form-field-edit.tpl.php:111
@@ -545,97 +545,93 @@ msgstr "Șterge"
 msgid "Field Settings"
 msgstr "Setări câmp"
 
-#: admin/templates/label-settings.tpl.php:51
+#: admin/templates/label-settings.tpl.php:54
 msgid "Print Label Settings"
 msgstr "Imprimare setări etichetă"
 
-#: admin/templates/label-settings.tpl.php:64
-#: admin/templates/print-label.tpl.php:32
+#: admin/templates/label-settings.tpl.php:67
+#: admin/templates/print-label.tpl.php:24
 msgid "Accounts Copy"
 msgstr "Copiere conturi"
 
-#: admin/templates/label-settings.tpl.php:73
+#: admin/templates/label-settings.tpl.php:76
 msgid "Delivery Date"
 msgstr "Data de livrare"
 
-#: admin/templates/label-settings.tpl.php:103
-#: admin/templates/print-label.tpl.php:53
-#: admin/templates/print-label.tpl.php:193
-#: admin/templates/print-label.tpl.php:333
+#: admin/templates/label-settings.tpl.php:106
+#: admin/templates/print-label.tpl.php:78
 msgid "Shipper"
 msgstr "Transportator"
 
-#: admin/templates/label-settings.tpl.php:105
-#: admin/templates/print-label.tpl.php:55
-#: admin/templates/print-label.tpl.php:195
-#: admin/templates/print-label.tpl.php:335
+#: admin/templates/label-settings.tpl.php:108
+#: admin/templates/print-label.tpl.php:80
 msgid "Consignee"
 msgstr "Copie destinatar"
 
-#: admin/templates/label-settings.tpl.php:107
+#: admin/templates/label-settings.tpl.php:110
 msgid "Status: Pending"
 msgstr "Stare: În așteptare"
 
-#: admin/templates/label-settings.tpl.php:111
 #: admin/templates/label-settings.tpl.php:114
+#: admin/templates/label-settings.tpl.php:117
 msgid "Phone"
 msgstr "Telefon"
 
-#: admin/templates/label-settings.tpl.php:117
+#: admin/templates/label-settings.tpl.php:120
 msgid "Comment"
 msgstr "Comentariu"
 
-#: admin/templates/label-settings.tpl.php:125
+#: admin/templates/label-settings.tpl.php:128
 msgid "Product"
 msgstr "Produs"
 
-#: admin/templates/label-settings.tpl.php:130
+#: admin/templates/label-settings.tpl.php:133
 msgid "Save Label"
 msgstr "Salvare etichetă"
 
-#: admin/templates/label-settings.tpl.php:134
+#: admin/templates/label-settings.tpl.php:137
 msgid "Custom Field Code List"
 msgstr "Listă de coduri de câmp particularizată"
 
-#: admin/templates/label-settings.tpl.php:135
+#: admin/templates/label-settings.tpl.php:138
 msgid "Note: User Metakey Code to display dynamic data in print label."
 msgstr ""
 "Notă: Cod metakey utilizator pentru a afișa date dinamice în eticheta de "
 "imprimare."
 
-#: admin/templates/label-settings.tpl.php:138
+#: admin/templates/label-settings.tpl.php:141
 msgid "Available Shipper Fields"
 msgstr "Câmpuri expeditor disponibile"
 
-#: admin/templates/label-settings.tpl.php:141
-#: admin/templates/label-settings.tpl.php:162
-#: admin/templates/label-settings.tpl.php:183
+#: admin/templates/label-settings.tpl.php:144
+#: admin/templates/label-settings.tpl.php:165
+#: admin/templates/label-settings.tpl.php:186
 msgid "Field Label"
 msgstr "Etichetă de câmp"
 
-#: admin/templates/label-settings.tpl.php:141
-#: admin/templates/label-settings.tpl.php:162
-#: admin/templates/label-settings.tpl.php:183
+#: admin/templates/label-settings.tpl.php:144
+#: admin/templates/label-settings.tpl.php:165
+#: admin/templates/label-settings.tpl.php:186
 msgid "Metakey Code"
 msgstr "Cod metakey"
 
-#: admin/templates/label-settings.tpl.php:153
+#: admin/templates/label-settings.tpl.php:156
 msgid "No Field found for Shipper"
 msgstr "Nu s-a găsit niciun câmp pentru Expeditor"
 
-#: admin/templates/label-settings.tpl.php:159
+#: admin/templates/label-settings.tpl.php:162
 msgid "Available Receiver Fields"
 msgstr "Câmpuri receptor disponibile"
 
-#: admin/templates/label-settings.tpl.php:174
+#: admin/templates/label-settings.tpl.php:177
 msgid "No Field found for Receiver"
 msgstr "Nu s-a găsit niciun câmp pentru receptor"
 
-#: admin/templates/label-settings.tpl.php:180
+#: admin/templates/label-settings.tpl.php:183
 msgid "Available Shipment Information Fields"
 msgstr "Câmpuri informații livrare disponibile"
 
-#: admin/templates/label-settings.tpl.php:195
+#: admin/templates/label-settings.tpl.php:198
 msgid "No Field found for Shipment Information"
 msgstr "Nu s-a găsit niciun câmp pentru informațiile de livrare"
 
@@ -649,80 +645,45 @@ msgstr "Adresa expeditorului"
 msgid "Receiver Address"
 msgstr "Adresa receptorului"
 
-#: admin/templates/print-label.tpl.php:86
-#: admin/templates/print-label.tpl.php:124
-#: admin/templates/print-label.tpl.php:226
-#: admin/templates/print-label.tpl.php:264
-#: admin/templates/print-label.tpl.php:366
-#: admin/templates/print-label.tpl.php:404
-msgid "Description"
-msgstr "Descriere"
-
-#: admin/templates/print-label.tpl.php:87
-#: admin/templates/print-label.tpl.php:125
-#: admin/templates/print-label.tpl.php:227
-#: admin/templates/print-label.tpl.php:265
-#: admin/templates/print-label.tpl.php:367
-#: admin/templates/print-label.tpl.php:405
-msgid "Qty."
-msgstr "Cant."
-
-#: admin/templates/print-label.tpl.php:88
-#: admin/templates/print-label.tpl.php:126
-#: admin/templates/print-label.tpl.php:228
-#: admin/templates/print-label.tpl.php:266
-#: admin/templates/print-label.tpl.php:368
-#: admin/templates/print-label.tpl.php:406
-msgid "Piece Type"
-msgstr "Tip piesă"
-
-#: admin/templates/print-label.tpl.php:90
-#: admin/templates/print-label.tpl.php:128
-#: admin/templates/print-label.tpl.php:230
-#: admin/templates/print-label.tpl.php:268
-#: admin/templates/print-label.tpl.php:370
-#: admin/templates/print-label.tpl.php:408
-msgid "Length"
-msgstr "Lungime"
-
-#: admin/templates/print-label.tpl.php:91
-#: admin/templates/print-label.tpl.php:129
-#: admin/templates/print-label.tpl.php:231
-#: admin/templates/print-label.tpl.php:269
-#: admin/templates/print-label.tpl.php:371
-#: admin/templates/print-label.tpl.php:409
-msgid "Width"
-msgstr "Lăţime"
-
-#: admin/templates/print-label.tpl.php:92
-#: admin/templates/print-label.tpl.php:130
-#: admin/templates/print-label.tpl.php:232
-#: admin/templates/print-label.tpl.php:270
-#: admin/templates/print-label.tpl.php:372
-#: admin/templates/print-label.tpl.php:410
-msgid "Height"
-msgstr "Înălțime"
-
-#: admin/templates/print-label.tpl.php:94
-#: admin/templates/print-label.tpl.php:132
-#: admin/templates/print-label.tpl.php:234
-#: admin/templates/print-label.tpl.php:272
-#: admin/templates/print-label.tpl.php:374
-#: admin/templates/print-label.tpl.php:412
-msgid "Weight"
-msgstr "Greutate"
-
-#: admin/templates/print-label.tpl.php:172
+#: admin/templates/print-label.tpl.php:25
 msgid "Consignee Copy"
 msgstr "Copie destinatar"
 
-#: admin/templates/print-label.tpl.php:312
+#: admin/templates/print-label.tpl.php:26
 msgid "Shippers Copy"
 msgstr "Copii expeditori"
 
-#: admin/templates/print-label.tpl.php:445
-msgid "Print File"
-msgstr "Imprimare fișier"
+#: admin/templates/print-label.tpl.php:101
+msgid "Package Information"
+msgstr "Informații"
+
+#: admin/templates/print-label.tpl.php:105
+msgid "Description"
+msgstr "Descriere"
+
+#: admin/templates/print-label.tpl.php:106
+msgid "Qty."
+msgstr "Cant."
+
+#: admin/templates/print-label.tpl.php:107
+msgid "Piece Type"
+msgstr "Tip piesă"
+
+#: admin/templates/print-label.tpl.php:109
+msgid "Length"
+msgstr "Lungime"
+
+#: admin/templates/print-label.tpl.php:110
+msgid "Width"
+msgstr "Lăţime"
+
+#: admin/templates/print-label.tpl.php:111
+msgid "Height"
+msgstr "Înălțime"
+
+#: admin/templates/print-label.tpl.php:113
+msgid "Weight"
+msgstr "Greutate"
 
 #: admin/templates/receiver-metabox.tpl.php:2
 msgid "Receiver Details"

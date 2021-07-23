@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WPCargo\n"
-"POT-Creation-Date: 2021-02-19 10:57+0800\n"
-"PO-Revision-Date: 2021-02-19 10:57+0800\n"
+"POT-Creation-Date: 2021-06-21 09:34+0800\n"
+"PO-Revision-Date: 2021-06-21 09:34+0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.4.2\n"
+"X-Generator: Poedit 3.0\n"
 "X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
@@ -110,7 +110,7 @@ msgid "Add Shipment Status"
 msgstr "إضافة حالة الشحن"
 
 #: admin/classes/class-wpc-custom-table.php:156
-#: admin/includes/functions.php:482
+#: admin/includes/functions.php:501
 msgid "Remarks"
 msgstr "ملاحظات"
 
@@ -134,7 +134,7 @@ msgstr "إذا كنت ترغب في تقرير أكثر شمولا وتخصيص�
 msgid "Shipment Reports"
 msgstr "تقارير الشحن"
 
-#: admin/classes/class-wpc-export.php:8 admin/includes/functions.php:208
+#: admin/classes/class-wpc-export.php:8 admin/includes/functions.php:223
 #: admin/includes/hooks.php:511 admin/templates/shipper-metabox.tpl.php:7
 msgid "Shipper Name"
 msgstr "اسم الشاحن"
@@ -151,11 +151,11 @@ msgstr "رقم الهاتف"
 msgid "Shipper Address"
 msgstr "عنوان الشاحن"
 
-#: admin/classes/class-wpc-export.php:23 admin/includes/functions.php:105
+#: admin/classes/class-wpc-export.php:23 admin/includes/functions.php:111
 msgid "Shipper Email"
 msgstr "بريد الشاحن"
 
-#: admin/classes/class-wpc-export.php:28 admin/includes/functions.php:214
+#: admin/classes/class-wpc-export.php:28 admin/includes/functions.php:229
 #: admin/includes/hooks.php:529 admin/templates/receiver-metabox.tpl.php:8
 msgid "Receiver Name"
 msgstr "اسم المستلم"
@@ -165,7 +165,7 @@ msgstr "اسم المستلم"
 msgid "Receiver Address"
 msgstr "عنوان جهاز الاستقبال"
 
-#: admin/classes/class-wpc-export.php:48 admin/includes/functions.php:106
+#: admin/classes/class-wpc-export.php:48 admin/includes/functions.php:112
 msgid "Receiver Email"
 msgstr "استلام بريد الكتروني"
 
@@ -174,56 +174,56 @@ msgstr "استلام بريد الكتروني"
 msgid "Agent Name"
 msgstr "أسم الوكيل "
 
-#: admin/classes/class-wpc-export.php:58 admin/includes/functions.php:514
+#: admin/classes/class-wpc-export.php:58 admin/includes/functions.php:533
 #: admin/templates/admin-print-label.tpl.php:85
 #: admin/templates/shipment-metabox.tpl.php:7
 msgid "Type of Shipment"
 msgstr "نوع الشحن"
 
-#: admin/classes/class-wpc-export.php:63 admin/includes/functions.php:515
+#: admin/classes/class-wpc-export.php:63 admin/includes/functions.php:534
 #: admin/templates/admin-print-label.tpl.php:46
 #: admin/templates/shipment-metabox.tpl.php:32
 msgid "Courier"
 msgstr "الناقل"
 
-#: admin/classes/class-wpc-export.php:68 admin/includes/functions.php:517
+#: admin/classes/class-wpc-export.php:68 admin/includes/functions.php:536
 #: admin/templates/admin-print-label.tpl.php:94
 #: admin/templates/shipment-metabox.tpl.php:40
 msgid "Mode"
 msgstr "الوضع"
 
-#: admin/classes/class-wpc-export.php:73 admin/includes/functions.php:522
+#: admin/classes/class-wpc-export.php:73 admin/includes/functions.php:541
 #: admin/templates/admin-print-label.tpl.php:92
 #: admin/templates/settings-option.tpl.php:145
 #: admin/templates/shipment-metabox.tpl.php:65
 msgid "Quantity"
 msgstr "الكمية"
 
-#: admin/classes/class-wpc-export.php:78 admin/includes/functions.php:523
+#: admin/classes/class-wpc-export.php:78 admin/includes/functions.php:542
 #: admin/templates/admin-print-label.tpl.php:91
 #: admin/templates/shipment-metabox.tpl.php:89
 msgid "Total Freight"
 msgstr "اجمالي الشحن"
 
-#: admin/classes/class-wpc-export.php:83 admin/includes/functions.php:516
+#: admin/classes/class-wpc-export.php:83 admin/includes/functions.php:535
 #: admin/templates/admin-print-label.tpl.php:54
 #: admin/templates/shipment-metabox.tpl.php:114
 msgid "Carrier Reference No."
 msgstr "رقم مرجع الناقل"
 
-#: admin/classes/class-wpc-export.php:88 admin/includes/functions.php:525
+#: admin/classes/class-wpc-export.php:88 admin/includes/functions.php:544
 #: admin/templates/admin-print-label.tpl.php:40
 #: admin/templates/shipment-metabox.tpl.php:125
 msgid "Origin"
 msgstr "الأصل"
 
-#: admin/classes/class-wpc-export.php:93 admin/includes/functions.php:526
+#: admin/classes/class-wpc-export.php:93 admin/includes/functions.php:545
 #: admin/templates/admin-print-label.tpl.php:29
 #: admin/templates/shipment-metabox.tpl.php:167
 msgid "Pickup Date"
 msgstr "تاريخ الاستلام"
 
-#: admin/classes/class-wpc-export.php:98 admin/includes/functions.php:112
+#: admin/classes/class-wpc-export.php:98 admin/includes/functions.php:118
 msgid "Shipment Status"
 msgstr "حالة الشحن"
 
@@ -232,55 +232,55 @@ msgstr "حالة الشحن"
 msgid "Comments"
 msgstr "التعليقات"
 
-#: admin/classes/class-wpc-export.php:108 admin/includes/functions.php:521
+#: admin/classes/class-wpc-export.php:108 admin/includes/functions.php:540
 #: admin/templates/admin-print-label.tpl.php:88
 #: admin/templates/shipment-metabox.tpl.php:28
 msgid "Weight"
 msgstr "الوزن"
 
 #: admin/classes/class-wpc-export.php:113
-#: admin/classes/class-wpc-metabox.php:100 admin/includes/functions.php:519
+#: admin/classes/class-wpc-metabox.php:100 admin/includes/functions.php:538
 #: admin/templates/admin-print-label.tpl.php:86
 #: admin/templates/shipment-metabox.tpl.php:36 templates/package.tpl.php:2
 msgid "Packages"
 msgstr "الباقات"
 
-#: admin/classes/class-wpc-export.php:118 admin/includes/functions.php:520
+#: admin/classes/class-wpc-export.php:118 admin/includes/functions.php:539
 #: admin/templates/admin-print-label.tpl.php:87
 #: admin/templates/shipment-metabox.tpl.php:61
 msgid "Product"
 msgstr "المنتج"
 
-#: admin/classes/class-wpc-export.php:123 admin/includes/functions.php:524
+#: admin/classes/class-wpc-export.php:123 admin/includes/functions.php:543
 #: admin/templates/admin-print-label.tpl.php:93
 #: admin/templates/shipment-metabox.tpl.php:69
 msgid "Payment Mode"
 msgstr "طريقة الدفع"
 
-#: admin/classes/class-wpc-export.php:128 admin/includes/functions.php:518
+#: admin/classes/class-wpc-export.php:128 admin/includes/functions.php:537
 #: admin/templates/admin-print-label.tpl.php:51
 #: admin/templates/shipment-metabox.tpl.php:93
 msgid "Carrier"
 msgstr "الناقل"
 
-#: admin/classes/class-wpc-export.php:133 admin/includes/functions.php:528
+#: admin/classes/class-wpc-export.php:133 admin/includes/functions.php:547
 #: admin/templates/admin-print-label.tpl.php:57
 #: admin/templates/shipment-metabox.tpl.php:118
 msgid "Departure Time"
 msgstr "وقت المغادرة"
 
-#: admin/classes/class-wpc-export.php:138 admin/includes/functions.php:527
+#: admin/classes/class-wpc-export.php:138 admin/includes/functions.php:546
 #: admin/templates/admin-print-label.tpl.php:43
 #: admin/templates/shipment-metabox.tpl.php:146
 msgid "Destination"
 msgstr "الوجهة"
 
-#: admin/classes/class-wpc-export.php:143 admin/includes/functions.php:529
+#: admin/classes/class-wpc-export.php:143 admin/includes/functions.php:548
 #: admin/templates/admin-print-label.tpl.php:32
 msgid "Pickup Time"
 msgstr "وقت الوصول"
 
-#: admin/classes/class-wpc-export.php:148 admin/includes/functions.php:530
+#: admin/classes/class-wpc-export.php:148 admin/includes/functions.php:549
 #: admin/templates/shipment-metabox.tpl.php:175
 msgid "Expected Delivery Date"
 msgstr "تاريخ التسليم المتوقع"
@@ -508,191 +508,191 @@ msgstr "-- جميع الشاحنين --"
 msgid "-- All Receiver --"
 msgstr "-- كل المتلقي --"
 
-#: admin/includes/functions.php:104
+#: admin/includes/functions.php:110
 msgid "Tracking Number"
 msgstr "رقم تتبع الشحنة"
 
-#: admin/includes/functions.php:107
+#: admin/includes/functions.php:113
 msgid "Shipper Phone"
 msgstr "هاتف الشاحن"
 
-#: admin/includes/functions.php:108
+#: admin/includes/functions.php:114
 msgid "Receiver Phone"
 msgstr "هاتف المستلم"
 
-#: admin/includes/functions.php:109
+#: admin/includes/functions.php:115
 msgid "Admin Email"
 msgstr "البريد الإلكتروني الافتراضي (مدير النظام)"
 
-#: admin/includes/functions.php:110
+#: admin/includes/functions.php:116
 msgid "Name of the Shipper"
 msgstr "اسم الشاحن"
 
-#: admin/includes/functions.php:111
+#: admin/includes/functions.php:117
 msgid "Name of the Receiver"
 msgstr "اسم المستلم"
 
-#: admin/includes/functions.php:113 admin/includes/functions.php:464
+#: admin/includes/functions.php:119 admin/includes/functions.php:483
 #: admin/includes/hooks.php:407
 msgid "Location"
 msgstr "الموقع"
 
-#: admin/includes/functions.php:114
+#: admin/includes/functions.php:120
 msgid "Website Name"
 msgstr "اسم الموقع"
 
-#: admin/includes/functions.php:115
+#: admin/includes/functions.php:121
 msgid "Website URL"
 msgstr "رابط الموقع"
 
-#: admin/includes/functions.php:116
+#: admin/includes/functions.php:122
 msgid "Registered Client Email"
 msgstr "الشاحن المسجل"
 
-#: admin/includes/functions.php:123
+#: admin/includes/functions.php:129
 msgid "Pending"
 msgstr "قيد الانتظار"
 
-#: admin/includes/functions.php:124
+#: admin/includes/functions.php:130
 msgid "Picked up"
 msgstr "التقطت"
 
-#: admin/includes/functions.php:125
+#: admin/includes/functions.php:131
 msgid "On Hold"
 msgstr "قيد الإنتظار"
 
-#: admin/includes/functions.php:126
+#: admin/includes/functions.php:132
 msgid "Out for delivery"
 msgstr "خارج للتسليم"
 
-#: admin/includes/functions.php:127
+#: admin/includes/functions.php:133
 msgid "In Transit"
 msgstr "في العبور"
 
-#: admin/includes/functions.php:128
+#: admin/includes/functions.php:134
 msgid "Enroute"
 msgstr "مسار"
 
-#: admin/includes/functions.php:129
+#: admin/includes/functions.php:135
 msgid "Cancelled"
 msgstr "ملغى"
 
-#: admin/includes/functions.php:130
+#: admin/includes/functions.php:136
 msgid "Delivered"
 msgstr "تم التسليم"
 
-#: admin/includes/functions.php:131
+#: admin/includes/functions.php:137
 msgid "Returned"
 msgstr "إسترجاع"
 
-#: admin/includes/functions.php:141
+#: admin/includes/functions.php:147
 msgid "-- Select Type --"
 msgstr "-- حدد نوع --"
 
-#: admin/includes/functions.php:346
+#: admin/includes/functions.php:365
 msgid "Previous"
 msgstr "السابق"
 
-#: admin/includes/functions.php:347
+#: admin/includes/functions.php:366
 msgid "Next"
 msgstr "التالي"
 
-#: admin/includes/functions.php:348
+#: admin/includes/functions.php:367
 msgid "Shipments"
 msgstr "الشحنات"
 
-#: admin/includes/functions.php:385
+#: admin/includes/functions.php:404
 msgid "First"
 msgstr "الأول"
 
-#: admin/includes/functions.php:387
+#: admin/includes/functions.php:406
 msgid "previous"
 msgstr "السابق"
 
-#: admin/includes/functions.php:400
+#: admin/includes/functions.php:419
 msgid "next"
 msgstr "التالي"
 
-#: admin/includes/functions.php:403
+#: admin/includes/functions.php:422
 msgid "Last"
 msgstr "الأخير"
 
 #. Plugin Name of the plugin/theme
-#: admin/includes/functions.php:419
+#: admin/includes/functions.php:438
 msgid "WPCargo"
 msgstr "AlarifiCargo"
 
-#: admin/includes/functions.php:422
+#: admin/includes/functions.php:441
 msgid "General Settings"
 msgstr "الاعدادات العامة"
 
-#: admin/includes/functions.php:425
+#: admin/includes/functions.php:444
 msgid "Client Email Settings"
 msgstr "إعدادات البريد الإلكتروني للعميل"
 
-#: admin/includes/functions.php:428
+#: admin/includes/functions.php:447
 msgid "Admin Email Settings"
 msgstr "إعدادات البريد الإلكتروني المسؤول"
 
-#: admin/includes/functions.php:431
+#: admin/includes/functions.php:450
 msgid "Shipment Settings"
 msgstr "اعدادات الشحن"
 
-#: admin/includes/functions.php:434
+#: admin/includes/functions.php:453
 msgid "Reports"
 msgstr "تقارير"
 
-#: admin/includes/functions.php:437
+#: admin/includes/functions.php:456
 msgid "Map Settings"
 msgstr "إعدادت الخريطة"
 
-#: admin/includes/functions.php:440
+#: admin/includes/functions.php:459
 msgid "Print Layout"
 msgstr "طرح بندی چاپ"
 
-#: admin/includes/functions.php:443
+#: admin/includes/functions.php:462
 msgid "Shipment Label"
 msgstr "تسمية الشحن"
 
-#: admin/includes/functions.php:446 admin/templates/shipment-metabox.tpl.php:2
+#: admin/includes/functions.php:465 admin/templates/shipment-metabox.tpl.php:2
 msgid "Shipment Details"
 msgstr "تفاصيل الشحن"
 
-#: admin/includes/functions.php:452 admin/includes/hooks.php:406
+#: admin/includes/functions.php:471 admin/includes/hooks.php:406
 msgid "Date"
 msgstr "التاريخ"
 
-#: admin/includes/functions.php:458
+#: admin/includes/functions.php:477
 msgid "Time"
 msgstr "الوقت"
 
-#: admin/includes/functions.php:470 admin/includes/hooks.php:408
+#: admin/includes/functions.php:489 admin/includes/hooks.php:408
 #: admin/templates/admin-print-label.tpl.php:69 templates/account.tpl.php:21
 #: templates/report.tpl.php:23
 msgid "Status"
 msgstr "الحالة"
 
-#: admin/includes/functions.php:476
+#: admin/includes/functions.php:495
 msgid "Updated By"
 msgstr "تم التحديث بواسطة"
 
-#: admin/includes/functions.php:548
+#: admin/includes/functions.php:567
 msgid "From: "
 msgstr "من  :"
 
-#: admin/includes/functions.php:552
+#: admin/includes/functions.php:571
 msgid "Dear"
 msgstr "عزيزى"
 
-#: admin/includes/functions.php:553
+#: admin/includes/functions.php:572
 msgid "Shipment number "
 msgstr "رقم الشحنة"
 
-#: admin/includes/functions.php:553
+#: admin/includes/functions.php:572
 msgid " has been assigned to you."
 msgstr "تم تعيينه لك."
 
-#: admin/includes/functions.php:558
+#: admin/includes/functions.php:577
 msgid "Assign Shipment Notification"
 msgstr "تعيين إشعار الشحنة"
 
@@ -728,7 +728,7 @@ msgstr "البريد الإلكتروني"
 msgid "RECEIVER DETAILS:"
 msgstr "بيانات المستلم"
 
-#: admin/includes/hooks.php:560
+#: admin/includes/hooks.php:563
 msgid "PACKAGE DETAILS:"
 msgstr "تفاصيل الباقة"
 
@@ -1332,15 +1332,15 @@ msgstr "معادلة"
 msgid "Volumetric Weight."
 msgstr "الوزن الحجمي."
 
-#: admin/templates/settings-option.tpl.php:145 includes/packages.php:159
+#: admin/templates/settings-option.tpl.php:145 includes/packages.php:184
 msgid "Length"
 msgstr "الطول"
 
-#: admin/templates/settings-option.tpl.php:145 includes/packages.php:165
+#: admin/templates/settings-option.tpl.php:145 includes/packages.php:190
 msgid "Width"
 msgstr "العرض"
 
-#: admin/templates/settings-option.tpl.php:145 includes/packages.php:171
+#: admin/templates/settings-option.tpl.php:145 includes/packages.php:196
 msgid "Height"
 msgstr "الارتفاع"
 
@@ -1496,19 +1496,19 @@ msgstr "إجمالي حجم الوزن:"
 msgid "Total Actual Weight :"
 msgstr "إجمالي الوزن الفعلي:"
 
-#: includes/packages.php:139
+#: includes/packages.php:164
 msgid "Qty."
 msgstr "الكمية"
 
-#: includes/packages.php:145
+#: includes/packages.php:170
 msgid "Piece Type"
 msgstr "نوع القطعة"
 
-#: includes/packages.php:151
+#: includes/packages.php:176
 msgid "Description"
 msgstr "الوصف"
 
-#: includes/packages.php:178
+#: includes/packages.php:203
 msgid "Weight "
 msgstr "الوزن"
 
@@ -1565,7 +1565,7 @@ msgstr "المسمى الوظيفي"
 msgid "No shipment found!"
 msgstr "الشحنة غير موجودة"
 
-#: templates/package.tpl.php:42
+#: templates/package.tpl.php:40
 msgid "Data empty"
 msgstr "البيانات فارغة"
 
@@ -1587,7 +1587,7 @@ msgstr "تحديد التاريخ"
 
 #: templates/report.tpl.php:17
 msgid "From : "
-msgstr "من :"
+msgstr "من  :"
 
 #: templates/report.tpl.php:19
 msgid "To : "

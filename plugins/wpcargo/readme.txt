@@ -3,7 +3,7 @@
 Contributors: WPTaskforce
 Donate link: https://wpcargo.com/
 Tags: transportation management, status tracking, shipment tracking, order tracking, delivery tracking, tracking system, package tracking, courier tracking, order management, order status, order shortcode, order management system, order tracking system, status tracking system, status tracking software, delivery tracking system
-Tested up to: 5.6.1
+Tested up to: 5.7.2
 Requires PHP: 7.0
 Stable tag: 6.x.x
 License: GPLv3
@@ -114,6 +114,25 @@ Single Page with results:[wpcargo_trackform]
 3. Shipment Results
 
 == Changelog ==
+
+= 6.8.3 =
+
+- Add filter for admin and frontend template customization.
+- Add filter "wpcargo_client_mail_notification_message" and "wpcargo_admin_mail_notification_message" for email notification message.
+- Add hook "wpcargo_after_client_mail_notification" and "wpcargo_after_admin_mail_notification" after email notification.
+- Add total volume and weight package information in invoice print template.
+
+= 6.8.2 =
+
+- Fixed email notification template in mobile display.
+- Add new filter hooks "wpcargo_shortcode_meta_value" for the shortcode custom meta value.
+- Fixed package calculation decimal point with auto detect number of decimal place to display.
+
+= 6.8.1 =
+
+- Fixed package and shipment history data deleted after submission when array value has quote characters.
+- Fixed track result no display for labels.
+- Fixed "All in One SEO" plugin compatibility, NO result display when track form is submitted.
 
 = 6.7.9 =
 

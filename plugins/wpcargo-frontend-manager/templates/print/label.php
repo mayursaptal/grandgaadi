@@ -1,3 +1,4 @@
+
 <?php do_action( 'wpcfe_before_label_content', $shipmentDetails, null, null, null ); ?>
 <table style="width:100%;">
     <?php do_action( 'wpcfe_start_label_section', $shipmentDetails, null, null, null ); ?>
@@ -18,3 +19,4 @@
     <?php do_action( 'wpcfe_end_label_section', $shipmentDetails, null, null, null ); ?>
 </table>
 <?php do_action( 'wpcfe_after_label_content', $shipmentDetails, null, null, null ); ?>
+ 

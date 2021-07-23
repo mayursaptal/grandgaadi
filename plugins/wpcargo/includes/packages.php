@@ -7,7 +7,7 @@ add_action('wpcargo_after_package_details', 'wpcargo_multiple_package_after_trac
 function wpcargo_multiple_package_after_track_details( $shipment ){
 	if( multiple_package_status() ) {
 		$template = wpcargo_include_template( 'package.tpl' );
-		include_once( $template );
+		require( $template );
 	}
 }
 add_action('wpcargo_after_package_totals', 'wpcargo_after_package_details_callback', 10, 1 );
@@ -39,6 +39,7 @@ function wpcargo_after_package_details_script_callback( $shipment ){
 	$weight_meta = wpcargo_package_weight_meta();
 	$divisor    = wpcargo_package_settings()->divisor ? wpcargo_package_settings()->divisor : 1;
 	$dim_meta   = json_encode( $dim_meta );
+	$decimal 	= apply_filters( 'wpcargo_package_decimal_place', 2 );
 	?>
 	<script>
 		var mainContainer   = 'table tbody[data-repeater-list="<?php echo WPCARGO_PACKAGE_POSTMETA; ?>"]';
@@ -46,53 +47,78 @@ function wpcargo_after_package_details_script_callback( $shipment ){
 		var dimMeta         = <?php echo $dim_meta; ?>;
 		var qtyMeta         = "<?php echo $qty_meta; ?>";
 		var weightMeta      = "<?php echo $weight_meta; ?>";    
+		var decimal 		= "<?php echo $decimal; ?>";    
 		jQuery(document).ready(function($){
+			function getDecimal( value = 0 ){
+				value = parseFloat( value );
+				if( value >= 1 ){
+					return 2;
+				}
+				var str 	= "0.";
+				var dPlace = 1;
+				for (i = 1; i < 10; i++) {
+					str = str+'0';
+					var z_value 	= str+"1";
+					if( parseFloat(value) > parseFloat( z_value ) ){
+						dPlace = i+2;
+						break;
+					}
+				}
+				return dPlace;
+			}
+			function calculatepackage(){
+				var totalQTY        = 0;
+				var totalWeight     = 0;
+				var totalVolumetric = 0;
+				var totalVolume		= 0;
+				$( mainContainer + ' tr' ).each(function(){
+					var currentVolumetric = 1; 
+					var currentQTY        = 0;
+					var packageWeight     = 0;
+					$(this).find('input').each(function(){
+						var currentField    = $(this);
+						var className       = $( currentField ).attr('name');
+						// Exclude in the loop field without name attribute
+						if ( typeof className === "undefined" ){
+								return;
+						}
+						// Get the QTY
+						if ( className.indexOf(qtyMeta) > -1 ){
+							var pQty = $( currentField ).val() == '' ? 0 : $( currentField ).val() ;
+							totalQTY += parseFloat( pQty );
+							currentQTY = parseFloat( pQty );
+						}
+						// Get the weight
+						if ( className.indexOf(weightMeta) > -1 ){
+							var pWeight = $( currentField ).val() == '' ? 0 : $( currentField ).val() ;
+							packageWeight += parseFloat( pWeight );
+						}
+						
+						// Calculate the volumetric                       
+						$.each( dimMeta, function( index, value ){   
+												
+							if ( className.indexOf(value) == -1 ){
+								return;
+							}
+							currentVolumetric *= $( currentField ).val();
+						} );
+					});
+					totalVolumetric += currentQTY * ( currentVolumetric / divisor );
+					totalWeight     += currentQTY * packageWeight;
+					totalVolume		+= currentQTY * currentVolumetric;
+				});
+				$('#package-weight-info #total_volume_metric_output').text( totalVolume.toFixed( getDecimal(totalVolume) ) );
+				$('#package-weight-info #package_volumetric').text( totalVolumetric.toFixed( getDecimal(totalVolumetric) ) );
+				$('#package-weight-info #package_actual_weight').text( totalWeight.toFixed( getDecimal(totalWeight) ) );
+			}
 			if( mainContainer.length > 0 ){
 				$( mainContainer ).on( 'change keyup', 'input', function(){
-					var totalQTY        = 0;
-					var totalWeight     = 0;
-					var totalVolumetric = 0;
-					var totalVolume		= 0;
-				 
-					$( mainContainer + ' tr' ).each(function(){
-						var currentVolumetric = 1; 
-						var currentQTY        = 0;
-						var packageWeight     = 0;
-						$(this).find('input').each(function(){
-							var currentField    = $(this);
-							var className       = $( currentField ).attr('name');
-							// Exclude in the loop field without name attribute
-							if ( typeof className === "undefined" ){
-									return;
-							}
-							// Get the QTY
-							if ( className.indexOf(qtyMeta) > -1 ){
-								var pQty = $( currentField ).val() == '' ? 0 : $( currentField ).val() ;
-								totalQTY += parseFloat( pQty );
-								currentQTY = parseFloat( pQty );
-							}
-							// Get the weight
-							if ( className.indexOf(weightMeta) > -1 ){
-								var pWeight = $( currentField ).val() == '' ? 0 : $( currentField ).val() ;
-								packageWeight += parseFloat( pWeight );
-							}
-							
-							// Calculate the volumetric                       
-							$.each( dimMeta, function( index, value ){   
-												  
-								if ( className.indexOf(value) == -1 ){
-									return;
-								}
-								currentVolumetric *= $( currentField ).val();
-							} );
-						});
-						totalVolumetric += currentQTY * ( currentVolumetric / divisor );
-						totalWeight     += currentQTY * packageWeight;
-						totalVolume		+= currentQTY * currentVolumetric;
-					});
-					$('#package-weight-info #total_volume_metric_output').text( totalVolume.toFixed(2) );
-					$('#package-weight-info #package_volumetric').text( totalVolumetric.toFixed(2) );
-					$('#package-weight-info #package_actual_weight').text( totalWeight.toFixed(2) );
+					calculatepackage();
+				});
+				$('body').on('DOMSubtreeModified', mainContainer, function(){
+					setTimeout(() => {
+						calculatepackage();
+					}, 1000 );
 				});
 			}
 		});
@@ -105,7 +131,6 @@ function wpcargo_package_settings(){
 	$woointeg_dim_divisor 			= apply_filters( 'wpcargo_package_divisor_cm', $woointeg_dim_divisor );
 	$woointeg_dim_divisor_inc       = get_option( 'woointeg_dim_divisor_inc' ) ? floatval( get_option( 'woointeg_dim_divisor_inc' ) ) : 138.4 ;
 	$woointeg_dim_divisor_inc 		= apply_filters( 'wpcargo_package_divisor_inc', $woointeg_dim_divisor_inc );
-
     $wpc_mp_dimension_unit          = !empty($options) && array_key_exists( 'wpc_mp_dimension_unit', $options ) ? $options['wpc_mp_dimension_unit'] : 'cm';
     $wpc_mp_peice_type              = !empty($options) && array_key_exists( 'wpc_mp_piece_type', $options ) ? array_filter( array_map('trim', explode(",", $options['wpc_mp_piece_type']) ) ) : array();
     $wpc_mp_weight_unit             = !empty($options) && array_key_exists( 'wpc_mp_weight_unit', $options ) ? $options['wpc_mp_weight_unit'] : 'lbs';
@@ -191,7 +216,6 @@ function wpcargo_package_volumetric( $shipment_id ){
 	$divisor    = wpcargo_package_settings()->divisor;
 	$unit    	= wpcargo_package_settings()->volume_unit;
 	$packages 	= wpcargo_get_package_data( $shipment_id );
-	
 	if( !empty( $packages ) ){	
 		foreach ($packages as $key => $value) {
 			$multiplier = 1;
@@ -205,11 +229,12 @@ function wpcargo_package_volumetric( $shipment_id ){
 			$volumetric += ( floatval($multiplier) / floatval($divisor) ) * floatval($qty);
 		}		
 	}
-	return apply_filters( 'wpcargo_package_volumetric', number_format( $volumetric, 2, '.', ''), $shipment_id );
+	$decimal 	= wpcargo_dynamic_decimal( $volumetric );
+	return apply_filters( 'wpcargo_package_volumetric', number_format( $volumetric, $decimal, '.', ''), $shipment_id, $volumetric );
 }
 function wpcargo_package_actual_weight( $shipment_id ){
-	$weight = 0;
-	$packages = wpcargo_get_package_data( $shipment_id );
+	$weight 	= 0;
+	$packages 	= wpcargo_get_package_data( $shipment_id );
 	if( !empty( $packages ) ){	
 		foreach ($packages as $key => $value) {
 			$qty 			= array_key_exists( wpcargo_package_qty_meta(), $value ) ? $value[wpcargo_package_qty_meta()] : 0 ;
@@ -217,7 +242,8 @@ function wpcargo_package_actual_weight( $shipment_id ){
 			$weight += floatval( $weight_meta ) * floatval( $qty );
 		}		
 	}
-	return apply_filters( 'wpcargo_package_actual_weight', number_format( $weight, 2, '.', ''), $shipment_id );
+	$decimal 	= wpcargo_dynamic_decimal( $weight );
+	return apply_filters( 'wpcargo_package_actual_weight', number_format( $weight, $decimal, '.', ''), $shipment_id );
 }
 function multiple_package_status(){
 	$status = false;
@@ -226,3 +252,26 @@ function multiple_package_status(){
 	}
 	return apply_filters( 'multiple_package_status', $status );
 }
+// Checked dynamic decimal places
+function wpcargo_dynamic_decimal( $value ){
+	$zero_decimal  = "0.0";
+	$decimal_place = 2;
+	if( $value < 1 ){
+		for( $i=2; $i<10; $i++ ){
+			$new_decimal 	= str_pad( $zero_decimal, $i, "0", STR_PAD_RIGHT );
+			$zero_value 	= $new_decimal."1";
+			if( $value < $zero_value ){
+				$decimal_place = $i+1;
+			}
+		}
+	}
+	return $decimal_place;
+}
+// Save Shipment Package
+function wpcargo_save_package_callback( $shipment_id, $data ){
+	if( !isset( $data[WPCARGO_PACKAGE_POSTMETA] ) ){
+		return false;
+	}
+	update_post_meta( $shipment_id, WPCARGO_PACKAGE_POSTMETA, $data[WPCARGO_PACKAGE_POSTMETA] );
+}
+add_action( 'wpcargo_after_save_shipment', 'wpcargo_save_package_callback', 10, 2 );

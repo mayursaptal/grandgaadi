@@ -136,7 +136,6 @@ class WPCFE_Scripts{
                 foreach( $wp_scripts->queue as $script ) :
                     $source =  $wp_scripts->registered[$script]->src;
                     $ex_source = explode('/', $source );
-                    //if( in_array( 'themes', $ex_source ) ){
                     if( !in_array( $script, wpcfe_registered_scripts() ) ){
                         $_scripts[] = $wp_scripts->registered[$script]->handle;
                         wp_dequeue_script( $wp_scripts->registered[$script]->handle );
@@ -147,7 +146,6 @@ class WPCFE_Scripts{
                 foreach( $wp_styles->queue as $style ) :
                     $source =  $wp_styles->registered[$style]->src;
                     $ex_source = explode('/', $source );
-                    //if( in_array( 'themes', $ex_source ) ){
                     if( !in_array( $style, wpcfe_registered_styles() ) ){
                         $_styles[] = $wp_styles->registered[$style]->handle;
                         wp_dequeue_style( $wp_styles->registered[$style]->handle );

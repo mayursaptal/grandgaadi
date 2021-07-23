@@ -100,11 +100,11 @@ $form_field = $this->get_field_by_id( $_GET['id'] );
     			$flags = maybe_unserialize( $display_flags ); 
     		?>
             <tr>
-            	<th><?php esc_html_e('Do you want to display on search form?', 'wpcargo-custom-field' ); ?></th>
+            	<th><?php esc_html_e('Do you want to display on tracking page form?', 'wpcargo-custom-field' ); ?></th>
                 <td><input name="display_flags[]" value="search" type="checkbox" <?php echo is_array($flags) && in_array( 'search', $flags) ? 'checked' : ''; ?> /></td>
             </tr>
             <tr>
-            	<th><?php esc_html_e('Is field required on search form?', 'wpcargo-custom-field' ); ?></th>
+            	<th><?php esc_html_e('Is field required on tracking page form?', 'wpcargo-custom-field' ); ?></th>
                 <td><input name="display_flags[]" value="search_required" type="checkbox" <?php echo is_array($flags) && in_array( 'search_required', $flags) ? 'checked' : ''; ?> /></td>
             </tr>
             <tr>

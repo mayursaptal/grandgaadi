@@ -43,17 +43,17 @@ class WPCargo_Track_Form{
 		global $wpdb;
 		$shipment_number = $_REQUEST['wpcargo_tracking_number'];
 		$template = wpcargo_include_template( 'result-form.tpl' );
-		require_once( $template );
+		require( $template );
 	}
 	public function wpcargo_trackform_result_shipment_details_template( $shipment ){
 		global $wpdb;
 		$template = wpcargo_include_template( 'result-form-shipment-details.tpl' );
-		require_once( $template );
+		require( $template );
 	}
 	public function wpcargo_trackform_result_shipper_details_template( $shipment ){
 		global $wpdb;
 		$template = wpcargo_include_template( 'result-form-shipper-details.tpl' );
-		require_once( $template );
+		require( $template );
 	}
 	public function wpcargo_trackform_result_header_details_template( $shipment ){
 		global $wpdb, $wpcargo;
@@ -61,7 +61,7 @@ class WPCargo_Track_Form{
 		$tracknumber	= $shipment->post_title;
 		$url_barcode	= $wpcargo->barcode_url( $shipment_id );
 		$template = wpcargo_include_template( 'result-form-header-details.tpl' );
-		require_once( $template );
+		require( $template );
 	}
 	// Account shortcode callback
 	public function account_shortcode_callback(){
@@ -104,10 +104,10 @@ class WPCargo_Track_Form{
 		$shipment_query  	= new WP_Query($shipment_args);
 		if(!empty($get_results) && is_array($plugins) && in_array('wpcargo-custom-field-addons/wpcargo-custom-field.php', $plugins) ){
 			$template = wpcargo_include_template( 'account-cf.tpl' );
-			require_once( $template );
+			require( $template );
 		}else{
 			$template = wpcargo_include_template( 'account.tpl' );
-			require_once( $template );
+			require( $template );
 		}
 		// Reset Post Data
 		wp_reset_postdata();

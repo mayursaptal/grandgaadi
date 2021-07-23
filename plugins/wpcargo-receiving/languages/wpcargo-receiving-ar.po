@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WPCargo Receiving Add-ons\n"
-"POT-Creation-Date: 2021-03-31 08:15+0800\n"
-"PO-Revision-Date: 2021-03-31 08:15+0800\n"
+"POT-Creation-Date: 2021-07-16 10:32+0800\n"
+"PO-Revision-Date: 2021-07-16 10:32+0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.4.2\n"
+"X-Generator: Poedit 3.0\n"
 "X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
@@ -66,10 +66,42 @@ msgstr "تحديث الشحنة بنجاح!"
 msgid "Cheating, uh?"
 msgstr "الغش، اه؟"
 
-#: admin/admin.php:59 admin/classes/wpc-receiving-loader.php:332
+#: admin/admin.php:59 admin/classes/wpc-receiving-loader.php:337
 #: admin/templates/wpc-receiving-submenu.tpl.php:17 includes/functions.php:41
 msgid "Receiving"
 msgstr "استقبال"
+
+#: admin/admin.php:72
+msgid "Client"
+msgstr "زبون"
+
+#: admin/admin.php:74
+msgid "Select Client"
+msgstr "اختر العميل"
+
+#: admin/admin.php:92
+msgid "Agent"
+msgstr "وكيل"
+
+#: admin/admin.php:94
+msgid "Select Agent"
+msgstr "حدد الوكيل"
+
+#: admin/admin.php:112
+msgid "Employee"
+msgstr "موظف"
+
+#: admin/admin.php:114
+msgid "Select employee"
+msgstr "تحديد الموظف"
+
+#: admin/admin.php:135
+msgid "Driver"
+msgstr "سائق"
+
+#: admin/admin.php:137
+msgid "Select Driver"
+msgstr "-- حدد العمال --"
 
 #: admin/classes/wpc-receiving-metabox.php:11
 msgid "Branch History"

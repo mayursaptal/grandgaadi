@@ -209,7 +209,8 @@ class WPCargo_Metabox {
 			'status_location',
 			'status_remarks',
 			'wpcargo_status',
-			'wpcargo_shipments_update'
+			'wpcargo_shipments_update',
+			'wpc-multiple-package'
 		);
 		return $excluded_meta_keys;
 	}
@@ -244,6 +245,7 @@ class WPCargo_Metabox {
 		$get_last_status 		= get_post_meta($post_id, 'wpcargo_status', true);
 		// Get all ecluded meta keys in saving post meta
 		$excluded_meta_keys = $this->excluded_meta_keys();
+
 		if( isset( $_POST['wpcargo_employee'] ) && wpc_can_send_email_employee() ){
 			$employee_assigned = get_post_meta( $post_id, 'wpcargo_employee', true ) ? get_post_meta( $post_id, 'wpcargo_employee', true ) : 0;
 			if( $employee_assigned != $_POST['wpcargo_employee'] ){
@@ -267,11 +269,7 @@ class WPCargo_Metabox {
 			if( in_array( $key, $excluded_meta_keys ) ) {
 				continue;
 			}
-			if( is_array( $value ) ) {
-				$meta_value  = maybe_serialize( $value );
-			} else {
-				$meta_value  = sanitize_text_field( $value );
-			}
+			$meta_value = is_array( $value ) ? $value : sanitize_text_field( $value );
 			update_post_meta($post_id, $key, $meta_value);
 		}
 		$current_user 		= wp_get_current_user();
@@ -282,7 +280,6 @@ class WPCargo_Metabox {
 			}
 		}
 		$history_array['updated-name'] = $wpcargo->user_fullname( $current_user->ID );
-
 		// Make sure that it is set.
 		$new_history 				= apply_filters( 'wpcargo_shipment_history_before_save', $history_array, $_POST );
 		if( isset( $_POST['status'] ) && $_POST['status'] != '' ){
@@ -300,9 +297,7 @@ class WPCargo_Metabox {
 				$wpcargo_shipments_update = $_POST['wpcargo_shipments_update'];
 			}
 		}
-
-		update_post_meta($post_id, 'wpcargo_shipments_update_demo', maybe_serialize( $wpcargo_shipments_update ) );
-		update_post_meta($post_id, 'wpcargo_shipments_update', maybe_serialize( $wpcargo_shipments_update ) );
+		update_post_meta($post_id, 'wpcargo_shipments_update', $wpcargo_shipments_update );
 
 		if( isset( $_POST['status'] )  && !empty( trim( $_POST['status'] ) ) ){
 			$new_status 	= sanitize_text_field( $_POST['status'] );
@@ -323,6 +318,7 @@ class WPCargo_Metabox {
 		if( empty( $shipment_type ) ){
 			update_post_meta( $post_id, '__shipment_type', 'wpcargo_default' );
 		}
+		do_action( 'wpcargo_after_save_shipment', $post_id, $_POST );
 	}
 	public function wpc_mp_metabox_callback($post) {
 		wp_nonce_field( 'wpc_mp_inner_custom_box', 'wpc_mp_inner_custom_box_nonce' );

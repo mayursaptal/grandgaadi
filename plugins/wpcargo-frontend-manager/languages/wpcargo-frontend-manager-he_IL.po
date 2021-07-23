@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WPCargo Frontend Manager\n"
-"POT-Creation-Date: 2021-04-07 15:08+0800\n"
-"PO-Revision-Date: 2021-04-07 15:09+0800\n"
+"POT-Creation-Date: 2021-04-22 11:47+0800\n"
+"PO-Revision-Date: 2021-04-22 11:48+0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: he_IL\n"
@@ -34,7 +34,7 @@ msgstr "--בחר אחד--"
 msgid "Add Images / Upload Files"
 msgstr "הוספת תמונות/העלאת קבצים"
 
-#: admin/classes/class-fields.php:298 admin/includes/functions.php:1124
+#: admin/classes/class-fields.php:298 admin/includes/functions.php:1130
 msgid "Email"
 msgstr "אימייל"
 
@@ -1218,8 +1218,7 @@ msgstr "מידע אודות המקלט"
 msgid "Shipment Information"
 msgstr "מידע למשלוח"
 
-#: admin/includes/functions.php:277 admin/includes/functions.php:654
-#: templates/shipments.php:74
+#: admin/includes/functions.php:277 admin/includes/functions.php:660
 msgid "Default"
 msgstr "ברירת מחדל"
 
@@ -1231,259 +1230,278 @@ msgstr "העמוד הנוכחי"
 msgid "Total page"
 msgstr "סה\"כ דף"
 
-#: admin/includes/functions.php:469 admin/includes/hooks.php:68
+#: admin/includes/functions.php:469 admin/includes/hooks.php:64
 msgid "Pending Client"
 msgstr "לקוח ממתין"
 
-#: admin/includes/functions.php:705
+#: admin/includes/functions.php:711
 msgid "Shipment "
 msgstr "משלוח"
 
-#: admin/includes/functions.php:705
+#: admin/includes/functions.php:711
 msgid " has been successfully saved."
 msgstr " נשמר בהצלחה."
 
-#: admin/includes/functions.php:711
+#: admin/includes/functions.php:717
 msgid "Something went wrong saving your shipment. Please reload and try again"
 msgstr "משהו השתבש כשהצלת את המשלוח שלך. נא טען מחדש ונסה שוב"
 
-#: admin/includes/functions.php:728
+#: admin/includes/functions.php:734
 msgid "Shipper Name"
 msgstr "שם השולח"
 
-#: admin/includes/functions.php:733
+#: admin/includes/functions.php:739
 msgid "Receiver Name"
 msgstr "שם מקלט"
 
-#: admin/includes/functions.php:953
+#: admin/includes/functions.php:959
 msgid "Previous"
 msgstr "הקודם"
 
-#: admin/includes/functions.php:954
+#: admin/includes/functions.php:960
 msgid "Next"
 msgstr "הבא"
 
-#: admin/includes/functions.php:955
+#: admin/includes/functions.php:961
 msgid "Shipment Pagination"
 msgstr "ת-ת-דמיון במשלוח"
 
-#: admin/includes/functions.php:999
+#: admin/includes/functions.php:1005
 msgid "First"
 msgstr "ראשון"
 
-#: admin/includes/functions.php:1001
+#: admin/includes/functions.php:1007
 msgid "previous"
 msgstr "הקודם"
 
-#: admin/includes/functions.php:1016
+#: admin/includes/functions.php:1022
 msgid "next"
 msgstr "הבא"
 
-#: admin/includes/functions.php:1020
+#: admin/includes/functions.php:1026
 msgid "Last"
 msgstr "אחרון"
 
-#: admin/includes/functions.php:1089 templates/account.tpl.php:73
+#: admin/includes/functions.php:1095 templates/account.tpl.php:73
 msgid "First Name"
 msgstr "שם פרטי"
 
-#: admin/includes/functions.php:1099 templates/account.tpl.php:77
+#: admin/includes/functions.php:1105 templates/account.tpl.php:77
 msgid "Last Name"
 msgstr "שם משפחה"
 
-#: admin/includes/functions.php:1109 templates/account.tpl.php:51
+#: admin/includes/functions.php:1115 templates/account.tpl.php:51
 #: templates/account.tpl.php:81
 msgid "Phone"
 msgstr "טלפון"
 
-#: admin/includes/functions.php:1134
+#: admin/includes/functions.php:1140
 msgid "Company"
 msgstr "חברה"
 
-#: admin/includes/functions.php:1144
+#: admin/includes/functions.php:1150
 msgid "Address line 1"
 msgstr "כתובת רחוב"
 
-#: admin/includes/functions.php:1154
+#: admin/includes/functions.php:1160
 msgid "Address line 2"
 msgstr "כתובת 2"
 
-#: admin/includes/functions.php:1164
+#: admin/includes/functions.php:1170
 msgid "City"
 msgstr "עיר"
 
-#: admin/includes/functions.php:1174
+#: admin/includes/functions.php:1180
 msgid "Postcode / ZIP"
 msgstr "מיקוד"
 
-#: admin/includes/functions.php:1184
+#: admin/includes/functions.php:1190
 msgid "Country"
 msgstr "מדינה"
 
-#: admin/includes/functions.php:1194
+#: admin/includes/functions.php:1200
 msgid "State / County"
 msgstr "מדינה / ארץ"
 
-#: admin/includes/functions.php:1249 admin/includes/functions.php:1297
+#: admin/includes/functions.php:1258 admin/includes/functions.php:1306
 msgid "Orders"
 msgstr "הזמנות"
 
-#: admin/includes/functions.php:1270
+#: admin/includes/functions.php:1279
 msgid "Profile"
 msgstr "פרופיל"
 
-#: admin/includes/functions.php:1289
+#: admin/includes/functions.php:1298
 msgid "Shipments"
 msgstr "שלוחים"
 
-#: admin/includes/hooks.php:56
+#: admin/includes/hooks-shipment.php:25
+msgid "Tracking Number"
+msgstr "מספר מעקב"
+
+#: admin/includes/hooks-shipment.php:33 templates/filter-shipment.php:7
+msgid "Status"
+msgstr "סטטוס"
+
+#: admin/includes/hooks-shipment.php:40 admin/includes/hooks-shipment.php:47
+#: templates/orders.tpl.php:33
+msgid "View"
+msgstr "הצג"
+
+#: admin/includes/hooks-shipment.php:54 templates/orders.tpl.php:8
+msgid "Shipment Type"
+msgstr "סוג משלוח"
+
+#: admin/includes/hooks-shipment.php:62 admin/includes/hooks.php:689
+#: templates/shipments.php:24 templates/shipments.php:82
+msgid "Print"
+msgstr "הדפסה"
+
+#: admin/includes/hooks-shipment.php:87 admin/includes/hooks.php:581
+#: templates/account.tpl.php:134 templates/bulk-assign-shipment.tpl.php:26
+#: templates/profile.tpl.php:69
+msgid "Update"
+msgstr "עדכון"
+
+#: admin/includes/hooks-shipment.php:100 admin/includes/hooks-shipment.php:107
+#: templates/shipment-history.tpl.php:64 templates/shipments.php:34
+#: templates/shipments.php:92
+msgid "Delete"
+msgstr "מחק"
+
+#: admin/includes/hooks.php:54
 msgid "Client Approval"
 msgstr "אישור לקוח"
 
-#: admin/includes/hooks.php:64
+#: admin/includes/hooks.php:61
 msgid "Disabled"
 msgstr "לא זמין"
 
-#: admin/includes/hooks.php:70
+#: admin/includes/hooks.php:66
 msgid "Approved"
 msgstr "אושר"
 
-#: admin/includes/hooks.php:89 admin/includes/hooks.php:665
+#: admin/includes/hooks.php:85 admin/includes/hooks.php:638
 msgid "Hi there,"
 msgstr "שלום,"
 
-#: admin/includes/hooks.php:90 admin/includes/hooks.php:666
+#: admin/includes/hooks.php:86 admin/includes/hooks.php:639
 #, php-format
 msgid "Welcome to %s! Here's how to log in:"
 msgstr "ברוכים הבאים ל %s! נא להיכנס:"
 
-#: admin/includes/hooks.php:91
+#: admin/includes/hooks.php:87
 #, php-format
 msgid "Login URL:  %s"
 msgstr "כתובת URL של כניסה: %s"
 
-#: admin/includes/hooks.php:92 admin/includes/hooks.php:668
-#: admin/includes/hooks.php:688
+#: admin/includes/hooks.php:88 admin/includes/hooks.php:641
+#: admin/includes/hooks.php:661
 #, php-format
 msgid "Username: %s"
 msgstr "שם משתמש: %s"
 
-#: admin/includes/hooks.php:93
+#: admin/includes/hooks.php:89
 #, php-format
 msgid "Password: %s"
 msgstr "סיסמה: %s"
 
-#: admin/includes/hooks.php:94
+#: admin/includes/hooks.php:90
 #, php-format
 msgid "If you have any problems, please contact our support at %s."
 msgstr "אם יש לך בעיות, אנא צור קשר עם התמיכה שלנו %s."
 
-#: admin/includes/hooks.php:95 admin/includes/hooks.php:672
+#: admin/includes/hooks.php:91 admin/includes/hooks.php:645
 msgid "Thank you for trusting us!"
 msgstr "תודה שבטחת בנו!"
 
-#: admin/includes/hooks.php:114 admin/includes/hooks.php:437
+#: admin/includes/hooks.php:110 admin/includes/hooks.php:404
 msgid "Client"
 msgstr "לקוח"
 
-#: admin/includes/hooks.php:116
+#: admin/includes/hooks.php:112
 msgid "-- Select Client --"
 msgstr "--בחר לקוח--"
 
-#: admin/includes/hooks.php:132 admin/includes/hooks.php:464
+#: admin/includes/hooks.php:128 admin/includes/hooks.php:431
 msgid "Agent"
 msgstr "סוכן"
 
-#: admin/includes/hooks.php:134
+#: admin/includes/hooks.php:130
 msgid "-- Select Agent --"
 msgstr "בחר סוכן"
 
-#: admin/includes/hooks.php:151 admin/includes/hooks.php:448
+#: admin/includes/hooks.php:147 admin/includes/hooks.php:415
 msgid "Employee"
 msgstr "עובד"
 
-#: admin/includes/hooks.php:153
+#: admin/includes/hooks.php:149
 msgid "-- Select Employee --"
 msgstr "--בחר עובד--"
 
-#: admin/includes/hooks.php:168
+#: admin/includes/hooks.php:164
 msgid "Dashboard"
 msgstr "לוח בקרה"
 
-#: admin/includes/hooks.php:173 templates/orders.tpl.php:8
-msgid "Shipment Type"
-msgstr "סוג משלוח"
-
-#: admin/includes/hooks.php:221 admin/includes/hooks.php:224
-#: admin/includes/hooks.php:244 templates/orders.tpl.php:7
+#: admin/includes/hooks.php:188 admin/includes/hooks.php:191
+#: admin/includes/hooks.php:211 templates/orders.tpl.php:7
 #: templates/shipments.php:15 templates/shipments.php:16
 msgid "Shipment Number"
 msgstr "מספר משלוח"
 
-#: admin/includes/hooks.php:270
+#: admin/includes/hooks.php:237
 msgid "Bulk Assign"
 msgstr "הקצאה בצובר"
 
-#: admin/includes/hooks.php:372
+#: admin/includes/hooks.php:339
 msgid "Select Template"
 msgstr "בחירת תבנית"
 
-#: admin/includes/hooks.php:404
+#: admin/includes/hooks.php:371
 msgid "BOL"
 msgstr "בול"
 
-#: admin/includes/hooks.php:415
+#: admin/includes/hooks.php:382
 msgid "Not a member?"
 msgstr "לא רשום?"
 
-#: admin/includes/hooks.php:415 templates/registration.tpl.php:3
+#: admin/includes/hooks.php:382 templates/registration.tpl.php:3
 #: templates/registration.tpl.php:9
 msgid "Registration"
 msgstr "רישום"
 
-#: admin/includes/hooks.php:415 templates/registration-form.tpl.php:44
+#: admin/includes/hooks.php:382 templates/registration-form.tpl.php:44
 msgid "Register"
 msgstr "הירשם"
 
-#: admin/includes/hooks.php:608 templates/account.tpl.php:134
-#: templates/bulk-assign-shipment.tpl.php:26 templates/profile.tpl.php:69
-#: templates/shipments.php:58
-msgid "Update"
-msgstr "עדכון"
-
-#: admin/includes/hooks.php:663 admin/includes/hooks.php:684
+#: admin/includes/hooks.php:636 admin/includes/hooks.php:657
 msgid "From: "
 msgstr "מאת: "
 
-#: admin/includes/hooks.php:669 admin/includes/hooks.php:689
+#: admin/includes/hooks.php:642 admin/includes/hooks.php:662
 #, php-format
 msgid "Email: %s"
 msgstr "אימייל: %s"
 
-#: admin/includes/hooks.php:670
+#: admin/includes/hooks.php:643
 msgid ""
 "Password: The one you entered in the registration form. (For security "
 "reason, we save encripted password)"
 msgstr "סיסמה: זו שהזנת בטופס הרישום. (מסיבות אבטחה, אנו שומרים סיסמה מקודשת)"
 
-#: admin/includes/hooks.php:671
+#: admin/includes/hooks.php:644
 #, php-format
 msgid "If you have any problems, please contact me at %s."
 msgstr "אם יש לך בעיות, אנא צור איתי קשר %s."
 
-#: admin/includes/hooks.php:686
+#: admin/includes/hooks.php:659
 msgid "Hi Admin,"
 msgstr "שלום אדמין"
 
-#: admin/includes/hooks.php:687
+#: admin/includes/hooks.php:660
 #, php-format
 msgid "New user registration on your site %s:"
 msgstr "רישום משתמש חדש באתר שלך %s:"
-
-#: admin/includes/hooks.php:716 templates/shipments.php:24
-#: templates/shipments.php:55 templates/shipments.php:130
-msgid "Print"
-msgstr "הדפסה"
 
 #: admin/includes/language.php:9
 msgid "Please activate your license key for WPCargo Frontend Manager"
@@ -1948,10 +1966,6 @@ msgstr "רשימת משלוחים"
 msgid "Copyright"
 msgstr "זכויות יוצרים"
 
-#: templates/filter-shipment.php:7 templates/shipments.php:51
-msgid "Status"
-msgstr "סטטוס"
-
 #: templates/filter-shipment.php:9
 msgid "All Status"
 msgstr "סוג סטטוס"
@@ -2022,15 +2036,15 @@ msgstr "התחבר"
 msgid "Username/E-mail"
 msgstr "שם משתמש/דואר אלקטרוני"
 
-#: templates/login.php:39
+#: templates/login.php:44
 msgid "Remember me"
 msgstr "זכור אותי"
 
-#: templates/login.php:43
+#: templates/login.php:48
 msgid "Forgot password?"
 msgstr "שכחת סיסמא?"
 
-#: templates/login.php:47
+#: templates/login.php:53
 msgid "Login"
 msgstr "התחבר"
 
@@ -2119,11 +2133,6 @@ msgstr "סכום"
 msgid "Orders Account"
 msgstr "חשבון הזמנות"
 
-#: templates/orders.tpl.php:33 templates/shipments.php:53
-#: templates/shipments.php:88
-msgid "View"
-msgstr "הצג"
-
 #: templates/profile.tpl.php:26 templates/registration-form.tpl.php:7
 msgid "Personal Information"
 msgstr "מידע אישי"
@@ -2172,12 +2181,6 @@ msgstr "נא פנה למנהל המערכת לקבלת רשותך."
 msgid "History Records"
 msgstr "רשומות היסטוריה"
 
-#: templates/shipment-history.tpl.php:64 templates/shipments.php:34
-#: templates/shipments.php:61 templates/shipments.php:114
-#: templates/shipments.php:140
-msgid "Delete"
-msgstr "מחק"
-
 #: templates/shipment-history.tpl.php:73
 msgid "No Shipment History Found."
 msgstr "לא נמצאו היסטוריית משלוחים."
@@ -2186,11 +2189,7 @@ msgstr "לא נמצאו היסטוריית משלוחים."
 msgid "Search"
 msgstr "חיפוש"
 
-#: templates/shipments.php:48
-msgid "Tracking Number"
-msgstr "מספר מעקב"
-
-#: templates/shipments.php:158
+#: templates/shipments.php:110
 msgid "No shipment found!"
 msgstr "לא נמצא משלוח!"
 

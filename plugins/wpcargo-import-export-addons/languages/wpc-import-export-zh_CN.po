@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WPCargo Import and Export Add-ons\n"
-"POT-Creation-Date: 2021-04-08 15:57+0800\n"
-"PO-Revision-Date: 2021-04-08 15:57+0800\n"
+"POT-Creation-Date: 2021-06-01 13:53+0800\n"
+"PO-Revision-Date: 2021-06-01 13:53+0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.4.2\n"
+"X-Generator: Poedit 2.4.3\n"
 "X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
@@ -21,250 +21,256 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.min.js\n"
 
-#: admin/classes/class-import-export.php:66
+#: admin/classes/class-import-export.php:68
 msgid "Export"
 msgstr "导出"
 
-#: admin/classes/class-import-export.php:68
+#: admin/classes/class-import-export.php:71
 msgid "Import"
 msgstr "导入"
 
-#: admin/includes/functions.php:7
+#: admin/includes/functions.php:15
 msgid "There is no error, the file uploaded with success."
 msgstr "没有错误，文件上传成功。"
 
-#: admin/includes/functions.php:8
+#: admin/includes/functions.php:16
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
 msgstr "上传的文件超过了php.ini中的upload_max_filesize指令限制。"
 
-#: admin/includes/functions.php:9
+#: admin/includes/functions.php:17
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
 msgstr "上载的文件超出了HTML表单中指定的MAX_FILE_SIZE指令。"
 
-#: admin/includes/functions.php:10
+#: admin/includes/functions.php:18
 msgid "The uploaded file was only partially uploaded."
 msgstr "上传的文件仅部分上传。"
 
-#: admin/includes/functions.php:11
+#: admin/includes/functions.php:19
 msgid "No file was uploaded."
 msgstr "没有上传文件。"
 
-#: admin/includes/functions.php:12
+#: admin/includes/functions.php:20
 msgid "Missing a temporary folder."
 msgstr "缺少临时文件夹。"
 
-#: admin/includes/functions.php:13
+#: admin/includes/functions.php:21
 msgid "Failed to write file to disk."
 msgstr "无法将文件写入磁盘。"
 
-#: admin/includes/functions.php:14
+#: admin/includes/functions.php:22
 msgid "A PHP extension stopped the file upload."
 msgstr "PHP扩展停止了文件上传。"
 
-#: admin/includes/functions.php:42
+#: admin/includes/functions.php:50
 msgid "Import / Export"
 msgstr "导入/导出"
 
-#: admin/includes/functions.php:124 admin/templates/form-export.tpl.php:4
+#: admin/includes/functions.php:132 admin/templates/form-export.tpl.php:4
 #: templates/export.tpl.php:7
 msgid "Shipper Name"
 msgstr "收货人名字"
 
-#: admin/includes/functions.php:129
+#: admin/includes/functions.php:137
 msgid "Shipper Phone Number"
 msgstr "发货人电话号码"
 
-#: admin/includes/functions.php:134
+#: admin/includes/functions.php:142
 msgid "Shipper Address"
 msgstr "发货人地址"
 
-#: admin/includes/functions.php:139
+#: admin/includes/functions.php:147
 msgid "Shipper Email"
 msgstr "发货人电子邮件"
 
-#: admin/includes/functions.php:144
+#: admin/includes/functions.php:152
 msgid "Receiver Name"
 msgstr "接收方名称"
 
-#: admin/includes/functions.php:149
+#: admin/includes/functions.php:157
 msgid "Receiver Phone Number"
 msgstr "收款人电话号码"
 
-#: admin/includes/functions.php:154
+#: admin/includes/functions.php:162
 msgid "Receiver Address"
 msgstr "接收方地址："
 
-#: admin/includes/functions.php:159
+#: admin/includes/functions.php:167
 msgid "Receiver Email"
 msgstr "接收电子邮件地址"
 
-#: admin/includes/functions.php:164
+#: admin/includes/functions.php:172
 msgid "Agent Name"
 msgstr "代理名称"
 
-#: admin/includes/functions.php:169
+#: admin/includes/functions.php:177
 msgid "Type of Shipment"
 msgstr "装运类型"
 
-#: admin/includes/functions.php:174
+#: admin/includes/functions.php:182
 msgid "Courier"
 msgstr "配送员"
 
-#: admin/includes/functions.php:179
+#: admin/includes/functions.php:187
 msgid "Mode"
 msgstr "模式"
 
-#: admin/includes/functions.php:184
+#: admin/includes/functions.php:192
 msgid "Quantity"
 msgstr "数量"
 
-#: admin/includes/functions.php:189
+#: admin/includes/functions.php:197
 msgid "Total Freight"
 msgstr "货运总额"
 
-#: admin/includes/functions.php:194
+#: admin/includes/functions.php:202
 msgid "Carrier Reference No."
 msgstr "载波编号"
 
-#: admin/includes/functions.php:199
+#: admin/includes/functions.php:207
 msgid "Origin"
 msgstr "起源"
 
-#: admin/includes/functions.php:204
+#: admin/includes/functions.php:212
 msgid "Pickup Date"
 msgstr "自取日期"
 
-#: admin/includes/functions.php:209
+#: admin/includes/functions.php:217
 msgid "Comments"
 msgstr "评论"
 
-#: admin/includes/functions.php:214
+#: admin/includes/functions.php:222
 msgid "Weight"
 msgstr "重量"
 
-#: admin/includes/functions.php:219
+#: admin/includes/functions.php:227
 msgid "Packages"
 msgstr "软件包"
 
-#: admin/includes/functions.php:224
+#: admin/includes/functions.php:232
 msgid "Product"
 msgstr "产品"
 
-#: admin/includes/functions.php:229
+#: admin/includes/functions.php:237
 msgid "Payment Mode"
 msgstr "付款方式"
 
-#: admin/includes/functions.php:234
+#: admin/includes/functions.php:242
 msgid "Carrier"
 msgstr "运送人"
 
-#: admin/includes/functions.php:239
+#: admin/includes/functions.php:247
 msgid "Departure Time"
 msgstr "出发时间"
 
-#: admin/includes/functions.php:244
+#: admin/includes/functions.php:252
 msgid "Destination"
 msgstr "目的地"
 
-#: admin/includes/functions.php:249
+#: admin/includes/functions.php:257
 msgid "Pickup Time"
 msgstr "自取时间"
 
-#: admin/includes/functions.php:254
+#: admin/includes/functions.php:262
 msgid "Expected Delivery Date"
 msgstr "预计交货日期"
 
-#: admin/includes/functions.php:261
+#: admin/includes/functions.php:269
 msgid "Package Details"
 msgstr "套餐详情"
 
-#: admin/includes/functions.php:266
+#: admin/includes/functions.php:274
 msgid "Shipment History"
 msgstr "装运历史记录"
 
-#: admin/includes/functions.php:271
+#: admin/includes/functions.php:279
 msgid "Shipment Status"
 msgstr "发货状态"
 
-#: admin/includes/functions.php:389
+#: admin/includes/functions.php:416
 msgid "Please activate your license key"
 msgstr "请激活您的许可证密钥"
 
-#: admin/includes/functions.php:389
+#: admin/includes/functions.php:416
 msgid "here"
 msgstr "这里"
 
-#: admin/includes/functions.php:392
+#: admin/includes/functions.php:419
 msgid "ShipmentID"
 msgstr "装运 ID"
 
-#: admin/includes/functions.php:395
+#: admin/includes/functions.php:422
 msgid "Shipment Title"
 msgstr "装运标题"
 
-#: admin/includes/functions.php:398
+#: admin/includes/functions.php:425
 msgid "Shipment Category"
 msgstr "货件类别"
 
-#: admin/includes/functions.php:401
+#: admin/includes/functions.php:428
 msgid "Assigned Client"
 msgstr "分配的客户端"
 
-#: admin/includes/functions.php:404
+#: admin/includes/functions.php:431
 msgid "No Result Found!"
 msgstr "找不到您要的结果！"
 
-#: admin/includes/functions.php:407
+#: admin/includes/functions.php:434
 msgid "Wrong file header format, Please Download CSV template as template."
 msgstr "文件头格式错误，请下载 CSV 模板作为模板。"
 
-#: admin/includes/functions.php:410
+#: admin/includes/functions.php:437
 msgid ""
 "Something went wrong, Please check your file header or Change your file "
 "Delimeter according to your file Delimiter."
 msgstr "出现问题，请检查您的文件头或更改您的文件熟食器根据您的文件分隔符。"
 
-#: admin/includes/functions.php:413
+#: admin/includes/functions.php:440
 msgid "Wrong file upload format, it must .csv format"
 msgstr "文件上传格式错误，必须采用.csv格式"
 
-#: admin/includes/functions.php:416
+#: admin/includes/functions.php:443
 msgid "Data Processed."
 msgstr "数据已处理"
 
-#: admin/includes/functions.php:419
+#: admin/includes/functions.php:446
 msgid "Loading..."
 msgstr "载入中..."
 
-#: admin/includes/functions.php:422
+#: admin/includes/functions.php:449
 msgid ""
 "data is being process, Please wait while processing the file to download."
 msgstr "数据正在处理中，请等待处理文件以下载。"
 
-#: admin/includes/functions.php:457
+#: admin/includes/functions.php:484
 msgid "Cheating, uh?"
 msgstr "作弊，嗯？"
 
-#: admin/includes/hooks.php:146 admin/includes/hooks.php:147
-#: admin/includes/hooks.php:154 admin/includes/hooks.php:155
-#: admin/includes/hooks.php:250 admin/includes/settings.php:55
+#: admin/includes/hooks.php:147 admin/includes/hooks.php:148
+#: admin/includes/hooks.php:155 admin/includes/hooks.php:156
+#: admin/includes/hooks.php:315 admin/includes/settings.php:45
 msgid "Import/Export"
 msgstr "导入/导出"
 
-#: admin/includes/hooks.php:176
+#: admin/includes/hooks.php:177
 msgid "Shipment Import/ Export"
 msgstr "货件导入/导出"
 
-#: admin/includes/hooks.php:235 admin/templates/form-export.tpl.php:82
-#: templates/export.tpl.php:87
+#: admin/includes/hooks.php:237 admin/includes/hooks.php:341
+#: admin/templates/form-export.tpl.php:92 templates/export.tpl.php:98
 msgid "Export Shipment"
 msgstr "出口货件"
 
-#: admin/includes/hooks.php:236 templates/import.tpl.php:26
+#: admin/includes/hooks.php:238 admin/includes/hooks.php:340
+#: templates/import.tpl.php:26
 msgid "Import Shipment"
 msgstr "进口货件"
+
+#: admin/includes/hooks.php:290 admin/templates/form-export.tpl.php:25
+#: templates/export.tpl.php:23
+msgid "Category"
+msgstr "分类目录"
 
 #: admin/includes/settings.php:27 admin/includes/settings.php:28
 #: admin/includes/settings.php:34 admin/includes/settings.php:35
@@ -272,19 +278,11 @@ msgstr "进口货件"
 msgid "Import/Export Settings"
 msgstr "导入/导出设置"
 
-#: admin/includes/settings.php:45
-msgid "Settings"
-msgstr "设置"
-
-#: admin/includes/settings.php:46
-msgid "License"
-msgstr "许可证"
-
 #: admin/includes/shortcodes.php:6 admin/includes/shortcodes.php:12
 msgid "Sorry, You are not allowed to Access this Importer."
 msgstr "抱歉，您不允许访问此导入程序。"
 
-#: admin/includes/shortcodes.php:18 admin/templates/form-export.tpl.php:36
+#: admin/includes/shortcodes.php:18 admin/templates/form-export.tpl.php:46
 msgid "Date Range"
 msgstr "日期范围"
 
@@ -328,23 +326,27 @@ msgstr "注册发货人"
 msgid "-- Registered Shipper --"
 msgstr "-- 注册托运人 --"
 
-#: admin/templates/form-export.tpl.php:24 templates/export.tpl.php:23
+#: admin/templates/form-export.tpl.php:27 templates/export.tpl.php:25
+msgid "-- Category --"
+msgstr "--类别--"
+
+#: admin/templates/form-export.tpl.php:34 templates/export.tpl.php:34
 msgid "Status"
 msgstr "状态"
 
-#: admin/templates/form-export.tpl.php:26
+#: admin/templates/form-export.tpl.php:36
 msgid "Select Status"
 msgstr "--选择状态-"
 
-#: admin/templates/form-export.tpl.php:37
+#: admin/templates/form-export.tpl.php:47
 msgid "From : "
 msgstr "来自: "
 
-#: admin/templates/form-export.tpl.php:39
+#: admin/templates/form-export.tpl.php:49
 msgid "To : "
 msgstr "自："
 
-#: admin/templates/form-export.tpl.php:46
+#: admin/templates/form-export.tpl.php:56
 msgid "Select Fields"
 msgstr "选择字段"
 
@@ -404,27 +406,27 @@ msgstr "注意：这将限制选定的角色访问前端管理器仪表板中的
 msgid "Save Settings"
 msgstr "保存设置"
 
-#: templates/export.tpl.php:25
+#: templates/export.tpl.php:36
 msgid "-- Status --"
 msgstr "- 状态 -"
 
-#: templates/export.tpl.php:35 templates/export.tpl.php:41
+#: templates/export.tpl.php:46 templates/export.tpl.php:52
 msgid "YYYY-MM-DD"
 msgstr "YYYY-MM-DD"
 
-#: templates/export.tpl.php:36
+#: templates/export.tpl.php:47
 msgid "Start"
 msgstr "开始"
 
-#: templates/export.tpl.php:42
+#: templates/export.tpl.php:53
 msgid "End"
 msgstr "结束"
 
-#: templates/export.tpl.php:52
+#: templates/export.tpl.php:63
 msgid "Available Fields"
 msgstr "可用字段"
 
-#: templates/export.tpl.php:72
+#: templates/export.tpl.php:83
 msgid "Selected Fields"
 msgstr "选定字段"
 
@@ -445,6 +447,14 @@ msgstr "很抱歉，您不允许访问此页面！"
 #: templates/restricted.tpl.php:5
 msgid "Please contact administrator for your permission."
 msgstr "如获得许可，请联系管理员。"
+
+#: wpcargo-import-export-addons.php:37
+msgid "Settings"
+msgstr "设置"
+
+#: wpcargo-import-export-addons.php:38
+msgid "License"
+msgstr "许可证"
 
 #. Plugin Name of the plugin/theme
 msgid "WPCargo Import and Export Add-ons"

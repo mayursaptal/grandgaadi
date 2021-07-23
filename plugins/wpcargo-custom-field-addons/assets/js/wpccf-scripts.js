@@ -1,4 +1,19 @@
 jQuery(document).ready(function($){
+
+    $(".wpccf-datepicker").datetimepicker({
+		timepicker:false,
+		format:wpccfAjaxhandler.dateFormat		
+	});
+	
+	$(".wpccf-timepicker").datetimepicker({
+		datepicker:false,
+		format:wpccfAjaxhandler.timeFormat
+	});
+	
+	$(".wpccf-datetimepicker").datetimepicker({
+		format:wpccfAjaxhandler.dateTimeFormat
+	});
+
 	$(".wpccf-number").keydown(function (e) {
 		wpccfValidateCurrency(e);
 	});

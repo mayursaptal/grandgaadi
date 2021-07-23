@@ -33,6 +33,14 @@ if ( class_exists('WPCARGO_API') ) :
                     )
                 ) 
             );
+            register_rest_route( $namespace, '/' . $base.'/(?P<apikey>[a-zA-Z0-9-]+)/pod/route/', array(
+                array(
+                    'methods'               => WP_REST_Server::READABLE,
+                    'callback'              => array( $this, 'pod_route' ),
+                    'permission_callback'   => array( $this, 'wpcargo_api_premission' )
+                    )
+                ) 
+            );
             register_rest_route( $namespace, '/' . $base.'/(?P<apikey>[a-zA-Z0-9-]+)/pod/status', array(
                 array(
                     'methods'               => WP_REST_Server::READABLE,
@@ -112,12 +120,18 @@ if ( class_exists('WPCARGO_API') ) :
         public function pod_track( WP_REST_Request $request ){
             $allStatus  = wpcpod_api_shipment_status( );
             $search     = $request->get_param( 'track' );
+            $search     = $search ? $search : $request->get_param( 'search' );
             $apikey     = $request->get_param( 'apikey' );
             $userID     = wpcapi_get_apikey_user( $apikey  );
             $shipments  = $this->get_pod_track_shipments( $userID, $search );
             return $this->pod_shipments_data($shipments);
         }
-        
+        public function pod_route( WP_REST_Request $request ){
+            $allStatus  = wpcpod_api_shipment_status( );
+            $apikey     = $request->get_param( 'apikey' );
+            $userID     = wpcapi_get_apikey_user( $apikey  );
+            return      $this->pod_route_data( $userID );
+        }
         public function pod_status(){
             return wpcpod_api_shipment_status();
         }
@@ -461,6 +475,9 @@ if ( class_exists('WPCARGO_API') ) :
                 $counter++;
             }
             return $shipment_data;
+        }
+        public function pod_route_data( $user_id ){
+            return wp_send_json( wpcpod_get_route_address_order( $user_id  ) );
         }
     }
     

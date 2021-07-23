@@ -1,0 +1,1005 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WPCargo Shipment Container Add-ons\n"
+"POT-Creation-Date: 2021-06-30 16:16+0800\n"
+"PO-Revision-Date: 2021-06-30 16:17+0800\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ro_RO\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.0\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n==0 || (n!=1 && n%100>=1 && n"
+"%100<=19) ? 1 : 2);\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: wpcargo-shipment-container-add-ons.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+
+#: admin/classes/class-container-scripts.php:23
+#: admin/classes/class-container-scripts.php:65
+msgid "Something went wrong during process, Please reload the page."
+msgstr ""
+"Ceva nu a mers bine în timpul procesului, Vă rugăm să reîncărcați pagina."
+
+#: admin/classes/class-container-scripts.php:24
+#: admin/classes/class-container-scripts.php:66
+msgid "Please select status to update."
+msgstr "Selectați starea de actualizat."
+
+#: admin/classes/class-container-scripts.php:25
+msgid "Please Select Containers to update."
+msgstr "Selectați Containere de actualizat."
+
+#: admin/classes/class-container-scripts.php:26
+msgid "This is an existing Container number."
+msgstr "Acesta este un număr container existent."
+
+#: admin/classes/class-container-scripts.php:28
+msgid "No shipment selected, Please select atleast one Shipment."
+msgstr "Nicio expediere selectată, Selectați atleast one Shipment (Expediere)."
+
+#: admin/classes/class-container-scripts.php:29
+msgid "Selected Shipments has been assigned"
+msgstr "Livrările selectate au fost asociate"
+
+#: admin/classes/class-container-scripts.php:30
+msgid "No shipment has been updated"
+msgstr "Nicio livrare nu a fost actualizată"
+
+#: admin/classes/class-container-scripts.php:31
+msgid "Hide"
+msgstr "Ascunde"
+
+#: admin/classes/class-container-scripts.php:32
+#: templates/container-form-shipments.tpl.php:6
+msgid "Show"
+msgstr "Arată"
+
+#: admin/classes/class-container-scripts.php:67
+msgid "Please Select "
+msgstr "Selectați"
+
+#: admin/classes/class-container-user.php:16
+#: admin/templates/container-info.tpl.php:21
+#: templates/container-trackform-result.tpl.php:99
+msgid "Delivery Agent"
+msgstr "Agent livrare"
+
+#: admin/classes/class-container.php:449
+msgid ""
+"Container NOT Found. Please click update this shipment to unassign shipment."
+msgstr ""
+"ContainerUL NU este găsit. Faceți clic pe actualizare a acestei livrări "
+"pentru a anula atribuirea livrării."
+
+#: admin/includes/ajax-handler.php:39
+msgid "Something went wrong during process, Please try again."
+msgstr ""
+"Ceva nu a mers bine în timpul procesului, Vă rugăm să încercați din nou."
+
+#: admin/includes/ajax-handler.php:47 admin/includes/hooks.php:54
+#: admin/includes/translation.php:7 admin/includes/translation.php:13
+msgid "Container"
+msgstr "Recipient"
+
+#: admin/includes/ajax-handler.php:47
+msgid "successfully deleted."
+msgstr "Stocați cu succes șterse."
+
+#: admin/includes/ajax-handler.php:73 admin/includes/ajax-handler.php:118
+#, php-format
+msgid "Shipment %s already assign to container %s."
+msgstr "Livrare %s deja asociat la %s container."
+
+#: admin/includes/ajax-handler.php:99 admin/includes/ajax-handler.php:174
+msgid "Selected Container not found! Please reload and try again."
+msgstr "Container selectat negăsit! Reîncărcați și încercați din nou."
+
+#: admin/includes/ajax-handler.php:142 admin/includes/functions.php:210
+#: admin/templates/print.tpl.php:137
+#: templates/container-form-shipments.tpl.php:17
+msgid "Print"
+msgstr "Printare"
+
+#: admin/includes/ajax-handler.php:160
+#: templates/container-form-shipments.tpl.php:19
+#: templates/container-form-shipments.tpl.php:64
+msgid "Remove"
+msgstr "Șterge"
+
+#: admin/includes/ajax-handler.php:264 admin/includes/functions.php:183
+msgid "Shipper"
+msgstr "Transportator"
+
+#: admin/includes/ajax-handler.php:272 admin/includes/functions.php:189
+msgid "Receiver"
+msgstr "Destinatar"
+
+#: admin/includes/ajax-handler.php:279
+msgid "No Available Shipments found."
+msgstr "Nu s-au găsit livrări disponibile."
+
+#: admin/includes/functions.php:51 admin/includes/translation.php:10
+msgid "Containers"
+msgstr "Containere"
+
+#: admin/includes/functions.php:112
+msgid "Assign to Container"
+msgstr "Asociere la container"
+
+#: admin/includes/functions.php:155 admin/includes/hooks.php:87
+#, php-format
+msgid "%s Shipment"
+msgid_plural "%s Shipments"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: admin/includes/functions.php:195
+msgid "Shipping NO."
+msgstr "Cost livrare"
+
+#: admin/includes/functions.php:198
+msgid "Client"
+msgstr "Client"
+
+#: admin/includes/functions.php:199 admin/includes/functions.php:207
+msgid "Agent"
+msgstr "Agent"
+
+#: admin/includes/functions.php:205
+msgid "Flight/ Container No."
+msgstr "Nr. zbor/ Container"
+
+#: admin/includes/functions.php:206
+#: templates/container-form-shipments.tpl.php:6
+msgid "Shipments"
+msgstr "Transporturile"
+
+#: admin/includes/functions.php:208 admin/includes/helpers.php:75
+msgid "Driver"
+msgstr "Driver"
+
+#: admin/includes/functions.php:209 admin/includes/helpers.php:131
+#: admin/templates/print.tpl.php:103 admin/templates/print.tpl.php:258
+#: templates/container-form-shipments.tpl.php:16
+#: templates/container-trackform-result.tpl.php:41
+#: templates/container-trackform-result.tpl.php:146
+msgid "Status"
+msgstr "Stare"
+
+#: admin/includes/functions.php:211
+msgid "Manifest"
+msgstr "Manifest"
+
+#: admin/includes/functions.php:226 templates/container-trackform.tpl.php:4
+msgid "Enter Container No."
+msgstr "Introduceți nr."
+
+#: admin/includes/functions.php:229
+msgid "Ex. CO123456"
+msgstr "Ex. CO123456"
+
+#: admin/includes/functions.php:642
+msgid "Sorry you are restricted to access this route."
+msgstr "Ne pare rău că sunt restricționate pentru a accesa această rută."
+
+#: admin/includes/helpers.php:10 admin/templates/container-info.tpl.php:6
+#: templates/container-trackform-result.tpl.php:84
+msgid "Flight/Container No."
+msgstr "Nr. zbor/container"
+
+#: admin/includes/helpers.php:20
+msgid "Agent Name"
+msgstr "Nume agent"
+
+#: admin/includes/helpers.php:30 admin/includes/helpers.php:85
+#: admin/templates/container-info.tpl.php:10
+#: admin/templates/container-info.tpl.php:23
+#: templates/container-trackform-result.tpl.php:88
+#: templates/container-trackform-result.tpl.php:101
+msgid "Telephone"
+msgstr "Telefon"
+
+#: admin/includes/helpers.php:40 admin/templates/container-info.tpl.php:12
+#: templates/container-trackform-result.tpl.php:90
+msgid "Passport"
+msgstr "Pașaport"
+
+#: admin/includes/helpers.php:55
+msgid "Origin"
+msgstr "Origine"
+
+#: admin/includes/helpers.php:65
+msgid "Destination"
+msgstr "Destinație"
+
+#: admin/includes/helpers.php:101 admin/includes/helpers.php:173
+#: admin/templates/container-info.tpl.php:28 admin/templates/print.tpl.php:101
+#: admin/templates/print.tpl.php:256
+#: templates/container-trackform-result.tpl.php:39
+#: templates/container-trackform-result.tpl.php:106
+#: templates/container-trackform-result.tpl.php:144
+msgid "Date"
+msgstr "Data"
+
+#: admin/includes/helpers.php:111 admin/includes/helpers.php:183
+#: admin/templates/container-info.tpl.php:30
+#: templates/container-trackform-result.tpl.php:108
+msgid "Time"
+msgstr "Timp"
+
+#: admin/includes/helpers.php:121
+msgid "Current City"
+msgstr "Oraș Actual"
+
+#: admin/includes/helpers.php:141
+msgid "Updated By"
+msgstr "Actualizat de"
+
+#: admin/includes/helpers.php:151 admin/templates/print.tpl.php:104
+#: admin/templates/print.tpl.php:259
+#: templates/container-trackform-result.tpl.php:42
+#: templates/container-trackform-result.tpl.php:147
+msgid "Remarks"
+msgstr "Observaţii"
+
+#: admin/includes/helpers.php:193 admin/templates/container-info.tpl.php:32
+#: templates/container-trackform-result.tpl.php:110
+msgid "Expected Date"
+msgstr "Data estimată"
+
+#: admin/includes/helpers.php:203 admin/templates/container-info.tpl.php:34
+#: templates/container-trackform-result.tpl.php:112
+msgid "Travel Mode"
+msgstr "Mod călătorie"
+
+#: admin/includes/hooks.php:65
+msgid "Container NOT Found"
+msgstr "Container NEGĂSIT"
+
+#: admin/includes/hooks.php:151 templates/track-history.tpl.php:2
+msgid "History"
+msgstr "Istoric"
+
+#: admin/includes/hooks.php:218
+msgid "Container Details"
+msgstr "Detalii container"
+
+#: admin/includes/hooks.php:222 admin/includes/translation.php:28
+#: admin/includes/translation.php:106
+msgid "Shipment Container"
+msgstr "Container livrare"
+
+#: admin/includes/hooks.php:224 templates/bulk-assign-container.tpl.php:23
+msgid "-- Select Container --"
+msgstr "-- Selectare container --"
+
+#: admin/includes/hooks.php:245
+msgid "Settings"
+msgstr "Setări"
+
+#: admin/includes/hooks.php:246
+msgid "License"
+msgstr "Licență"
+
+#: admin/includes/hooks.php:314 templates/containers.tpl.php:17
+#: templates/containers.tpl.php:24
+msgid "Container Number"
+msgstr "Număr container"
+
+#: admin/includes/translation.php:16
+msgid "Container #"
+msgstr "Container #"
+
+#: admin/includes/translation.php:19
+msgid "Container for WPCargo Shipment"
+msgstr "Container pentru wpcargo expediere"
+
+#: admin/includes/translation.php:22
+msgctxt "Post Type General Name"
+msgid "Containers"
+msgstr "Containere"
+
+#: admin/includes/translation.php:25
+msgctxt "Post Type Singular Name"
+msgid "Container"
+msgstr "Recipient"
+
+#: admin/includes/translation.php:31
+msgid "Container Archives"
+msgstr "Arhivele containerului"
+
+#: admin/includes/translation.php:34
+msgid "Container Attributes"
+msgstr "Atribute container"
+
+#: admin/includes/translation.php:37
+msgid "Parent Container:"
+msgstr "Container părinte:"
+
+#: admin/includes/translation.php:40
+msgid "All Containers"
+msgstr "Toate containerele"
+
+#: admin/includes/translation.php:43
+msgid "Add New Container"
+msgstr "Adăugare container nou"
+
+#: admin/includes/translation.php:46 templates/container-form.tpl.php:2
+msgid "Add Container"
+msgstr "Adăugați container"
+
+#: admin/includes/translation.php:49
+msgid "New Container"
+msgstr "Container nou"
+
+#: admin/includes/translation.php:52
+msgid "Edit Container"
+msgstr "Editare container"
+
+#: admin/includes/translation.php:55 templates/container-form.tpl.php:2
+msgid "Update Container"
+msgstr "Actualizare container"
+
+#: admin/includes/translation.php:58
+msgid "View Container"
+msgstr "Vizualizare container"
+
+#: admin/includes/translation.php:61
+msgid "View Containers"
+msgstr "Vizualizare containere"
+
+#: admin/includes/translation.php:64
+msgid "Search Container"
+msgstr "Căutare container"
+
+#: admin/includes/translation.php:67
+msgid "Not found"
+msgstr "Nu s-a găsit"
+
+#: admin/includes/translation.php:70
+msgid "Not found in Trash"
+msgstr "Nu a fost găsit în coșul de gunoi"
+
+#: admin/includes/translation.php:73
+msgid "Featured Image"
+msgstr "Imagine recomandată"
+
+#: admin/includes/translation.php:76
+msgid "Set featured image"
+msgstr "Setare imagine recomandate"
+
+#: admin/includes/translation.php:79
+msgid "Remove featured image"
+msgstr "Eliminare imagine evidențiată"
+
+#: admin/includes/translation.php:82
+msgid "Use as featured image"
+msgstr "Utilizare ca imagine evidențiată"
+
+#: admin/includes/translation.php:85
+msgid "Insert into Container"
+msgstr "Inserare în container"
+
+#: admin/includes/translation.php:88
+msgid "Uploaded to this item"
+msgstr "Încărcat la acest element"
+
+#: admin/includes/translation.php:91
+msgid "Containers list"
+msgstr "Lista containerelor"
+
+#: admin/includes/translation.php:94
+msgid "Containers list navigation"
+msgstr "Navigare a listei de containere"
+
+#: admin/includes/translation.php:97
+msgid "Filter Containers list"
+msgstr "Lista Containere filtrare"
+
+#: admin/includes/translation.php:100 admin/templates/print.tpl.php:232
+#: admin/templates/shipment.tpl.php:2 templates/container-form-modal.tpl.php:12
+#: templates/container-trackform-result.tpl.php:119
+msgid "Assigned Shipments"
+msgstr "Livrări asociate"
+
+#: admin/includes/translation.php:103
+msgid "Assigned Container"
+msgstr "Container asociat"
+
+#: admin/includes/translation.php:109 admin/templates/print.tpl.php:249
+#: templates/container-trackform-result.tpl.php:139
+msgid "Container History"
+msgstr "Istoric containere"
+
+#: admin/includes/translation.php:112
+msgid "Container Settings"
+msgstr "Setări container"
+
+#: admin/includes/translation.php:115
+msgid "Print Container Shipment"
+msgstr "Imprimare livrare container"
+
+#: admin/includes/translation.php:118
+msgid "Opss. Something went wrong!"
+msgstr "Op. Ceva nu a mers bine!"
+
+#: admin/includes/translation.php:121
+msgid "No results found!"
+msgstr "Niciun rezultat găsit!"
+
+#: admin/includes/translation.php:124
+msgid "Not yet assigned to any container"
+msgstr "Nu este încă atribuit niciun container"
+
+#: admin/includes/translation.php:127
+msgid "Please activate your license key"
+msgstr "Activați cheia de licență"
+
+#: admin/includes/translation.php:127 admin/templates/settings.tpl.php:53
+#: admin/templates/settings.tpl.php:67 admin/templates/settings.tpl.php:81
+msgid "here"
+msgstr "aici"
+
+#: admin/includes/translation.php:130
+msgid ""
+"This plugin requires <a href=\"http://wpcargo.com/\" target=\"_blank"
+"\">WPTaskForce License Helper</a> plugin to be active!"
+msgstr ""
+"Acest plug-in necesită <a href=\"http://wpcargo.com/\" target=\"_blank"
+"\">WPTaskForce License Helper</a> plug-in pentru a fi activ!"
+
+#: admin/includes/translation.php:133
+msgid ""
+"This plugin requires <a href=\"https://wordpress.org/plugins/wpcargo/\" "
+"target=\"_blank\">WPCargo</a> plugin to be active!"
+msgstr ""
+"Acest plug-in necesită <a href=\"https://wordpress.org/plugins/wpcargo/\" "
+"target=\"_blank\">WPCargo</a> plug-in pentru a fi activ!"
+
+#: admin/includes/translation.php:136
+msgid ""
+"This plugin requires <strong>WPCargo Custom Field Add-ons</strong> plugin to "
+"be active!"
+msgstr ""
+"Acest plug-in necesită <strong>WPCargo Custom Field Add-on-uri</strong> plug-"
+"in pentru a fi activ!"
+
+#: admin/includes/translation.php:139
+msgid ""
+"This plugin requires <strong>WPCargo Frontend Manager</strong> plugin to be "
+"active!"
+msgstr ""
+"Acest plug-in necesită <strong>WPCargo Frontend Manager</strong> plug-in "
+"pentru a fi activ!"
+
+#: admin/includes/translation.php:142
+msgid ""
+"This plugin requires <strong>WPCargo Proof of Delivery Add-on</strong> "
+"plugin to be active!"
+msgstr ""
+"Acest plug-in necesită <strong>WPCargo Dovada de livrare Add-on</strong> "
+"plug-in pentru a fi activ!"
+
+#: admin/includes/translation.php:145
+msgid "Cheating, uh?"
+msgstr "Să trișezi?"
+
+#: admin/templates/container-info.tpl.php:2
+msgid "Shipment Container Information"
+msgstr "Informații container livrare"
+
+#: admin/templates/container-info.tpl.php:5 admin/templates/container.tpl.php:2
+#: templates/container-form.tpl.php:21 templates/container-track.tpl.php:11
+#: templates/container-trackform-result.tpl.php:83
+msgid "Container Information"
+msgstr "Informații container"
+
+#: admin/templates/container-info.tpl.php:8
+#: templates/container-trackform-result.tpl.php:86
+msgid "Agent name"
+msgstr "Nume agent"
+
+#: admin/templates/container-info.tpl.php:16
+#: admin/templates/container.tpl.php:22 admin/templates/print.tpl.php:213
+#: templates/container-form.tpl.php:32 templates/container-track.tpl.php:25
+#: templates/container-trackform-result.tpl.php:94
+msgid "Trip Information"
+msgstr "Informații despre călătorie"
+
+#: admin/templates/container-info.tpl.php:17
+#: templates/container-trackform-result.tpl.php:95
+msgid "Origin port"
+msgstr "Portul de origine"
+
+#: admin/templates/container-info.tpl.php:19
+#: templates/container-trackform-result.tpl.php:97
+msgid "Destination port"
+msgstr "Port destinație"
+
+#: admin/templates/container-info.tpl.php:27
+#: admin/templates/container.tpl.php:42 admin/templates/print.tpl.php:220
+#: templates/container-form.tpl.php:43 templates/container-track.tpl.php:39
+#: templates/container-trackform-result.tpl.php:105
+msgid "Time Information"
+msgstr "Informații despre oră"
+
+#: admin/templates/container-status.tpl.php:2
+#: templates/container-form-misc.tpl.php:5
+msgid "Current Status"
+msgstr "Stare curentă"
+
+#: admin/templates/container-status.tpl.php:23
+#: admin/templates/quick-edit-history.tpl.php:24
+msgid "Apply this update for all shipments in the container."
+msgstr "Aplicați această actualizare pentru toate livrările din container."
+
+#: admin/templates/container.tpl.php:10
+msgid "No registered Agent."
+msgstr "Niciun agent înregistrat."
+
+#: admin/templates/container.tpl.php:10
+msgid "Add Agent"
+msgstr "Adaugă agent"
+
+#: admin/templates/container.tpl.php:30
+msgid "No registered Driver."
+msgstr "Niciun driver înregistrat."
+
+#: admin/templates/container.tpl.php:30
+msgid "Add Driver"
+msgstr "Adăugare driver"
+
+#: admin/templates/container.tpl.php:59
+msgid "No Options for Travel mode is registered."
+msgstr "Nu este înregistrată nicio opțiune pentru modul Călătorie."
+
+#: admin/templates/container.tpl.php:59
+msgid "Add Travel Mode"
+msgstr "Adăugare mod călătorie"
+
+#: admin/templates/history.tpl.php:38 templates/containers.tpl.php:39
+msgid "Delete"
+msgstr "Șterge"
+
+#: admin/templates/history.tpl.php:46
+msgid "No Shipment History Found."
+msgstr "Nu s-a găsit niciun istoric de expediere."
+
+#: admin/templates/print.tpl.php:102 admin/templates/print.tpl.php:257
+#: templates/container-trackform-result.tpl.php:40
+#: templates/container-trackform-result.tpl.php:145
+msgid "Location"
+msgstr "Locatie"
+
+#: admin/templates/print.tpl.php:194
+msgid "Container No.:"
+msgstr "Nr. container:"
+
+#: admin/templates/print.tpl.php:206
+msgid "Container Information : "
+msgstr "Informații container: "
+
+#: admin/templates/print.tpl.php:207
+msgid "Flight/Container No. : "
+msgstr "Nr. zbor/container: "
+
+#: admin/templates/print.tpl.php:208
+msgid "Agent name : "
+msgstr "Nume agent"
+
+#: admin/templates/print.tpl.php:209 admin/templates/print.tpl.php:217
+msgid "Telephone : "
+msgstr "Telefon: "
+
+#: admin/templates/print.tpl.php:210
+msgid "Passport : "
+msgstr "Pașaport"
+
+#: admin/templates/print.tpl.php:214
+msgid "Origin port : "
+msgstr "Portul de origine: "
+
+#: admin/templates/print.tpl.php:215
+msgid "Destination port : "
+msgstr "Portul de destinație: "
+
+#: admin/templates/print.tpl.php:216
+msgid "Delivery Agent : "
+msgstr "Agent livrare: "
+
+#: admin/templates/print.tpl.php:221
+msgid "Date : "
+msgstr "Dată"
+
+#: admin/templates/print.tpl.php:222
+msgid "Time : "
+msgstr "Ora:"
+
+#: admin/templates/print.tpl.php:223
+msgid "Expected Date : "
+msgstr "Data estimată : "
+
+#: admin/templates/print.tpl.php:224
+msgid "Travel Mode : "
+msgstr "Mod de călătorie: "
+
+#: admin/templates/print.tpl.php:229
+msgid "Status : "
+msgstr "Status:"
+
+#: admin/templates/print.tpl.php:244
+msgid "No assigned shipment."
+msgstr "Nicio livrare atribuită."
+
+#: admin/templates/print.tpl.php:275
+msgid "No container history."
+msgstr "Fără istoric de containere."
+
+#: admin/templates/quick-edit-agent.tpl.php:5
+msgid "Select Driver"
+msgstr "-- Selectați Driver --"
+
+#: admin/templates/quick-edit-agent.tpl.php:7
+msgid "— No Change —"
+msgstr "— Nicio modificare —"
+
+#: admin/templates/quick-edit-agent.tpl.php:18
+msgid "Apply this Driver to all the shipments under this container."
+msgstr "Aplicați acest driver la toate expedierile de sub acest container."
+
+#: admin/templates/quick-edit-history.tpl.php:4
+msgid "Container Status"
+msgstr "Stare container"
+
+#: admin/templates/settings.tpl.php:7
+msgid "Enable Auto generate Container Title"
+msgstr "Activare titlu container generare automată"
+
+#: admin/templates/settings.tpl.php:11
+msgid "Container Title Prefix"
+msgstr "Prefix titlu container"
+
+#: admin/templates/settings.tpl.php:14
+msgid "Note: This will be apply when Auto generate Container Title is Enable."
+msgstr ""
+"Notă: Acest lucru se va aplica atunci când auto genera container titlu este "
+"Activare."
+
+#: admin/templates/settings.tpl.php:18
+msgid "Add Travel Mode Selection"
+msgstr "Adăugare selecție mod călătorie"
+
+#: admin/templates/settings.tpl.php:21
+msgid "Must be comma(,) separated. Example : Normal, Express"
+msgstr "Trebuie să fie separat prin virgulă(,. Exemplu : Normal, Express"
+
+#: admin/templates/settings.tpl.php:25
+msgid "Container Shipment Print Header / Footer"
+msgstr "Antet /Subsol imprimare livrare container"
+
+#: admin/templates/settings.tpl.php:29
+msgid "Header additional content"
+msgstr "Antet conținut suplimentar"
+
+#: admin/templates/settings.tpl.php:31
+msgid ""
+"This content will display in the shipment container print header layout. "
+"Accepts html tags."
+msgstr ""
+"Acest conținut se va afișa în aspectul antetului de imprimare al "
+"containerului de livrare. Acceptă etichete HTML."
+
+#: admin/templates/settings.tpl.php:36
+msgid "Footer addidtional content"
+msgstr "Conținut adidtional subsol"
+
+#: admin/templates/settings.tpl.php:38
+msgid ""
+"This content will display in the shipment container print footer layout. "
+"Accepts html tags."
+msgstr ""
+"Acest conținut se va afișa în aspectul subsolului de imprimare al "
+"containerului de livrare. Acceptă etichete HTML."
+
+#: admin/templates/settings.tpl.php:42
+msgid "Container Shipment List Display Settings"
+msgstr "Setări afișare listă livrare containere"
+
+#: admin/templates/settings.tpl.php:45
+msgid "Shipment Status to be included for adding in Shipment Container"
+msgstr "Stare livrare de inclus pentru adăugare în Container livrare"
+
+#: admin/templates/settings.tpl.php:53
+msgid "No registered shipment status. Please add shipment status"
+msgstr "Nu există stare de expediere înregistrată. Adăugați starea expedierii"
+
+#: admin/templates/settings.tpl.php:59
+msgid "Select Shipper Field to be Display in the Shipment List"
+msgstr "Selectați Câmp expeditor de afișat în Lista de livrări"
+
+#: admin/templates/settings.tpl.php:67 admin/templates/settings.tpl.php:81
+msgid "No registered custom fields. Please add custom field"
+msgstr ""
+"Niciun câmp particularizat înregistrat. Adăugați un câmp particularizat"
+
+#: admin/templates/settings.tpl.php:73
+msgid "Select Receiver Field to be Display in the Shipment List"
+msgstr "Selectare câmp receptor de afișat în lista de livrări"
+
+#: admin/templates/settings.tpl.php:87
+msgid "Container Shipment Manifest Settings"
+msgstr "Setări manifest livrare container"
+
+#: admin/templates/settings.tpl.php:91
+msgid "Select field to display in shipments table"
+msgstr "Selectare câmp de afișat în tabelul Livrări"
+
+#: admin/templates/settings.tpl.php:92
+msgid "Selected fields will be display in the manifest shipment table list."
+msgstr ""
+"Câmpurile selectate vor fi afișate în lista tabelului de livrări manifest."
+
+#: admin/templates/settings.tpl.php:129
+msgid "Paper Size"
+msgstr "Dimensiune hârtie"
+
+#: admin/templates/settings.tpl.php:139
+msgid "Paper Orientation"
+msgstr "Orientare hârtie"
+
+#: admin/templates/settings.tpl.php:142
+msgid "Portrait"
+msgstr "Portret"
+
+#: admin/templates/settings.tpl.php:143
+msgid "Landscape"
+msgstr "Peisaj"
+
+#: admin/templates/settings.tpl.php:149
+msgid "Manifest Acknowledgemant"
+msgstr "ManifestRecunoaștere"
+
+#: admin/templates/settings.tpl.php:150
+msgid ""
+"I acknowledge that all information in the shipping manifest is true. "
+"Information falsification is a serious offense and may result in immediate "
+"dismissal/fines."
+msgstr ""
+"Recunosc că toate informațiile din manifestul de transport maritim sunt "
+"adevărate. Falsificarea informațiilor este o infracțiune gravă și poate duce "
+"la concedierea imediată/amenzi."
+
+#: admin/templates/settings.tpl.php:151
+msgid ""
+"This content will display in the container Acknowledgement section layout. "
+"Accepts html tags."
+msgstr ""
+"Acest conținut se va afișa în aspectul secțiunii Confirmare container. "
+"Acceptă etichete HTML."
+
+#: admin/templates/settings.tpl.php:156
+msgid "Save Container Settings"
+msgstr "Salvare setări container"
+
+#: admin/templates/shipment-container-info.tpl.php:2
+msgid "Container No."
+msgstr "Nr. container"
+
+#: admin/templates/shipment.tpl.php:2
+#: templates/container-form-shipments.tpl.php:2
+msgid "Add Shipment"
+msgstr "Adăugare expediere"
+
+#: admin/templates/shipment.tpl.php:34
+msgid "WPCargo Shipment List"
+msgstr "Lista de expediere WPCargo"
+
+#: admin/templates/shipment.tpl.php:46
+#: templates/container-form-modal.tpl.php:29
+msgid "Actions"
+msgstr "Acțiuni"
+
+#: templates/bulk-assign-container.tpl.php:6
+msgid "Bulk Assign Container"
+msgstr "Atribuire container în bloc"
+
+#: templates/bulk-assign-container.tpl.php:13
+msgid "Shipment List"
+msgstr "Listă de expedieri"
+
+#: templates/bulk-assign-container.tpl.php:21
+msgid "Container List"
+msgstr "Listă containere"
+
+#: templates/bulk-assign-container.tpl.php:37
+#: templates/container-form-modal.tpl.php:43
+msgid "Close"
+msgstr "Închide"
+
+#: templates/bulk-assign-container.tpl.php:38
+msgid "Assign"
+msgstr "Atribuit"
+
+#: templates/container-form-misc.tpl.php:12
+msgid "Publish"
+msgstr "Publică"
+
+#: templates/container-form-misc.tpl.php:39
+msgid "Apply this update for all shipments in the Container."
+msgstr "Aplicați această actualizare pentru toate livrările din Container."
+
+#: templates/container-form-shipments.tpl.php:15
+msgid "Shipment"
+msgstr "Expediere"
+
+#: templates/container-form-shipments.tpl.php:18
+msgid "Update Status"
+msgstr "Stare actualizare"
+
+#: templates/container-trackform-result.tpl.php:75
+msgid "Container No: "
+msgstr "Nr. container: "
+
+#: templates/container-trackform-result.tpl.php:160
+msgid "Result"
+msgstr "Rezultat"
+
+#: templates/container-trackform-result.tpl.php:160
+msgid "No registered history found."
+msgstr "Nu s-a găsit niciun istoric înregistrat."
+
+#: templates/container-trackform.tpl.php:6
+msgid "Track Container"
+msgstr "Urmărire container"
+
+#: templates/containers.tpl.php:4
+msgid "Show entries"
+msgstr "Afișare intrări"
+
+#: templates/containers.tpl.php:6 templates/containers.tpl.php:59
+msgid "entries"
+msgstr "intrări"
+
+#: templates/containers.tpl.php:16
+msgid "Shipment Number"
+msgstr "Nume expeditor:"
+
+#: templates/containers.tpl.php:18
+msgid "Search"
+msgstr "Caută"
+
+#: templates/containers.tpl.php:26
+msgid "Action"
+msgstr "Actiune"
+
+#: templates/containers.tpl.php:35
+msgid "Track"
+msgstr "Urmăreste"
+
+#: templates/containers.tpl.php:38
+msgid "Update"
+msgstr "Actualizare"
+
+#: templates/containers.tpl.php:53
+msgid "Showing"
+msgstr "Se afișează"
+
+#: templates/containers.tpl.php:55
+msgid "to"
+msgstr "catre"
+
+#: templates/containers.tpl.php:57
+msgid "of"
+msgstr "din"
+
+#: templates/manifest.php:4
+msgid "Shipping Manifest"
+msgstr "Manifest de expediere"
+
+#: templates/manifest/content.php:8
+msgid "No"
+msgstr "Nu"
+
+#: templates/manifest/content.php:10
+msgid "Barcode"
+msgstr "Cod de bare"
+
+#: templates/manifest/header.php:4
+msgid "ROUTE"
+msgstr "Traseu"
+
+#: templates/manifest/header.php:5
+msgid "DELIVERY MANIFEST"
+msgstr "MANIFEST DE LIVRARE"
+
+#: templates/manifest/header.php:8
+msgid "VEHICLE NO."
+msgstr "Vehicul"
+
+#: templates/manifest/header.php:9
+msgid "NO."
+msgstr "Nu."
+
+#: templates/manifest/header.php:13
+msgid "DATE"
+msgstr "Data"
+
+#: templates/manifest/header.php:17
+msgid "DEVICE ID"
+msgstr "ID DISPOZITIV"
+
+#: templates/manifest/header.php:21
+msgid "EMPLOYEE NAME"
+msgstr "NUME ANGAJAT"
+
+#: templates/manifest/header.php:30
+msgid "EMPLOYEE SIGNATURE"
+msgstr "SEMNĂTURA ANGAJATULUI"
+
+#: templates/no-shipment.php:3
+msgid "Error 404"
+msgstr "Eroare 404"
+
+#: templates/no-shipment.php:4
+msgid "Shipment not found!"
+msgstr "Transportul nu a fost găsit!"
+
+#: templates/restricted.tpl.php:3
+msgid "Sorry your are not allowed to access this page!"
+msgstr "Ne pare rău că nu sunt permise pentru a accesa această pagină!"
+
+#: templates/restricted.tpl.php:3
+msgid "Please contact administrator for your permission."
+msgstr "Contactați administratorul pentru permisiune."
+
+#: wpcargo-shipment-container-add-ons.php:30
+msgid ""
+"This plugin requires <a href=\"http://wpcargo.com/\">WPCargo</a> Free "
+"Version to activate"
+msgstr ""
+"Acest plug-in necesită <a href=\"http://wpcargo.com/\">WPCargo</a> Free "
+"Version pentru a activa"
+
+#: wpcargo-shipment-container-add-ons.php:34
+msgid "This plugin requires WPCargo Custom Field Addons to activate"
+msgstr "Acest plug-in necesită WPCargo Custom Field Addons pentru a activa"
+
+#: wpcargo-shipment-container-add-ons.php:47
+msgid ""
+"This plugin requires <a href=\"http://wpcargo.com/\">WPTaskForce License "
+"Helper</a> plugin to activate!"
+msgstr ""
+"Acest plug-in necesită <a href=\"http://wpcargo.com/\">WPTaskForce Licență "
+"Helper</a> plug-in pentru a activa!"
+
+#. Plugin Name of the plugin/theme
+msgid "WPCargo Shipment Container Add-ons"
+msgstr "Programe de completare pentru containere de expediere WPCargo"
+
+#. Plugin URI of the plugin/theme
+msgid "http://wptaskforce.com/"
+msgstr "http://wptaskforce.com/"
+
+#. Description of the plugin/theme
+msgid ""
+"WPCargo Shipment Container Add-ons helps manage shipment into container. "
+"Shorcode available for frontend [wpcargo-container-track-form pageredirect="
+"\"page_id\"], [wpcargo-container-track-result]"
+msgstr ""
+"Programele de completare WPCargo Container de expediere ajută la gestionarea "
+"expedierii în container. Shorcode disponibil pentru frontend [wpcargo-"
+"container-track-form pageredirect=\"page_id\"], [wpcargo-container-track-"
+"result]"
+
+#. Author of the plugin/theme
+msgid "<a href=\"http://www.wptaskforce.com/\">WPTaskForce</a>"
+msgstr "<a href=\"http://www.wptaskforce.com/\">WPTaskForce (Lucru)</a>"

@@ -25,6 +25,9 @@ jQuery(document).ready(function($) {
 				}
 				if ($('#clear-fields').is(":checked")){
 					$('#wpc-receiving .form-control').each( function(){
+						if( $(this).hasClass('wpc-receiving-date') || $(this).hasClass('wpc-receiving-time') ){
+							return;
+						}
 						$(this).val('');
 					});
 				}

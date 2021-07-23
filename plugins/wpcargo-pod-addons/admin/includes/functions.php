@@ -50,8 +50,9 @@ function wpcpod_route_origin(){
 	}
 	return $options;
 }
-function wpcpod_route_allowed_user( ){
-	$current_user 	= wp_get_current_user();
+function wpcpod_route_allowed_user( $user_id = '' ){
+	$user_id 		= !$user_id ? get_current_user_id() : $user_id ;
+	$current_user 	= get_userdata( $user_id );
 	$user_roles 	= $current_user->roles;
 	$allowed_user 	=  apply_filters( 'wpcpod_route_allowed_user', array( 'wpcargo_driver' ) );
 	if( array_intersect( $user_roles, $allowed_user ) ){
@@ -59,15 +60,16 @@ function wpcpod_route_allowed_user( ){
 	}
 	return false;
 }
-function wpcpod_route_shipments( ){
+
+function wpcpod_route_shipments( $user_id = '' ){
 	global $wpdb;
-	if( !wpcpod_route_allowed_user() || empty( wpcpod_route_status() ) ){
+	if( !wpcpod_route_allowed_user( $user_id ) || empty( wpcpod_route_status() ) ){
 		return array();
 	}
 	// SQL Query
-	$user_id = get_current_user_id();
+	$user_id = !$user_id ? get_current_user_id() : $user_id ;
 	$status  = implode("','", wpcpod_route_status());
-	$sql = "SELECT tbl1.ID FROM `{$wpdb->prefix}posts` as tbl1";
+	$sql = "SELECT tbl1.ID as id, tbl1.post_title as number FROM `{$wpdb->prefix}posts` as tbl1";
 	$sql .= " LEFT JOIN  {$wpdb->prefix}postmeta AS tbl2 ON tbl2.post_id = tbl1.ID";
 	$sql .= " LEFT JOIN  {$wpdb->prefix}postmeta AS tbl3 ON tbl3.post_id = tbl1.ID";
 	$sql .= " WHERE tbl1.post_status LIKE 'publish'";
@@ -78,19 +80,19 @@ function wpcpod_route_shipments( ){
 	$sql .= " AND tbl3.meta_value IN ('{$status}')";
 	$sql .= " GROUP BY tbl1.ID DESC";
 	$sql = apply_filters( 'wpcpod_route_shipments_query', $sql );
-	$shipments 	= $wpdb->get_col( $sql );
+	$shipments 	= $wpdb->get_results( $sql );
 	return $shipments;
 }
-function wpcpod_route_addresses( ){
+function wpcpod_route_addresses( $user_id = '' ){
 	global $wpdb;
 	$addresses 		= array();
-	$shipments 		= wpcpod_route_shipments();
+	$shipments 		= wpcpod_route_shipments( $user_id  );
 	$route_fields 	= wpcpod_route_fields();
 	if( !empty( $shipments ) && !empty( $route_fields ) ){	
-		foreach ($shipments as $shipment_id ) {
+		foreach ($shipments as $shipment ) {
 			$_address = '';
 			foreach ( $route_fields as $key ) {
-				$value = maybe_unserialize( get_post_meta( $shipment_id, $key, true ) );
+				$value = maybe_unserialize( get_post_meta( $shipment->id, $key, true ) );
 				if( is_array( $value ) ){
 					$value = implode(" ", wpcpod_route_status());
 				}
@@ -99,10 +101,14 @@ function wpcpod_route_addresses( ){
 				}
 				$_address .= $value.' ';
 			}
+			$_address = apply_filters( 'wpcpod_route_shipment_address', $_address );
 			if( empty( trim($_address) ) ){
 				continue;
 			}
-			$addresses[$shipment_id] = $_address;
+			$addresses[$shipment->id] = array(
+				'number'  => $shipment->number,
+				'address' => $_address
+			);
 		}
 	}
 	return $addresses;
@@ -113,11 +119,36 @@ function wpcpod_route_status(){
 function wpcpod_route_fields(){
 	return !empty( get_option( 'wpcpod_route_field' ) ) ? get_option( 'wpcpod_route_field' ) : array() ;
 }
+function wpcpod_route_segment_info(){
+	return !empty( get_option( 'wpcpod_route_segment_info' ) ) ? get_option( 'wpcpod_route_segment_info' ) : array() ;
+}
+function wpcpod_can_delete_signature(){
+	$allowed_role = apply_filters( 'wpcpod_can_delete_signature_roles', array('administrator') );
+	$current_user = wp_get_current_user();
+	$current_roles = $current_user->roles;
+	if( array_intersect($allowed_role, $current_roles) ){
+		return true;
+	}
+	return false;
+}
+function wpcpod_route_shipment_data_callback( $data, $shipment_id ){
+	$segment_info = wpcpod_route_segment_info();
+	if( empty( $segment_info ) ){
+		return $data;
+	}
+	foreach ( $segment_info as $key ) {
+		$meta_value = maybe_unserialize( get_post_meta( $shipment_id, $key, true ) );
+		$meta_value = is_array( $meta_value ) ? implode(", ", $meta_value) : $meta_value ;
+		$data['info'][$key] = $meta_value;
+	}
+	return $data;
+}
+add_filter( 'wpcpod_route_shipment_data', 'wpcpod_route_shipment_data_callback', 10, 2 );
 function wpcpod_report_headers(){
 	global $wpdb;
 	$headers = array(
-		'shipment_number' => esc_html__( 'Shipment Number', 'wpcargo-pod' ),
-		'registered_shipper' => esc_html__( 'Registered Shipper', 'wpcargo-pod' ),
+		'shipment_number' => __( 'Shipment Number', 'wpcargo-pod' ),
+		'registered_shipper' => __( 'Registered Shipper', 'wpcargo-pod' ),
 	);
 	$results = $wpdb->get_results( "SELECT `label`, `field_key` as 'key' FROM `{$wpdb->prefix}wpcargo_custom_fields` ORDER BY `weight` ASC" );
 	if( !empty( $results ) ){
@@ -245,12 +276,10 @@ function wpcpod_api_fields_status( ){
 	$options 			= get_option('wpcargo_pod_option_settings') ? get_option('wpcargo_pod_option_settings') : array();	
 	$shipper_fields 	= get_field_section('shipper_info');
 	$receiver_fields 	= get_field_section('receiver_info');
-
 	$fields = array(
 		'shipper' =>array(),
 		'receiver' => array()
 	);
-
 	if( !empty( $options ) ){
 		if( !empty( $shipper_fields ) ){
 			foreach( $shipper_fields as $shipper ){
@@ -279,7 +308,6 @@ function wpcpod_api_fields_status( ){
 	}
 	return $fields;
 }
-
 function wpcpod_clean_dir( $directory ){
 	$files = glob( $directory.'*');
 	foreach($files as $file){ // iterate files
@@ -364,6 +392,7 @@ function wpcpod_generate_report(){
 		$file_format 		= str_replace('.', '', $file_format);
 		$filename_unique 	= "report-".time().'.'.trim($file_format);
 		$csv_file 			= fopen($file_directory.$filename_unique, "w");
+		fprintf($csv_file, chr(0xEF).chr(0xBB).chr(0xBF));
 		fputcsv( $csv_file, $file_label, $delimiter );
 		foreach ( $shipments as $shipment_id ) {
 			$shipment_value = array();
@@ -400,7 +429,7 @@ function wpcpod_generate_report(){
 	$message 	= esc_html__( 'No shipment found to generate report', 'wpcargo-pod' );
 	$shipcount 	= count( $shipments );
 	if( $shipcount > 0 ){
-		$message = esc_html__( 'Please wait while generating file...', 'wpcargo-pod' );;
+		$message = __( 'Please wait while generating file...', 'wpcargo-pod' );
 	}
 	wp_send_json(
 		array(
@@ -414,77 +443,141 @@ function wpcpod_generate_report(){
 }
 add_action( 'wp_ajax_wpcpod_generate_report', 'wpcpod_generate_report' );
 add_action( 'wp_ajax_nopriv_wpcpod_generate_report', 'wpcpod_generate_report' );
+function wpcpod_remove_signature_callback(){
+	if( !wpcpod_can_delete_signature() ){
+		wp_send_json( array(
+			'status' => 'error',
+			'message' => __( 'Sorry! You are not allowed to remove signature.', 'wpcargo-pod' )
+		) );
+		wp_die( );
+	}
+	$post_id 		= $_POST['postID'];
+	$signature_id 	= get_post_meta($post_id, 'wpcargo-pod-signature', true);
+	if( $signature_id ){
+		wp_delete_attachment( $signature_id, true );
+		delete_post_meta( $post_id, 'wpcargo-pod-signature' );
+	};
+	wp_send_json( array(
+		'status' => 'success',
+		'message' => __( 'Signature successfully removed!', 'wpcargo-pod' )
+	) );
+	wp_die( );
+}
+add_action( 'wp_ajax_wpcpod_remove_signature', 'wpcpod_remove_signature_callback' );
 
-function wpcpod_route_address_order( ){
 
-	$address_list 	= wpcpod_route_addresses();
+function wpcpod_get_route_address_order( $user_id = ''){
+	$poo 			= true;
+	$address_list 	= wpcpod_route_addresses( $user_id );
 	$route_origin 	= wpcpod_route_origin();
 	$waypoints 		= array();
 	$shipments 		= array();
 	if( empty( get_option('shmap_api') ) ){
-		wp_send_json(array(
+		return array(
 			'status' 	=> 'error',
-			'message' 	=> printf( esc_html__('Google API key required to run the Driver Route Planner. Add API here <a href="%s" class="btn btn-primary btn-sm">Here</a>', admin_url( 'admin.php?page=wpc-pod-settings' ) ), 'wpcargo-pod')
-		));
-		wp_die();
+			'message' 	=> printf( __('Google API key required to run the Driver Route Planner. Add API here <a href="%s" class="btn btn-primary btn-sm">Here</a>', admin_url( 'admin.php?page=wpc-pod-settings' ) ), 'wpcargo-pod')
+		);
 	}
 	if( empty( $address_list ) ){
-		wp_send_json(array(
+		return array(
 			'status' 	=> 'error',
-			'message' 	=> esc_html__('No address found.', 'wpcargo-pod')
-		));
-		wp_die();
+			'message' 	=> __('No Delivery for route found.', 'wpcargo-pod')
+		);
 	}
-
 	if( !empty( $route_origin['address'] ) ){
-		$origin   = $route_origin['address'];
+		$origin = array(
+			'id' 		=> null,
+			'number' 	=> __('Point of Orgin ', 'wpcargo-pod'),
+			'address' 	=> $route_origin['address']
+		);
+		$origin = apply_filters( 'wpcpod_route_shipment_data', $origin, null );
 	}else{
+		$poo 	  = false;
 		$key      = key($address_list);
 		$origin   = $address_list[$key];
-		unset($address_list[$key]);
+		$origin = array(
+			'id' 		=> $key,
+			'number' 	=> $address_list[$key]['number'],
+			'address' 	=> $address_list[$key]['address']
+		);
+		$origin = apply_filters( 'wpcpod_route_shipment_data', $origin, $key );
 	}
-	
 	$counter = 1;
-	foreach ($address_list as $shipmentID => $address) {
-		$shipmentNumber = get_the_title( $shipmentID );
-		$destination 	= urlencode( $address );
-		$distance_data 	= file_get_contents('https://maps.googleapis.com/maps/api/distancematrix/json?&origins='.urlencode( $origin ).'&destinations='.$destination.'&key='.get_option('shmap_api') );
+	foreach ($address_list as $shipmentID => $shipment ) {
+		$shipmentNumber = $shipment['number'];
+		$destination 	= urlencode( $shipment['address'] );
+		$distance_data 	= file_get_contents('https://maps.googleapis.com/maps/api/distancematrix/json?&origins='.urlencode( $origin['address'] ).'&destinations='.$destination.'&key='.get_option('shmap_api') );
 		$distance_arr 	= json_decode($distance_data);
 		if( $distance_arr->status=='OK' && $distance_arr->rows[0]->elements[0]->status == 'OK' ){
 			$distance = $distance_arr->rows[0]->elements[0]->distance->value;
-			$waypoints[$distance] 	= urldecode( $destination );
-			$shipments[$distance] 	= $shipmentNumber;
+			$data = array(
+				'id' 		=> $shipmentID,
+				'number' 	=> $shipmentNumber,
+				'address' 	=> urldecode( $destination ),
+			);
+			$data = apply_filters( 'wpcpod_route_shipment_data', $data, $shipmentID );
+			$waypoints[$distance] 	= $data;
+			$shipments[$distance] 	= $data;
 		}else{
-			$waypoints[$counter] 	= urldecode( $destination );
-			$shipments[$counter] 	= $shipmentNumber;
+			$data = array(
+				'id' 		=> $shipmentID,
+				'number' 	=> $shipmentNumber,
+				'address' 	=> urldecode( $destination ),
+			);
+			$data = apply_filters( 'wpcpod_route_shipment_data', $data, $shipmentID );
+			$waypoints[$counter] 	= $data;
+			$shipments[$counter] 	= $data;
 		}
 		$counter++;
 	}
 	ksort($waypoints);
 	ksort($shipments);
-	$shipments  = array_values( $shipments );
-	$waypoints  = array_values( $waypoints );
-	$pointcount = count( $waypoints );
-	if( empty( $route_origin['address'] ) ){
-		array_shift($waypoints);
-		array_shift($shipments);
-	}
-	$destination 	= array_pop($waypoints);
-	if( $pointcount == 1 ){
+	$shipments  	= array_values( $shipments );
+	$waypoints  	= array_values( $waypoints );
+	$pointcount 	= count( $waypoints );
+	if( count( $waypoints ) == 0  ){
 		$destination = $origin;
+	}else{
+		$destination 	= array_pop($waypoints);
 	}
-	wp_send_json(
-		array(
+	return array(
 			'status' => 'success',
 			'waypoints' => $waypoints,
 			'origin' => $origin,
 			'destination' => $destination,
-			'shipments' => $shipments
-		)
-	);
+			'shipments' => $shipments,
+			'poo' => $poo
+		);
+}
+
+function wpcpod_route_address_order( ){
+	wp_send_json( wpcpod_get_route_address_order() );
 	wp_die();
 }
 add_action( 'wp_ajax_wpcpod_generate_route_address', 'wpcpod_route_address_order' );
+function wpcpod_umaccess_list_callback( $access ){
+	$access['assign_driver'] = __( 'Assign Driver', 'wpcargo-pod' );
+	return $access;
+}
+add_filter( 'wpcumanage_access_list', 'wpcpod_umaccess_list_callback' );
+// Load the auto-update class
+function wpcpod_get_plugin_remote_update(){
+	require_once( WPCARGO_POD_PATH. 'admin/classes/wp_autoupdate.php');
+	$plugin_remote_path = 'http://www.wpcargo.com/repository/wpcargo-pod-addons/'.WPCARGO_POD_UPDATE_REMOTE.'.php';
+	return new WPC_POD_AutoUpdate ( WPCARGO_POD_VERSION, $plugin_remote_path, WPCARGO_POD_BASENAME );
+}
+function wpc_pod_activate_au(){
+	wpcpod_get_plugin_remote_update();
+}
+function wpcpod_plugin_update_message( $data, $response ) {
+	$autoUpdate 	= wpcpod_get_plugin_remote_update();
+	$remote_info 	= $autoUpdate->getRemote('info');
+	if( !empty( $remote_info->update_message ) ){
+		echo $remote_info->update_message;
+	}
+}
+add_action( 'init', 'wpc_pod_activate_au' );
+add_action( 'in_plugin_update_message-wpcargo-pod-addons/wpcargo-pod.php', 'wpcpod_plugin_update_message', 10, 2 );
 
 /*
  * Language translation for encrypted file

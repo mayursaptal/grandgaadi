@@ -22,15 +22,20 @@
 				<!-- Form -->
 				<form name="loginform" id="loginform" action="<?php echo site_url( '/wp-login.php' ); ?>" method="post">
 					<!-- Email -->
-					<div class="md-form">
+					<div class="md-form login-username">
 						<label class="form-check-label" for="user_login"><?php esc_html_e( 'Username/E-mail', 'wpcargo-frontend-manager' ); ?></label>
 						<input id="user_login" class="form-control border-input" type="text" size="20" value="<?php echo $user_name; ?>" name="log" required="required">
 					</div>
 					<!-- Password -->
-					<div class="md-form">
+					<div class="md-form login-password">
 						<label class="form-check-label" for="user_pass"><?php esc_html_e( 'Password', 'wpcargo-frontend-manager' ); ?></label>
 						<input id="user_pass" class="form-control border-input" type="password" size="20" value="" name="pwd" required="required">
 					</div>
+					<?php if( has_action('register_form') ): ?>
+					<div class="col-lg-12 p-0">
+						<?php do_action( 'register_form' ); ?>
+					</div>
+					<?php endif ?>
 					<div class="d-flex justify-content-around">
 						<div>
 							<!-- Remember me -->
@@ -43,8 +48,10 @@
 							<a href="<?php echo wp_lostpassword_url( $redirect_to ); ?>"><?php esc_html_e( 'Forgot password?', 'wpcargo-frontend-manager' ); ?></a>
 						</div>
 					</div>
-					<input type="hidden" value="<?php echo esc_attr( apply_filters( 'wpcfe_login_redirect', $redirect_to ) ); ?>" name="redirect_to">
-					<button id="wp-submit" class="btn btn-outline-primary btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit" name="wp-submit"><?php esc_html_e('Login', 'wpcargo-frontend-manager' ); ?></button>
+					<div class="md-form login-submit">
+						<input type="hidden" value="<?php echo esc_attr( apply_filters( 'wpcfe_login_redirect', $redirect_to ) ); ?>" name="redirect_to">
+						<button id="wp-submit" class="btn btn-outline-primary btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit" name="wp-submit"><?php esc_html_e('Login', 'wpcargo-frontend-manager' ); ?></button>
+					</div>
 				</form>
 				<!-- Form -->
 				<?php do_action( 'wpcfe_after_login_form' ); ?>				

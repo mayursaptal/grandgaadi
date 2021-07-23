@@ -5,16 +5,14 @@ if (!defined('ABSPATH')) {
 // Update shipment hooks
 add_action( 'plugins_loaded', 'wpcfe_initialize_hooks' );
 function wpcfe_initialize_hooks(){  
-
     // Frontend Manager Sidebar Hook
     add_action( 'wpcfe_before_add_shipment', 'wpcfe_shipment_dashboard_menu_callback' );
-
     // Add actions
 	add_action( 'before_wpcfe_shipment_form_submit', 'wpcfe_shipment_history_template', 60, 1 );
     add_action( 'before_wpcfe_shipment_form_submit', 'wpcfe_assigned_shipment_template', 40, 1 );
     add_action( 'after_wpcfe_shipment_form_fields', 'wpcfe_shipment_multipackage_template', 10, 1 );
     add_action( 'after_wpcfe_shipment_form_fields', 'wpcfe_shipment_history_table_template', 10, 2 );
-		
+	// After save shipment Hook
 	add_action( 'after_wpcfe_save_shipment', 'wpcfe_save_shipment_history', 10, 2 );
 	add_action( 'after_wpcfe_save_shipment', 'wpcfe_assigned_shipment_save', 10, 2 );
     add_action( 'after_wpcfe_save_shipment', 'wpcfe_shipment_multipackage_save', 10, 2 );
@@ -45,6 +43,17 @@ function wpcfe_initialize_hooks(){
     // Approve Client
     add_action( 'wp_ajax_wpcfe_approve_client', 'wpcmerch_approve_client_callback' );
 }
+// myStickyElement Compatibility
+function wpcfe_plugin_compatibility_hooks(){
+    global $front_settings_page, $post;
+    if( !empty( $post ) ){
+        $template = get_page_template_slug( $post->ID );
+        if( $template == 'dashboard.php' && class_exists('MyStickyElementsFrontPage_pro') ){
+            remove_action('wp_footer', array( $front_settings_page, 'mystickyelement_element_footer'), 999);
+        }
+    }
+}
+add_action( 'wp_head', 'wpcfe_plugin_compatibility_hooks' );
 // Bulk Print Template Hook Callback
 function wpcfe_after_bulkprint_template_callback( $counter, $shipment_num, $print_type ){
     if( $counter != $shipment_num ){
@@ -59,11 +68,9 @@ function wpcfe_add_user_custom_column($columns) {
 function wpcfe_show_user_custom_column_content($value, $column_name, $user_id) {
     $user_info          = get_userdata( $user_id );     
     if( 'wpcfe_approval_status' == $column_name ){
-
         if( !wpcfe_approval_registration() ){
             return __('Disabled', 'wpcargo-frontend-manager');
         }
-
         if( in_array( 'wpcargo_pending_client', $user_info->roles ) ){
             return '<a href="#" class="button wpcfe-approve-client" data-id="'.$user_id.'">'.__('Pending Client', 'wpcargo-frontend-manager').'</a>';
         }elseif( in_array( 'wpcargo_client', $user_info->roles ) ){
@@ -143,9 +150,8 @@ function wpcfe_assign_agent_callback( $shipment_id ){
     <?php endif;
 }
 function wpcfe_assign_employee_callback( $shipment_id ){
-    $user_roles 		= wpcfe_current_user_role();
     $wpcargo_employee 	= wpcfe_get_users('wpcargo_employee');
-    if( in_array( 'administrator', (array)$user_roles ) ): ?>
+    if( can_wpcfe_assign_employee() ): ?>
         <div class="form-group">
             <div class="select-no-margin">
                 <label><?php esc_html_e('Employee','wpcargo-frontend-manager'); ?></label>
@@ -165,38 +171,9 @@ function wpcfe_assign_employee_callback( $shipment_id ){
 function wpcfe_shipment_dashboard_menu_callback(){
     $active_class = ( get_the_ID() == wpcfe_admin_page() && isset( $_GET['wpcfe']) && $_GET['wpcfe'] == 'dashboard' ) ? 'active' : '' ;
     ?>
-    <a href="<?php echo get_the_permalink( wpcfe_admin_page() ); ?>/?wpcfe=dashboard" class="wpcfe-dashboard list-group-item waves-effect <?php echo $active_class; ?>"> <i class="fa fa-line-chart mr-md-3 mr-3"></i><?php echo apply_filters( 'wpcfe_report_menu_label', esc_html__( 'Dashboard', 'wpcargo-frontend-manager') ); ?> </a>
+    <a href="<?php echo get_the_permalink( wpcfe_admin_page() ); ?>/?wpcfe=dashboard" class="wpcfe-dashboard list-group-item waves-effect <?php echo $active_class; ?>"> <i class="fa fa-line-chart mr-md-3 mr-3"></i><?php echo apply_filters( 'wpcfe_report_menu_label', __( 'Dashboard', 'wpcargo-frontend-manager') ); ?> </a>
     <?php
 }
-// Shipment table Hooks
-function wpcfe_shipment_table_header_shipment_type_callback(){
-    echo '<th>'.__('Shipment Type', 'wpcargo-frontend-manager' ).'</th>';
-}
-add_action( 'wpcfe_shipment_table_header_action', 'wpcfe_shipment_table_header_shipment_type_callback' );
-function wpcfe_shipment_type_action_callback( $shipment_id ){
-    echo '<td class="shipment-type '.wpcfe_to_slug( wpcfe_get_shipment_type( $shipment_id ) ).'">'.wpcfe_get_shipment_type( $shipment_id ).'</td>';
-}
-add_action( 'wpcfe_shipment_table_action', 'wpcfe_shipment_type_action_callback', 10, 1 );
-function wpcfe_shipper_receiver_shipment_header_callback(){
-    $shipper_data   = wpcfe_table_header('shipper');
-    $receiver_data  = wpcfe_table_header('receiver');
-    ?>
-    <th class="no-space"><?php echo apply_filters( 'wpcfe_shipper_table_header_label', $shipper_data['label'] ); ?></th>
-	<th class="no-space"><?php echo apply_filters( 'wpcfe_receiver_table_header_label', $receiver_data['label'] ); ?></th>
-    <?php
-}
-add_action( 'wpcfe_shipment_after_tracking_number_header', 'wpcfe_shipper_receiver_shipment_header_callback', 15 );
-function wpcfe_shipper_receiver_shipment_data_callback( $shipment_id ){
-    $shipper_data   = wpcfe_table_header('shipper');
-    $receiver_data  = wpcfe_table_header('receiver');
-    $shipper_meta 	= apply_filters( 'wpcfe_shipper_table_cell_data', get_post_meta( $shipment_id, $shipper_data['field_key'], true ), $shipment_id );
-	$receiver_meta 	= apply_filters( 'wpcfe_receiver_table_cell_data', get_post_meta( $shipment_id, $receiver_data['field_key'], true ), $shipment_id );
-    ?>
-    <td class="no-space"><?php echo $shipper_meta; ?></td>
-	<td class="no-space"><?php echo $receiver_meta; ?></td>
-    <?php
-}
-add_action( 'wpcfe_shipment_after_tracking_number_data', 'wpcfe_shipper_receiver_shipment_data_callback', 15 );
 // Dashboard Menu Class Hook
 add_filter( 'nav_menu_css_class' , 'wpcfe_current_nav_class' , 10 , 2);
 function wpcfe_current_nav_class ($classes, $item) {
@@ -440,10 +417,10 @@ function wpcfe_assigned_shipment_save( $shipment_id, $data ){
         update_post_meta( $shipment_id, 'registered_shipper', (int)$data['registered_shipper'] );
     }
     // Assign Shipment to Employee 
-    if( isset( $data['wpcargo_employee'] ) && (int)$data['wpcargo_employee'] && in_array( 'administrator', wpcfe_current_user_role() ) ){
+    if( isset( $data['wpcargo_employee'] ) && in_array( 'administrator', wpcfe_current_user_role() ) ){
         $old_employee = get_post_meta( $shipment_id, 'wpcargo_employee', true );
         update_post_meta( $shipment_id, 'wpcargo_employee', (int)$data['wpcargo_employee'] );
-        // check if the employee is changed Send email notification
+        // Check if the employee is changed Send email notification
         if( $old_employee != (int)$data['wpcargo_employee'] && wpc_can_send_email_employee() ){
             wpcargo_assign_shipment_email( $shipment_id, (int)$data['wpcargo_employee'], __('Employee', 'wpcargo-frontend-manager' ) );
         }   
@@ -456,13 +433,15 @@ function wpcfe_assigned_shipment_save( $shipment_id, $data ){
         update_post_meta( $shipment_id, 'wpcargo_employee', get_current_user_id() );
     }
     // Assign Shipment to Agent
-    if( isset( $data['agent_fields'] ) && (int)$data['agent_fields'] && can_wpcfe_assign_agent() ){
+    if( isset( $data['agent_fields'] ) && can_wpcfe_assign_agent() ){
         $old_agent = get_post_meta( $shipment_id, 'agent_fields', true );
         update_post_meta( $shipment_id, 'agent_fields', (int)$data['agent_fields'] );
         // check if the agent is changed Send email notification
         if( $old_agent != (int)$data['agent_fields'] && wpc_can_send_email_agent() ){
             wpcargo_assign_shipment_email( $shipment_id, (int)$data['agent_fields'], __('Agent', 'wpcargo-frontend-manager' ) );
         }
+    }elseif( is_wpcfe_agent() && can_wpcfe_add_shipment() ){
+        update_post_meta( $shipment_id, 'agent_fields', get_current_user_id() );
     }
     do_action( 'wpcfe_assigned_shipment_save', $shipment_id, $data );
 }
@@ -496,6 +475,9 @@ function wpcfe_shipment_history_table_template( $shipment_id ){
 }
 // Save Multiple Package data
 function wpcfe_shipment_multipackage_save( $post_id, $data ){
+    if( empty( $data ) || !is_array( $data ) ){
+        return false;
+    }
    $packages = array_key_exists( 'wpc-multiple-package', $data ) ? maybe_serialize( $data['wpc-multiple-package'] ) : maybe_serialize( array() );
    update_post_meta( $post_id, 'wpc-multiple-package', $packages );
 }
@@ -535,12 +517,13 @@ function wpcfe_shipment_history_template( $shipment_id ){
 	$template = wpcfe_include_template( 'history.tpl' );
 	require_once( $template );
 }
+
 // Save Shipment history
 function wpcfe_save_shipment_history( $post_id, $data ) {
 	global $wpdb, $wpcargo;
 	$current_user 			= wp_get_current_user();
 	$gen_settings 			= $wpcargo->settings;
-	$edit_history_role 		= ( array_key_exists( 'wpcargo_edit_history_role', $gen_settings ) ) ? $gen_settings['wpcargo_edit_history_role'] : array();
+	$edit_history_role 		= ( !empty( $gen_settings ) && array_key_exists( 'wpcargo_edit_history_role', $gen_settings ) ) ? $gen_settings['wpcargo_edit_history_role'] : array();
     $role_intersected 		= array_intersect( $current_user->roles, $edit_history_role );
     $old_status             = get_post_meta($post_id, 'wpcargo_status', true);
 	$user_id        = get_current_user_id();
@@ -696,20 +679,20 @@ function wpcfe_wp_new_user_notification_email_admin( $wp_new_user_notification_e
 }
 add_action( 'woocommerce_thankyou', 'wpcfe_woocommerce_thankyou' );
 function wpcfe_woocommerce_thankyou( $order_id ){
-    if ( in_array( 'woocommerce/woocommerce.php', get_option( 'active_plugins' ) ) && !is_user_logged_in() ) {
+    if ( in_array( 'woocommerce/woocommerce.php', get_option( 'active_plugins' ) )  ) {
         $wpcfe_print_options = wpcfe_print_options();
         $wpcfe_print_checkout = get_option('wpcfe_checkout_print') ? : array();
         $order = wc_get_order( $order_id );
         $items = $order->get_items(); 
         foreach( $items as $item ){
-            $shipment_title = $item['Shipment']; 
+            $shipment_title = $item['Shipment'] ? $item['Shipment'] : $item['_shipment_num']; 
         }
         $shipment_id = wpcfe_shipment_id( $shipment_title );           
-        if( !empty( $wpcfe_print_options ) ): ?>
+        if( !empty( $wpcfe_print_options ) && $shipment_id ): ?>
             <div class="text-center print-shipment">
                 <?php foreach( $wpcfe_print_options as $print_key => $print_label ): ?>
                     <?php if( in_array( $print_key, $wpcfe_print_checkout ) ): ?>
-                        <a class="shipment-checkout print-<?php echo $print_key; ?> py-1 wpcargo-btn wpcargo-btn-primary" data-id="<?php echo $shipment_id; ?>" data-type="<?php echo $print_key; ?>" href="#">
+                        <button class="wpcfe-btn-checkout shipment-checkout  print-<?php echo $print_key; ?> py-1 wpcargo-btn wpcargo-btn-primary wpcargo-btn-lg" data-id="<?php echo $shipment_id; ?>" data-type="<?php echo $print_key; ?>">
                             <?php 
                                 echo sprintf(
                                     '%s %s',
@@ -717,7 +700,7 @@ function wpcfe_woocommerce_thankyou( $order_id ){
                                     $print_label
                                 );
                             ?>
-                        </a>
+                        </button>
                     <?php endif; ?>
                 <?php endforeach; ?>
             </div>
@@ -726,8 +709,26 @@ function wpcfe_woocommerce_thankyou( $order_id ){
 }
 add_action( 'wp_head', 'wpcfe_user_sort' );
 function wpcfe_user_sort(){
-	$wpcfesort_list = array( 10, 25, 50, 100 , 500);
+	$wpcfesort_list = array( 10, 25, 50, 100 , 500 );
 	if( isset( $_GET['wpcfesort'] ) && in_array( $_GET['wpcfesort'], $wpcfesort_list ) ){
 		update_user_meta( get_current_user_id(), 'user_wpcfesort', $_GET['wpcfesort'] );
 	}
 }
+// Load the auto-update class
+function wpcfe_get_plugin_remote_update(){
+	require_once( WPCFE_PATH.'admin/classes/wp_autoupdate.php');
+    $plugin_remote_path = 'http://wpcargo.com/repository/wpcargo-frontend-manager/'.WPCFE_UPDATE_REMOTE.'.php';
+    return new WPCargo_Frontend_Manager_AutoUpdate ( WPCFE_VERSION, $plugin_remote_path, WPCFE_BASENAME );
+}
+function wpc_frontend_manager_activate_au(){
+    wpcfe_get_plugin_remote_update();
+}
+function wpcfe_plugin_update_message( $data, $response ) {
+	$autoUpdate 	= wpcfe_get_plugin_remote_update();
+	$remote_info 	= $autoUpdate->getRemote('info');
+	if( !empty( $remote_info->update_message ) ){
+		echo $remote_info->update_message;
+	}
+}
+add_action( 'in_plugin_update_message-wpcargo-frontend-manager/wpcargo-frontend-manager.php', 'wpcfe_plugin_update_message', 10, 2 );
+add_action( 'init', 'wpc_frontend_manager_activate_au' );

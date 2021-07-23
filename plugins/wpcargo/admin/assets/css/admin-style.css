@@ -2297,18 +2297,15 @@ select#registered_shipper{
 .history-update {
     width: 100%;
 }
-@media only screen and (max-width: 600px) {
-	#wpc-import-export-checklist, #multi-select-export {
-		width: 100%;
-		float: none;
-	}
-}
 #shipment-designation select {
 	width: 100%;
 }
 #shipment-designation .label-section {
 	margin-bottom: 10px;
 }
-.wpc-multiple-package input {
-    width: calc(100% - 0px);
+@media only screen and (max-width: 600px) {
+	#wpc-import-export-checklist, #multi-select-export {
+		width: 100%;
+		float: none;
+	}
 }

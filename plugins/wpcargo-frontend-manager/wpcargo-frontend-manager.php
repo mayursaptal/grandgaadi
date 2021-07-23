@@ -6,7 +6,7 @@
  * Author: <a href="http://www.wptaskforce.com/">WPTaskForce</a>
  * Text Domain: wpcargo-frontend-manager
  * Domain Path: /languages
- * Version: 5.3.2
+ * Version: 5.3.5
  */
 if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly
@@ -16,17 +16,19 @@ define( 'WPCFE_FILE', __FILE__ );
 define( 'WPCFE_URL', plugin_dir_url( WPCFE_FILE ) );
 define( 'WPCFE_PATH', plugin_dir_path( WPCFE_FILE ) );
 define( 'WPCFE_TEXTDOMAIN', 'wpcargo-frontend-manager' );
-define( 'WPCFE_VERSION', '5.3.2' );
+define( 'WPCFE_VERSION', '5.3.5' );
 define( 'WPCFE_DB_VERSION', '1.0.1' );
 define( 'WPCFE_HOME_URL', home_url() );
 define( 'WPCFE_BASENAME', plugin_basename( WPCFE_FILE ) );
 define( 'WPCFE_DB_REPORTS',  'wpcfe_reports' );
+define( 'WPCFE_UPDATE_REMOTE', 'updates-7.2'  );
 require_once( WPCFE_PATH.'admin/includes/functions.php');
 require_once( WPCFE_PATH.'admin/includes/widgets.php');
 require_once( WPCFE_PATH.'admin/includes/language.php');
 require_once( WPCFE_PATH.'admin/includes/pdf-helper.php');
 require_once( WPCFE_PATH.'admin/includes/country-list.php');
 require_once( WPCFE_PATH.'admin/includes/hooks.php');
+require_once( WPCFE_PATH.'admin/includes/hooks-shipment.php');
 require_once( WPCFE_PATH.'admin/includes/print-hooks.php');
 require_once( WPCFE_PATH.'admin/includes/ajax.php');
 require_once( WPCFE_PATH.'admin/includes/settings.php');
@@ -61,13 +63,6 @@ add_action( 'upgrader_process_complete', function( $upgrader_object, $options ) 
         }
     }
 }, 10, 2 );
-// Load the auto-update class
-add_action( 'init', 'wpc_frontend_manager_activate_au' );
-function wpc_frontend_manager_activate_au(){
-    require_once( WPCFE_PATH.'admin/classes/wp_autoupdate.php');
-    $plugin_remote_path = 'http://wpcargo.com/repository/wpcargo-frontend-manager/updates-7.2.php';
-    new WPCargo_Frontend_Manager_AutoUpdate ( WPCFE_VERSION, $plugin_remote_path, WPCFE_BASENAME );
-}
 // Create new custom Role
 register_activation_hook( __FILE__, 'wpcfe_regroles_on_plugin_activation' );
 register_deactivation_hook( __FILE__, 'wpcfe_regroles_on_plugin_deactivation' );

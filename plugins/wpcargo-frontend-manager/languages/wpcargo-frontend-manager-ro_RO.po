@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WPCargo Frontend Manager\n"
-"POT-Creation-Date: 2021-04-07 15:05+0800\n"
-"PO-Revision-Date: 2021-04-07 15:06+0800\n"
+"POT-Creation-Date: 2021-04-22 11:44+0800\n"
+"PO-Revision-Date: 2021-04-22 11:46+0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ro_RO\n"
@@ -34,7 +34,7 @@ msgstr "- Selectează Una -"
 msgid "Add Images / Upload Files"
 msgstr "Adăugare imagini / Încărcare fișiere"
 
-#: admin/classes/class-fields.php:298 admin/includes/functions.php:1124
+#: admin/classes/class-fields.php:298 admin/includes/functions.php:1130
 msgid "Email"
 msgstr "E-mail"
 
@@ -1220,8 +1220,7 @@ msgstr "Informații despre receptor"
 msgid "Shipment Information"
 msgstr "Informații despre expediere"
 
-#: admin/includes/functions.php:277 admin/includes/functions.php:654
-#: templates/shipments.php:74
+#: admin/includes/functions.php:277 admin/includes/functions.php:660
 msgid "Default"
 msgstr "Implicit"
 
@@ -1233,237 +1232,261 @@ msgstr "Pagina curentă"
 msgid "Total page"
 msgstr "Total pagină"
 
-#: admin/includes/functions.php:469 admin/includes/hooks.php:68
+#: admin/includes/functions.php:469 admin/includes/hooks.php:64
 msgid "Pending Client"
 msgstr "Client în așteptare"
 
-#: admin/includes/functions.php:705
+#: admin/includes/functions.php:711
 msgid "Shipment "
 msgstr "Livrare"
 
-#: admin/includes/functions.php:705
+#: admin/includes/functions.php:711
 msgid " has been successfully saved."
 msgstr " a fost salvat cu succes."
 
-#: admin/includes/functions.php:711
+#: admin/includes/functions.php:717
 msgid "Something went wrong saving your shipment. Please reload and try again"
 msgstr ""
 "Ceva nu a mers bine salvându-ți transportul. Reîncărcați și încercați din nou"
 
-#: admin/includes/functions.php:728
+#: admin/includes/functions.php:734
 msgid "Shipper Name"
 msgstr "Nume expeditor"
 
-#: admin/includes/functions.php:733
+#: admin/includes/functions.php:739
 msgid "Receiver Name"
 msgstr "Nume receptor"
 
-#: admin/includes/functions.php:953
+#: admin/includes/functions.php:959
 msgid "Previous"
 msgstr "Anterior"
 
-#: admin/includes/functions.php:954
+#: admin/includes/functions.php:960
 msgid "Next"
 msgstr "Următor"
 
-#: admin/includes/functions.php:955
+#: admin/includes/functions.php:961
 msgid "Shipment Pagination"
 msgstr "Paginare livrare"
 
-#: admin/includes/functions.php:999
+#: admin/includes/functions.php:1005
 msgid "First"
 msgstr "Primul"
 
-#: admin/includes/functions.php:1001
+#: admin/includes/functions.php:1007
 msgid "previous"
 msgstr "inapoi"
 
-#: admin/includes/functions.php:1016
+#: admin/includes/functions.php:1022
 msgid "next"
 msgstr "inainte"
 
-#: admin/includes/functions.php:1020
+#: admin/includes/functions.php:1026
 msgid "Last"
 msgstr "Ultimul"
 
-#: admin/includes/functions.php:1089 templates/account.tpl.php:73
+#: admin/includes/functions.php:1095 templates/account.tpl.php:73
 msgid "First Name"
 msgstr "Prenume"
 
-#: admin/includes/functions.php:1099 templates/account.tpl.php:77
+#: admin/includes/functions.php:1105 templates/account.tpl.php:77
 msgid "Last Name"
 msgstr "Nume"
 
-#: admin/includes/functions.php:1109 templates/account.tpl.php:51
+#: admin/includes/functions.php:1115 templates/account.tpl.php:51
 #: templates/account.tpl.php:81
 msgid "Phone"
 msgstr "Telefon"
 
-#: admin/includes/functions.php:1134
+#: admin/includes/functions.php:1140
 msgid "Company"
 msgstr "Companie"
 
-#: admin/includes/functions.php:1144
+#: admin/includes/functions.php:1150
 msgid "Address line 1"
 msgstr "Adresa 1"
 
-#: admin/includes/functions.php:1154
+#: admin/includes/functions.php:1160
 msgid "Address line 2"
 msgstr "Adresa 2"
 
-#: admin/includes/functions.php:1164
+#: admin/includes/functions.php:1170
 msgid "City"
 msgstr "Oraș"
 
-#: admin/includes/functions.php:1174
+#: admin/includes/functions.php:1180
 msgid "Postcode / ZIP"
 msgstr "Cod Poștal"
 
-#: admin/includes/functions.php:1184
+#: admin/includes/functions.php:1190
 msgid "Country"
 msgstr "Țară"
 
-#: admin/includes/functions.php:1194
+#: admin/includes/functions.php:1200
 msgid "State / County"
 msgstr "Județ"
 
-#: admin/includes/functions.php:1249 admin/includes/functions.php:1297
+#: admin/includes/functions.php:1258 admin/includes/functions.php:1306
 msgid "Orders"
 msgstr "Comenzi"
 
-#: admin/includes/functions.php:1270
+#: admin/includes/functions.php:1279
 msgid "Profile"
 msgstr "Profil"
 
-#: admin/includes/functions.php:1289
+#: admin/includes/functions.php:1298
 msgid "Shipments"
 msgstr "Transporturile"
 
-#: admin/includes/hooks.php:56
+#: admin/includes/hooks-shipment.php:25
+msgid "Tracking Number"
+msgstr "Număr urmărire"
+
+#: admin/includes/hooks-shipment.php:33 templates/filter-shipment.php:7
+msgid "Status"
+msgstr "Stare"
+
+#: admin/includes/hooks-shipment.php:40 admin/includes/hooks-shipment.php:47
+#: templates/orders.tpl.php:33
+msgid "View"
+msgstr "Vezi"
+
+#: admin/includes/hooks-shipment.php:54 templates/orders.tpl.php:8
+msgid "Shipment Type"
+msgstr "Tip livrare"
+
+#: admin/includes/hooks-shipment.php:62 admin/includes/hooks.php:689
+#: templates/shipments.php:24 templates/shipments.php:82
+msgid "Print"
+msgstr "Printare"
+
+#: admin/includes/hooks-shipment.php:87 admin/includes/hooks.php:581
+#: templates/account.tpl.php:134 templates/bulk-assign-shipment.tpl.php:26
+#: templates/profile.tpl.php:69
+msgid "Update"
+msgstr "Actualizare"
+
+#: admin/includes/hooks-shipment.php:100 admin/includes/hooks-shipment.php:107
+#: templates/shipment-history.tpl.php:64 templates/shipments.php:34
+#: templates/shipments.php:92
+msgid "Delete"
+msgstr "Șterge"
+
+#: admin/includes/hooks.php:54
 msgid "Client Approval"
 msgstr "Aprobare client"
 
-#: admin/includes/hooks.php:64
+#: admin/includes/hooks.php:61
 msgid "Disabled"
 msgstr "Dezactivat"
 
-#: admin/includes/hooks.php:70
+#: admin/includes/hooks.php:66
 msgid "Approved"
 msgstr "Aprobat"
 
-#: admin/includes/hooks.php:89 admin/includes/hooks.php:665
+#: admin/includes/hooks.php:85 admin/includes/hooks.php:638
 msgid "Hi there,"
 msgstr "Buna Ziua,"
 
-#: admin/includes/hooks.php:90 admin/includes/hooks.php:666
+#: admin/includes/hooks.php:86 admin/includes/hooks.php:639
 #, php-format
 msgid "Welcome to %s! Here's how to log in:"
 msgstr "Bun venit la% s! Iată cum să vă conectați:"
 
-#: admin/includes/hooks.php:91
+#: admin/includes/hooks.php:87
 #, php-format
 msgid "Login URL:  %s"
 msgstr "URL de conectare: %s"
 
-#: admin/includes/hooks.php:92 admin/includes/hooks.php:668
-#: admin/includes/hooks.php:688
+#: admin/includes/hooks.php:88 admin/includes/hooks.php:641
+#: admin/includes/hooks.php:661
 #, php-format
 msgid "Username: %s"
 msgstr "Nume utilizator: %s"
 
-#: admin/includes/hooks.php:93
+#: admin/includes/hooks.php:89
 #, php-format
 msgid "Password: %s"
 msgstr "Parola: %s"
 
-#: admin/includes/hooks.php:94
+#: admin/includes/hooks.php:90
 #, php-format
 msgid "If you have any problems, please contact our support at %s."
 msgstr "Dacă aveți probleme, vă rugăm să contactați asistența noastră la %s."
 
-#: admin/includes/hooks.php:95 admin/includes/hooks.php:672
+#: admin/includes/hooks.php:91 admin/includes/hooks.php:645
 msgid "Thank you for trusting us!"
 msgstr "Vă mulțumim că ați avut încredere în noi!"
 
-#: admin/includes/hooks.php:114 admin/includes/hooks.php:437
+#: admin/includes/hooks.php:110 admin/includes/hooks.php:404
 msgid "Client"
 msgstr "Client"
 
-#: admin/includes/hooks.php:116
+#: admin/includes/hooks.php:112
 msgid "-- Select Client --"
 msgstr "-- Selectați Client --"
 
-#: admin/includes/hooks.php:132 admin/includes/hooks.php:464
+#: admin/includes/hooks.php:128 admin/includes/hooks.php:431
 msgid "Agent"
 msgstr "Agent"
 
-#: admin/includes/hooks.php:134
+#: admin/includes/hooks.php:130
 msgid "-- Select Agent --"
 msgstr "Selectare agent"
 
-#: admin/includes/hooks.php:151 admin/includes/hooks.php:448
+#: admin/includes/hooks.php:147 admin/includes/hooks.php:415
 msgid "Employee"
 msgstr "Angajat"
 
-#: admin/includes/hooks.php:153
+#: admin/includes/hooks.php:149
 msgid "-- Select Employee --"
 msgstr "-- Selecteaza Angajatul --"
 
-#: admin/includes/hooks.php:168
+#: admin/includes/hooks.php:164
 msgid "Dashboard"
 msgstr "Panou de control"
 
-#: admin/includes/hooks.php:173 templates/orders.tpl.php:8
-msgid "Shipment Type"
-msgstr "Tip livrare"
-
-#: admin/includes/hooks.php:221 admin/includes/hooks.php:224
-#: admin/includes/hooks.php:244 templates/orders.tpl.php:7
+#: admin/includes/hooks.php:188 admin/includes/hooks.php:191
+#: admin/includes/hooks.php:211 templates/orders.tpl.php:7
 #: templates/shipments.php:15 templates/shipments.php:16
 msgid "Shipment Number"
 msgstr "Nume expeditor:"
 
-#: admin/includes/hooks.php:270
+#: admin/includes/hooks.php:237
 msgid "Bulk Assign"
 msgstr "Atribuire în bloc"
 
-#: admin/includes/hooks.php:372
+#: admin/includes/hooks.php:339
 msgid "Select Template"
 msgstr "Selectaţi şablonul"
 
-#: admin/includes/hooks.php:404
+#: admin/includes/hooks.php:371
 msgid "BOL"
 msgstr "BOL"
 
-#: admin/includes/hooks.php:415
+#: admin/includes/hooks.php:382
 msgid "Not a member?"
 msgstr "Nu sunteți înregistrat?"
 
-#: admin/includes/hooks.php:415 templates/registration.tpl.php:3
+#: admin/includes/hooks.php:382 templates/registration.tpl.php:3
 #: templates/registration.tpl.php:9
 msgid "Registration"
 msgstr "Înregistrare"
 
-#: admin/includes/hooks.php:415 templates/registration-form.tpl.php:44
+#: admin/includes/hooks.php:382 templates/registration-form.tpl.php:44
 msgid "Register"
 msgstr "Înregistrare"
 
-#: admin/includes/hooks.php:608 templates/account.tpl.php:134
-#: templates/bulk-assign-shipment.tpl.php:26 templates/profile.tpl.php:69
-#: templates/shipments.php:58
-msgid "Update"
-msgstr "Actualizare"
-
-#: admin/includes/hooks.php:663 admin/includes/hooks.php:684
+#: admin/includes/hooks.php:636 admin/includes/hooks.php:657
 msgid "From: "
 msgstr "De la: "
 
-#: admin/includes/hooks.php:669 admin/includes/hooks.php:689
+#: admin/includes/hooks.php:642 admin/includes/hooks.php:662
 #, php-format
 msgid "Email: %s"
 msgstr "Email: %s"
 
-#: admin/includes/hooks.php:670
+#: admin/includes/hooks.php:643
 msgid ""
 "Password: The one you entered in the registration form. (For security "
 "reason, we save encripted password)"
@@ -1471,24 +1494,19 @@ msgstr ""
 "Parola: Cea pe care ați introdus-o în formularul de înregistrare. (Din "
 "motive de securitate, vom salva parola encripted)"
 
-#: admin/includes/hooks.php:671
+#: admin/includes/hooks.php:644
 #, php-format
 msgid "If you have any problems, please contact me at %s."
 msgstr "Dacă aveți orice probleme, vă rugăm să mă contactați la %s."
 
-#: admin/includes/hooks.php:686
+#: admin/includes/hooks.php:659
 msgid "Hi Admin,"
 msgstr "Bună Admin,"
 
-#: admin/includes/hooks.php:687
+#: admin/includes/hooks.php:660
 #, php-format
 msgid "New user registration on your site %s:"
 msgstr "﻿Înregistrare utilizator nou pe site %s:"
-
-#: admin/includes/hooks.php:716 templates/shipments.php:24
-#: templates/shipments.php:55 templates/shipments.php:130
-msgid "Print"
-msgstr "Printare"
 
 #: admin/includes/language.php:9
 msgid "Please activate your license key for WPCargo Frontend Manager"
@@ -1969,10 +1987,6 @@ msgstr "Listă de expedieri"
 msgid "Copyright"
 msgstr "Copyright"
 
-#: templates/filter-shipment.php:7 templates/shipments.php:51
-msgid "Status"
-msgstr "Stare"
-
 #: templates/filter-shipment.php:9
 msgid "All Status"
 msgstr "Tip tranzactie"
@@ -2043,15 +2057,15 @@ msgstr "Autentificare"
 msgid "Username/E-mail"
 msgstr "Nume utilizator/E-mail"
 
-#: templates/login.php:39
+#: templates/login.php:44
 msgid "Remember me"
 msgstr "Ține-mă minte"
 
-#: templates/login.php:43
+#: templates/login.php:48
 msgid "Forgot password?"
 msgstr "Ai uitat parola?"
 
-#: templates/login.php:47
+#: templates/login.php:53
 msgid "Login"
 msgstr "Autentificare"
 
@@ -2142,11 +2156,6 @@ msgstr "Suma"
 msgid "Orders Account"
 msgstr "Cont comenzi"
 
-#: templates/orders.tpl.php:33 templates/shipments.php:53
-#: templates/shipments.php:88
-msgid "View"
-msgstr "Vezi"
-
 #: templates/profile.tpl.php:26 templates/registration-form.tpl.php:7
 msgid "Personal Information"
 msgstr "Informaţii personale"
@@ -2195,12 +2204,6 @@ msgstr "Contactați administratorul pentru permisiune."
 msgid "History Records"
 msgstr "Înregistrări istoric"
 
-#: templates/shipment-history.tpl.php:64 templates/shipments.php:34
-#: templates/shipments.php:61 templates/shipments.php:114
-#: templates/shipments.php:140
-msgid "Delete"
-msgstr "Șterge"
-
 #: templates/shipment-history.tpl.php:73
 msgid "No Shipment History Found."
 msgstr "Nu s-a găsit niciun istoric de expediere."
@@ -2209,11 +2212,7 @@ msgstr "Nu s-a găsit niciun istoric de expediere."
 msgid "Search"
 msgstr "Caută"
 
-#: templates/shipments.php:48
-msgid "Tracking Number"
-msgstr "Număr urmărire"
-
-#: templates/shipments.php:158
+#: templates/shipments.php:110
 msgid "No shipment found!"
 msgstr "Nu s-a găsit niciun transport!"
 

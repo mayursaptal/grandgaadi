@@ -493,36 +493,31 @@ function wpcfe_get_field_list(  ){
 }
 function is_user_shipment( $shipment_id ){
     $user_roles = wpcfe_current_user_role();
+    $user_id    = get_current_user_id();
+    $employee   = get_post_meta( $shipment_id, 'wpcargo_employee', true );
+    $agent      = get_post_meta( $shipment_id, 'agent_fields', true );
+    $driver     = get_post_meta( $shipment_id, 'wpcargo_driver', true );
+    $shipper    = get_post_meta( $shipment_id, 'registered_shipper', true );
+    $branch     = get_post_meta( $shipment_id, 'shipment_branch', true );
     $result = false;
     if( wpcfe_is_super_admin() ){
         $result = true;
     }elseif( in_array( 'wpcargo_branch_manager', $user_roles ) ){ // wpcargo_branch_manager
         $user_branch   = get_user_meta( get_current_user_id(), 'wpc_user_branch', true );
-        $user_branch   = ( $user_branch ) ? $user_branch : 0 ;
-        $shipment_branch = get_post_meta( $shipment_id, 'shipment_branch', true );
-        if( $shipment_branch == $user_branch ){
+        $user_branch   = ( $user_branch ) ? $user_branch : 0 ; 
+        if( $branch == $user_branch ){
             $result = true;
         }
-    }elseif( in_array( 'cargo_agent', $user_roles ) ){
-        $cargo_agent = get_post_meta( $shipment_id, 'agent_fields', true );
-        if( $cargo_agent == get_current_user_id() ){
-            $result = true;
-        }
-    }elseif( in_array( 'wpcargo_driver', $user_roles ) ){
-        $wpcargo_driver = get_post_meta( $shipment_id, 'wpcargo_driver', true );
-        if( $wpcargo_driver == get_current_user_id() ){
-            $result = true;
-        }
-    }elseif( in_array( 'wpcargo_client', $user_roles ) ){
-        $registered_shipper = get_post_meta( $shipment_id, 'registered_shipper', true );
-        if( $registered_shipper == get_current_user_id() ){
-            $result = true;
-        }
-    }elseif( in_array( 'wpcargo_employee', $user_roles ) ){
-        $registered_employee = get_post_meta( $shipment_id, 'wpcargo_employee', true );
-        if( $registered_employee == get_current_user_id() ){
-            $result = true;
-        }
+    }elseif( in_array( 'cargo_agent', $user_roles ) && $agent == $user_id ){
+        $result = true;
+    }elseif( in_array( 'wpcargo_driver', $user_roles ) && $driver == $user_id ){
+        $result = true;
+    }elseif( in_array( 'wpcargo_client', $user_roles ) && $shipper == $user_id ){
+        $result = true;
+    }elseif( in_array( 'wpcargo_employee', $user_roles ) && $employee == $user_id ){
+        $result = true;
+    }elseif( in_array( 'wpcargo_client', $user_roles ) && $shipper == $user_id ){
+        $result = true;
     }
     return apply_filters( 'wpcfe_is_user_shipment', $result, $shipment_id );
 }
@@ -545,7 +540,7 @@ function can_wpcfe_add_shipment(  ){
     if( array_intersect( wpcfe_add_shipment_role(), $user_roles ) ){
         $result = true;
     }
-    return $result;
+    return apply_filters( 'can_wpcfe_add_shipment', $result );
 }
 function can_wpcfe_update_shipment(  ){
     $user_roles     = wpcfe_current_user_role();
@@ -553,7 +548,7 @@ function can_wpcfe_update_shipment(  ){
     if( array_intersect( wpcfe_update_shipment_role(), $user_roles ) || in_array( 'administrator', $user_roles )){
         $result = true;
     }
-    return $result;
+    return apply_filters( 'can_wpcfe_update_shipment', $result );
 }
 function can_wpcfe_delete_shipment(  ){
     $user_roles     = wpcfe_current_user_role();
@@ -561,7 +556,7 @@ function can_wpcfe_delete_shipment(  ){
     if( array_intersect( wpcfe_delete_shipment_role(), $user_roles ) || in_array( 'administrator', $user_roles )){
         $result = true;
     }
-    return $result;
+    return apply_filters( 'can_wpcfe_delete_shipment', $result );
 }
 function can_wpcfe_access_dashboard( ){
     $user_roles     = wpcfe_current_user_role();
@@ -569,10 +564,10 @@ function can_wpcfe_access_dashboard( ){
     if( array_intersect( wpcfe_access_dashboard_role(), $user_roles ) || in_array( 'administrator', $user_roles )){
         $result = true;
     }
-    return $result;
+    return apply_filters( 'can_wpcfe_access_dashboard', $result );
 }
 function wpcfe_add_shipment_role(){
-    $roles = array('wpcargo_employee', 'administrator');
+    $roles = array('wpcargo_employee', 'administrator', 'cargo_agent');
     if( wpcfe_client_can_add_shipment() ){
         $roles[] = 'wpcargo_client'; 
     }
@@ -625,26 +620,46 @@ function wpcfe_can_edit_fields( ){
     }
     return false;
 }
+function can_wpcfe_client_assign_user( ){
+    return apply_filters( 'can_wpcfe_client_assign_user', false );
+}
 function can_wpcfe_assign_agent( ){
+    $result = false;
     if( array_intersect( wpcfe_assign_agent(), wpcfe_current_user_role() ) ){
-        return true;
+        $result = true;
     }
-    return false;
+    return apply_filters( 'can_wpcfe_assign_agent', $result );
 }
 function can_wpcfe_assign_client( ){
+    $result = false;
     if( array_intersect( wpcfe_assign_client(), wpcfe_current_user_role() ) ){
-        return true;
+        $result = true;
     }
-    return false;
+    return apply_filters( 'can_wpcfe_assign_client', $result );
 }
 function can_wpcfe_assign_manager( ){
+    $result = false;
     if( array_intersect( wpcfe_assign_manager(), wpcfe_current_user_role() ) ){
-        return true;
+        $result = true;
     }
-    return false;
+    return apply_filters( 'can_wpcfe_assign_manager', $result );
 }
 function can_wpcfe_assign_driver( ){
+    $result = false;
     if( array_intersect( wpcfe_assign_driver_roles(), wpcfe_current_user_role() ) ){
+        $result = true;
+    }
+    return apply_filters( 'can_wpcfe_assign_driver', $result );
+}
+function can_wpcfe_assign_employee( ){
+    $result = false;
+    if( in_array( 'administrator', wpcfe_current_user_role() ) ){
+        $result = true;
+    }
+    return apply_filters( 'can_wpcfe_assign_employee', $result );
+}
+function is_wpcfe_agent(){
+    if( in_array( 'cargo_agent', wpcfe_current_user_role() ) ){
         return true;
     }
     return false;
@@ -671,6 +686,15 @@ function wpcfe_save_shipment( $data, $shipment_id = 0 ){
         $shipment_number = apply_filters( 'wpcfe_shipment_number',  $wpcargo->create_shipment_number(), $data );
     }
     if( $shipment_id ){
+        // Check if can Shipment update
+        if( !is_user_shipment( $shipment_id ) ) {
+            $_POST['wpcfe-notification'] = array(
+                'status'    => 'danger',
+                'icon'      => 'exclamation',
+                'message'   => __('Something went wrong saving your shipment. Please reload and try again', 'wpcargo-frontend-manager' )
+            );
+            return false;
+        }
         // Create post object
         $shipment_arg = array(
             'ID'           => $shipment_id,
@@ -1204,6 +1228,7 @@ function wpcfe_billing_address_fields(){
 }
 function wpcfe_registered_styles(){
     $styles = array(
+        'sgr_main', // simple-google-recaptcha - Plugin
         'wpcfe-bootstrap-styles',
         'wpcfe-font-awesome-styles',
         'wpcfe-select2-styles',
@@ -1222,6 +1247,7 @@ function wpcfe_registered_scripts(){
     $scripts = array(
         'jquery', 
         'wp-mediaelement', 
+        'sgr_main', // simple-google-recaptcha - Plugin
         'wpcfe-dashboard-theme', 
         'wpcfe-popper-scripts', 
         'wpcfe-bootstrap-scripts', 
@@ -1239,6 +1265,7 @@ function wpcfe_registered_scripts(){
     );
     return apply_filters( 'wpcfe_registered_scripts', $scripts );
 }
+
 function wpc_orders_get_frontend_page(){
 	global $wpdb;
 	$sql 			= "SELECT `ID` FROM {$wpdb->prefix}posts WHERE `post_content` LIKE '%[wpcfe_orders]%' AND `post_status` LIKE 'publish' LIMIT 1";

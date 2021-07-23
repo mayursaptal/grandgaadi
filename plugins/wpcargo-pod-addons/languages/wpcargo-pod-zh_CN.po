@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WPCargo Proof of Delivery Add-ons\n"
-"POT-Creation-Date: 2021-01-27 14:34+0800\n"
-"PO-Revision-Date: 2021-01-27 14:34+0800\n"
+"POT-Creation-Date: 2021-05-11 14:27+0800\n"
+"PO-Revision-Date: 2021-05-11 14:27+0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.4.2\n"
+"X-Generator: Poedit 2.4.3\n"
 "X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
@@ -21,26 +21,26 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.min.js\n"
 
-#: admin/classes/class-api.php:204
+#: admin/classes/class-api.php:218
 msgid "Unregistered Status."
 msgstr "未注册状态。"
 
-#: admin/classes/class-api.php:211 admin/classes/class-api.php:233
+#: admin/classes/class-api.php:225 admin/classes/class-api.php:247
 msgid "Account role denied."
 msgstr "帐户角色被拒绝。"
 
-#: admin/classes/class-api.php:255
+#: admin/classes/class-api.php:269
 msgid "You are not assigned to this shipment"
 msgstr "您未被分配到此货件"
 
-#: admin/classes/class-pod.php:275 admin/includes/dashboard.php:120
-#: admin/includes/dashboard.php:131 admin/includes/dashboard.php:146
+#: admin/classes/class-pod.php:275 admin/includes/dashboard.php:121
+#: admin/includes/dashboard.php:132 admin/includes/dashboard.php:147
 #: admin/templates/report.php:5 templates/driver-report.php:7
 msgid "Driver"
 msgstr "司机"
 
-#: admin/classes/class-pod.php:278 admin/includes/dashboard.php:133
-#: admin/includes/dashboard.php:148 admin/templates/report.php:8
+#: admin/classes/class-pod.php:278 admin/includes/dashboard.php:134
+#: admin/includes/dashboard.php:149 admin/templates/report.php:8
 #: templates/driver-report.php:9
 msgid "-- Select Driver --"
 msgstr "-- 选择驱动程序 --"
@@ -48,7 +48,7 @@ msgstr "-- 选择驱动程序 --"
 #: admin/classes/wpc-pod-settings.php:17 admin/classes/wpc-pod-settings.php:18
 #: admin/classes/wpc-pod-settings.php:24 admin/classes/wpc-pod-settings.php:25
 #: admin/classes/wpc-pod-settings.php:66 admin/classes/wpc-pod-settings.php:85
-#: admin/classes/wpc-pod-settings.php:107
+#: admin/classes/wpc-pod-settings.php:108
 msgid "Proof of Delivery Settings"
 msgstr "交货证明设置"
 
@@ -57,7 +57,7 @@ msgstr "交货证明设置"
 msgid "POD APP Settings"
 msgstr "POD 应用设置"
 
-#: admin/classes/wpc-pod-settings.php:108
+#: admin/classes/wpc-pod-settings.php:109
 msgid "POD APP"
 msgstr "Pod 应用程序"
 
@@ -91,45 +91,56 @@ msgstr "交货证明"
 msgid "Loading..."
 msgstr "载入中..."
 
-#: admin/includes/dashboard.php:165
+#: admin/includes/dashboard.php:166
 msgid "Disable Email for Driver?"
 msgstr "禁用驱动程序的电子邮件？"
 
-#: admin/includes/dashboard.php:205 admin/includes/dashboard.php:250
-#: admin/includes/functions.php:493 templates/driver-report.php:4
+#: admin/includes/dashboard.php:206 admin/includes/dashboard.php:251
+#: admin/includes/functions.php:563 templates/driver-report.php:4
+#: templates/functions.php:512
 msgid "Driver Report"
 msgstr "司机"
 
-#: admin/includes/dashboard.php:215 admin/templates/wpc-pod-settings.tpl.php:63
+#: admin/includes/dashboard.php:216 admin/templates/wpc-pod-settings.tpl.php:63
 #: templates/route-planner.php:4
 msgid "Driver Route Planner"
 msgstr "驾驶员路线规划器"
 
-#: admin/includes/dashboard.php:238
+#: admin/includes/dashboard.php:239
 msgid "Driver Route"
 msgstr "驾驶员路线"
 
-#: admin/includes/functions.php:119 templates/route-planner-script.php:68
+#: admin/includes/functions.php:150 templates/functions.php:123
+#: templates/route-planner-script.php:86
 msgid "Shipment Number"
 msgstr "发货人名称："
 
-#: admin/includes/functions.php:120
+#: admin/includes/functions.php:151 templates/functions.php:124
 msgid "Registered Shipper"
 msgstr "注册发货人"
 
-#: admin/includes/functions.php:128 templates/wpc-pod-sign-header-cf.tpl.php:36
+#: admin/includes/functions.php:159 templates/functions.php:132
+#: templates/wpc-pod-sign-header-cf.tpl.php:36
 msgid "Shipment Status"
 msgstr "发货状态"
 
-#: admin/includes/functions.php:400
+#: admin/includes/functions.php:429 templates/functions.php:402
 msgid "No shipment found to generate report"
 msgstr "未找到生成报表的货件"
 
-#: admin/includes/functions.php:403
+#: admin/includes/functions.php:432 templates/functions.php:405
 msgid "Please wait while generating file..."
 msgstr "生成文件时请稍候..."
 
-#: admin/includes/functions.php:427
+#: admin/includes/functions.php:450
+msgid "Sorry! You are not allowed to remove signature."
+msgstr "不好意思！不允许删除签名。"
+
+#: admin/includes/functions.php:462
+msgid "Signature successfully removed!"
+msgstr "签名成功删除！"
+
+#: admin/includes/functions.php:478 templates/functions.php:429
 #, php-format
 msgid ""
 "Google API key required to run the Driver Route Planner. Add API here <a "
@@ -138,61 +149,65 @@ msgstr ""
 "运行驱动程序路线规划器所需的 Google API 密钥。在这里添加 <a href=\"%s\" "
 "class=\"btn btn-primary btn-sm\">API</a>"
 
-#: admin/includes/functions.php:434
-msgid "No address found."
-msgstr "未找到地址。"
+#: admin/includes/functions.php:484 templates/functions.php:435
+msgid "No Delivery for route found."
+msgstr "找不到路线的交付。"
 
-#: admin/includes/functions.php:496
+#: admin/includes/functions.php:490 templates/functions.php:441
+msgid "Point of Orgin "
+msgstr "奥金点"
+
+#: admin/includes/functions.php:566 templates/functions.php:515
 msgid "WPCargo Proof of Delivery"
 msgstr "WPCargo 交货证明"
 
-#: admin/includes/functions.php:499
+#: admin/includes/functions.php:569 templates/functions.php:518
 msgid "Please activate your license key <a href=\""
 msgstr "请激活您的许可证密钥 [href]"
 
-#: admin/includes/functions.php:502
+#: admin/includes/functions.php:572 templates/functions.php:521
 msgid "Google Map API Key is not activated."
 msgstr "未激活 Google 地图 API 密钥。"
 
-#: admin/includes/functions.php:505
+#: admin/includes/functions.php:575 templates/functions.php:524
 msgid ""
 "Sorry you are not allowed to access this page, This page are only for "
 "WPCargo Driver users."
 msgstr "很抱歉，您不允许访问此页面，此页面仅适用于 WPCargo 驱动程序用户。"
 
-#: admin/includes/functions.php:508
+#: admin/includes/functions.php:578 templates/functions.php:527
 msgid "Your current signature"
 msgstr "您当前签名"
 
-#: admin/includes/functions.php:511
+#: admin/includes/functions.php:581 templates/functions.php:530
 msgid "Signature Successfully Saved!"
 msgstr "签名已成功保存！"
 
-#: admin/includes/functions.php:514
+#: admin/includes/functions.php:584 templates/functions.php:533
 msgid "Error on saving!"
 msgstr "保存错误！"
 
-#: admin/includes/functions.php:517
+#: admin/includes/functions.php:587 templates/functions.php:536
 msgid "Sorry you don't have enough permission to access this page."
 msgstr "很抱歉，您没有足够的权限访问此页面。"
 
-#: admin/includes/functions.php:520
+#: admin/includes/functions.php:590 templates/functions.php:539
 msgid "Delivered"
 msgstr "已发货"
 
-#: admin/includes/functions.php:523
+#: admin/includes/functions.php:593 templates/functions.php:542
 msgid "Cancelled"
 msgstr "已取消"
 
-#: admin/includes/functions.php:526
+#: admin/includes/functions.php:596 templates/functions.php:545
 msgid "Back to Dashboard"
 msgstr "回到仪表板"
 
-#: admin/includes/functions.php:529
+#: admin/includes/functions.php:599 templates/functions.php:548
 msgid "Cheating, uh?"
 msgstr "作弊，嗯？"
 
-#: admin/includes/functions.php:532
+#: admin/includes/functions.php:602 templates/functions.php:551
 msgid ""
 "This plugin requires <a href=\"https://wordpress.org/plugins/wpcargo/\" "
 "target=\"_blank\">WPCargo</a> plugin to be active!"
@@ -200,7 +215,7 @@ msgstr ""
 "此插件需要<a href=\"https://wordpress.org/plugins/wpcargo/\" target=\"_blank"
 "\">WPCargo</a>插件处于活动状态！"
 
-#: admin/includes/functions.php:535
+#: admin/includes/functions.php:605 templates/functions.php:554
 msgid ""
 "This plugin requires <a href=\"http://wpcargo.com/\" target=\"_blank"
 "\">WPTaskForce License Helper</a> plugin to be active!"
@@ -208,19 +223,19 @@ msgstr ""
 "此插件要求<a href=\"http://wpcargo.com/\" target=\"_blank\">WPTaskForce 许可"
 "证帮助器</a>插件处于活动状态！"
 
-#: admin/includes/functions.php:538
+#: admin/includes/functions.php:608 templates/functions.php:557
 msgid ""
 "This plugin requires <strong>WPCargo Frontend Manager</strong> plugin to be "
 "active!"
 msgstr "此插件要求<strong>WPCargo 前端管理器</strong>插件处于活动状态！"
 
-#: admin/templates/report.php:16 templates/driver-report.php:17
-#: templates/wpc-pod-sign.tpl.php:57
+#: admin/templates/report.php:16 admin/templates/wpc-pod-settings.tpl.php:129
+#: templates/driver-report.php:17 templates/wpc-pod-sign.tpl.php:58
 msgid "Status"
 msgstr "状态"
 
 #: admin/templates/report.php:19 templates/driver-report.php:19
-#: templates/wpc-pod-sign.tpl.php:59
+#: templates/wpc-pod-sign.tpl.php:60
 msgid "-- Select Status --"
 msgstr "--选择状态-"
 
@@ -230,7 +245,7 @@ msgstr "日期范围"
 
 #: admin/templates/report.php:29 templates/driver-report.php:28
 msgid "From"
-msgstr "从"
+msgstr "来自"
 
 #: admin/templates/report.php:30 templates/driver-report.php:31
 msgid "To"
@@ -286,6 +301,14 @@ msgstr "接收方地址："
 msgid "Note: This field will serve as address for the map."
 msgstr "注意：此字段将作为地图的地址。"
 
+#: admin/templates/wpc-pod-settings.tpl.php:117
+msgid "Additional Route Segment Information"
+msgstr "其他路线段信息"
+
+#: admin/templates/wpc-pod-settings.tpl.php:131
+msgid "Note: Additional information for the route segment."
+msgstr "注意：路线段的其他信息。"
+
 #: admin/templates/wpc-pod-signature-metabox.tpl.php:5
 #: admin/templates/wpc-podapp-settings.tpl.php:39
 #: templates/assigned-driver.tpl.php:10
@@ -296,15 +319,19 @@ msgstr "签名"
 msgid "Proof of Acknowledgment"
 msgstr "确认证明"
 
-#: admin/templates/wpc-pod-signature-metabox.tpl.php:23
+#: admin/templates/wpc-pod-signature-metabox.tpl.php:13
+msgid "Remove Signature"
+msgstr "删除签名"
+
+#: admin/templates/wpc-pod-signature-metabox.tpl.php:24
 msgid "POD Image"
 msgstr "POD 图像"
 
-#: admin/templates/wpc-pod-signature-metabox.tpl.php:37
+#: admin/templates/wpc-pod-signature-metabox.tpl.php:38
 msgid "Delete"
 msgstr "删除"
 
-#: admin/templates/wpc-pod-signature-metabox.tpl.php:48
+#: admin/templates/wpc-pod-signature-metabox.tpl.php:49
 msgid "Add Images / Upload Files"
 msgstr "添加图像/上传文件"
 
@@ -347,15 +374,23 @@ msgstr "备注"
 msgid "Images"
 msgstr "图片"
 
-#: templates/route-planner-script.php:64
-msgid "Route Segment"
-msgstr "路线段"
+#: templates/route-planner-script.php:73
+msgid "Point of Origin"
+msgstr "原点"
 
-#: templates/route-planner-script.php:65
+#: templates/route-planner-script.php:74 templates/route-planner-script.php:84
+msgid "Distance"
+msgstr "距离"
+
+#: templates/route-planner-script.php:75 templates/route-planner-script.php:85
 msgid "to"
 msgstr "到"
 
-#: templates/route-planner-script.php:74
+#: templates/route-planner-script.php:83
+msgid "Route Segment"
+msgstr "路线段"
+
+#: templates/route-planner-script.php:104
 msgid "Directions request failed due to"
 msgstr "由于"
 
@@ -439,27 +474,27 @@ msgstr "POD 签名"
 msgid "POD Images"
 msgstr "POD 图像"
 
-#: templates/wpc-pod-sign.tpl.php:28
+#: templates/wpc-pod-sign.tpl.php:29
 msgid "ADD IMAGES"
 msgstr "添加图像"
 
-#: templates/wpc-pod-sign.tpl.php:30
+#: templates/wpc-pod-sign.tpl.php:31
 msgid "Your current captured images:"
 msgstr "您当前捕获的图像："
 
-#: templates/wpc-pod-sign.tpl.php:52
+#: templates/wpc-pod-sign.tpl.php:53
 msgid "Location:"
 msgstr "位置："
 
-#: templates/wpc-pod-sign.tpl.php:70
+#: templates/wpc-pod-sign.tpl.php:71
 msgid "Remarks:"
 msgstr "言论："
 
-#: templates/wpc-pod-sign.tpl.php:80
+#: templates/wpc-pod-sign.tpl.php:81
 msgid "Update"
 msgstr "更新"
 
-#: templates/wpc-pod-sign.tpl.php:129 templates/wpc-pod-sign.tpl.php:131
+#: templates/wpc-pod-sign.tpl.php:131 templates/wpc-pod-sign.tpl.php:133
 msgid "Upload Images"
 msgstr "上传图片"
 
@@ -521,3 +556,6 @@ msgstr ""
 #. Author of the plugin/theme
 msgid "<a href=\"http://wptaskforce.com/\">WPTaskForce</a>"
 msgstr "<a href=\"http://wptaskforce.com/\">WPTaskForce</a>"
+
+#~ msgid "No address found."
+#~ msgstr "未找到地址。"

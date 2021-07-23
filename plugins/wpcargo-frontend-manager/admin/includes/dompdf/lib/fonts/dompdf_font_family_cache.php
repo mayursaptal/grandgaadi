@@ -78,10 +78,10 @@
     'normal' => $fontDir . '/DejaVuSerif',
   ),
   'amiri' => array(
-    'normal' => $fontDir . '/amiri-normal_15ecfb78c8e619ba8914ebcf36cc31d1',
+    'normal' => $fontDir . '/amiri-normal_b3f4ba95dcf709e19d31688c5d7c0eb1',
   ),
   'rubik' => array(
-    'normal' => $fontDir . '/rubik-normal_597ca0728987fa542c57a4ac5ee1c57a',
+    'normal' => $fontDir . '/rubik-normal_3c0cdfcd2d82772cd1d4973cc0e71e20',
   ),
   'lato' => array(
     'normal' => $fontDir . '/lato-normal_588cfc2bc3fffe8803ad9e4a8c0a5ff4',

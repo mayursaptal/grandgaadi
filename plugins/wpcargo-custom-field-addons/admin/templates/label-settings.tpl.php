@@ -22,6 +22,9 @@
 			$shipper_fields 	= wpccf_get_custom_fields_by_flag( 'shipper_info' );
 			$receiver_fields 	= wpccf_get_custom_fields_by_flag( 'receiver_info' );
 			$shipment_fields 	= wpccf_get_custom_fields_by_flag( 'shipment_info' );
+			$shipper_fields 	= apply_filters( 'wpcc_shipper_meta_shortcode', $shipper_fields );
+			$receiver_fields 	= apply_filters( 'wpcc_receiver_meta_shortcode', $receiver_fields );
+			$shipment_fields 	= apply_filters( 'wpcc_shipment_meta_shortcode', $shipment_fields );
 			/* 
 			** Print Label Settings Value
 			*/
@@ -64,35 +67,35 @@
 								<span class="copy-label"><?php esc_html_e( 'Accounts Copy', 'wpcargo-custom-field' ); ?></span>
 							</td>		
 							<td>
-								<input type="text" name="wpccf_print_label_settings[header_cell1]" style="width: 100%" value="<?php echo $print_label_settings['header_cell1']; ?>" placeholder="<?php esc_html_e( 'Pickup Date', 'wpcargo-custom-field' ); ?>: {pickup_date_metakey}" required="required">
+								<input type="text" name="wpccf_print_label_settings[header_cell1]" style="width: 100%" value="<?php echo $header_cell1; ?>" placeholder="<?php esc_html_e( 'Pickup Date', 'wpcargo-custom-field' ); ?>: {pickup_date_metakey}" required="required">
 							</td>
 							<td>
-								<input type="text" name="wpccf_print_label_settings[header_cell2]" style="width: 100%" value="<?php echo $print_label_settings['header_cell2']; ?>" placeholder="<?php esc_html_e( 'Pickup Time', 'wpcargo-custom-field' ); ?>: {pickup_time_metakey}" required="required">
+								<input type="text" name="wpccf_print_label_settings[header_cell2]" style="width: 100%" value="<?php echo $header_cell2; ?>" placeholder="<?php esc_html_e( 'Pickup Time', 'wpcargo-custom-field' ); ?>: {pickup_time_metakey}" required="required">
 							</td>
 							<td>
-								<input type="text" name="wpccf_print_label_settings[header_cell3]" style="width: 100%" value="<?php echo $print_label_settings['header_cell3']; ?>" placeholder="<?php esc_html_e( 'Delivery Date', 'wpcargo-custom-field' ); ?>: {delivery_date_metakey}" required="required">
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<input type="text" name="wpccf_print_label_settings[header_cell4]" style="width: 100%" value="<?php echo $print_label_settings['header_cell4']; ?>" placeholder="<?php esc_html_e( 'Origin', 'wpcargo-custom-field' ); ?>: {origin_metakey}" required="required">
-							</td>
-							<td>
-								<input type="text" name="wpccf_print_label_settings[header_cell5]" style="width: 100%" value="<?php echo $print_label_settings['header_cell5']; ?>" placeholder="<?php esc_html_e( 'Destination', 'wpcargo-custom-field' ); ?>: {destination_metakey}" required="required">
-							</td>
-							<td>
-								<input type="text" name="wpccf_print_label_settings[header_cell6]" style="width: 100%" value="<?php echo $print_label_settings['header_cell6']; ?>" placeholder="<?php esc_html_e( 'Courier', 'wpcargo-custom-field' ); ?>: {courrier_metakey}" required="required">
+								<input type="text" name="wpccf_print_label_settings[header_cell3]" style="width: 100%" value="<?php echo $header_cell3; ?>" placeholder="<?php esc_html_e( 'Delivery Date', 'wpcargo-custom-field' ); ?>: {delivery_date_metakey}" required="required">
 							</td>
 						</tr>
 						<tr>
 							<td>
-								<input type="text" name="wpccf_print_label_settings[header_cell7]" style="width: 100%" value="<?php echo $print_label_settings['header_cell7']; ?>" placeholder="<?php esc_html_e( 'Carrier', 'wpcargo-custom-field' ); ?>: {carrier_metakey}" required="required">
+								<input type="text" name="wpccf_print_label_settings[header_cell4]" style="width: 100%" value="<?php echo $header_cell4; ?>" placeholder="<?php esc_html_e( 'Origin', 'wpcargo-custom-field' ); ?>: {origin_metakey}" required="required">
 							</td>
 							<td>
-								<input type="text" name="wpccf_print_label_settings[header_cell8]" style="width: 100%" value="<?php echo $print_label_settings['header_cell8']; ?>" placeholder="<?php esc_html_e( 'Carrier Reference No.', 'wpcargo-custom-field' ); ?> {carrier_no_metakey}" required="required">
+								<input type="text" name="wpccf_print_label_settings[header_cell5]" style="width: 100%" value="<?php echo $header_cell5; ?>" placeholder="<?php esc_html_e( 'Destination', 'wpcargo-custom-field' ); ?>: {destination_metakey}" required="required">
 							</td>
 							<td>
-								<input type="text" name="wpccf_print_label_settings[header_cell9]" style="width: 100%" value="<?php echo $print_label_settings['header_cell9']; ?>" placeholder="<?php esc_html_e( 'Departure Time', 'wpcargo-custom-field' ); ?>: {departure_metakey}" required="required">
+								<input type="text" name="wpccf_print_label_settings[header_cell6]" style="width: 100%" value="<?php echo $header_cell6; ?>" placeholder="<?php esc_html_e( 'Courier', 'wpcargo-custom-field' ); ?>: {courrier_metakey}" required="required">
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<input type="text" name="wpccf_print_label_settings[header_cell7]" style="width: 100%" value="<?php echo $header_cell7; ?>" placeholder="<?php esc_html_e( 'Carrier', 'wpcargo-custom-field' ); ?>: {carrier_metakey}" required="required">
+							</td>
+							<td>
+								<input type="text" name="wpccf_print_label_settings[header_cell8]" style="width: 100%" value="<?php echo $header_cell8; ?>" placeholder="<?php esc_html_e( 'Carrier Reference No.', 'wpcargo-custom-field' ); ?> {carrier_no_metakey}" required="required">
+							</td>
+							<td>
+								<input type="text" name="wpccf_print_label_settings[header_cell9]" style="width: 100%" value="<?php echo $header_cell9; ?>" placeholder="<?php esc_html_e( 'Departure Time', 'wpcargo-custom-field' ); ?>: {departure_metakey}" required="required">
 							</td>
 						</tr>
 						<tr>
@@ -101,28 +104,28 @@
 					<table class="shipment-info-table" cellpadding="0" cellspacing="0" style="border: 1px solid #000;width: 100%;margin:0;padding:0;">
 						<tr>
 							<td><?php esc_html_e( 'Shipper', 'wpcargo-custom-field' ); ?></td>
-							<td><input type="text" name="wpccf_print_label_settings[content_cell1]" style="width: 100%" value="<?php echo $print_label_settings['content_cell1']; ?>" placeholder="{shipper_name_metakey}" required="required"></td>
+							<td><input type="text" name="wpccf_print_label_settings[content_cell1]" style="width: 100%" value="<?php echo $content_cell1; ?>" placeholder="{shipper_name_metakey}" required="required"></td>
 							<td><?php esc_html_e( 'Consignee', 'wpcargo-custom-field' ); ?></td>
-							<td><input type="text" name="wpccf_print_label_settings[content_cell2]" style="width: 100%" value="<?php echo $print_label_settings['content_cell2']; ?>" placeholder="{receiver_name_metakey}" required="required"></td>
-							<td colspan="2"><input type="text" name="wpccf_print_label_settings[content_cell3]" style="width: 100%" value="<?php echo $print_label_settings['content_cell3']; ?>" placeholder="<?php esc_html_e( 'Status: Pending', 'wpcargo-custom-field' ); ?>" required="required"></td>
+							<td><input type="text" name="wpccf_print_label_settings[content_cell2]" style="width: 100%" value="<?php echo $content_cell2; ?>" placeholder="{receiver_name_metakey}" required="required"></td>
+							<td colspan="2"><input type="text" name="wpccf_print_label_settings[content_cell3]" style="width: 100%" value="<?php echo $content_cell3; ?>" placeholder="<?php esc_html_e( 'Status: Pending', 'wpcargo-custom-field' ); ?>" required="required"></td>
 						</tr>
 						<tr>
 							<td colspan="2">
-								<textarea name="wpccf_print_label_settings[content_cell4]" rows="4" style="width: 100%; height:100%" placeholder="<?php esc_html_e('Address', 'wpcargo-custom-field' ); ?> {address_metakey}</br><?php esc_html_e('Phone', 'wpcargo-custom-field' ); ?>: {phone_metakey}</br> <?php esc_html_e('Email', 'wpcargo-custom-field' ); ?>: {email_meta_key}"><?php echo $print_label_settings['content_cell4']; ?></textarea>
+								<textarea name="wpccf_print_label_settings[content_cell4]" rows="4" style="width: 100%; height:100%" placeholder="<?php esc_html_e('Address', 'wpcargo-custom-field' ); ?> {address_metakey}</br><?php esc_html_e('Phone', 'wpcargo-custom-field' ); ?>: {phone_metakey}</br> <?php esc_html_e('Email', 'wpcargo-custom-field' ); ?>: {email_meta_key}"><?php echo $content_cell4; ?></textarea>
 							</td>
 							<td colspan="2">
-								<textarea name="wpccf_print_label_settings[content_cell5]" rows="4" style="width: 100%; height:100%" placeholder="Address {address_metakey}</br><?php esc_html_e('Phone', 'wpcargo-custom-field' ); ?>: {phone_metakey}</br> <?php esc_html_e('Email', 'wpcargo-custom-field' ); ?>: {email_meta_key}"><?php echo $print_label_settings['content_cell5']; ?></textarea>
+								<textarea name="wpccf_print_label_settings[content_cell5]" rows="4" style="width: 100%; height:100%" placeholder="Address {address_metakey}</br><?php esc_html_e('Phone', 'wpcargo-custom-field' ); ?>: {phone_metakey}</br> <?php esc_html_e('Email', 'wpcargo-custom-field' ); ?>: {email_meta_key}"><?php echo $content_cell5; ?></textarea>
 							</td>
 							<td colspan="2" rowspan="2" style="vertical-align: baseline;">
-								<textarea name="wpccf_print_label_settings[content_cell6]" rows="6" style="width: 100%; height:100%" placeholder="<?php esc_html_e('Comment', 'wpcargo-custom-field' ); ?>: {comment_metakey}"><?php echo $print_label_settings['content_cell6']; ?></textarea>
+								<textarea name="wpccf_print_label_settings[content_cell6]" rows="6" style="width: 100%; height:100%" placeholder="<?php esc_html_e('Comment', 'wpcargo-custom-field' ); ?>: {comment_metakey}"><?php echo $content_cell6; ?></textarea>
 							</td>
 						</tr>
 						<tr>
 							<td colspan="2">
-								<textarea name="wpccf_print_label_settings[content_cell7]" rows="4" style="width: 100%; height:100%" placeholder="<?php esc_html_e('Type of Shipment', 'wpcargo-custom-field' ); ?>: {shipment_type_metakey}"><?php echo $print_label_settings['content_cell7']; ?></textarea>
+								<textarea name="wpccf_print_label_settings[content_cell7]" rows="4" style="width: 100%; height:100%" placeholder="<?php esc_html_e('Type of Shipment', 'wpcargo-custom-field' ); ?>: {shipment_type_metakey}"><?php echo $content_cell7; ?></textarea>
 							</td>
 							<td colspan="2">
-								<textarea name="wpccf_print_label_settings[content_cell8]" rows="4" style="width: 100%; height:100%" placeholder="<?php esc_html_e('Product', 'wpcargo-custom-field' ); ?>: {product_metakey}"><?php echo $print_label_settings['content_cell8']; ?></textarea>
+								<textarea name="wpccf_print_label_settings[content_cell8]" rows="4" style="width: 100%; height:100%" placeholder="<?php esc_html_e('Product', 'wpcargo-custom-field' ); ?>: {product_metakey}"><?php echo $content_cell8; ?></textarea>
 							</td>
 						</tr>
 					</table>

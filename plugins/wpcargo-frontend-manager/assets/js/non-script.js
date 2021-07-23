@@ -13,10 +13,10 @@ jQuery(document).ready(function($){
             },
             url : nonwpcfeAjaxhandler.ajaxurl,
             beforeSend:function(){
-                $('body').append('<div class="wpcfe-spinner">Loading...</div>');
+                $('body').append('<div class="wpcargo-loading">Loading...</div>');
             },
             success:function( response ){
-                $('body .wpcfe-spinner').remove();
+                $('body .wpcargo-loading').remove();
                 $data = JSON.parse(response);
                 if($.isEmptyObject($data)) {
                     alert( downloadFileErrorMessage );

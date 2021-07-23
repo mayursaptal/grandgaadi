@@ -6,7 +6,7 @@
  * Author: <a href="http://wptaskforce.com/">WPTaskForce</a>
  * Text Domain: wpcargo-pod
  * Domain Path: /languages
- * Version: 4.4.4
+ * Version: 4.5.1
  */
  
 if ( ! defined( 'ABSPATH' ) ) {
@@ -15,9 +15,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 //* Defined constant
 define( 'WPCARGO_POD_URL', plugin_dir_url( __FILE__ ) );
 define( 'WPCARGO_POD_PATH', plugin_dir_path( __FILE__ ) );
-define( 'WPCARGO_POD_VERSION', '4.4.4' );
+define( 'WPCARGO_POD_VERSION', '4.5.1' );
 define( 'WPCARGO_POD_BASENAME', plugin_basename( __FILE__ ) );
 define( 'WPCARGO_POD_TEXTDOMAIN', 'wpcargo-pod' );
+define( 'WPCARGO_POD_UPDATE_REMOTE', 'updates-php7.2'  );
 require_once(WPCARGO_POD_PATH.'admin/includes/functions.php');
 require_once(WPCARGO_POD_PATH.'classes/wpc-pod-results.php');
 require_once(WPCARGO_POD_PATH.'classes/wpc-pod-scripts.php');
@@ -85,10 +86,4 @@ register_deactivation_hook( __FILE__, 'wpc_pod_remove_roles_deactivation_callbac
 add_action( 'plugins_loaded', 'wpc_pod_load_textdomain' );
 function wpc_pod_load_textdomain() {
 	load_plugin_textdomain( 'wpcargo-pod', false, '/wpcargo-pod-addons/languages' );
-}
-add_action( 'init', 'wpc_pod_activate_au' );
-function wpc_pod_activate_au(){
-	require_once( WPCARGO_POD_PATH. 'admin/classes/wp_autoupdate.php');
-	$plugin_remote_path = 'http://www.wpcargo.com/repository/wpcargo-pod-addons/updates-php7.2.php';
-	new WPC_POD_AutoUpdate ( WPCARGO_POD_VERSION, $plugin_remote_path, WPCARGO_POD_BASENAME );
 }

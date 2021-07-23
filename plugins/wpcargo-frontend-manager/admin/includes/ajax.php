@@ -172,16 +172,12 @@ function wpcfe_check_email_callback(){
 add_action( 'wp_ajax_wpcfe_shipment_title_checker', 'wpcfe_shipment_title_checker_callback' );
 add_action( 'wp_ajax_nopriv_wpcfe_shipment_title_checker', 'wpcfe_shipment_title_checker_callback' );
 function wpcfe_shipment_title_checker_callback(){
-	$shipment_title = $_POST['shipment_title'];
-	$post_type_query  = new WP_Query(  
-		array (  
-			'post_type'      => 'wpcargo_shipment',  
-			'posts_per_page' => -1  
-		)  
-	); 
-	$posts_array = $post_type_query->posts;
-	$post_title_array = wp_list_pluck( $posts_array, 'post_title', 'ID' );
-	if( in_array( $shipment_title, (array)$post_title_array ) ){
+	global $wpdb;
+	$shipment_title   	= $_POST['shipment_title'];
+	$sql 				= "SELECT count(*) FROM `{$wpdb->prefix}posts` WHERE `post_status` LIKE 'publish' 
+	AND `post_type` LIKE 'wpcargo_shipment' AND `post_title` LIKE %s";
+	$result = $wpdb->get_var( $wpdb->prepare( $sql, $shipment_title ) );
+	if( $result > 0 ){
 		?>
 		<div class="title-checker alert alert-danger"><span class="existing"><?php esc_html_e( 'This is an existing shipment number.', 'wpcargo-frontend-manager' ); ?></span></div>
 		<?php

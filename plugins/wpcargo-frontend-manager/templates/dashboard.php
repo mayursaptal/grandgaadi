@@ -3,7 +3,7 @@
 global $wpcargo, $WPCCF_Fields, $wpcargo_print_admin;
 $user_info          = wp_get_current_user();
 $class_not_logged   = 'not-logged';
-$wpcfesort_list     = array( 10, 25, 50, 100 );
+$wpcfesort_list     = array( 10, 25, 50, 100 , 500 );
 $wpcfesort          = get_user_meta( get_current_user_id(), 'user_wpcfesort', true ) ? : 10 ;
 $page_url           = get_the_permalink( wpcfe_admin_page() );
 $p0 = '';
@@ -123,6 +123,7 @@ if( isset( $_GET['wpcfe'] ) && $_GET['wpcfe'] == 'update' ){
                 }
                 do_action( 'wpcfe_after_admin_page_load' );
             }else{
+				do_action( 'wpcfe_before_dashboard_page' );
                 ?>
                 <div class="row">
                     <div class="col-md-12">
@@ -138,6 +139,7 @@ if( isset( $_GET['wpcfe'] ) && $_GET['wpcfe'] == 'update' ){
                     </div>
                 </div>
                 <?php
+				do_action( 'wpcfe_after_dashboard_page' );
             }
         }
         ?>

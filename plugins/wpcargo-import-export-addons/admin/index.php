@@ -1,3 +1,3 @@
-<?php
-/* Silence is Golden */
+<?php
+/* Silence is Golden */
 ?>

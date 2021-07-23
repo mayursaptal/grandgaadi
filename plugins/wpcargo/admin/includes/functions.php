@@ -11,20 +11,26 @@ function is_wpcargo_client(){
 	return false;
 }
 function wpcargo_include_template( $file_name ){
+    $file_slug              = strtolower( preg_replace('/\s+/', '_', trim( str_replace( '.tpl', '', $file_name ) ) ) );
+    $file_slug              = preg_replace('/[^A-Za-z0-9_]/', '_', $file_slug );
     $custom_template_path   = get_stylesheet_directory().'/wpcargo/'.$file_name.'.php';
     if( file_exists( $custom_template_path ) ){
         $template_path = $custom_template_path;
     }else{
         $template_path  = WPCARGO_PLUGIN_PATH.'templates/'.$file_name.'.php';
+        $template_path  = apply_filters( "wpcargo_locate_template_{$file_slug}", $template_path );
     }
-	return $template_path;
+    return $template_path;
 }
 function wpcargo_admin_include_template( $file_name, $shipment ){
+    $file_slug              = strtolower( preg_replace('/\s+/', '_', trim( str_replace( '.tpl', '', $file_name ) ) ) );
+    $file_slug              = preg_replace('/[^A-Za-z0-9_]/', '_', $file_slug );
     $custom_template_path   = get_stylesheet_directory().'/wpcargo/admin/'.$file_name.'.php';
     if( file_exists( $custom_template_path ) ){
         $template_path = $custom_template_path;
     }else{
         $template_path  = WPCARGO_PLUGIN_PATH.'admin/templates/'.$file_name.'.php';
+        $template_path  = apply_filters( "wpcargo_locate_admin_template_{$file_slug}", $template_path );
     }
     include_once( $template_path ); 
 }
@@ -101,43 +107,43 @@ function wpcargo_print_fonts(){
 }
 function wpcargo_email_shortcodes_list(){
     $tags = array(
-        '{wpcargo_tracking_number}' => esc_html__('Tracking Number','wpcargo'),
-        '{wpcargo_shipper_email}'   => esc_html__('Shipper Email','wpcargo'),
-        '{wpcargo_receiver_email}'  => esc_html__('Receiver Email','wpcargo'),
-        '{wpcargo_shipper_phone}'   => esc_html__('Shipper Phone','wpcargo'),
-        '{wpcargo_receiver_phone}'  => esc_html__('Receiver Phone','wpcargo'),
-        '{admin_email}'             => esc_html__('Admin Email','wpcargo'),
-        '{wpcargo_shipper_name}'    => esc_html__('Name of the Shipper','wpcargo'),
-        '{wpcargo_receiver_name}'   => esc_html__('Name of the Receiver','wpcargo'),
-        '{status}'                  => esc_html__('Shipment Status','wpcargo'),
-        '{location}'                => esc_html__('Location','wpcargo'),
-        '{site_name}'               => esc_html__('Website Name','wpcargo'),
-        '{site_url}'                => esc_html__('Website URL','wpcargo'),
-        '{wpcreg_client_email}'     => esc_html__('Registered Client Email','wpcargo'),
+        '{wpcargo_tracking_number}' => __('Tracking Number','wpcargo'),
+        '{wpcargo_shipper_email}'   => __('Shipper Email','wpcargo'),
+        '{wpcargo_receiver_email}'  => __('Receiver Email','wpcargo'),
+        '{wpcargo_shipper_phone}'   => __('Shipper Phone','wpcargo'),
+        '{wpcargo_receiver_phone}'  => __('Receiver Phone','wpcargo'),
+        '{admin_email}'             => __('Admin Email','wpcargo'),
+        '{wpcargo_shipper_name}'    => __('Name of the Shipper','wpcargo'),
+        '{wpcargo_receiver_name}'   => __('Name of the Receiver','wpcargo'),
+        '{status}'                  => __('Shipment Status','wpcargo'),
+        '{location}'                => __('Location','wpcargo'),
+        '{site_name}'               => __('Website Name','wpcargo'),
+        '{site_url}'                => __('Website URL','wpcargo'),
+        '{wpcreg_client_email}'     => __('Registered Client Email','wpcargo'),
     );
     $tags   = apply_filters( 'wpc_email_meta_tags', $tags );
     return $tags;
 }
 function wpcargo_default_status(){
     $status = array(
-        esc_html__( 'Pending', 'wpcargo' ),
-        esc_html__( 'Picked up', 'wpcargo' ),
-        esc_html__( 'On Hold', 'wpcargo' ),
-        esc_html__( 'Out for delivery', 'wpcargo' ),
-        esc_html__( 'In Transit', 'wpcargo' ),
-        esc_html__( 'Enroute', 'wpcargo' ),
-        esc_html__( 'Cancelled', 'wpcargo' ),
-        esc_html__( 'Delivered', 'wpcargo' ),
-        esc_html__( 'Returned', 'wpcargo' )
+        __( 'Pending', 'wpcargo' ),
+        __( 'Picked up', 'wpcargo' ),
+        __( 'On Hold', 'wpcargo' ),
+        __( 'Out for delivery', 'wpcargo' ),
+        __( 'In Transit', 'wpcargo' ),
+        __( 'Enroute', 'wpcargo' ),
+        __( 'Cancelled', 'wpcargo' ),
+        __( 'Delivered', 'wpcargo' ),
+        __( 'Returned', 'wpcargo' )
     );
     return apply_filters( 'wpcargo_default_status', $status );
 }
 function wpcargo_field_generator( $field_data, $field_meta, $value = '', $class='' ){
-	$required = $field_data['required'] == 'true' ? 'required' : '';
+	$required = $field_data['required'] == 'true' ? 'required' : '';    
 	if( $field_data['field'] == 'textarea' ){
-		$field = '<textarea class="'.$class.'" name="'.$field_meta.'" '.$required.'>'.$value.'</textarea>';
+		$field = '<textarea id="'.$field_meta.'" class="'.$class.'" name="'.$field_meta.'" '.$required.'>'.$value.'</textarea>';
 	}elseif( $field_data['field'] == 'select' ){
-		$field = '<select class="'.$class.'" name="'.$field_meta.'" '.$required.'>';
+		$field = '<select id="'.$field_meta.'" class="'.$class.'" name="'.$field_meta.'" '.$required.'>';
 		$field .= '<option value="">'.esc_html__('-- Select Type --','wpcargo').'</option>';
 		if( !empty( $field_data['options'] ) ){
 			foreach ( $field_data['options'] as $_value) {
@@ -147,25 +153,33 @@ function wpcargo_field_generator( $field_data, $field_meta, $value = '', $class=
 		$field .= '</select>';
 	}elseif( $field_data['field'] == 'radio' ){
 		if( !empty( $field_data['options'] ) ){
-			$field = '';
+			$field      = '';
 			foreach ( $field_data['options'] as $_value) {
-				$field .= '<p><input class="'.$class.'" id="'.$field_meta.'_'.$_value.'" type="'.$field_data['field'].'" name="'.$field_meta.'" value="'.$_value.'" '.$required.'>';
+                $checked    = $value == $_value ? 'checked' : '' ;
+				$field .= '<p><input class="'.$class.'" id="'.$field_meta.'_'.$_value.'" type="'.$field_data['field'].'" name="'.$field_meta.'" value="'.$_value.'" '.$checked.' '.$required.'>';
 				$field .= '<label for="'.$field_meta.'_'.$_value.'">'.$_value.'</label></p>';
 			}
 		}
-	}elseif( $field_data['field'] == 'checkbox' ){
+	}elseif( $field_data['field'] == 'checkbox' ){    
+        if( empty( $value ) ){
+            $value = array();
+        }else{
+            $value = is_array( $value ) ? $value : array_map( 'trim', explode(",", $value ) );
+        }
 		if( !empty( $field_data['options'] ) ){
 			$field = '';
 			foreach ( $field_data['options'] as $_value) {
-				$field .= '<p><input class="'.$class.'" id="'.$field_meta.'_'.$_value.'" type="'.$field_data['field'].'" name="'.$field_meta.'[]" value="'.$_value.'" '.$required.'>';
+                $checked    = in_array( $_value, $value ) ? 'checked' : '' ;
+				$field .= '<p><input class="'.$class.'" id="'.$field_meta.'_'.$_value.'" type="'.$field_data['field'].'" name="'.$field_meta.'" value="'.$_value.'" '.$checked.' '.$required.'>';
 				$field .= '<label for="'.$field_meta.'_'.$_value.'">'.$_value.'</label></p>';
 			}
 		}
 	}else{
-		$field = '<input class="'.$class.'" type="'.$field_data['field'].'" name="'.$field_meta.'" value="'.$value.'" '.$required.'>';
+		$field = '<input id="'.$field_meta.'" class="'.$class.'" type="'.$field_data['field'].'" name="'.$field_meta.'" value="'.$value.'" '.$required.'>';
 	}
 	return $field;
 }
+
 function wpcargo_email_replace_shortcodes_list( $post_id ){
     $delimiter = array("{", "}");
     $replace_shortcodes = array();
@@ -192,6 +206,7 @@ function wpcargo_email_replace_shortcodes_list( $post_id ){
                 $replace_shortcodes[] = $reg_email;
             }else{
                 $meta_value = maybe_unserialize( get_post_meta( $post_id, $shortcode, true ) );
+                $meta_value = apply_filters( 'wpcargo_shortcode_meta_value', $meta_value, $shortcode, $post_id );
                 if( is_array( $meta_value ) ){
                     $meta_value = implode(', ',$meta_value );
                 }
@@ -265,12 +280,12 @@ function wpcargo_email_body_container( $email_body = '', $email_footer = '' ){
     ob_start();
     ?>
     <div class="wpc-email-notification-wrap" style="width: 100%; font-family: sans-serif;">
-        <div class="wpc-email-notification" style="padding: 3em; background: #efefef;">
+        <div class="wpc-email-notification" style="padding: 18px; background: #efefef;">
             <div class="wpc-email-template" style="background: #fff; width: 95%; margin: 0 auto;">
                 <div class="wpc-email-notification-logo" style="padding: 2em 2em 0px 2em;">
-                    <table width="100%" style="max-width:210px;"><tr><td><img src="<?php echo $brand_logo; ?>" width="100%"/></td></tr></table>
+                    <table width="100%" style="max-width:210px;"><tr><td style="text-align:center;"><img src="<?php echo $brand_logo; ?>" width="160"/></td></tr></table>
                 </div>
-                <div class="wpc-email-notification-content" style="padding: 2em 2em 1em 2em; font-size: 18px;">
+                <div class="wpc-email-notification-content" style="padding: 12px; font-size: 18px;">
                     <?php echo $email_body; ?>
                 </div>
                 <div class="wpc-email-notification-footer" style="font-size: 10px; text-align: center; margin: 0 auto;">
@@ -309,12 +324,14 @@ function wpcargo_client_mail_notification( $post_id, $status = '' ){
         $subject        = str_replace($str_find, $str_replce, $wpcargo->client_mail_subject );
         $recipients     = str_replace($str_find, $str_replce, $wpcargo->client_mail_to );
         $send_to        = apply_filters( 'wpcargo_client_email_recipients',  $recipients, $post_id, $status );
-        $message        = str_replace($str_find, $str_replce, wpcargo_email_body_container( $mail_content, $mail_footer ) );     
+        $message        = str_replace($str_find, $str_replce, wpcargo_email_body_container( $mail_content, $mail_footer ) );  
+        $message        = apply_filters( 'wpcargo_client_mail_notification_message', $message, $post_id );
         if( empty( $wpcargo->mail_status ) ){
             wp_mail( $send_to, $subject, $message, $headers, $attachments );
         }elseif( !empty( $wpcargo->mail_status ) && in_array( $status, $wpcargo->mail_status) ){
             wp_mail( $send_to, $subject, $message, $headers, $attachments );
         }   
+        do_action( 'wpcargo_after_client_mail_notification', $post_id );
     }
 }
 function wpcargo_admin_mail_notification( $post_id, $status = ''){
@@ -331,12 +348,14 @@ function wpcargo_admin_mail_notification( $post_id, $status = ''){
         $subject        = str_replace($str_find, $str_replce, $wpcargo->admin_mail_subject );
         $recipients        = str_replace($str_find, $str_replce, $wpcargo->admin_mail_to );
         $send_to        = apply_filters( 'wpcargo_admin_email_recipients',  $recipients, $post_id, $status );
-        $message        = str_replace($str_find, $str_replce, wpcargo_email_body_container( $mail_content, $mail_footer ) );      
+        $message        = str_replace($str_find, $str_replce, wpcargo_email_body_container( $mail_content, $mail_footer ) );
+        $message        = apply_filters( 'wpcargo_admin_mail_notification_message', $message, $post_id );      
         if( empty( $wpcargo->admin_mail_status ) ){
             wp_mail( $send_to, $subject, $message, $headers, $attachments );
         }elseif( !empty( $wpcargo->admin_mail_status ) && in_array( $status, $wpcargo->admin_mail_status) ){
             wp_mail( $send_to, $subject, $message, $headers, $attachments );
         }   
+        do_action( 'wpcargo_after_admin_mail_notification', $post_id );
     }
 }
 function wpcargo_pagination( $args = array() ) {    

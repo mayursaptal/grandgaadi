@@ -14,8 +14,8 @@
 		#package-table tr { border: 1px solid #ccc; }
 		#package-table td, #admin-print-invoice td { border: none; position: relative; }
 		table#package-table td, table#package-table th { padding: 6px 0; }
-		#admin-print-invoice td { padding-left: 0; width: 100% !important; }
-		#package-table td { border-bottom: 1px solid #eee; padding-left: 50%; }
+		#admin-print-invoice td { padding-left: 0; }
+		#package-table td { border-bottom: 1px solid #eee; padding-left: 50% !important; }
 		#package-table td:before {  position: absolute; top: 6px; left: 6px; width: 45%;  padding-right: 10px;  white-space: nowrap; }
 		<?php if( !empty(wpcargo_package_fields()) ): $s_cnt = 1; ?>
 		<?php foreach ( wpcargo_package_fields() as $key => $value): ?>

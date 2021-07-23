@@ -7,7 +7,6 @@ jQuery(document).ready(function($) {
 
 	$('#shipment-list').on('click', '.show-signaturepad', function(){
 		var shipmentID = $(this).attr('data-id');
-		console.log(shipmentID);
 		$.ajax({
             type:"POST",
             data:{
@@ -34,12 +33,10 @@ jQuery(document).ready(function($) {
 			var signature  = $('#wpcargo-pod-signature').val();
 			var notes      = $('#wpcargo-pod-notes').val();
 			var custommeta = [];
-			//console.log(podCustomMeta);
 			if( podCustomMeta.length > 0 ){
 				$.each( podCustomMeta, function( index, value ){
 					if( value.type == 'radio' ){
 						var postValue = $('.'+value.meta_key+':checked').val();
-						console.log('.'+value.meta_key+':'+postValue);
 					}else{
 						var postValue = $('.'+value.meta_key).val();
 					}

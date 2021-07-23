@@ -11,7 +11,7 @@ function register_wpcie_settings() {
 add_action( 'admin_init', 'register_wpcie_settings' );
 // Settings page
 function wpcie_settings_menu_callback(){
-    global $wp_roles;
+    global $wp_roles, $wpcargo;
     $roles      = $wp_roles->get_names();
     $rest_roles = wpcie_restricted_role();
     ?>

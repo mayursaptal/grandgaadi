@@ -31,7 +31,7 @@
 				</div>
 				<?php endif; ?>
 				<?php if( can_wpcfe_delete_shipment() ): ?>
-					<button class="remove-shipments btn btn-danger btn-sm"><i class="fa fa-trash text-white"></i> <?php esc_html_e('Delete', 'wpcargo-frontend-manager'); ?></button>
+					<button class="remove-shipments btn btn-danger btn-sm"><i class="fa fa-trash text-white"></i> <?php _e('Delete', 'wpcargo-frontend-manager'); ?></button>
 				<?php endif; ?>
 				<?php do_action( 'wpcfe_before_after_shipment_table' ); ?>
 			</div>
@@ -45,21 +45,9 @@
 									<label class="form-check-label" for="materialChecked2"></label>
 								</th>
 								<?php do_action( 'wpcfe_shipment_before_tracking_number_header' ); ?>
-								<th><?php echo apply_filters( 'wpcfe_shipment_number_label', __('Tracking Number', 'wpcargo-frontend-manager' ) ); ?></th>
 								<?php do_action( 'wpcfe_shipment_after_tracking_number_header' ); ?>
 								<?php do_action( 'wpcfe_shipment_table_header' ); ?>
-								<th><?php esc_html_e('Status', 'wpcargo-frontend-manager' ); ?></th>
 								<?php do_action( 'wpcfe_shipment_table_header_action' ); ?>
-								<th class="text-center"><?php esc_html_e('View', 'wpcargo-frontend-manager' ); ?></th>
-								<?php if( !empty( $wpcfe_print_options ) ): ?>
-									<th class="text-center"><?php esc_html_e('Print', 'wpcargo-frontend-manager' ); ?></th>
-								<?php endif; ?>
-								<?php if( can_wpcfe_update_shipment() ): ?>
-									<th class="text-center"><?php esc_html_e('Update', 'wpcargo-frontend-manager'); ?></th>
-								<?php endif; ?>
-								<?php if( can_wpcfe_delete_shipment() ): ?>
-									<th class="text-center"><?php esc_html_e('Delete', 'wpcargo-frontend-manager'); ?></th>
-								<?php endif; ?>
 							</tr>
 						</thead>
 						<tbody>
@@ -67,11 +55,7 @@
 							do_action( 'wpcfe_before_shipment_table_row', $wpc_shipments ); 				
 							while ( $wpc_shipments->have_posts() ) {
 								$wpc_shipments->the_post();
-								$shipment_title = apply_filters( 'wpcfe_shipment_number', get_the_title(), get_the_ID() );
-								$status 		= get_post_meta( get_the_ID(), 'wpcargo_status', true );
-								$shipment_type 	= get_post_meta( get_the_ID(), '__shipment_type', true ) ? get_post_meta( get_the_ID(), '__shipment_type', true ) : '';
-								$shipment_type_list 	= wpcfe_shipment_type_list();
-								$get_shipment_type_label = isset( $shipment_type_list[$shipment_type] ) ? $shipment_type_list[$shipment_type] : __('Default', 'wpcargo-frontend-manager');
+								$shipment_title 		= apply_filters( 'wpcfe_shipment_number', get_the_title(), get_the_ID() );
 								?>
 								<tr id="shipment-<?php echo get_the_ID(); ?>" class="shipment-row <?php echo wpcfe_to_slug( $status ); ?>">
 									<td class="form-check">
@@ -79,41 +63,9 @@
 									  <label class="form-check-label" for="materialChecked2"></label>
 									</td>
 									<?php do_action( 'wpcfe_shipment_before_tracking_number_data', get_the_ID() ); ?>
-									<td><a href="<?php echo $page_url; ?>?wpcfe=track&num=<?php echo $shipment_title; ?>" class="text-primary font-weight-bold"><?php echo $shipment_title; ?></a></td>
 									<?php do_action( 'wpcfe_shipment_after_tracking_number_data', get_the_ID() ); ?>
 									<?php do_action( 'wpcfe_shipment_table_data', get_the_ID() ); ?>
-									<td class="shipment-status <?php echo wpcfe_to_slug( $status ); ?>"><?php echo $status; ?></td>
-									<?php do_action( 'wpcfe_shipment_table_action', get_the_ID() ); ?>
-									<td class="text-center">
-										<a href="<?php echo $page_url; ?>?wpcfe=track&num=<?php echo $shipment_title; ?>" title="<?php echo __('View', 'wpcargo-shipment-rate' ); ?>">
-											<i class="fa fa-list text-success"></i>
-										</a>
-									</td>
-									<?php if( !empty( $wpcfe_print_options ) ): ?>
-										<td class="text-center print-shipment">
-											<div class="dropdown" style="display:inline-block !important;">
-												<!--Trigger-->
-												<button class="btn btn-default btn-sm dropdown-toggle m-0 py-1 px-2" type="button" data-toggle="dropdown"
-													aria-haspopup="true" aria-expanded="false"><i class="fa fa-print"></i></button>
-												<!--Menu-->
-												<div class="dropdown-menu dropdown-primary">
-													<?php foreach( $wpcfe_print_options as $print_key => $print_label ): ?>
-														<a class="dropdown-item print-<?php echo $print_key; ?> py-1" data-id="<?php echo get_the_ID(); ?>" data-type="<?php echo $print_key; ?>" href="#"><?php echo $print_label; ?></a>
-													<?php endforeach; ?>
-												</div>
-											</div>
-										</td>
-									<?php endif; ?>
-									<?php if( can_wpcfe_update_shipment() ): ?>
-										<td class="text-center wpcfe-action">									
-											<?php echo apply_filters( 'wpcfe_update_shipment_action', wpcfe_update_shipment_action( get_the_ID(), $page_url ), get_the_ID(), $page_url ); ?>									
-										</td>
-									<?php endif; ?>
-									<?php if( can_wpcfe_delete_shipment() ): ?>
-										<td class="text-center">
-											<a href="#" class="wpcfe-delete-shipment" data-id="<?php echo get_the_ID(); ?>" title="<?php esc_html_e('Delete', 'wpcargo-frontend-manager'); ?>"><i class="fa fa-trash text-danger"></i></a>
-										</td>	
-									<?php endif; ?>						
+									<?php do_action( 'wpcfe_shipment_table_data_action', get_the_ID() ); ?>				
 								</tr>
 								<?php
 							} // end while
@@ -155,7 +107,7 @@
 			</div>
 			<?php else: ?>
 				<i class="fa fa-inbox d-block p-2 text-center text-danger" style="font-size: 4rem;"></i>
-				<h3 class="text-center text-danger"><?php esc_html_e('No shipment found!', 'wpcargo-frontend-manager' ); ?></h3>
+				<h3 class="text-center text-danger"><?php _e('No shipment found!', 'wpcargo-frontend-manager' ); ?></h3>
 			<?php endif; ?>			
 		</div>
 	</div>

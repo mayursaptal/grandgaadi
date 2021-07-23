@@ -2,16 +2,34 @@
 if ( ! defined( 'WPINC' ) ) {
 	die;
 }
+function wpcie_email_notification(){
+	return apply_filters( 'wpcie_email_notification', true );
+}
+function wpcie_default_status(){
+	$status = get_option( 'wpcfe_default_status' ) ? get_option( 'wpcfe_default_status' ) : __( 'Shipment Created', 'wpc-import-export' ) ;
+	return apply_filters( 'wpcie_default_status', $status );
+}
+function wpcie_update_status(){
+	return apply_filters( 'wpcie_update_status', __( 'Shipment Updated', 'wpc-import-export' ) );
+}
+function wpcie_category_list(){
+	return get_categories( array(
+		'taxonomy' 	=> 'wpcargo_shipment_cat',
+		'orderby' 	=> 'name',
+		'order'   	=> 'ASC',
+		'hide_empty' => true,
+	) );
+}
 function wpcie_upload_errors(){
 	$phpFileUploadErrors 	= array(
-		0 => esc_html__('There is no error, the file uploaded with success.', 'wpc-import-export' ),
-		1 => esc_html__('The uploaded file exceeds the upload_max_filesize directive in php.ini.', 'wpc-import-export' ),
-		2 => esc_html__('The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the HTML form.', 'wpc-import-export' ),
-		3 => esc_html__('The uploaded file was only partially uploaded.', 'wpc-import-export' ),
-		4 => esc_html__('No file was uploaded.', 'wpc-import-export' ),
-		6 => esc_html__('Missing a temporary folder.', 'wpc-import-export' ),
-		7 => esc_html__('Failed to write file to disk.', 'wpc-import-export' ),
-		8 => esc_html__('A PHP extension stopped the file upload.', 'wpc-import-export' ),
+		0 => __('There is no error, the file uploaded with success.', 'wpc-import-export' ),
+		1 => __('The uploaded file exceeds the upload_max_filesize directive in php.ini.', 'wpc-import-export' ),
+		2 => __('The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the HTML form.', 'wpc-import-export' ),
+		3 => __('The uploaded file was only partially uploaded.', 'wpc-import-export' ),
+		4 => __('No file was uploaded.', 'wpc-import-export' ),
+		6 => __('Missing a temporary folder.', 'wpc-import-export' ),
+		7 => __('Failed to write file to disk.', 'wpc-import-export' ),
+		8 => __('A PHP extension stopped the file upload.', 'wpc-import-export' ),
 	);
 	return $phpFileUploadErrors;
 }
@@ -271,11 +289,6 @@ function wpcie_registered_form_fields(){
 			'label' 	=> esc_html__( 'Shipment Status', 'wpc-import-export' ),
 			'fields' 	=> array()
 		),
-		array(
-			'meta_key' 	=> 'original_post_title',
-			'label' 	=> esc_html__( 'Tracking Number', 'wpc-import-export' ),
-			'fields' 	=> array()
-		),
 	);
 	$form_fields = apply_filters( 'ie_registered_fields', $fields );
 	/*
@@ -387,6 +400,25 @@ function wpcie_disable(){
 function wpcie_restricted_role(){
 	return get_option( 'wpcie_restricted_role' ) ? get_option( 'wpcie_restricted_role' ) : array() ;
 }
+function is_wpcie_restricted_role(){
+	$current_user = wp_get_current_user();
+	$status = false;
+	if( array_intersect( $current_user->roles, wpcie_restricted_role() ) ){
+		$status = true;
+	}
+	return apply_filters( 'is_wpcie_restricted_role', $status );
+}
+function can_wpcie_import(){
+	return apply_filters( 'can_wpcie_import', can_wpcfe_add_shipment() );
+}
+function can_wpcie_export(){
+	$current_user = wp_get_current_user();
+	$status = true;
+	if( array_intersect( $current_user->roles, wpcie_restricted_role() ) ){
+		$status = false;
+	}
+	return apply_filters( 'can_wpcie_export', $status );
+}
 /*
  * Language Translation for the Ecncrypted Files
  */
@@ -428,7 +460,7 @@ function wpcie_data_process_message_label( $number = 0 ){
 }
 function wpcie_license_helper_plugin_dependent_label(){
 	$link = filter_var( 'https://www.wpcargo.com/purchase/',  FILTER_SANITIZE_URL );
-	$format_link = '<a href="'. $link .'" target="_blank">'.apply_filter( 'wpcwlh_required_label', 'WPTaskForce License Helper' ).'</a>';
+	$format_link = '<a href="'. $link .'" target="_blank">'.apply_filters( 'wpcwlh_required_label', 'WPTaskForce License Helper' ).'</a>';
 	return sprintf( 
 		'This plugin requires %s plugin to be active!',
 		$format_link
@@ -436,7 +468,7 @@ function wpcie_license_helper_plugin_dependent_label(){
 }
 function wpcie_wpcargo_plugin_dependent_label(){
 	$link = filter_var( 'https://wordpress.org/plugins/wpcargo',  FILTER_SANITIZE_URL );
-	$format_link = '<a href="'. $link .'" target="_blank">'.apply_filter( 'wpcargo_required_label', 'WPCargo' ).'</a>';
+	$format_link = '<a href="'. $link .'" target="_blank">'.apply_filters( 'wpcargo_required_label', 'WPCargo' ).'</a>';
 	return sprintf( 
 		'This plugin requires %s plugin to be active!',
 		$format_link

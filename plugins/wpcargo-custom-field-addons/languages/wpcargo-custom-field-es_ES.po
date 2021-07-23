@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WPCargo Custom Field Add-ons\n"
-"POT-Creation-Date: 2021-02-02 15:34+0800\n"
-"PO-Revision-Date: 2021-02-02 15:35+0800\n"
+"POT-Creation-Date: 2021-07-08 16:27+0800\n"
+"PO-Revision-Date: 2021-07-08 16:27+0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.4.2\n"
+"X-Generator: Poedit 3.0\n"
 "X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
@@ -83,7 +83,7 @@ msgstr ""
 "WPCargo Custom Field Add-ons plugin requiere <a href=\"http://wpcargo.com/"
 "\">WPTaskForce License Helper</a> plugin para activar!"
 
-#: admin/classes/wpc-cf-form-builder.php:324
+#: admin/classes/wpc-cf-form-builder.php:342
 msgid "You do not have permissions to view this data."
 msgstr "No tiene permisos para ver estos datos."
 
@@ -98,14 +98,14 @@ msgstr "Número de teléfono"
 
 #: admin/classes/wpc-cf-install-db.php:55
 #: admin/classes/wpc-cf-install-db.php:102 admin/includes/functions.php:185
-#: admin/templates/label-settings.tpl.php:111
+#: admin/templates/label-settings.tpl.php:114
 msgid "Address"
 msgstr "Dirección"
 
 #: admin/classes/wpc-cf-install-db.php:66
 #: admin/classes/wpc-cf-install-db.php:113 admin/includes/functions.php:184
-#: admin/templates/label-settings.tpl.php:111
 #: admin/templates/label-settings.tpl.php:114
+#: admin/templates/label-settings.tpl.php:117
 msgid "Email"
 msgstr "Email"
 
@@ -114,12 +114,12 @@ msgid "Receiver Name"
 msgstr "Nombre del destinatario"
 
 #: admin/classes/wpc-cf-install-db.php:135
-#: admin/templates/label-settings.tpl.php:122
+#: admin/templates/label-settings.tpl.php:125
 msgid "Type of Shipment"
 msgstr "Tipo de envío"
 
 #: admin/classes/wpc-cf-install-db.php:146
-#: admin/templates/label-settings.tpl.php:84
+#: admin/templates/label-settings.tpl.php:87
 msgid "Courier"
 msgstr "Courier"
 
@@ -136,37 +136,37 @@ msgid "Total Freight"
 msgstr "Carga total"
 
 #: admin/classes/wpc-cf-install-db.php:217
-#: admin/templates/label-settings.tpl.php:89
+#: admin/templates/label-settings.tpl.php:92
 msgid "Carrier"
 msgstr "Transportista"
 
 #: admin/classes/wpc-cf-install-db.php:228
-#: admin/templates/label-settings.tpl.php:92
+#: admin/templates/label-settings.tpl.php:95
 msgid "Carrier Reference No."
 msgstr "Referencia del transportista Nº :"
 
 #: admin/classes/wpc-cf-install-db.php:239
-#: admin/templates/label-settings.tpl.php:95
+#: admin/templates/label-settings.tpl.php:98
 msgid "Departure Time"
 msgstr "Hora de salida"
 
 #: admin/classes/wpc-cf-install-db.php:259
-#: admin/templates/label-settings.tpl.php:78
+#: admin/templates/label-settings.tpl.php:81
 msgid "Origin"
 msgstr "Origen"
 
 #: admin/classes/wpc-cf-install-db.php:270
-#: admin/templates/label-settings.tpl.php:81
+#: admin/templates/label-settings.tpl.php:84
 msgid "Destination"
-msgstr "Destino"
+msgstr "Destino:"
 
 #: admin/classes/wpc-cf-install-db.php:281
-#: admin/templates/label-settings.tpl.php:67
+#: admin/templates/label-settings.tpl.php:70
 msgid "Pickup Date"
 msgstr "Fecha de recogida"
 
 #: admin/classes/wpc-cf-install-db.php:292
-#: admin/templates/label-settings.tpl.php:70
+#: admin/templates/label-settings.tpl.php:73
 msgid "Pickup Time"
 msgstr "Hora de recogida"
 
@@ -432,13 +432,13 @@ msgstr "Información del destinatario"
 
 #: admin/templates/form-field-add.tpl.php:88
 #: admin/templates/form-field-edit.tpl.php:103
-msgid "Do you want to display on search form?"
-msgstr "¿Desea mostrar en el formulario de búsqueda?"
+msgid "Do you want to display on tracking page form?"
+msgstr "¿Desea mostrar en el formulario de página de seguimiento?"
 
 #: admin/templates/form-field-add.tpl.php:92
 #: admin/templates/form-field-edit.tpl.php:107
-msgid "Is field required on search form?"
-msgstr "¿Se requiere campo en el formulario de búsqueda?"
+msgid "Is field required on tracking page form?"
+msgstr "¿Se requiere un campo en el formulario de página de seguimiento?"
 
 #: admin/templates/form-field-add.tpl.php:96
 #: admin/templates/form-field-edit.tpl.php:111
@@ -542,97 +542,93 @@ msgstr "Borrar"
 msgid "Field Settings"
 msgstr "Ajustes del Campo"
 
-#: admin/templates/label-settings.tpl.php:51
+#: admin/templates/label-settings.tpl.php:54
 msgid "Print Label Settings"
 msgstr "Ajustes de la etiqueta de impresión"
 
-#: admin/templates/label-settings.tpl.php:64
-#: admin/templates/print-label.tpl.php:32
+#: admin/templates/label-settings.tpl.php:67
+#: admin/templates/print-label.tpl.php:24
 msgid "Accounts Copy"
 msgstr "Copia de cuentas"
 
-#: admin/templates/label-settings.tpl.php:73
+#: admin/templates/label-settings.tpl.php:76
 msgid "Delivery Date"
 msgstr "Fecha de Entrega"
 
-#: admin/templates/label-settings.tpl.php:103
-#: admin/templates/print-label.tpl.php:53
-#: admin/templates/print-label.tpl.php:193
-#: admin/templates/print-label.tpl.php:333
+#: admin/templates/label-settings.tpl.php:106
+#: admin/templates/print-label.tpl.php:78
 msgid "Shipper"
 msgstr "ES Shipper"
 
-#: admin/templates/label-settings.tpl.php:105
-#: admin/templates/print-label.tpl.php:55
-#: admin/templates/print-label.tpl.php:195
-#: admin/templates/print-label.tpl.php:335
+#: admin/templates/label-settings.tpl.php:108
+#: admin/templates/print-label.tpl.php:80
 msgid "Consignee"
 msgstr "Copia del destinatario"
 
-#: admin/templates/label-settings.tpl.php:107
+#: admin/templates/label-settings.tpl.php:110
 msgid "Status: Pending"
 msgstr "Estado: Pendiente"
 
-#: admin/templates/label-settings.tpl.php:111
 #: admin/templates/label-settings.tpl.php:114
-msgid "Phone"
-msgstr "Teléfono"
-
 #: admin/templates/label-settings.tpl.php:117
+msgid "Phone"
+msgstr "Teléfono:"
+
+#: admin/templates/label-settings.tpl.php:120
 msgid "Comment"
 msgstr "Comentario"
 
-#: admin/templates/label-settings.tpl.php:125
+#: admin/templates/label-settings.tpl.php:128
 msgid "Product"
 msgstr "Producto"
 
-#: admin/templates/label-settings.tpl.php:130
+#: admin/templates/label-settings.tpl.php:133
 msgid "Save Label"
 msgstr "Guardar etiqueta"
 
-#: admin/templates/label-settings.tpl.php:134
+#: admin/templates/label-settings.tpl.php:137
 msgid "Custom Field Code List"
 msgstr "Lista de códigos de campo personalizados"
 
-#: admin/templates/label-settings.tpl.php:135
+#: admin/templates/label-settings.tpl.php:138
 msgid "Note: User Metakey Code to display dynamic data in print label."
 msgstr ""
 "Nota: User Metakey Code para mostrar datos dinámicos en la etiqueta de "
 "impresión."
 
-#: admin/templates/label-settings.tpl.php:138
+#: admin/templates/label-settings.tpl.php:141
 msgid "Available Shipper Fields"
 msgstr "Campos de remitente disponibles"
 
-#: admin/templates/label-settings.tpl.php:141
-#: admin/templates/label-settings.tpl.php:162
-#: admin/templates/label-settings.tpl.php:183
+#: admin/templates/label-settings.tpl.php:144
+#: admin/templates/label-settings.tpl.php:165
+#: admin/templates/label-settings.tpl.php:186
 msgid "Field Label"
 msgstr "Etiqueta de campo"
 
-#: admin/templates/label-settings.tpl.php:141
-#: admin/templates/label-settings.tpl.php:162
-#: admin/templates/label-settings.tpl.php:183
+#: admin/templates/label-settings.tpl.php:144
+#: admin/templates/label-settings.tpl.php:165
+#: admin/templates/label-settings.tpl.php:186
 msgid "Metakey Code"
 msgstr "Código Metakey"
 
-#: admin/templates/label-settings.tpl.php:153
+#: admin/templates/label-settings.tpl.php:156
 msgid "No Field found for Shipper"
 msgstr "No se ha encontrado ningún campo para el remitente"
 
-#: admin/templates/label-settings.tpl.php:159
+#: admin/templates/label-settings.tpl.php:162
 msgid "Available Receiver Fields"
 msgstr "Campos de receptor disponibles"
 
-#: admin/templates/label-settings.tpl.php:174
+#: admin/templates/label-settings.tpl.php:177
 msgid "No Field found for Receiver"
 msgstr "No se ha encontrado ningún campo para el receptor"
 
-#: admin/templates/label-settings.tpl.php:180
+#: admin/templates/label-settings.tpl.php:183
 msgid "Available Shipment Information Fields"
 msgstr "Campos de información de envío disponibles"
 
-#: admin/templates/label-settings.tpl.php:195
+#: admin/templates/label-settings.tpl.php:198
 msgid "No Field found for Shipment Information"
 msgstr "No se ha encontrado ningún campo para la información de envío"
 
@@ -646,80 +642,45 @@ msgstr "Dirección del remitente"
 msgid "Receiver Address"
 msgstr "Dirección del receptor"
 
-#: admin/templates/print-label.tpl.php:86
-#: admin/templates/print-label.tpl.php:124
-#: admin/templates/print-label.tpl.php:226
-#: admin/templates/print-label.tpl.php:264
-#: admin/templates/print-label.tpl.php:366
-#: admin/templates/print-label.tpl.php:404
-msgid "Description"
-msgstr "Descripción"
-
-#: admin/templates/print-label.tpl.php:87
-#: admin/templates/print-label.tpl.php:125
-#: admin/templates/print-label.tpl.php:227
-#: admin/templates/print-label.tpl.php:265
-#: admin/templates/print-label.tpl.php:367
-#: admin/templates/print-label.tpl.php:405
-msgid "Qty."
-msgstr "Cant."
-
-#: admin/templates/print-label.tpl.php:88
-#: admin/templates/print-label.tpl.php:126
-#: admin/templates/print-label.tpl.php:228
-#: admin/templates/print-label.tpl.php:266
-#: admin/templates/print-label.tpl.php:368
-#: admin/templates/print-label.tpl.php:406
-msgid "Piece Type"
-msgstr "Tipo de pieza"
-
-#: admin/templates/print-label.tpl.php:90
-#: admin/templates/print-label.tpl.php:128
-#: admin/templates/print-label.tpl.php:230
-#: admin/templates/print-label.tpl.php:268
-#: admin/templates/print-label.tpl.php:370
-#: admin/templates/print-label.tpl.php:408
-msgid "Length"
-msgstr "Longitud"
-
-#: admin/templates/print-label.tpl.php:91
-#: admin/templates/print-label.tpl.php:129
-#: admin/templates/print-label.tpl.php:231
-#: admin/templates/print-label.tpl.php:269
-#: admin/templates/print-label.tpl.php:371
-#: admin/templates/print-label.tpl.php:409
-msgid "Width"
-msgstr "Ancho"
-
-#: admin/templates/print-label.tpl.php:92
-#: admin/templates/print-label.tpl.php:130
-#: admin/templates/print-label.tpl.php:232
-#: admin/templates/print-label.tpl.php:270
-#: admin/templates/print-label.tpl.php:372
-#: admin/templates/print-label.tpl.php:410
-msgid "Height"
-msgstr "Altura"
-
-#: admin/templates/print-label.tpl.php:94
-#: admin/templates/print-label.tpl.php:132
-#: admin/templates/print-label.tpl.php:234
-#: admin/templates/print-label.tpl.php:272
-#: admin/templates/print-label.tpl.php:374
-#: admin/templates/print-label.tpl.php:412
-msgid "Weight"
-msgstr "Peso"
-
-#: admin/templates/print-label.tpl.php:172
+#: admin/templates/print-label.tpl.php:25
 msgid "Consignee Copy"
 msgstr "Copia del destinatario"
 
-#: admin/templates/print-label.tpl.php:312
+#: admin/templates/print-label.tpl.php:26
 msgid "Shippers Copy"
 msgstr "Copia de los remitentes"
 
-#: admin/templates/print-label.tpl.php:445
-msgid "Print File"
-msgstr "Archivo de impresión"
+#: admin/templates/print-label.tpl.php:101
+msgid "Package Information"
+msgstr "Información del Paquete"
+
+#: admin/templates/print-label.tpl.php:105
+msgid "Description"
+msgstr "Descripción"
+
+#: admin/templates/print-label.tpl.php:106
+msgid "Qty."
+msgstr "Cant."
+
+#: admin/templates/print-label.tpl.php:107
+msgid "Piece Type"
+msgstr "Tipo de pieza"
+
+#: admin/templates/print-label.tpl.php:109
+msgid "Length"
+msgstr "Longitud"
+
+#: admin/templates/print-label.tpl.php:110
+msgid "Width"
+msgstr "Ancho"
+
+#: admin/templates/print-label.tpl.php:111
+msgid "Height"
+msgstr "Altura"
+
+#: admin/templates/print-label.tpl.php:113
+msgid "Weight"
+msgstr "Peso"
 
 #: admin/templates/receiver-metabox.tpl.php:2
 msgid "Receiver Details"

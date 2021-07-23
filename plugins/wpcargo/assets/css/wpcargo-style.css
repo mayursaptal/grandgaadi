@@ -3,6 +3,9 @@
  * HTML markup <div class="wpcargo-loading"></div>
 */
 /* wpcargo Spinner */
+.wpcargo-container .label {
+    color: initial !important;
+}
 .wpcargo-loading {
 	position: fixed;
 	z-index: 999999;

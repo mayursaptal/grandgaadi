@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WPCargo Receiving Add-ons\n"
-"POT-Creation-Date: 2021-03-31 08:16+0800\n"
-"PO-Revision-Date: 2021-03-31 08:17+0800\n"
+"POT-Creation-Date: 2021-07-16 10:36+0800\n"
+"PO-Revision-Date: 2021-07-16 10:37+0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ru_RU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.4.2\n"
+"X-Generator: Poedit 3.0\n"
 "X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
@@ -66,10 +66,42 @@ msgstr "Отгрузка Обновлено успешно!"
 msgid "Cheating, uh?"
 msgstr "Обман, а?"
 
-#: admin/admin.php:59 admin/classes/wpc-receiving-loader.php:332
+#: admin/admin.php:59 admin/classes/wpc-receiving-loader.php:337
 #: admin/templates/wpc-receiving-submenu.tpl.php:17 includes/functions.php:41
 msgid "Receiving"
 msgstr "Получения"
+
+#: admin/admin.php:72
+msgid "Client"
+msgstr "Клиент"
+
+#: admin/admin.php:74
+msgid "Select Client"
+msgstr "Выберите Клиентf"
+
+#: admin/admin.php:92
+msgid "Agent"
+msgstr "Агент"
+
+#: admin/admin.php:94
+msgid "Select Agent"
+msgstr "Выберите агента"
+
+#: admin/admin.php:112
+msgid "Employee"
+msgstr "Сотрудник"
+
+#: admin/admin.php:114
+msgid "Select employee"
+msgstr "Выберите сотрудника"
+
+#: admin/admin.php:135
+msgid "Driver"
+msgstr "Водитель"
+
+#: admin/admin.php:137
+msgid "Select Driver"
+msgstr "-- Выберите работников --"
 
 #: admin/classes/wpc-receiving-metabox.php:11
 msgid "Branch History"

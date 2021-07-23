@@ -58,6 +58,119 @@ function wpc_receiving_cheating_plugin_dependent_message(){
 function wpc_receiving_label(){
 	return esc_html__('Receiving', 'wpcargo-receiving');
 }
+// Action Hooks
+function wpcr_client_receiving_form_fields(){
+	if( !can_wpcfe_assign_client() ){
+		return false;
+	}
+	$wpcargo_client 	= wpcfe_get_users('wpcargo_client');
+	if( empty( $wpcargo_client ) ){
+		return false;
+	}
+	?>
+	<div class="col-md-6 mb-4 receiving-client">
+		<label for="wpsr_registered_shipper"><?php esc_html_e('Client','wpcargo-receiving'); ?></label>
+		<select id="wpsr_registered_shipper" name="registered_shipper" class="mdb-select mt-0 form-control browser-default"  >
+			<option value=""><?php echo apply_filters( 'wpcsr_select_client_label', __('Select Client', 'wpcargo-receiving' ) ); ?></option>
+			<?php foreach( $wpcargo_client as $key => $value ): ?>
+				<option value="<?php echo $key; ?>"><?php echo $value; ?></option>
+			<?php endforeach; ?>	                
+		</select>
+	</div>
+    <?php
+}
+function wpcr_agent_receiving_form_fields(){
+	if( !can_wpcfe_assign_agent() ){
+		return false;
+	}
+	$wpcargo_agent 		= wpcfe_get_users('cargo_agent');
+	if( empty( $wpcargo_agent ) ){
+		return false;
+	}
+	?>
+	<div class="col-md-6 mb-4 receiving-agent">
+		<label for="wpsr_agent_fields"><?php esc_html_e('Agent','wpcargo-receiving'); ?></label>
+		<select id="wpsr_agent_fields" name="agent_fields" class="mdb-select mt-0 form-control browser-default"  >
+			<option value=""><?php echo apply_filters( 'wpcsr_select_agent_label', __('Select Agent', 'wpcargo-receiving' ) ); ?></option>
+			<?php foreach( $wpcargo_agent as $agentID => $agentName ): ?>
+				<option value="<?php echo $agentID; ?>"><?php echo $agentName; ?></option>
+			<?php endforeach; ?>		                
+		</select>
+	</div>
+    <?php
+}
+function wpcr_employee_receiving_form_fields(){
+	if( !can_wpcfe_assign_employee() ){
+		return false;
+	}
+	$wpcargo_employee 	= wpcfe_get_users('wpcargo_employee');
+	if( empty( $wpcargo_employee ) ){
+		return false;
+	}
+	?>
+	<div class="col-md-6 mb-4 receiving-employee">
+		<label for="wpsr_employee_fields"><?php esc_html_e('Employee','wpcargo-receiving'); ?></label>
+		<select id="wpsr_wpcargo_employee" name="wpcargo_employee" class="mdb-select mt-0 form-control browser-default"  >
+			<option value=""><?php echo apply_filters( 'wpcsr_select_employee_label', __('Select employee', 'wpcargo-receiving' ) ); ?></option>
+			<?php foreach( $wpcargo_employee as $empID => $empName ): ?>
+				<option value="<?php echo $empID; ?>"><?php echo $empName; ?></option>
+			<?php endforeach; ?>			                
+		</select>
+	</div>
+    <?php
+}
+function wpcr_pod_receiving_form_fields(){
+	if( !can_wpcfe_assign_driver() ){
+		return false;
+	}
+	if( !class_exists('WPC_POD_Signature_Metabox') ){
+		return false;
+	}
+	$drivers = wpcargo_pod_get_drivers();
+	if( empty( $drivers ) ){
+		return false;
+	}
+	?>
+	<div class="col-md-6 mb-4 receiving-driver">
+		<label for="wpsr_wpcargo_driver"><?php _e('Driver','wpcargo-receiving'); ?></label>
+		<select id="wpsr_wpcargo_driver" name="wpcargo_driver" class="form-control browser-default mdb-select" >
+			<option value=""><?php echo apply_filters( 'wpcsr_select_driver_label', __('Select Driver', 'wpcargo-receiving' ) ); ?></option>
+			<?php foreach( $drivers as $driverID => $driver_name ): ?>
+				<option value="<?php echo $driverID; ?>"><?php echo $driver_name; ?></option>
+			<?php endforeach; ?>
+		</select>
+	</div>
+	<?php
+}
+function wpcr_receiving_form_hooks(){
+	if( !class_exists('WPCargo_Frontend_Template') ){
+		return false;
+	}
+	add_action( 'wpcr_after_receiving_form_fields', 'wpcr_client_receiving_form_fields' );
+	add_action( 'wpcr_after_receiving_form_fields', 'wpcr_agent_receiving_form_fields' );
+	add_action( 'wpcr_after_receiving_form_fields', 'wpcr_employee_receiving_form_fields' );
+	add_action( 'wpcr_after_receiving_form_fields', 'wpcr_pod_receiving_form_fields' );
+}
+add_action( 'plugins_loaded', 'wpcr_receiving_form_hooks' );
+// Load the auto-update class
+function wpc_receiving_get_plugin_remote_update(){
+	require_once( WPCARGO_RECEIVING_PATH. 'admin/classes/wp_autoupdate.php');
+	$plugin_remote_path 	= 'http://www.wpcargo.com/repository/wpcargo-receiving/'.WPCARGO_RECEIVING_UPDATE_REMOTE.'.php';
+	return new WPC_Receiving_AutoUpdate ( WPCARGO_RECEIVING_VERSION, $plugin_remote_path, WPCARGO_RECEIVING_BASENAME );
+
+}
+function wpc_receiving_activate_au(){
+    wpc_receiving_get_plugin_remote_update();
+}
+function wpc_receiving_plugin_update_message( $data, $response ) {
+	$autoUpdate 	= wpc_receiving_get_plugin_remote_update();
+	$remote_info 	= $autoUpdate->getRemote('info');
+	if( !empty( $remote_info->update_message ) ){
+		echo $remote_info->update_message;
+	}
+}
+add_action( 'in_plugin_update_message-wpcargo-receiving/wpcargo-receiving.php', 'wpc_receiving_plugin_update_message', 10, 2 );
+add_action( 'init', 'wpc_receiving_activate_au' );
 require_once(WPCARGO_RECEIVING_PATH.'admin/classes/wpc-receiving-scripts.php');
 require_once(WPCARGO_RECEIVING_PATH.'admin/classes/wpc-receiving-loader.php');
 require_once(WPCARGO_RECEIVING_PATH.'admin/classes/wpc-receiving-settings.php');

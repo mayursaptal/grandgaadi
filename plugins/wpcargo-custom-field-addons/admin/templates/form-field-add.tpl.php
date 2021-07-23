@@ -85,11 +85,11 @@
                 </td>
             </tr>
             <tr>
-            	<th><?php esc_html_e('Do you want to display on search form?', 'wpcargo-custom-field' ); ?></th>
+            	<th><?php esc_html_e('Do you want to display on tracking page form?', 'wpcargo-custom-field' ); ?></th>
                 <td><input name="display_flags[]" value="search" type="checkbox"></td>
             </tr>
             <tr>
-            	<th><?php esc_html_e('Is field required on search form?', 'wpcargo-custom-field' ); ?></th>
+            	<th><?php esc_html_e('Is field required on tracking page form?', 'wpcargo-custom-field' ); ?></th>
                 <td><input name="display_flags[]" value="search_required" type="checkbox"></td>
             </tr>
             <tr>

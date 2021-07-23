@@ -1,0 +1,1012 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WPCargo Shipment Container Add-ons\n"
+"POT-Creation-Date: 2021-06-30 16:12+0800\n"
+"PO-Revision-Date: 2021-06-30 16:13+0800\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: it_IT\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.0\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: wpcargo-shipment-container-add-ons.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+
+#: admin/classes/class-container-scripts.php:23
+#: admin/classes/class-container-scripts.php:65
+msgid "Something went wrong during process, Please reload the page."
+msgstr ""
+"Si è verificato un problema durante il processo, si prega di ricaricare la "
+"pagina."
+
+#: admin/classes/class-container-scripts.php:24
+#: admin/classes/class-container-scripts.php:66
+msgid "Please select status to update."
+msgstr "Selezionare lo stato da aggiornare."
+
+#: admin/classes/class-container-scripts.php:25
+msgid "Please Select Containers to update."
+msgstr "Selezionare Contenitori da aggiornare."
+
+#: admin/classes/class-container-scripts.php:26
+msgid "This is an existing Container number."
+msgstr "Si tratta di un numero contenitore esistente."
+
+#: admin/classes/class-container-scripts.php:28
+msgid "No shipment selected, Please select atleast one Shipment."
+msgstr ""
+"Nessuna spedizione selezionata, Si prega di selezionare almeno una "
+"spedizione."
+
+#: admin/classes/class-container-scripts.php:29
+msgid "Selected Shipments has been assigned"
+msgstr "Le spedizioni selezionate sono state assegnate"
+
+#: admin/classes/class-container-scripts.php:30
+msgid "No shipment has been updated"
+msgstr "Nessuna spedizione è stata aggiornata"
+
+#: admin/classes/class-container-scripts.php:31
+msgid "Hide"
+msgstr "Nascondi"
+
+#: admin/classes/class-container-scripts.php:32
+#: templates/container-form-shipments.tpl.php:6
+msgid "Show"
+msgstr "Mostra"
+
+#: admin/classes/class-container-scripts.php:67
+msgid "Please Select "
+msgstr "Si prega di selezionare"
+
+#: admin/classes/class-container-user.php:16
+#: admin/templates/container-info.tpl.php:21
+#: templates/container-trackform-result.tpl.php:99
+msgid "Delivery Agent"
+msgstr "Agente di consegna"
+
+#: admin/classes/class-container.php:449
+msgid ""
+"Container NOT Found. Please click update this shipment to unassign shipment."
+msgstr ""
+"Contenitore NON trovato. Fare clic su aggiorna la spedizione per annullare "
+"l'assegnazione della spedizione."
+
+#: admin/includes/ajax-handler.php:39
+msgid "Something went wrong during process, Please try again."
+msgstr "Qualcosa è andato storto durante il processo, riprovare."
+
+#: admin/includes/ajax-handler.php:47 admin/includes/hooks.php:54
+#: admin/includes/translation.php:7 admin/includes/translation.php:13
+msgid "Container"
+msgstr "Contenitore"
+
+#: admin/includes/ajax-handler.php:47
+msgid "successfully deleted."
+msgstr "Archivio eliminato correttamente."
+
+#: admin/includes/ajax-handler.php:73 admin/includes/ajax-handler.php:118
+#, php-format
+msgid "Shipment %s already assign to container %s."
+msgstr "Le %s di spedizione devono già essere assegnate al contenitore %s."
+
+#: admin/includes/ajax-handler.php:99 admin/includes/ajax-handler.php:174
+msgid "Selected Container not found! Please reload and try again."
+msgstr "Contenitore selezionato non trovato. Ricaricare e riprovare."
+
+#: admin/includes/ajax-handler.php:142 admin/includes/functions.php:210
+#: admin/templates/print.tpl.php:137
+#: templates/container-form-shipments.tpl.php:17
+msgid "Print"
+msgstr "Stampa"
+
+#: admin/includes/ajax-handler.php:160
+#: templates/container-form-shipments.tpl.php:19
+#: templates/container-form-shipments.tpl.php:64
+msgid "Remove"
+msgstr "Rimuovi"
+
+#: admin/includes/ajax-handler.php:264 admin/includes/functions.php:183
+msgid "Shipper"
+msgstr "Spedizioniere"
+
+#: admin/includes/ajax-handler.php:272 admin/includes/functions.php:189
+msgid "Receiver"
+msgstr "Destinatario"
+
+#: admin/includes/ajax-handler.php:279
+msgid "No Available Shipments found."
+msgstr "Nessuna spedizione disponibile trovata."
+
+#: admin/includes/functions.php:51 admin/includes/translation.php:10
+msgid "Containers"
+msgstr "Contenitori"
+
+#: admin/includes/functions.php:112
+msgid "Assign to Container"
+msgstr "Assegna al contenitore"
+
+#: admin/includes/functions.php:155 admin/includes/hooks.php:87
+#, php-format
+msgid "%s Shipment"
+msgid_plural "%s Shipments"
+msgstr[0] "%s spedizione"
+msgstr[1] "Hai eliminato correttamente %s spedizione."
+
+#: admin/includes/functions.php:195
+msgid "Shipping NO."
+msgstr "Costi di Spese Consegna"
+
+#: admin/includes/functions.php:198
+msgid "Client"
+msgstr "Cliente"
+
+#: admin/includes/functions.php:199 admin/includes/functions.php:207
+msgid "Agent"
+msgstr "Agente"
+
+#: admin/includes/functions.php:205
+msgid "Flight/ Container No."
+msgstr "Volo/ N. contenitore"
+
+#: admin/includes/functions.php:206
+#: templates/container-form-shipments.tpl.php:6
+msgid "Shipments"
+msgstr "Spedizioni"
+
+#: admin/includes/functions.php:208 admin/includes/helpers.php:75
+msgid "Driver"
+msgstr "Driver"
+
+#: admin/includes/functions.php:209 admin/includes/helpers.php:131
+#: admin/templates/print.tpl.php:103 admin/templates/print.tpl.php:258
+#: templates/container-form-shipments.tpl.php:16
+#: templates/container-trackform-result.tpl.php:41
+#: templates/container-trackform-result.tpl.php:146
+msgid "Status"
+msgstr "Stato"
+
+#: admin/includes/functions.php:211
+msgid "Manifest"
+msgstr "Manifesto"
+
+#: admin/includes/functions.php:226 templates/container-trackform.tpl.php:4
+msgid "Enter Container No."
+msgstr "Immettere n. contenitore"
+
+#: admin/includes/functions.php:229
+msgid "Ex. CO123456"
+msgstr "Ex. CO123456"
+
+#: admin/includes/functions.php:642
+msgid "Sorry you are restricted to access this route."
+msgstr "Siamo spiacenti di essere limitati ad accedere a questo percorso."
+
+#: admin/includes/helpers.php:10 admin/templates/container-info.tpl.php:6
+#: templates/container-trackform-result.tpl.php:84
+msgid "Flight/Container No."
+msgstr "Numero di volo/contenitore"
+
+#: admin/includes/helpers.php:20
+msgid "Agent Name"
+msgstr "Nome Agente"
+
+#: admin/includes/helpers.php:30 admin/includes/helpers.php:85
+#: admin/templates/container-info.tpl.php:10
+#: admin/templates/container-info.tpl.php:23
+#: templates/container-trackform-result.tpl.php:88
+#: templates/container-trackform-result.tpl.php:101
+msgid "Telephone"
+msgstr "Telefono"
+
+#: admin/includes/helpers.php:40 admin/templates/container-info.tpl.php:12
+#: templates/container-trackform-result.tpl.php:90
+msgid "Passport"
+msgstr "Passaporto"
+
+#: admin/includes/helpers.php:55
+msgid "Origin"
+msgstr "Origine:"
+
+#: admin/includes/helpers.php:65
+msgid "Destination"
+msgstr "Destinazione"
+
+#: admin/includes/helpers.php:101 admin/includes/helpers.php:173
+#: admin/templates/container-info.tpl.php:28 admin/templates/print.tpl.php:101
+#: admin/templates/print.tpl.php:256
+#: templates/container-trackform-result.tpl.php:39
+#: templates/container-trackform-result.tpl.php:106
+#: templates/container-trackform-result.tpl.php:144
+msgid "Date"
+msgstr "Data"
+
+#: admin/includes/helpers.php:111 admin/includes/helpers.php:183
+#: admin/templates/container-info.tpl.php:30
+#: templates/container-trackform-result.tpl.php:108
+msgid "Time"
+msgstr "Orario"
+
+#: admin/includes/helpers.php:121
+msgid "Current City"
+msgstr "Thành phố hiện tại"
+
+#: admin/includes/helpers.php:141
+msgid "Updated By"
+msgstr "Aggiornato da"
+
+#: admin/includes/helpers.php:151 admin/templates/print.tpl.php:104
+#: admin/templates/print.tpl.php:259
+#: templates/container-trackform-result.tpl.php:42
+#: templates/container-trackform-result.tpl.php:147
+msgid "Remarks"
+msgstr "Osservazioni"
+
+#: admin/includes/helpers.php:193 admin/templates/container-info.tpl.php:32
+#: templates/container-trackform-result.tpl.php:110
+msgid "Expected Date"
+msgstr "Data Prevista"
+
+#: admin/includes/helpers.php:203 admin/templates/container-info.tpl.php:34
+#: templates/container-trackform-result.tpl.php:112
+msgid "Travel Mode"
+msgstr "Modalità di Viaggio"
+
+#: admin/includes/hooks.php:65
+msgid "Container NOT Found"
+msgstr "Contenitore NON trovato"
+
+#: admin/includes/hooks.php:151 templates/track-history.tpl.php:2
+msgid "History"
+msgstr "Cronologia"
+
+#: admin/includes/hooks.php:218
+msgid "Container Details"
+msgstr "Dettagli contenitore"
+
+#: admin/includes/hooks.php:222 admin/includes/translation.php:28
+#: admin/includes/translation.php:106
+msgid "Shipment Container"
+msgstr "Contenitore spedizione"
+
+#: admin/includes/hooks.php:224 templates/bulk-assign-container.tpl.php:23
+msgid "-- Select Container --"
+msgstr "-- Seleziona contenitore --"
+
+#: admin/includes/hooks.php:245
+msgid "Settings"
+msgstr "Impostazioni"
+
+#: admin/includes/hooks.php:246
+msgid "License"
+msgstr "Licenza"
+
+#: admin/includes/hooks.php:314 templates/containers.tpl.php:17
+#: templates/containers.tpl.php:24
+msgid "Container Number"
+msgstr "Numero contenitore"
+
+#: admin/includes/translation.php:16
+msgid "Container #"
+msgstr "Contenitore #"
+
+#: admin/includes/translation.php:19
+msgid "Container for WPCargo Shipment"
+msgstr "Contenitore per spedizione WPCargo"
+
+#: admin/includes/translation.php:22
+msgctxt "Post Type General Name"
+msgid "Containers"
+msgstr "Contenitori"
+
+#: admin/includes/translation.php:25
+msgctxt "Post Type Singular Name"
+msgid "Container"
+msgstr "Contenitore"
+
+#: admin/includes/translation.php:31
+msgid "Container Archives"
+msgstr "Archivi container"
+
+#: admin/includes/translation.php:34
+msgid "Container Attributes"
+msgstr "Attributi contenitore"
+
+#: admin/includes/translation.php:37
+msgid "Parent Container:"
+msgstr "Contenitore padre:"
+
+#: admin/includes/translation.php:40
+msgid "All Containers"
+msgstr "Tutti i contenitori"
+
+#: admin/includes/translation.php:43
+msgid "Add New Container"
+msgstr "Aggiungi nuovo contenitore"
+
+#: admin/includes/translation.php:46 templates/container-form.tpl.php:2
+msgid "Add Container"
+msgstr "Aggiungi contenitore"
+
+#: admin/includes/translation.php:49
+msgid "New Container"
+msgstr "Nuovo contenitore"
+
+#: admin/includes/translation.php:52
+msgid "Edit Container"
+msgstr "Edita contenitore"
+
+#: admin/includes/translation.php:55 templates/container-form.tpl.php:2
+msgid "Update Container"
+msgstr "Aggiorna contenitore"
+
+#: admin/includes/translation.php:58
+msgid "View Container"
+msgstr "Visualizza contenitore"
+
+#: admin/includes/translation.php:61
+msgid "View Containers"
+msgstr "Visualizza contenitori"
+
+#: admin/includes/translation.php:64
+msgid "Search Container"
+msgstr "Contenitore di ricerca"
+
+#: admin/includes/translation.php:67
+msgid "Not found"
+msgstr "Non trovato"
+
+#: admin/includes/translation.php:70
+msgid "Not found in Trash"
+msgstr "Non trovato nel cestino"
+
+#: admin/includes/translation.php:73
+msgid "Featured Image"
+msgstr "Immagine in evidenza"
+
+#: admin/includes/translation.php:76
+msgid "Set featured image"
+msgstr "Imposta immagine in evidenza"
+
+#: admin/includes/translation.php:79
+msgid "Remove featured image"
+msgstr "Rimuovi immagine in evidenza"
+
+#: admin/includes/translation.php:82
+msgid "Use as featured image"
+msgstr "Usa come immagine in evidenza"
+
+#: admin/includes/translation.php:85
+msgid "Insert into Container"
+msgstr "Inserisci nel contenitore"
+
+#: admin/includes/translation.php:88
+msgid "Uploaded to this item"
+msgstr "Caricato su questo prodotto"
+
+#: admin/includes/translation.php:91
+msgid "Containers list"
+msgstr "Elenco contenitori"
+
+#: admin/includes/translation.php:94
+msgid "Containers list navigation"
+msgstr "Spostamento nell'elenco dei contenitori"
+
+#: admin/includes/translation.php:97
+msgid "Filter Containers list"
+msgstr "Elenco Contenitori filtro"
+
+#: admin/includes/translation.php:100 admin/templates/print.tpl.php:232
+#: admin/templates/shipment.tpl.php:2 templates/container-form-modal.tpl.php:12
+#: templates/container-trackform-result.tpl.php:119
+msgid "Assigned Shipments"
+msgstr "Spedizioni assegnate"
+
+#: admin/includes/translation.php:103
+msgid "Assigned Container"
+msgstr "Contenitore assegnato"
+
+#: admin/includes/translation.php:109 admin/templates/print.tpl.php:249
+#: templates/container-trackform-result.tpl.php:139
+msgid "Container History"
+msgstr "Cronologia container"
+
+#: admin/includes/translation.php:112
+msgid "Container Settings"
+msgstr "Impostazioni contenitore"
+
+#: admin/includes/translation.php:115
+msgid "Print Container Shipment"
+msgstr "Stampa spedizione container"
+
+#: admin/includes/translation.php:118
+msgid "Opss. Something went wrong!"
+msgstr "Opss. Qualcosa è andato storto!"
+
+#: admin/includes/translation.php:121
+msgid "No results found!"
+msgstr "Nessun risultato trovato!"
+
+#: admin/includes/translation.php:124
+msgid "Not yet assigned to any container"
+msgstr "Non ancora assegnato a nessun contenitore"
+
+#: admin/includes/translation.php:127
+msgid "Please activate your license key"
+msgstr "Attivare la chiave di licenza"
+
+#: admin/includes/translation.php:127 admin/templates/settings.tpl.php:53
+#: admin/templates/settings.tpl.php:67 admin/templates/settings.tpl.php:81
+msgid "here"
+msgstr "qui"
+
+#: admin/includes/translation.php:130
+msgid ""
+"This plugin requires <a href=\"http://wpcargo.com/\" target=\"_blank"
+"\">WPTaskForce License Helper</a> plugin to be active!"
+msgstr ""
+"Questo plugin richiede <a href=\"http://wpcargo.com/\" target=\"_blank"
+"\">WPTaskForce License Helper</a> plugin per essere attivo!"
+
+#: admin/includes/translation.php:133
+msgid ""
+"This plugin requires <a href=\"https://wordpress.org/plugins/wpcargo/\" "
+"target=\"_blank\">WPCargo</a> plugin to be active!"
+msgstr ""
+"Questo plugin richiede <a href=\"https://wordpress.org/plugins/wpcargo/\" "
+"target=\"_blank\">WPCargo</a> plugin per essere attivo!"
+
+#: admin/includes/translation.php:136
+msgid ""
+"This plugin requires <strong>WPCargo Custom Field Add-ons</strong> plugin to "
+"be active!"
+msgstr ""
+"Questo plugin richiede <strong>WPCargo Custom Field Add-ons</strong> plugin "
+"per essere attivo!"
+
+#: admin/includes/translation.php:139
+msgid ""
+"This plugin requires <strong>WPCargo Frontend Manager</strong> plugin to be "
+"active!"
+msgstr ""
+"Questo plugin richiede <strong>WPCargo Frontend Manager</strong> plugin per "
+"essere attivo!"
+
+#: admin/includes/translation.php:142
+msgid ""
+"This plugin requires <strong>WPCargo Proof of Delivery Add-on</strong> "
+"plugin to be active!"
+msgstr ""
+"Questo plugin richiede <strong>wpcargo proof of delivery add-on</strong> "
+"plugin per essere attivo!"
+
+#: admin/includes/translation.php:145
+msgid "Cheating, uh?"
+msgstr "Tradire, eh?"
+
+#: admin/templates/container-info.tpl.php:2
+msgid "Shipment Container Information"
+msgstr "Informazioni sul contenitore di spedizione"
+
+#: admin/templates/container-info.tpl.php:5 admin/templates/container.tpl.php:2
+#: templates/container-form.tpl.php:21 templates/container-track.tpl.php:11
+#: templates/container-trackform-result.tpl.php:83
+msgid "Container Information"
+msgstr "Informazioni sul contenitore"
+
+#: admin/templates/container-info.tpl.php:8
+#: templates/container-trackform-result.tpl.php:86
+msgid "Agent name"
+msgstr "Nome Agente"
+
+#: admin/templates/container-info.tpl.php:16
+#: admin/templates/container.tpl.php:22 admin/templates/print.tpl.php:213
+#: templates/container-form.tpl.php:32 templates/container-track.tpl.php:25
+#: templates/container-trackform-result.tpl.php:94
+msgid "Trip Information"
+msgstr "Informazioni sul viaggio"
+
+#: admin/templates/container-info.tpl.php:17
+#: templates/container-trackform-result.tpl.php:95
+msgid "Origin port"
+msgstr "Porta d'origine"
+
+#: admin/templates/container-info.tpl.php:19
+#: templates/container-trackform-result.tpl.php:97
+msgid "Destination port"
+msgstr "Porta di destinazione"
+
+#: admin/templates/container-info.tpl.php:27
+#: admin/templates/container.tpl.php:42 admin/templates/print.tpl.php:220
+#: templates/container-form.tpl.php:43 templates/container-track.tpl.php:39
+#: templates/container-trackform-result.tpl.php:105
+msgid "Time Information"
+msgstr "Informazioni sull'ora"
+
+#: admin/templates/container-status.tpl.php:2
+#: templates/container-form-misc.tpl.php:5
+msgid "Current Status"
+msgstr "Status Attuale"
+
+#: admin/templates/container-status.tpl.php:23
+#: admin/templates/quick-edit-history.tpl.php:24
+msgid "Apply this update for all shipments in the container."
+msgstr ""
+"Applicare questo aggiornamento per tutte le spedizioni nel contenitore."
+
+#: admin/templates/container.tpl.php:10
+msgid "No registered Agent."
+msgstr "Nessun agente registrato."
+
+#: admin/templates/container.tpl.php:10
+msgid "Add Agent"
+msgstr "Aggiungi agenzia"
+
+#: admin/templates/container.tpl.php:30
+msgid "No registered Driver."
+msgstr "Nessun autista registrato."
+
+#: admin/templates/container.tpl.php:30
+msgid "Add Driver"
+msgstr "Aggiungi driver"
+
+#: admin/templates/container.tpl.php:59
+msgid "No Options for Travel mode is registered."
+msgstr "Nessuna opzione per la modalità di viaggio è registrata."
+
+#: admin/templates/container.tpl.php:59
+msgid "Add Travel Mode"
+msgstr "Aggiungi modalità di viaggio"
+
+#: admin/templates/history.tpl.php:38 templates/containers.tpl.php:39
+msgid "Delete"
+msgstr "Elimina"
+
+#: admin/templates/history.tpl.php:46
+msgid "No Shipment History Found."
+msgstr "Nessuna cronologia delle spedizioni trovata."
+
+#: admin/templates/print.tpl.php:102 admin/templates/print.tpl.php:257
+#: templates/container-trackform-result.tpl.php:40
+#: templates/container-trackform-result.tpl.php:145
+msgid "Location"
+msgstr "Luogo"
+
+#: admin/templates/print.tpl.php:194
+msgid "Container No.:"
+msgstr "N. contenitore:"
+
+#: admin/templates/print.tpl.php:206
+msgid "Container Information : "
+msgstr "Informazioni sul contenitore : "
+
+#: admin/templates/print.tpl.php:207
+msgid "Flight/Container No. : "
+msgstr "Numero di volo/contenitore : "
+
+#: admin/templates/print.tpl.php:208
+msgid "Agent name : "
+msgstr "Nome Agente"
+
+#: admin/templates/print.tpl.php:209 admin/templates/print.tpl.php:217
+msgid "Telephone : "
+msgstr "Telefono: "
+
+#: admin/templates/print.tpl.php:210
+msgid "Passport : "
+msgstr "Passaporto"
+
+#: admin/templates/print.tpl.php:214
+msgid "Origin port : "
+msgstr "Porta d'origine : "
+
+#: admin/templates/print.tpl.php:215
+msgid "Destination port : "
+msgstr "Porta di destinazione : "
+
+#: admin/templates/print.tpl.php:216
+msgid "Delivery Agent : "
+msgstr "Agente di consegna : "
+
+#: admin/templates/print.tpl.php:221
+msgid "Date : "
+msgstr "Data :"
+
+#: admin/templates/print.tpl.php:222
+msgid "Time : "
+msgstr "Orario : "
+
+#: admin/templates/print.tpl.php:223
+msgid "Expected Date : "
+msgstr "Data prevista : "
+
+#: admin/templates/print.tpl.php:224
+msgid "Travel Mode : "
+msgstr "Modalità di viaggio: "
+
+#: admin/templates/print.tpl.php:229
+msgid "Status : "
+msgstr "Stato : "
+
+#: admin/templates/print.tpl.php:244
+msgid "No assigned shipment."
+msgstr "Nessuna spedizione assegnata."
+
+#: admin/templates/print.tpl.php:275
+msgid "No container history."
+msgstr "Nessuna cronologia dei container."
+
+#: admin/templates/quick-edit-agent.tpl.php:5
+msgid "Select Driver"
+msgstr "-- Seleziona driver --"
+
+#: admin/templates/quick-edit-agent.tpl.php:7
+msgid "— No Change —"
+msgstr "— Nessun cambiamento —"
+
+#: admin/templates/quick-edit-agent.tpl.php:18
+msgid "Apply this Driver to all the shipments under this container."
+msgstr "Applica questo autista a tutte le spedizioni sotto questo contenitore."
+
+#: admin/templates/quick-edit-history.tpl.php:4
+msgid "Container Status"
+msgstr "Stato contenitore"
+
+#: admin/templates/settings.tpl.php:7
+msgid "Enable Auto generate Container Title"
+msgstr "Abilita titolo contenitore generazione automatica"
+
+#: admin/templates/settings.tpl.php:11
+msgid "Container Title Prefix"
+msgstr "Prefisso titolo contenitore"
+
+#: admin/templates/settings.tpl.php:14
+msgid "Note: This will be apply when Auto generate Container Title is Enable."
+msgstr ""
+"Nota: questo verrà applicato quando il titolo del contenitore di generazione "
+"automatica è Abilita."
+
+#: admin/templates/settings.tpl.php:18
+msgid "Add Travel Mode Selection"
+msgstr "Aggiungi selezione modalità di viaggio"
+
+#: admin/templates/settings.tpl.php:21
+msgid "Must be comma(,) separated. Example : Normal, Express"
+msgstr "Deve essere separato da virgole(,). Esempio: Normal, Express"
+
+#: admin/templates/settings.tpl.php:25
+msgid "Container Shipment Print Header / Footer"
+msgstr "Intestazione /piè di pagina stampa spedizione contenitore"
+
+#: admin/templates/settings.tpl.php:29
+msgid "Header additional content"
+msgstr "Intestazione di contenuto aggiuntivo"
+
+#: admin/templates/settings.tpl.php:31
+msgid ""
+"This content will display in the shipment container print header layout. "
+"Accepts html tags."
+msgstr ""
+"Questo contenuto verrà visualizzato nel layout dell'intestazione di stampa "
+"del contenitore di spedizione. Accetta tag html."
+
+#: admin/templates/settings.tpl.php:36
+msgid "Footer addidtional content"
+msgstr "Contenuto addizionale del piè di pagina"
+
+#: admin/templates/settings.tpl.php:38
+msgid ""
+"This content will display in the shipment container print footer layout. "
+"Accepts html tags."
+msgstr ""
+"Questo contenuto verrà visualizzato nel layout del piè di pagina di stampa "
+"del contenitore di spedizione. Accetta tag html."
+
+#: admin/templates/settings.tpl.php:42
+msgid "Container Shipment List Display Settings"
+msgstr "Impostazioni di visualizzazione elenco spedizioni container"
+
+#: admin/templates/settings.tpl.php:45
+msgid "Shipment Status to be included for adding in Shipment Container"
+msgstr ""
+"Stato spedizione da includere per l'aggiunta nel contenitore di spedizione"
+
+#: admin/templates/settings.tpl.php:53
+msgid "No registered shipment status. Please add shipment status"
+msgstr ""
+"Nessun stato di spedizione registrato. Aggiungere lo stato della spedizione"
+
+#: admin/templates/settings.tpl.php:59
+msgid "Select Shipper Field to be Display in the Shipment List"
+msgstr "Selezionare Campo spedizioniere da visualizzare nell'elenco spedizioni"
+
+#: admin/templates/settings.tpl.php:67 admin/templates/settings.tpl.php:81
+msgid "No registered custom fields. Please add custom field"
+msgstr ""
+"Nessun campo personalizzato registrato. Aggiungere un campo personalizzato"
+
+#: admin/templates/settings.tpl.php:73
+msgid "Select Receiver Field to be Display in the Shipment List"
+msgstr "Selezionare Campo destinatario da visualizzare nell'elenco spedizioni"
+
+#: admin/templates/settings.tpl.php:87
+msgid "Container Shipment Manifest Settings"
+msgstr "Impostazioni manifesto spedizione contenitore"
+
+#: admin/templates/settings.tpl.php:91
+msgid "Select field to display in shipments table"
+msgstr "Selezionare il campo da visualizzare nella tabella spedizioni"
+
+#: admin/templates/settings.tpl.php:92
+msgid "Selected fields will be display in the manifest shipment table list."
+msgstr ""
+"I campi selezionati verranno visualizzati nell'elenco della tabella delle "
+"spedizioni del manifesto."
+
+#: admin/templates/settings.tpl.php:129
+msgid "Paper Size"
+msgstr "Dimensione carta"
+
+#: admin/templates/settings.tpl.php:139
+msgid "Paper Orientation"
+msgstr "Orientamento della carta"
+
+#: admin/templates/settings.tpl.php:142
+msgid "Portrait"
+msgstr "Ritratto"
+
+#: admin/templates/settings.tpl.php:143
+msgid "Landscape"
+msgstr "Paesaggio"
+
+#: admin/templates/settings.tpl.php:149
+msgid "Manifest Acknowledgemant"
+msgstr "Riconoscimento manifestomant"
+
+#: admin/templates/settings.tpl.php:150
+msgid ""
+"I acknowledge that all information in the shipping manifest is true. "
+"Information falsification is a serious offense and may result in immediate "
+"dismissal/fines."
+msgstr ""
+"Riconosco che tutte le informazioni nel manifesto di spedizione sono vere. "
+"La falsificazione delle informazioni è un reato grave e può comportare "
+"licenziamenti/multe immediati."
+
+#: admin/templates/settings.tpl.php:151
+msgid ""
+"This content will display in the container Acknowledgement section layout. "
+"Accepts html tags."
+msgstr ""
+"Questo contenuto verrà visualizzato nel layout della sezione Riconoscimento "
+"contenitore. Accetta tag html."
+
+#: admin/templates/settings.tpl.php:156
+msgid "Save Container Settings"
+msgstr "Salvare le impostazioni del contenitore"
+
+#: admin/templates/shipment-container-info.tpl.php:2
+msgid "Container No."
+msgstr "N. contenitore"
+
+#: admin/templates/shipment.tpl.php:2
+#: templates/container-form-shipments.tpl.php:2
+msgid "Add Shipment"
+msgstr "Aggiungi spedizione"
+
+#: admin/templates/shipment.tpl.php:34
+msgid "WPCargo Shipment List"
+msgstr "Elenco spedizioni WPCargo"
+
+#: admin/templates/shipment.tpl.php:46
+#: templates/container-form-modal.tpl.php:29
+msgid "Actions"
+msgstr "Azioni"
+
+#: templates/bulk-assign-container.tpl.php:6
+msgid "Bulk Assign Container"
+msgstr "Assegna contenitore di massa"
+
+#: templates/bulk-assign-container.tpl.php:13
+msgid "Shipment List"
+msgstr "Elenco spedizioni"
+
+#: templates/bulk-assign-container.tpl.php:21
+msgid "Container List"
+msgstr "Elenco container"
+
+#: templates/bulk-assign-container.tpl.php:37
+#: templates/container-form-modal.tpl.php:43
+msgid "Close"
+msgstr "Chiudi"
+
+#: templates/bulk-assign-container.tpl.php:38
+msgid "Assign"
+msgstr "Assegna"
+
+#: templates/container-form-misc.tpl.php:12
+msgid "Publish"
+msgstr "Pubblica"
+
+#: templates/container-form-misc.tpl.php:39
+msgid "Apply this update for all shipments in the Container."
+msgstr ""
+"Applicare questo aggiornamento per tutte le spedizioni nel contenitore."
+
+#: templates/container-form-shipments.tpl.php:15
+msgid "Shipment"
+msgstr "Spedizione"
+
+#: templates/container-form-shipments.tpl.php:18
+msgid "Update Status"
+msgstr "Aggiorna Stato"
+
+#: templates/container-trackform-result.tpl.php:75
+msgid "Container No: "
+msgstr "N. contenitore: "
+
+#: templates/container-trackform-result.tpl.php:160
+msgid "Result"
+msgstr "Risultato"
+
+#: templates/container-trackform-result.tpl.php:160
+msgid "No registered history found."
+msgstr "Nessuna cronologia registrata trovata."
+
+#: templates/container-trackform.tpl.php:6
+msgid "Track Container"
+msgstr "Contenitore traccia"
+
+#: templates/containers.tpl.php:4
+msgid "Show entries"
+msgstr "Mostra voci"
+
+#: templates/containers.tpl.php:6 templates/containers.tpl.php:59
+msgid "entries"
+msgstr "inserimenti"
+
+#: templates/containers.tpl.php:16
+msgid "Shipment Number"
+msgstr "Nome mittente"
+
+#: templates/containers.tpl.php:18
+msgid "Search"
+msgstr "Cerca"
+
+#: templates/containers.tpl.php:26
+msgid "Action"
+msgstr "Azione"
+
+#: templates/containers.tpl.php:35
+msgid "Track"
+msgstr "Traccia"
+
+#: templates/containers.tpl.php:38
+msgid "Update"
+msgstr "Aggiorna"
+
+#: templates/containers.tpl.php:53
+msgid "Showing"
+msgstr "Mostrando"
+
+#: templates/containers.tpl.php:55
+msgid "to"
+msgstr "a"
+
+#: templates/containers.tpl.php:57
+msgid "of"
+msgstr "di"
+
+#: templates/manifest.php:4
+msgid "Shipping Manifest"
+msgstr "Manifesto di spedizione"
+
+#: templates/manifest/content.php:8
+msgid "No"
+msgstr "No"
+
+#: templates/manifest/content.php:10
+msgid "Barcode"
+msgstr "Codice a Barre"
+
+#: templates/manifest/header.php:4
+msgid "ROUTE"
+msgstr "Pianificatore percorso conducente"
+
+#: templates/manifest/header.php:5
+msgid "DELIVERY MANIFEST"
+msgstr "MANIFESTO DI CONSEGNA"
+
+#: templates/manifest/header.php:8
+msgid "VEHICLE NO."
+msgstr "Veicolo"
+
+#: templates/manifest/header.php:9
+msgid "NO."
+msgstr "No."
+
+#: templates/manifest/header.php:13
+msgid "DATE"
+msgstr "DATA"
+
+#: templates/manifest/header.php:17
+msgid "DEVICE ID"
+msgstr "ID DISPOSITIVO"
+
+#: templates/manifest/header.php:21
+msgid "EMPLOYEE NAME"
+msgstr "NOME DIPENDENTE"
+
+#: templates/manifest/header.php:30
+msgid "EMPLOYEE SIGNATURE"
+msgstr "FIRMA DEL DIPENDENTE"
+
+#: templates/no-shipment.php:3
+msgid "Error 404"
+msgstr "Errore 404"
+
+#: templates/no-shipment.php:4
+msgid "Shipment not found!"
+msgstr "Spedizione non trovata!"
+
+#: templates/restricted.tpl.php:3
+msgid "Sorry your are not allowed to access this page!"
+msgstr "Siamo spiacenti se non ti è permesso accedere a questa pagina!"
+
+#: templates/restricted.tpl.php:3
+msgid "Please contact administrator for your permission."
+msgstr "Contattare l'amministratore per l'autorizzazione."
+
+#: wpcargo-shipment-container-add-ons.php:30
+msgid ""
+"This plugin requires <a href=\"http://wpcargo.com/\">WPCargo</a> Free "
+"Version to activate"
+msgstr ""
+"Questo plugin richiede <a href=\"http://wpcargo.com/\">WPCargo</a> Free "
+"Version per attivare"
+
+#: wpcargo-shipment-container-add-ons.php:34
+msgid "This plugin requires WPCargo Custom Field Addons to activate"
+msgstr "Questo plugin richiede WPCargo Custom Field Addons per attivare"
+
+#: wpcargo-shipment-container-add-ons.php:47
+msgid ""
+"This plugin requires <a href=\"http://wpcargo.com/\">WPTaskForce License "
+"Helper</a> plugin to activate!"
+msgstr ""
+"Questo plugin richiede <a href=\"http://wpcargo.com/\">WPTaskForce Licenza "
+"Helper</a> plugin per attivare!"
+
+#. Plugin Name of the plugin/theme
+msgid "WPCargo Shipment Container Add-ons"
+msgstr "Componenti aggiuntivi del contenitore di spedizione WPCargo"
+
+#. Plugin URI of the plugin/theme
+msgid "http://wptaskforce.com/"
+msgstr "http://wptaskforce.com/"
+
+#. Description of the plugin/theme
+msgid ""
+"WPCargo Shipment Container Add-ons helps manage shipment into container. "
+"Shorcode available for frontend [wpcargo-container-track-form pageredirect="
+"\"page_id\"], [wpcargo-container-track-result]"
+msgstr ""
+"I componenti aggiuntivi del contenitore di spedizione WPCargo aiutano a "
+"gestire la spedizione in container. Shorcode disponibile per frontend "
+"[wpcargo-container-track-form pageredirect=\"page_id\"], [wpcargo-container-"
+"track-result]"
+
+#. Author of the plugin/theme
+msgid "<a href=\"http://www.wptaskforce.com/\">WPTaskForce</a>"
+msgstr ""
+"<a href=\"http://www.wptaskforce.com/\">WPTaskForce (informazioni in stato "
+"inlocale)</a>"

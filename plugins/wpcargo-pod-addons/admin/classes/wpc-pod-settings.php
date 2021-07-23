@@ -96,6 +96,7 @@ class WPC_POD_Settings {
 		register_setting( 'wpcargo_pod_settings_group', 'wpcargo_pod_status' );
 		register_setting( 'wpcargo_pod_settings_group', 'wpcpod_route_status' );
 		register_setting( 'wpcargo_pod_settings_group', 'wpcpod_route_field' );
+		register_setting( 'wpcargo_pod_settings_group', 'wpcpod_route_segment_info' );
 		register_setting( 'wpcargo_pod_settings_group', 'wpcpod_route_origin' );
 		register_setting( 'wpcargo_podapp_settings_group', 'wpcargo_podapp_status' );
 		register_setting( 'wpcargo_podapp_settings_group', 'wpcargo_podapp_unrequired_fields' );

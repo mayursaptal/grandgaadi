@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WPCargo Proof of Delivery Add-ons\n"
-"POT-Creation-Date: 2021-01-27 14:33+0800\n"
-"PO-Revision-Date: 2021-01-27 14:33+0800\n"
+"POT-Creation-Date: 2021-05-11 14:25+0800\n"
+"PO-Revision-Date: 2021-05-11 14:26+0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ru_RU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.4.2\n"
+"X-Generator: Poedit 2.4.3\n"
 "X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
@@ -22,26 +22,26 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.min.js\n"
 
-#: admin/classes/class-api.php:204
+#: admin/classes/class-api.php:218
 msgid "Unregistered Status."
 msgstr "Незарегистрированный статус."
 
-#: admin/classes/class-api.php:211 admin/classes/class-api.php:233
+#: admin/classes/class-api.php:225 admin/classes/class-api.php:247
 msgid "Account role denied."
 msgstr "Роль учетной записи отклонена."
 
-#: admin/classes/class-api.php:255
+#: admin/classes/class-api.php:269
 msgid "You are not assigned to this shipment"
 msgstr "Вы не назначены для этой отгрузки"
 
-#: admin/classes/class-pod.php:275 admin/includes/dashboard.php:120
-#: admin/includes/dashboard.php:131 admin/includes/dashboard.php:146
+#: admin/classes/class-pod.php:275 admin/includes/dashboard.php:121
+#: admin/includes/dashboard.php:132 admin/includes/dashboard.php:147
 #: admin/templates/report.php:5 templates/driver-report.php:7
 msgid "Driver"
 msgstr "Водитель"
 
-#: admin/classes/class-pod.php:278 admin/includes/dashboard.php:133
-#: admin/includes/dashboard.php:148 admin/templates/report.php:8
+#: admin/classes/class-pod.php:278 admin/includes/dashboard.php:134
+#: admin/includes/dashboard.php:149 admin/templates/report.php:8
 #: templates/driver-report.php:9
 msgid "-- Select Driver --"
 msgstr "-- Выберите работников --"
@@ -49,7 +49,7 @@ msgstr "-- Выберите работников --"
 #: admin/classes/wpc-pod-settings.php:17 admin/classes/wpc-pod-settings.php:18
 #: admin/classes/wpc-pod-settings.php:24 admin/classes/wpc-pod-settings.php:25
 #: admin/classes/wpc-pod-settings.php:66 admin/classes/wpc-pod-settings.php:85
-#: admin/classes/wpc-pod-settings.php:107
+#: admin/classes/wpc-pod-settings.php:108
 msgid "Proof of Delivery Settings"
 msgstr "Доказательство настроек доставки"
 
@@ -58,7 +58,7 @@ msgstr "Доказательство настроек доставки"
 msgid "POD APP Settings"
 msgstr "Настройки POD APP"
 
-#: admin/classes/wpc-pod-settings.php:108
+#: admin/classes/wpc-pod-settings.php:109
 msgid "POD APP"
 msgstr "POD ПРИЛОЖЕНИЕ"
 
@@ -92,45 +92,56 @@ msgstr "Доказательство доставки"
 msgid "Loading..."
 msgstr "Загрузка..."
 
-#: admin/includes/dashboard.php:165
+#: admin/includes/dashboard.php:166
 msgid "Disable Email for Driver?"
 msgstr "Отключить электронную почту для водителя?"
 
-#: admin/includes/dashboard.php:205 admin/includes/dashboard.php:250
-#: admin/includes/functions.php:493 templates/driver-report.php:4
+#: admin/includes/dashboard.php:206 admin/includes/dashboard.php:251
+#: admin/includes/functions.php:563 templates/driver-report.php:4
+#: templates/functions.php:512
 msgid "Driver Report"
 msgstr "Водитель"
 
-#: admin/includes/dashboard.php:215 admin/templates/wpc-pod-settings.tpl.php:63
+#: admin/includes/dashboard.php:216 admin/templates/wpc-pod-settings.tpl.php:63
 #: templates/route-planner.php:4
 msgid "Driver Route Planner"
 msgstr "Планировщик маршрута водителя"
 
-#: admin/includes/dashboard.php:238
+#: admin/includes/dashboard.php:239
 msgid "Driver Route"
 msgstr "Маршрут водителя"
 
-#: admin/includes/functions.php:119 templates/route-planner-script.php:68
+#: admin/includes/functions.php:150 templates/functions.php:123
+#: templates/route-planner-script.php:86
 msgid "Shipment Number"
 msgstr "Имя грузоотза:"
 
-#: admin/includes/functions.php:120
+#: admin/includes/functions.php:151 templates/functions.php:124
 msgid "Registered Shipper"
 msgstr "Зарегистрированный грузоотза"
 
-#: admin/includes/functions.php:128 templates/wpc-pod-sign-header-cf.tpl.php:36
+#: admin/includes/functions.php:159 templates/functions.php:132
+#: templates/wpc-pod-sign-header-cf.tpl.php:36
 msgid "Shipment Status"
 msgstr "Статус груза"
 
-#: admin/includes/functions.php:400
+#: admin/includes/functions.php:429 templates/functions.php:402
 msgid "No shipment found to generate report"
 msgstr "Отгрузка не найдена для генерации отчета"
 
-#: admin/includes/functions.php:403
+#: admin/includes/functions.php:432 templates/functions.php:405
 msgid "Please wait while generating file..."
 msgstr "Пожалуйста, подождите при генерации файла..."
 
-#: admin/includes/functions.php:427
+#: admin/includes/functions.php:450
+msgid "Sorry! You are not allowed to remove signature."
+msgstr "Извините! Вы не можете удалить подпись."
+
+#: admin/includes/functions.php:462
+msgid "Signature successfully removed!"
+msgstr "Подпись успешно удалена!"
+
+#: admin/includes/functions.php:478 templates/functions.php:429
 #, php-format
 msgid ""
 "Google API key required to run the Driver Route Planner. Add API here <a "
@@ -139,23 +150,27 @@ msgstr ""
 "Ключ Google API, необходимый для запуска планировщика маршрута драйвера. "
 "Добавить API <a href=\"%s\" class=\"btn btn-primary btn-sm\">здесь</a>"
 
-#: admin/includes/functions.php:434
-msgid "No address found."
-msgstr "Страница не найдена!"
+#: admin/includes/functions.php:484 templates/functions.php:435
+msgid "No Delivery for route found."
+msgstr "Доставка по маршруту не найдена."
 
-#: admin/includes/functions.php:496
+#: admin/includes/functions.php:490 templates/functions.php:441
+msgid "Point of Orgin "
+msgstr "Точка Оргина "
+
+#: admin/includes/functions.php:566 templates/functions.php:515
 msgid "WPCargo Proof of Delivery"
 msgstr "WPCargo Доказательство доставки"
 
-#: admin/includes/functions.php:499
+#: admin/includes/functions.php:569 templates/functions.php:518
 msgid "Please activate your license key <a href=\""
 msgstr "Пожалуйста, активируйте ключ лицензии «Хреф»"
 
-#: admin/includes/functions.php:502
+#: admin/includes/functions.php:572 templates/functions.php:521
 msgid "Google Map API Key is not activated."
 msgstr "Ключ API Карты Google не активирован."
 
-#: admin/includes/functions.php:505
+#: admin/includes/functions.php:575 templates/functions.php:524
 msgid ""
 "Sorry you are not allowed to access this page, This page are only for "
 "WPCargo Driver users."
@@ -163,40 +178,40 @@ msgstr ""
 "К сожалению, вы не можете получить доступ к этой странице, Эта страница "
 "только для пользователей WPCargo Driver."
 
-#: admin/includes/functions.php:508
+#: admin/includes/functions.php:578 templates/functions.php:527
 msgid "Your current signature"
 msgstr "Текущая подпись"
 
-#: admin/includes/functions.php:511
+#: admin/includes/functions.php:581 templates/functions.php:530
 msgid "Signature Successfully Saved!"
 msgstr "Подпись успешно сохранена!"
 
-#: admin/includes/functions.php:514
+#: admin/includes/functions.php:584 templates/functions.php:533
 msgid "Error on saving!"
 msgstr "Ошибка при сохранении!"
 
-#: admin/includes/functions.php:517
+#: admin/includes/functions.php:587 templates/functions.php:536
 msgid "Sorry you don't have enough permission to access this page."
 msgstr ""
 "К сожалению, у вас нет достаточного разрешения для доступа к этой странице."
 
-#: admin/includes/functions.php:520
+#: admin/includes/functions.php:590 templates/functions.php:539
 msgid "Delivered"
 msgstr "Доставлено"
 
-#: admin/includes/functions.php:523
+#: admin/includes/functions.php:593 templates/functions.php:542
 msgid "Cancelled"
 msgstr "Отменен"
 
-#: admin/includes/functions.php:526
+#: admin/includes/functions.php:596 templates/functions.php:545
 msgid "Back to Dashboard"
 msgstr "Вернуться к панели инструментов"
 
-#: admin/includes/functions.php:529
+#: admin/includes/functions.php:599 templates/functions.php:548
 msgid "Cheating, uh?"
 msgstr "Обман, а?"
 
-#: admin/includes/functions.php:532
+#: admin/includes/functions.php:602 templates/functions.php:551
 msgid ""
 "This plugin requires <a href=\"https://wordpress.org/plugins/wpcargo/\" "
 "target=\"_blank\">WPCargo</a> plugin to be active!"
@@ -204,7 +219,7 @@ msgstr ""
 "Этот плагин требует <a href=\"https://wordpress.org/plugins/wpcargo/\" "
 "target=\"_blank\">WPCargo</a> плагин, чтобы быть активным!"
 
-#: admin/includes/functions.php:535
+#: admin/includes/functions.php:605 templates/functions.php:554
 msgid ""
 "This plugin requires <a href=\"http://wpcargo.com/\" target=\"_blank"
 "\">WPTaskForce License Helper</a> plugin to be active!"
@@ -212,7 +227,7 @@ msgstr ""
 "Этот плагин требует <a href=\"http://wpcargo.com/\" target=\"_blank"
 "\">WPTaskForce лицензии Помощник</a> плагин, чтобы быть активным!"
 
-#: admin/includes/functions.php:538
+#: admin/includes/functions.php:608 templates/functions.php:557
 msgid ""
 "This plugin requires <strong>WPCargo Frontend Manager</strong> plugin to be "
 "active!"
@@ -220,13 +235,13 @@ msgstr ""
 "Этот плагин требует <strong>WPCargo Frontend manager</strong> плагин, чтобы "
 "быть активным!"
 
-#: admin/templates/report.php:16 templates/driver-report.php:17
-#: templates/wpc-pod-sign.tpl.php:57
+#: admin/templates/report.php:16 admin/templates/wpc-pod-settings.tpl.php:129
+#: templates/driver-report.php:17 templates/wpc-pod-sign.tpl.php:58
 msgid "Status"
 msgstr "Статус"
 
 #: admin/templates/report.php:19 templates/driver-report.php:19
-#: templates/wpc-pod-sign.tpl.php:59
+#: templates/wpc-pod-sign.tpl.php:60
 msgid "-- Select Status --"
 msgstr "-- Выберите статус --"
 
@@ -295,6 +310,14 @@ msgstr "Адрес получателя:"
 msgid "Note: This field will serve as address for the map."
 msgstr "Примечание: Это поле будет служить адресом для карты."
 
+#: admin/templates/wpc-pod-settings.tpl.php:117
+msgid "Additional Route Segment Information"
+msgstr "Дополнительная информация о сегменте маршрута"
+
+#: admin/templates/wpc-pod-settings.tpl.php:131
+msgid "Note: Additional information for the route segment."
+msgstr "Примечание: Дополнительная информация для сегмента маршрута."
+
 #: admin/templates/wpc-pod-signature-metabox.tpl.php:5
 #: admin/templates/wpc-podapp-settings.tpl.php:39
 #: templates/assigned-driver.tpl.php:10
@@ -305,15 +328,19 @@ msgstr "Подпись"
 msgid "Proof of Acknowledgment"
 msgstr "Доказательство признания"
 
-#: admin/templates/wpc-pod-signature-metabox.tpl.php:23
+#: admin/templates/wpc-pod-signature-metabox.tpl.php:13
+msgid "Remove Signature"
+msgstr "Удалить подпись"
+
+#: admin/templates/wpc-pod-signature-metabox.tpl.php:24
 msgid "POD Image"
 msgstr "POD изображение"
 
-#: admin/templates/wpc-pod-signature-metabox.tpl.php:37
+#: admin/templates/wpc-pod-signature-metabox.tpl.php:38
 msgid "Delete"
 msgstr "Удалить"
 
-#: admin/templates/wpc-pod-signature-metabox.tpl.php:48
+#: admin/templates/wpc-pod-signature-metabox.tpl.php:49
 msgid "Add Images / Upload Files"
 msgstr "Добавление изображений / Загрузка файлов"
 
@@ -358,15 +385,23 @@ msgstr "Примечания"
 msgid "Images"
 msgstr "Изображения"
 
-#: templates/route-planner-script.php:64
-msgid "Route Segment"
-msgstr "Действие"
+#: templates/route-planner-script.php:73
+msgid "Point of Origin"
+msgstr "Точка происхождения"
 
-#: templates/route-planner-script.php:65
+#: templates/route-planner-script.php:74 templates/route-planner-script.php:84
+msgid "Distance"
+msgstr "Расстояние"
+
+#: templates/route-planner-script.php:75 templates/route-planner-script.php:85
 msgid "to"
 msgstr "в"
 
-#: templates/route-planner-script.php:74
+#: templates/route-planner-script.php:83
+msgid "Route Segment"
+msgstr "Действие"
+
+#: templates/route-planner-script.php:104
 msgid "Directions request failed due to"
 msgstr "Запрос на направления не удалось из-за"
 
@@ -450,27 +485,27 @@ msgstr "Подпись POD"
 msgid "POD Images"
 msgstr "Pod Изображения"
 
-#: templates/wpc-pod-sign.tpl.php:28
+#: templates/wpc-pod-sign.tpl.php:29
 msgid "ADD IMAGES"
 msgstr "ДОБАВЛЕНИЕ ИЗОБРАЖЕНИЙ"
 
-#: templates/wpc-pod-sign.tpl.php:30
+#: templates/wpc-pod-sign.tpl.php:31
 msgid "Your current captured images:"
 msgstr "Ваши текущие изображения:"
 
-#: templates/wpc-pod-sign.tpl.php:52
+#: templates/wpc-pod-sign.tpl.php:53
 msgid "Location:"
 msgstr "Местоположение:"
 
-#: templates/wpc-pod-sign.tpl.php:70
+#: templates/wpc-pod-sign.tpl.php:71
 msgid "Remarks:"
 msgstr "Примечания:"
 
-#: templates/wpc-pod-sign.tpl.php:80
+#: templates/wpc-pod-sign.tpl.php:81
 msgid "Update"
 msgstr "Обновить"
 
-#: templates/wpc-pod-sign.tpl.php:129 templates/wpc-pod-sign.tpl.php:131
+#: templates/wpc-pod-sign.tpl.php:131 templates/wpc-pod-sign.tpl.php:133
 msgid "Upload Images"
 msgstr "Загрузить изображения"
 
@@ -534,3 +569,6 @@ msgstr ""
 #. Author of the plugin/theme
 msgid "<a href=\"http://wptaskforce.com/\">WPTaskForce</a>"
 msgstr "<a href=\"http://wptaskforce.com/\">WPTaskForce</a>"
+
+#~ msgid "No address found."
+#~ msgstr "Страница не найдена!"

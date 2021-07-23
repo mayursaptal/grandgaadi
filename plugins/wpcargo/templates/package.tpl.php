@@ -32,9 +32,7 @@
 						</td>
 					<?php endforeach; ?>
 				</tr>
-				
 				<?php endforeach; ?>
-				
 				<?php do_action( 'wpcargo_after_package_row', $shipment ); ?>
 			<?php else: ?>
 				<tr>
@@ -45,5 +43,5 @@
 			<?php endif; ?>
 		</tbody>
 	</table>
-	<?php do_action('wpcargo_after_package_details', $shipment ); ?>
+	<?php do_action('wpcargo_after_package_infomation', $shipment ); ?>
 </div>

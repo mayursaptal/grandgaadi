@@ -34,20 +34,27 @@ class WPCargo_CF_Scripts{
 		wp_enqueue_script( 'jquery-migrate' );
 	}
 	function enqueue_front_end() {
+		global $wpcargo;
 		// Styles
-		wp_register_style( 'wpccf-bootstrap-css', WPCARGO_CUSTOM_FIELD_URL . 'assets/css/bootstrap-datepicker.css', array(), WPCARGO_CUSTOM_FIELD_VERSION );
+		wp_register_style( 'wpccf-datetimepicker-css', WPCARGO_CUSTOM_FIELD_URL . 'assets/css/jquery.datetimepicker.min.css', array(), WPCARGO_CUSTOM_FIELD_VERSION );
 		wp_register_style( 'wpccf-style', WPCARGO_CUSTOM_FIELD_URL.'assets/css/wpcargo-custom-fields.css', array(), WPCARGO_CUSTOM_FIELD_VERSION );		
 		wp_register_style( 'wpccf-media-style', WPCARGO_CUSTOM_FIELD_URL.'assets/css/wp-media.css', array(), WPCARGO_CUSTOM_FIELD_VERSION );
-		wp_enqueue_style( 'wpccf-bootstrap-css');
+		wp_enqueue_style( 'wpccf-datetimepicker-css');
 		wp_enqueue_style( 'wpccf-media-style');
 		wp_enqueue_style( 'wpccf-style');
 		// Scripts
-		wp_register_script( 'wpccf-bootstrap-script', WPCARGO_CUSTOM_FIELD_URL . 'assets/js/bootstrap-datepicker.js', array( 'jquery' ), WPCARGO_CUSTOM_FIELD_VERSION,  false );
+		wp_register_script( 'wpccf-datetimepicker-script', WPCARGO_CUSTOM_FIELD_URL . 'assets/js/jquery.datetimepicker.full.min.js', array( 'jquery' ), WPCARGO_CUSTOM_FIELD_VERSION,  false );
 		wp_register_script( 'wpccf-script', WPCARGO_CUSTOM_FIELD_URL . 'assets/js/wpccf-scripts.js', array( 'jquery' ), WPCARGO_CUSTOM_FIELD_VERSION,  false );
 		wp_enqueue_script( 'jquery');
 		wp_enqueue_media();
-		wp_enqueue_script( 'wpccf-bootstrap-script');
+		wp_enqueue_script( 'wpccf-datetimepicker-script');
 		wp_enqueue_script( 'wpccf-script');
+		$translation   = array(
+			'dateFormat'           => $wpcargo->date_format,
+			'timeFormat'           => $wpcargo->time_format,
+			'dateTimeFormat'       => $wpcargo->datetime_format
+		);
+		wp_localize_script( 'wpccf-script', 'wpccfAjaxhandler', $translation );
 	}
 }
 new WPCargo_CF_Scripts;

@@ -98,12 +98,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 				// response
 				$("#wpcargo-signature-img").html('<img src="'+get_load_url+'" />');
 				$(".wpc-signature-status").html('<img src="'+get_load_url+'" />');
-				console.log('Loading....');
 			},
 			success:function(response){
 				//response		
-				console.log(response);
-				console.log(response.wpcargo_attach_id);
 				$('#'+get_sign_field_id).val(response.wpcargo_attach_id);
 				$('#'+get_img_wrap).html(response.wpcargo_attach_img);	
 				$('.wpc-signature-status').html(response.signature_status);											

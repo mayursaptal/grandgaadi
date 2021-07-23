@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	
     <table class="form-table">
 		<tr>
-			<th><?php esc_html_e('Exclude Status for Driver', 'wpcargo-pod' ); ?></th>
+			<th><?php _e('Exclude Status for Driver', 'wpcargo-pod' ); ?></th>
 			<td>
 				<select class="wpcpod-select2" name="wpcargo_pod_status[]" multiple="multiple" style="width:360px;">
 					<?php
@@ -27,11 +27,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 					}
 					?>
 				</select>
-				<p class="description"><?php esc_html_e('Note: This options applicable only in front end dashboard. It will exclude the shipment status in updating the shipment.', 'wpcargo-frontend-manager'); ?></p>
+				<p class="description"><?php _e('Note: This options applicable only in front end dashboard. It will exclude the shipment status in updating the shipment.', 'wpcargo-frontend-manager'); ?></p>
 			</td>
 		</tr>
 		<tr>
-			<th scope="row"><?php esc_html_e( 'Select shipper fields to display when driver update shipment', 'wpcargo-pod' ) ; ?></th>	
+			<th scope="row"><?php _e( 'Select shipper fields to display when driver update shipment', 'wpcargo-pod' ) ; ?></th>	
 			<td>
 			<?php
 				if( !empty( $shipper_fields ) ){
@@ -45,7 +45,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			</td>	
 		</tr>
 		<tr>
-			<th scope="row"><?php esc_html_e( 'Select receiver fields to display when driver update shipment', 'wpcargo-pod' ) ; ?></th>	
+			<th scope="row"><?php _e( 'Select receiver fields to display when driver update shipment', 'wpcargo-pod' ) ; ?></th>	
 			<td>
 			<?php
 				if( !empty( $receiver_fields ) ){
@@ -60,10 +60,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</tr>
     </table>
 	<?php if( !empty( get_option('shmap_api') ) ): $route_origin = wpcpod_route_origin(); ?>
-		<h2><?php esc_html_e('Driver Route Planner', 'wpcargo-pod'); ?></h2>
+		<h2><?php _e('Driver Route Planner', 'wpcargo-pod'); ?></h2>
 		<table class="form-table">
 			<tr>
-				<th scope="row"><?php esc_html_e( 'Point of Orgin / Warehouse', 'wpcargo-pod' ); ?></th>
+				<th scope="row"><?php _e( 'Point of Orgin / Warehouse', 'wpcargo-pod' ); ?></th>
 				<td>
 					<input type="hidden" name="wpcpod_route_origin[latitude]" id="wpcpod_route_origin-lat" value="<?php echo $route_origin['latitude']; ?>">
 					<input type="hidden" name="wpcpod_route_origin[longitude]" id="wpcpod_route_origin-long" value="<?php echo $route_origin['longitude']; ?>">
@@ -75,7 +75,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				</td>
 			</tr>
 			<tr>
-				<th><?php esc_html_e('Display status to Map Route', 'wpcargo-pod' ); ?></th>
+				<th><?php _e('Display status to Map Route', 'wpcargo-pod' ); ?></th>
 				<td>
 					<select class="wpcpod-select2" name="wpcpod_route_status[]" multiple="multiple" style="width:360px;" required>
 						<?php
@@ -93,13 +93,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 						}
 						?>
 					</select>
-					<p class="description"><?php esc_html_e('Note: This display the shipments in the Map Route.', 'wpcargo-frontend-manager'); ?></p>
+					<p class="description"><?php _e('Note: This display the shipments in the Map Route.', 'wpcargo-frontend-manager'); ?></p>
 				</td>
 			</tr>
 			<tr>
-				<th><?php esc_html_e('Receiver Address Field', 'wpcargo-pod' ); ?></th>
+				<th><?php _e('Receiver Address Field', 'wpcargo-pod' ); ?></th>
 				<td>
-					<select class="wpcpod-select2" name="wpcpod_route_field[]" multiple="multiple" style="width:360px;" required>
+					<select class="wpcpod-select2 wpcpod-order-select2" name="wpcpod_route_field[]" multiple="multiple" style="width:360px;" required>
 						<?php
 						if( !empty( $receiver_fields ) ){
 							$wpcpod_route_field 	= get_option('wpcpod_route_field');
@@ -110,7 +110,25 @@ if ( ! defined( 'ABSPATH' ) ) {
 						}
 						?>
 					</select>
-					<p class="description"><?php esc_html_e('Note: This field will serve as address for the map.', 'wpcargo-frontend-manager'); ?></p>
+					<p class="description"><?php _e('Note: This field will serve as address for the map.', 'wpcargo-frontend-manager'); ?></p>
+				</td>
+			</tr>
+			<tr>
+				<th><?php _e('Additional Route Segment Information', 'wpcargo-pod' ); ?></th>
+				<td>
+					<select class="wpcpod-select2 wpcpod-order-select2" name="wpcpod_route_segment_info[]" multiple="multiple" style="width:360px;" required>
+						<?php
+						if( !empty( $receiver_fields ) ){
+							$route_info 	= get_option('wpcpod_route_segment_info');
+							$route_info 	= !empty( $route_info) && is_array( $route_info ) ? $route_info : array() ;
+							foreach ( $receiver_fields as $rfield) {
+								?><option value="<?php echo $rfield['field_key']; ?>" <?php echo in_array( $rfield['field_key'], $route_info ) ? 'selected' : '' ; ?>><?php echo $rfield['label']; ?></option><?php
+							}
+						}
+						?>
+						<option value="wpcargo_status" <?php echo in_array( 'wpcargo_status', $route_info ) ? 'selected' : '' ; ?>><?php _e('Status', 'wpcargo-pod' ); ?></option>
+					</select>
+					<p class="description"><?php _e('Note: Additional information for the route segment.', 'wpcargo-frontend-manager'); ?></p>
 				</td>
 			</tr>
 		</table>
@@ -145,6 +163,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 						position: location,
 						map: map,
 						draggable:true,
+						icon: "<?php echo WPCARGO_POD_URL.'assets/img/origin.png';  ?>",
 						animation: google.maps.Animation.DROP,
 					});
 					marker.addListener('dragend', function( event ){
@@ -157,7 +176,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 							
 					});
 				}
-
 				function geocodePosition(pos) {
 					geocoder.geocode({
 						latLng: pos

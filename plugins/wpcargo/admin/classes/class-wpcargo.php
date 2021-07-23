@@ -259,9 +259,12 @@ class WPCargo{
 		 );
 		$agents = get_users( $args );
 		if( !empty($agents) ){
-			foreach ($agents as $agent ) {
-				$full_name = ( !empty( $agent->first_name ) && !empty( $agent->last_name ) ) ? $agent->first_name.' '.$agent->last_name : $agent->display_name ;
-				$users[$agent->ID] = $full_name;
+			foreach ($agents as $user ) {
+				$user_fullname = $user->display_name;
+				if( !empty( $user->first_name ) && !empty( $user->last_name ) ){
+					$user_fullname = $user->first_name.' '.$user->last_name;
+				}
+				$users[$user->ID] = $user_fullname;
 			}
 		}
 		return $users;

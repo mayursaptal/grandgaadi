@@ -25,13 +25,8 @@ function wpcfe_bulkprint_ajax_callback(){
     $print_type     = $_POST['printType'];
     $waybill_title 	= $print_type.'-'.time();	
     $print_paper    = wpcfe_print_paper()[$print_type];
-    // instantiate and use the dompdf class
-    // $options 		= new WPCFE_Options();
-    // $options->setDpi( $wpcfe_pdf_dpi );
-    // $dompdf 		= new Dompdf( $options );
-    // $dompdf->set_option('isRemoteEnabled', true);
-    // $dompdf->loadHtml( wpcfe_bulkprint_template_path( $shipment_ids, $waybill_title, $print_type ) );
-    $output=wpcfe_bulkprint_template_path( $shipment_ids, $waybill_title, $print_type );
+	
+	  $output=wpcfe_bulkprint_template_path( $shipment_ids, $waybill_title, $print_type );
 
 
 
@@ -50,7 +45,13 @@ function wpcfe_bulkprint_ajax_callback(){
  wp_die();
  
  die();
- 
+	
+    // instantiate and use the dompdf class
+    $options 		= new WPCFE_Options();
+    $options->setDpi( $wpcfe_pdf_dpi );
+    $dompdf 		= new Dompdf( $options );
+    $dompdf->set_option('isRemoteEnabled', true);
+    $dompdf->loadHtml( wpcfe_bulkprint_template_path( $shipment_ids, $waybill_title, $print_type ) );
     $dompdf->setPaper( $print_paper['size'], $print_paper['orient']);
     // Render the HTML as PDF
     $dompdf->render();
@@ -186,10 +187,6 @@ function wpcfe_bulkprint_template_path( $shipment_ids, $waybill_title, $print_ty
 // Print Shipment Functionality - Print Button with dropdown
 add_action( 'wp_ajax_wpcfe_print_shipment', 'wpcfe_print_shipment_ajax_callback' );
 function wpcfe_print_shipment_ajax_callback(){
-
-
-
-
     global $wpdb, $WPCCF_Fields, $wpcargo;
     // Variables
     $wpcfe_pdf_dpi  = apply_filters( 'wpcfe_pdf_dpi', 160 );
@@ -203,16 +200,8 @@ function wpcfe_print_shipment_ajax_callback(){
         unlink($pdf_file);
     }
     $waybill_title  = $print_type.'-'.preg_replace("/[^A-Za-z0-9 ]/", '', get_the_title($shipment_id) ).'-'.time();
-    // instantiate and use the dompdf class
-    // $options 		= new WPCFE_Options();
-    // $options->setDpi( $wpcfe_pdf_dpi );
-    // $dompdf 		= new Dompdf( $options );
-    // $dompdf->set_option('isRemoteEnabled', true);
-
-
-
-// it  is a html file path check function file get contect on google
-   $output=wpcfe_print_shipment_template_path( $shipment_id, $waybill_title, $print_type );
+	
+	  $output=wpcfe_print_shipment_template_path( $shipment_id, $waybill_title, $print_type );
 
 
 
@@ -231,11 +220,15 @@ echo json_encode( $data_info );
 wp_die();
 
 die();
-
+	
+    // instantiate and use the dompdf class
+    $options 		= new WPCFE_Options();
+    $options->setDpi( $wpcfe_pdf_dpi );
+    $dompdf 		= new Dompdf( $options );
+    $dompdf->set_option('isRemoteEnabled', true);
     $dompdf->loadHtml( wpcfe_print_shipment_template_path( $shipment_id, $waybill_title, $print_type ) );
-    
-    
-    
+	
+	
     // (Optional) Setup the paper size and orientation
     $dompdf->setPaper( $print_paper['size'], $print_paper['orient']);
     // Render the HTML as PDF
@@ -256,12 +249,15 @@ die();
 // Template Path
 function wpcfe_print_shipment_template_path( $shipment_id, $waybill_title, $print_type ){
     ob_start();
+	
+	
     global $WPCCF_Fields, $wpcargo, $wpcargo_print_admin;
     $shipmentID             = $shipment_id;
     if( wpcfe_enable_label_multiple_print() && $print_type == 'label' ){
         $print_type         = $print_type.'-packages';
     }
     $custom_template_path   = get_stylesheet_directory() .'/wpcargo/'. $print_type.'.tpl.php';
+	
     $mp_settings            = get_option('wpc_mp_settings');
     $setting_options        = get_option('wpcargo_option_settings');
     $packages               = maybe_unserialize( get_post_meta( $shipmentID,'wpc-multiple-package', TRUE) );
@@ -287,7 +283,8 @@ function wpcfe_print_shipment_template_path( $shipment_id, $waybill_title, $prin
         'cargoSettings'	=> $setting_options,
         'packages'		=> $packages,
         'logo'			=> $logo,
-        'siteInfo'		=> $siteInfo
+        'siteInfo'		=> $siteInfo,
+		'meta'			=> get_post_meta($shipment_id)
     );
     ?>
     <!DOCTYPE html>
@@ -334,6 +331,7 @@ function wpcfe_print_shipment_template_path( $shipment_id, $waybill_title, $prin
         }else{
             if( $print_type != 'waybill' ){
                 $template_path  = include( WPCFE_PATH.'templates/print/'.$print_type.'.php' );
+				
             }else{
                 ?>
                 <style type="text/css">

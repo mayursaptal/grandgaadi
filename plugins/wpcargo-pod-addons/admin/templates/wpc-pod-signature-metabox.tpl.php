@@ -1,26 +1,27 @@
 <div class="wpcargo-pod">
 	<?php do_action( 'wpc_pod_before_default_details', $post->ID ); ?>
 	<table class="wpcargo form-table">
-		<tr>
-			<th><?php esc_html_e( 'Signature', 'wpcargo-pod' ); ?></th>
+		<tr id="signature-row">
+			<th><?php _e( 'Signature', 'wpcargo-pod' ); ?></th>
 			<td>
 				<?php
 				if(!empty($get_pod_signature)) {
 				?>
 					<div id="wpcargo-pod-signature-img">
-						<p><?php esc_html_e( 'Proof of Acknowledgment', 'wpcargo-pod' ); ?></p>
+						<p><?php _e( 'Proof of Acknowledgment', 'wpcargo-pod' ); ?></p>
 						<img src="<?php echo wp_get_attachment_url( $get_pod_signature ); ?>" />
+						<button id="remove-signature" data-id="<?php echo $post->ID ?>" class="button button-danger button-small" ><?php _e( 'Remove Signature', 'wpcargo-pod' ); ?></button>
 					</div>	<!-- wpcargo-pod-signature-img -->
 				<?php
 				}
 				?>
 			</td>
 		</tr>
-		<tr>
+		<tr id="images-row">
 			<?php
 			$get_pod_pictures = get_post_meta($post->ID, 'wpcargo-pod-image', true);
 			?>
-			<th><label><?php esc_html_e( 'POD Image', 'wpcargo-pod' ); ?></label></th>
+			<th><label><?php _e( 'POD Image', 'wpcargo-pod' ); ?></label></th>
 			<td>
 				<div class="wpcargo-uploader">
 					<div id="wpcargo-gallery-container_pod">
@@ -34,7 +35,7 @@
 										<li class="image" data-attachment_id="<?php echo $image_id; ?>">
 											<a href="<?php echo wp_get_attachment_url($image_id); ?>"><?php echo wp_get_attachment_image($image_id, 'thumbnail', TRUE); ?></a>
 											<ul class="actions">
-												<li><a href="#" class="delete" title="Delete image"><?php esc_html_e( 'Delete', 'wpcargo-pod' ); ?></a></li>
+												<li><a href="#" class="delete" title="Delete image"><?php _e( 'Delete', 'wpcargo-pod' ); ?></a></li>
 											</ul>
 										</li>
 										<?php
@@ -53,11 +54,11 @@
 			jQuery(document).ready(function($){	
 				// Uploading files	
 				var file_frame;	
-				var wp_media_post_id = wp.media.model.settings.post.id; // Store the old id	
-				var set_to_post_id = $("#wpcargo_post_id_pod").val(); // Set this	
-				var $image_gallery_ids = $( '#wpcargo_image_gallery_pod' );	
-				var $product_images    = $( '#wpcargo-gallery-container_pod' ).find( 'ul.wpcargo_images' );	
-				jQuery('#wpcargo_select_gallery_pod').live('click', function( event ) {	
+				var wp_media_post_id 	= wp.media.model.settings.post.id; // Store the old id	
+				var set_to_post_id 		= $("#wpcargo_post_id_pod").val(); // Set this	
+				var image_gallery_ids 	= $( '#wpcargo_image_gallery_pod' );	
+				var product_images    	= $( '#wpcargo-gallery-container_pod' ).find( 'ul.wpcargo_images' );	
+				jQuery('#wpcargo_select_gallery_pod').on('click', function( event ) {	
 					var $el = $( this );	
 					event.preventDefault();	
 					// If the media frame already exists, reopen it.	
@@ -82,16 +83,16 @@
 					// When an image is selected, run a callback.	
 					file_frame.on( 'select', function() {	
 						var selection = file_frame.state().get( 'selection' );	
-						var attachment_ids = $image_gallery_ids.val();	
+						var attachment_ids = image_gallery_ids.val();	
 						selection.map( function( attachment ) {	
 							attachment = attachment.toJSON();	
 							if ( attachment.id ) {	
 								attachment_ids   = attachment_ids ? attachment_ids + ',' + attachment.id : attachment.id;	
 								var attachment_image = attachment.sizes && attachment.sizes.thumbnail ? attachment.sizes.thumbnail.url : attachment.url;	
-								$product_images.append( '<li class="image" data-attachment_id="' + attachment.id + '"><img src="' + attachment_image + '" /><ul class="actions"><li><a href="#" class="delete" title="' + $el.data('delete') + '">' + $el.data('text') + '</a></li></ul></li>' );	
+								product_images.append( '<li class="image" data-attachment_id="' + attachment.id + '"><img src="' + attachment_image + '" /><ul class="actions"><li><a href="#" class="delete" title="' + $el.data('delete') + '">' + $el.data('text') + '</a></li></ul></li>' );	
 							}	
 						});	
-					$image_gallery_ids.val( attachment_ids );	
+					image_gallery_ids.val( attachment_ids );	
 					});	
 					// Finally, open the modal	
 					file_frame.open();	
@@ -101,19 +102,46 @@
 					wp.media.model.settings.post.id = wp_media_post_id;	
 				});	
 				// Remove images	
-				$( '#wpcargo-gallery-container_pod' ).on( 'click', 'a.delete', function() {	
-					$( this ).closest( 'li.image' ).remove();	
+				jQuery( '#wpcargo-gallery-container_pod' ).on( 'click', 'a.delete', function( e ) {	
+					e.preventDefault();
+					jQuery( this ).closest( 'li.image' ).remove();	
 					var attachment_ids = '';	
-					$( '#wpcargo-gallery-container_pod' ).find( 'ul li.image' ).css( 'cursor', 'default' ).each( function() {	
+					jQuery( '#wpcargo-gallery-container_pod' ).find( 'ul li.image' ).css( 'cursor', 'default' ).each( function() {	
 						var attachment_id = jQuery( this ).attr( 'data-attachment_id' );	
 						attachment_ids = attachment_ids + attachment_id + ',';	
 					});	
-					$image_gallery_ids.val( attachment_ids );	
+					image_gallery_ids.val( attachment_ids );	
 					// remove any lingering tooltips	
-					$( '#tiptip_holder' ).removeAttr( 'style' );	
-					$( '#tiptip_arrow' ).removeAttr( 'style' );	
+					jQuery( '#tiptip_holder' ).removeAttr( 'style' );	
+					jQuery( '#tiptip_arrow' ).removeAttr( 'style' );	
 					return false;	
 				});	
+				// Remove Signature
+				$('#remove-signature').on('click', function( e ){
+					e.preventDefault();
+					var postID 	= $(this).data('id');
+					$.ajax({
+						type: "POST",
+						url: "<?php echo admin_url( 'admin-ajax.php' ) ?>",
+						data:{
+							action: 'wpcpod_remove_signature',
+							postID: postID
+						},
+						beforeSend:function(){
+							$('body').append('<div class="wpcargo-loading">Loading...</div>');
+							jQuery('#signature-row td .sign-response').remove();
+						},
+						success:function(response){
+							if( response.status == 'success'){
+								jQuery('#signature-row td').html('')
+							}
+							jQuery('#signature-row td').prepend(
+									`<div class="sign-response response-${response.status}"> ${response.message}</div>`
+							);
+							$('body .wpcargo-loading').remove();
+						}
+					});
+				});
 			});
 		</script>
 	</table>

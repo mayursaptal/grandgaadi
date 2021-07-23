@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WPCargo Proof of Delivery Add-ons\n"
-"POT-Creation-Date: 2021-01-27 14:35+0800\n"
-"PO-Revision-Date: 2021-01-27 14:35+0800\n"
+"POT-Creation-Date: 2021-05-11 14:27+0800\n"
+"PO-Revision-Date: 2021-05-11 14:28+0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: he_IL\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.4.2\n"
+"X-Generator: Poedit 2.4.3\n"
 "X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n==2 ? 1 : n>10 && n%10==0 ? "
 "2 : 3);\n"
@@ -22,26 +22,26 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.min.js\n"
 
-#: admin/classes/class-api.php:204
+#: admin/classes/class-api.php:218
 msgid "Unregistered Status."
 msgstr "מצב לא רשום."
 
-#: admin/classes/class-api.php:211 admin/classes/class-api.php:233
+#: admin/classes/class-api.php:225 admin/classes/class-api.php:247
 msgid "Account role denied."
 msgstr "תפקיד החשבון נדחה."
 
-#: admin/classes/class-api.php:255
+#: admin/classes/class-api.php:269
 msgid "You are not assigned to this shipment"
 msgstr "לא תקצה למשלוח זה"
 
-#: admin/classes/class-pod.php:275 admin/includes/dashboard.php:120
-#: admin/includes/dashboard.php:131 admin/includes/dashboard.php:146
+#: admin/classes/class-pod.php:275 admin/includes/dashboard.php:121
+#: admin/includes/dashboard.php:132 admin/includes/dashboard.php:147
 #: admin/templates/report.php:5 templates/driver-report.php:7
 msgid "Driver"
 msgstr "מנהל התקן"
 
-#: admin/classes/class-pod.php:278 admin/includes/dashboard.php:133
-#: admin/includes/dashboard.php:148 admin/templates/report.php:8
+#: admin/classes/class-pod.php:278 admin/includes/dashboard.php:134
+#: admin/includes/dashboard.php:149 admin/templates/report.php:8
 #: templates/driver-report.php:9
 msgid "-- Select Driver --"
 msgstr "-- בחר מנהל התקן --"
@@ -49,7 +49,7 @@ msgstr "-- בחר מנהל התקן --"
 #: admin/classes/wpc-pod-settings.php:17 admin/classes/wpc-pod-settings.php:18
 #: admin/classes/wpc-pod-settings.php:24 admin/classes/wpc-pod-settings.php:25
 #: admin/classes/wpc-pod-settings.php:66 admin/classes/wpc-pod-settings.php:85
-#: admin/classes/wpc-pod-settings.php:107
+#: admin/classes/wpc-pod-settings.php:108
 msgid "Proof of Delivery Settings"
 msgstr "הגדרות הוכחת מסירה"
 
@@ -58,7 +58,7 @@ msgstr "הגדרות הוכחת מסירה"
 msgid "POD APP Settings"
 msgstr "הגדרות אפליקציית POD"
 
-#: admin/classes/wpc-pod-settings.php:108
+#: admin/classes/wpc-pod-settings.php:109
 msgid "POD APP"
 msgstr "אפליקציית POD"
 
@@ -92,108 +92,123 @@ msgstr "הוכחת מסירה"
 msgid "Loading..."
 msgstr "טוען..."
 
-#: admin/includes/dashboard.php:165
+#: admin/includes/dashboard.php:166
 msgid "Disable Email for Driver?"
 msgstr "הפיכת דואר אלקטרוני ללא זמין עבור מנהל התקן?"
 
-#: admin/includes/dashboard.php:205 admin/includes/dashboard.php:250
-#: admin/includes/functions.php:493 templates/driver-report.php:4
+#: admin/includes/dashboard.php:206 admin/includes/dashboard.php:251
+#: admin/includes/functions.php:563 templates/driver-report.php:4
+#: templates/functions.php:512
 msgid "Driver Report"
 msgstr "דוח מנהל התקן"
 
-#: admin/includes/dashboard.php:215 admin/templates/wpc-pod-settings.tpl.php:63
+#: admin/includes/dashboard.php:216 admin/templates/wpc-pod-settings.tpl.php:63
 #: templates/route-planner.php:4
 msgid "Driver Route Planner"
 msgstr "מתכנן נתיב של מנהל התקן"
 
-#: admin/includes/dashboard.php:238
+#: admin/includes/dashboard.php:239
 msgid "Driver Route"
 msgstr "נתיב מנהל התקן"
 
-#: admin/includes/functions.php:119 templates/route-planner-script.php:68
+#: admin/includes/functions.php:150 templates/functions.php:123
+#: templates/route-planner-script.php:86
 msgid "Shipment Number"
 msgstr "מספר משלוח"
 
-#: admin/includes/functions.php:120
+#: admin/includes/functions.php:151 templates/functions.php:124
 msgid "Registered Shipper"
 msgstr "שולח רשום"
 
-#: admin/includes/functions.php:128 templates/wpc-pod-sign-header-cf.tpl.php:36
+#: admin/includes/functions.php:159 templates/functions.php:132
+#: templates/wpc-pod-sign-header-cf.tpl.php:36
 msgid "Shipment Status"
 msgstr "מצב משלוח"
 
-#: admin/includes/functions.php:400
+#: admin/includes/functions.php:429 templates/functions.php:402
 msgid "No shipment found to generate report"
 msgstr "לא נמצא משלוח כדי ליצור דוח"
 
-#: admin/includes/functions.php:403
+#: admin/includes/functions.php:432 templates/functions.php:405
 msgid "Please wait while generating file..."
 msgstr "נא המתן בעת יצירת קובץ..."
 
-#: admin/includes/functions.php:427
+#: admin/includes/functions.php:450
+msgid "Sorry! You are not allowed to remove signature."
+msgstr "סליחה! אינך מורשה להסיר חתימה."
+
+#: admin/includes/functions.php:462
+msgid "Signature successfully removed!"
+msgstr "החתימה הוסרה בהצלחה!"
+
+#: admin/includes/functions.php:478 templates/functions.php:429
 #, php-format
 msgid ""
 "Google API key required to run the Driver Route Planner. Add API here <a "
 "href=\"%s\" class=\"btn btn-primary btn-sm\">Here</a>"
 msgstr ""
-"מפתח API של Google נדרש כדי להפעיל את מתכנן נתיב מנהל ההתקן. הוסף API <a "
-"href=\"%s\" class=\"btn btn-primary btn-sm\">כאן</a>"
+"מפתח ה- API של Google הדרוש להפעלת מתכנן נתיב מנהלי ההתקנים. הוסף API <a "
+"href=\"%s\" class=\"btn btn-primary btn-sm\">כאן כאן</a>"
 
-#: admin/includes/functions.php:434
-msgid "No address found."
-msgstr "לא נמצאה כתובת."
+#: admin/includes/functions.php:484 templates/functions.php:435
+msgid "No Delivery for route found."
+msgstr "לא נמצא משלוח עבור נתיב."
 
-#: admin/includes/functions.php:496
+#: admin/includes/functions.php:490 templates/functions.php:441
+msgid "Point of Orgin "
+msgstr "נקודת אורגין "
+
+#: admin/includes/functions.php:566 templates/functions.php:515
 msgid "WPCargo Proof of Delivery"
 msgstr "WPCargo הוכחת משלוח"
 
-#: admin/includes/functions.php:499
+#: admin/includes/functions.php:569 templates/functions.php:518
 msgid "Please activate your license key <a href=\""
 msgstr "נא הפעל את מפתח הרישיון שלך < a href = \""
 
-#: admin/includes/functions.php:502
+#: admin/includes/functions.php:572 templates/functions.php:521
 msgid "Google Map API Key is not activated."
 msgstr "מפתח API של מפת Google אינו מופעל."
 
-#: admin/includes/functions.php:505
+#: admin/includes/functions.php:575 templates/functions.php:524
 msgid ""
 "Sorry you are not allowed to access this page, This page are only for "
 "WPCargo Driver users."
 msgstr "מצטערים, אסור לך לגשת לדף זה, דף זה הוא רק עבור משתמשי WPCargo Driver."
 
-#: admin/includes/functions.php:508
+#: admin/includes/functions.php:578 templates/functions.php:527
 msgid "Your current signature"
 msgstr "החתימה הנוכחית שלך"
 
-#: admin/includes/functions.php:511
+#: admin/includes/functions.php:581 templates/functions.php:530
 msgid "Signature Successfully Saved!"
 msgstr "החתימה נשמרה בהצלחה!"
 
-#: admin/includes/functions.php:514
+#: admin/includes/functions.php:584 templates/functions.php:533
 msgid "Error on saving!"
 msgstr "שגיאה בשמירה!"
 
-#: admin/includes/functions.php:517
+#: admin/includes/functions.php:587 templates/functions.php:536
 msgid "Sorry you don't have enough permission to access this page."
 msgstr "מצטער שאין לך מספיק. רשות לגשת לדף הזה"
 
-#: admin/includes/functions.php:520
+#: admin/includes/functions.php:590 templates/functions.php:539
 msgid "Delivered"
 msgstr "נמסרו"
 
-#: admin/includes/functions.php:523
+#: admin/includes/functions.php:593 templates/functions.php:542
 msgid "Cancelled"
 msgstr "בוטל"
 
-#: admin/includes/functions.php:526
+#: admin/includes/functions.php:596 templates/functions.php:545
 msgid "Back to Dashboard"
 msgstr "בחזרה ללוח בקרה"
 
-#: admin/includes/functions.php:529
+#: admin/includes/functions.php:599 templates/functions.php:548
 msgid "Cheating, uh?"
 msgstr "? רמאות, אה"
 
-#: admin/includes/functions.php:532
+#: admin/includes/functions.php:602 templates/functions.php:551
 msgid ""
 "This plugin requires <a href=\"https://wordpress.org/plugins/wpcargo/\" "
 "target=\"_blank\">WPCargo</a> plugin to be active!"
@@ -201,7 +216,7 @@ msgstr ""
 "תוסף זה דורש <a href=\"https://wordpress.org/plugins/wpcargo/\" target="
 "\"_blank\">Wpcargo</a> plugin להיות פעיל!"
 
-#: admin/includes/functions.php:535
+#: admin/includes/functions.php:605 templates/functions.php:554
 msgid ""
 "This plugin requires <a href=\"http://wpcargo.com/\" target=\"_blank"
 "\">WPTaskForce License Helper</a> plugin to be active!"
@@ -209,19 +224,19 @@ msgstr ""
 "תוסף זה דורש <a href=\"http://wpcargo.com/\" target=\"_blank\">Wptaskforce "
 "המסייע מסייע</a> תוסף להיות פעיל!"
 
-#: admin/includes/functions.php:538
+#: admin/includes/functions.php:608 templates/functions.php:557
 msgid ""
 "This plugin requires <strong>WPCargo Frontend Manager</strong> plugin to be "
 "active!"
 msgstr "תוסף זה דורש <strong>Wpcargo מנהל פרופינטיה</strong> תוסף להיות פעיל!"
 
-#: admin/templates/report.php:16 templates/driver-report.php:17
-#: templates/wpc-pod-sign.tpl.php:57
+#: admin/templates/report.php:16 admin/templates/wpc-pod-settings.tpl.php:129
+#: templates/driver-report.php:17 templates/wpc-pod-sign.tpl.php:58
 msgid "Status"
 msgstr "סטטוס"
 
 #: admin/templates/report.php:19 templates/driver-report.php:19
-#: templates/wpc-pod-sign.tpl.php:59
+#: templates/wpc-pod-sign.tpl.php:60
 msgid "-- Select Status --"
 msgstr "--בחר מצב--"
 
@@ -289,6 +304,14 @@ msgstr "שדה כתובת מקלט"
 msgid "Note: This field will serve as address for the map."
 msgstr "הערה: שדה זה ישמש ככתובת עבור המפה."
 
+#: admin/templates/wpc-pod-settings.tpl.php:117
+msgid "Additional Route Segment Information"
+msgstr "מידע נוסף אודות מקטע נתיב"
+
+#: admin/templates/wpc-pod-settings.tpl.php:131
+msgid "Note: Additional information for the route segment."
+msgstr "הערה: מידע נוסף עבור מקטע הנתיב."
+
 #: admin/templates/wpc-pod-signature-metabox.tpl.php:5
 #: admin/templates/wpc-podapp-settings.tpl.php:39
 #: templates/assigned-driver.tpl.php:10
@@ -299,15 +322,19 @@ msgstr "חתימה"
 msgid "Proof of Acknowledgment"
 msgstr "הוכחת הכרה"
 
-#: admin/templates/wpc-pod-signature-metabox.tpl.php:23
+#: admin/templates/wpc-pod-signature-metabox.tpl.php:13
+msgid "Remove Signature"
+msgstr "הסר חתימה"
+
+#: admin/templates/wpc-pod-signature-metabox.tpl.php:24
 msgid "POD Image"
 msgstr "תמונת POD"
 
-#: admin/templates/wpc-pod-signature-metabox.tpl.php:37
+#: admin/templates/wpc-pod-signature-metabox.tpl.php:38
 msgid "Delete"
 msgstr "מחק"
 
-#: admin/templates/wpc-pod-signature-metabox.tpl.php:48
+#: admin/templates/wpc-pod-signature-metabox.tpl.php:49
 msgid "Add Images / Upload Files"
 msgstr "הוספת תמונות/העלאת קבצים"
 
@@ -352,15 +379,23 @@ msgstr "הערות"
 msgid "Images"
 msgstr "תמונות"
 
-#: templates/route-planner-script.php:64
-msgid "Route Segment"
-msgstr "מקטע נתיב"
+#: templates/route-planner-script.php:73
+msgid "Point of Origin"
+msgstr "נקודת מוצא"
 
-#: templates/route-planner-script.php:65
+#: templates/route-planner-script.php:74 templates/route-planner-script.php:84
+msgid "Distance"
+msgstr "מרחק"
+
+#: templates/route-planner-script.php:75 templates/route-planner-script.php:85
 msgid "to"
 msgstr "עד"
 
-#: templates/route-planner-script.php:74
+#: templates/route-planner-script.php:83
+msgid "Route Segment"
+msgstr "מקטע נתיב"
+
+#: templates/route-planner-script.php:104
 msgid "Directions request failed due to"
 msgstr "בקשת הוראות הגעה נכשלה עקב"
 
@@ -444,27 +479,27 @@ msgstr "חתימת POD"
 msgid "POD Images"
 msgstr "תמונות POD"
 
-#: templates/wpc-pod-sign.tpl.php:28
+#: templates/wpc-pod-sign.tpl.php:29
 msgid "ADD IMAGES"
 msgstr "הוספת תמונות"
 
-#: templates/wpc-pod-sign.tpl.php:30
+#: templates/wpc-pod-sign.tpl.php:31
 msgid "Your current captured images:"
 msgstr "התמונות הנוכחיות שלך שצולמו:"
 
-#: templates/wpc-pod-sign.tpl.php:52
+#: templates/wpc-pod-sign.tpl.php:53
 msgid "Location:"
 msgstr "מיקום:"
 
-#: templates/wpc-pod-sign.tpl.php:70
+#: templates/wpc-pod-sign.tpl.php:71
 msgid "Remarks:"
 msgstr "הערות:"
 
-#: templates/wpc-pod-sign.tpl.php:80
+#: templates/wpc-pod-sign.tpl.php:81
 msgid "Update"
 msgstr "עדכון"
 
-#: templates/wpc-pod-sign.tpl.php:129 templates/wpc-pod-sign.tpl.php:131
+#: templates/wpc-pod-sign.tpl.php:131 templates/wpc-pod-sign.tpl.php:133
 msgid "Upload Images"
 msgstr "העלה תמונה"
 
@@ -527,3 +562,6 @@ msgstr ""
 #. Author of the plugin/theme
 msgid "<a href=\"http://wptaskforce.com/\">WPTaskForce</a>"
 msgstr "<a href=\"http://wptaskforce.com/\">כוח משימות</a>"
+
+#~ msgid "No address found."
+#~ msgstr "לא נמצאה כתובת."

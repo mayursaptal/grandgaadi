@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WPCargo\n"
-"POT-Creation-Date: 2021-02-19 10:59+0800\n"
-"PO-Revision-Date: 2021-02-19 11:00+0800\n"
+"POT-Creation-Date: 2021-06-21 09:37+0800\n"
+"PO-Revision-Date: 2021-06-21 09:38+0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.4.2\n"
+"X-Generator: Poedit 3.0\n"
 "X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
@@ -109,7 +109,7 @@ msgid "Add Shipment Status"
 msgstr "Ajouter l’état d’expédition"
 
 #: admin/classes/class-wpc-custom-table.php:156
-#: admin/includes/functions.php:482
+#: admin/includes/functions.php:501
 msgid "Remarks"
 msgstr "Remarques"
 
@@ -133,7 +133,7 @@ msgstr "Si vous voulez un rapport plus complet et personnalisable, achetez"
 msgid "Shipment Reports"
 msgstr "Rapports d’expédition"
 
-#: admin/classes/class-wpc-export.php:8 admin/includes/functions.php:208
+#: admin/classes/class-wpc-export.php:8 admin/includes/functions.php:223
 #: admin/includes/hooks.php:511 admin/templates/shipper-metabox.tpl.php:7
 msgid "Shipper Name"
 msgstr "Nom de l'expéditeur"
@@ -150,11 +150,11 @@ msgstr "Numéro de téléphone"
 msgid "Shipper Address"
 msgstr "Adresse de l'expéditeur"
 
-#: admin/classes/class-wpc-export.php:23 admin/includes/functions.php:105
+#: admin/classes/class-wpc-export.php:23 admin/includes/functions.php:111
 msgid "Shipper Email"
 msgstr "Expéditeur Email"
 
-#: admin/classes/class-wpc-export.php:28 admin/includes/functions.php:214
+#: admin/classes/class-wpc-export.php:28 admin/includes/functions.php:229
 #: admin/includes/hooks.php:529 admin/templates/receiver-metabox.tpl.php:8
 msgid "Receiver Name"
 msgstr "Nom du destinataire"
@@ -164,7 +164,7 @@ msgstr "Nom du destinataire"
 msgid "Receiver Address"
 msgstr "Adresse du destinataire"
 
-#: admin/classes/class-wpc-export.php:48 admin/includes/functions.php:106
+#: admin/classes/class-wpc-export.php:48 admin/includes/functions.php:112
 msgid "Receiver Email"
 msgstr "Courriel du destinataire"
 
@@ -173,56 +173,56 @@ msgstr "Courriel du destinataire"
 msgid "Agent Name"
 msgstr "Nom de l’agent"
 
-#: admin/classes/class-wpc-export.php:58 admin/includes/functions.php:514
+#: admin/classes/class-wpc-export.php:58 admin/includes/functions.php:533
 #: admin/templates/admin-print-label.tpl.php:85
 #: admin/templates/shipment-metabox.tpl.php:7
 msgid "Type of Shipment"
 msgstr "Type d'expédition"
 
-#: admin/classes/class-wpc-export.php:63 admin/includes/functions.php:515
+#: admin/classes/class-wpc-export.php:63 admin/includes/functions.php:534
 #: admin/templates/admin-print-label.tpl.php:46
 #: admin/templates/shipment-metabox.tpl.php:32
 msgid "Courier"
 msgstr "Courier"
 
-#: admin/classes/class-wpc-export.php:68 admin/includes/functions.php:517
+#: admin/classes/class-wpc-export.php:68 admin/includes/functions.php:536
 #: admin/templates/admin-print-label.tpl.php:94
 #: admin/templates/shipment-metabox.tpl.php:40
 msgid "Mode"
 msgstr "Mode"
 
-#: admin/classes/class-wpc-export.php:73 admin/includes/functions.php:522
+#: admin/classes/class-wpc-export.php:73 admin/includes/functions.php:541
 #: admin/templates/admin-print-label.tpl.php:92
 #: admin/templates/settings-option.tpl.php:145
 #: admin/templates/shipment-metabox.tpl.php:65
 msgid "Quantity"
 msgstr "Quantité"
 
-#: admin/classes/class-wpc-export.php:78 admin/includes/functions.php:523
+#: admin/classes/class-wpc-export.php:78 admin/includes/functions.php:542
 #: admin/templates/admin-print-label.tpl.php:91
 #: admin/templates/shipment-metabox.tpl.php:89
 msgid "Total Freight"
 msgstr "Total du fret"
 
-#: admin/classes/class-wpc-export.php:83 admin/includes/functions.php:516
+#: admin/classes/class-wpc-export.php:83 admin/includes/functions.php:535
 #: admin/templates/admin-print-label.tpl.php:54
 #: admin/templates/shipment-metabox.tpl.php:114
 msgid "Carrier Reference No."
 msgstr "Numéro de référence du transporteur."
 
-#: admin/classes/class-wpc-export.php:88 admin/includes/functions.php:525
+#: admin/classes/class-wpc-export.php:88 admin/includes/functions.php:544
 #: admin/templates/admin-print-label.tpl.php:40
 #: admin/templates/shipment-metabox.tpl.php:125
 msgid "Origin"
 msgstr "Origine"
 
-#: admin/classes/class-wpc-export.php:93 admin/includes/functions.php:526
+#: admin/classes/class-wpc-export.php:93 admin/includes/functions.php:545
 #: admin/templates/admin-print-label.tpl.php:29
 #: admin/templates/shipment-metabox.tpl.php:167
 msgid "Pickup Date"
 msgstr "Date de retrait"
 
-#: admin/classes/class-wpc-export.php:98 admin/includes/functions.php:112
+#: admin/classes/class-wpc-export.php:98 admin/includes/functions.php:118
 msgid "Shipment Status"
 msgstr "Etat de l'expédition"
 
@@ -231,55 +231,55 @@ msgstr "Etat de l'expédition"
 msgid "Comments"
 msgstr "Commentaires"
 
-#: admin/classes/class-wpc-export.php:108 admin/includes/functions.php:521
+#: admin/classes/class-wpc-export.php:108 admin/includes/functions.php:540
 #: admin/templates/admin-print-label.tpl.php:88
 #: admin/templates/shipment-metabox.tpl.php:28
 msgid "Weight"
 msgstr "Poids"
 
 #: admin/classes/class-wpc-export.php:113
-#: admin/classes/class-wpc-metabox.php:100 admin/includes/functions.php:519
+#: admin/classes/class-wpc-metabox.php:100 admin/includes/functions.php:538
 #: admin/templates/admin-print-label.tpl.php:86
 #: admin/templates/shipment-metabox.tpl.php:36 templates/package.tpl.php:2
 msgid "Packages"
 msgstr "Forfaits"
 
-#: admin/classes/class-wpc-export.php:118 admin/includes/functions.php:520
+#: admin/classes/class-wpc-export.php:118 admin/includes/functions.php:539
 #: admin/templates/admin-print-label.tpl.php:87
 #: admin/templates/shipment-metabox.tpl.php:61
 msgid "Product"
 msgstr "Produit"
 
-#: admin/classes/class-wpc-export.php:123 admin/includes/functions.php:524
+#: admin/classes/class-wpc-export.php:123 admin/includes/functions.php:543
 #: admin/templates/admin-print-label.tpl.php:93
 #: admin/templates/shipment-metabox.tpl.php:69
 msgid "Payment Mode"
 msgstr "Mode de paiement"
 
-#: admin/classes/class-wpc-export.php:128 admin/includes/functions.php:518
+#: admin/classes/class-wpc-export.php:128 admin/includes/functions.php:537
 #: admin/templates/admin-print-label.tpl.php:51
 #: admin/templates/shipment-metabox.tpl.php:93
 msgid "Carrier"
 msgstr "Transporteur"
 
-#: admin/classes/class-wpc-export.php:133 admin/includes/functions.php:528
+#: admin/classes/class-wpc-export.php:133 admin/includes/functions.php:547
 #: admin/templates/admin-print-label.tpl.php:57
 #: admin/templates/shipment-metabox.tpl.php:118
 msgid "Departure Time"
 msgstr "Heure de départ"
 
-#: admin/classes/class-wpc-export.php:138 admin/includes/functions.php:527
+#: admin/classes/class-wpc-export.php:138 admin/includes/functions.php:546
 #: admin/templates/admin-print-label.tpl.php:43
 #: admin/templates/shipment-metabox.tpl.php:146
 msgid "Destination"
 msgstr "Destination"
 
-#: admin/classes/class-wpc-export.php:143 admin/includes/functions.php:529
+#: admin/classes/class-wpc-export.php:143 admin/includes/functions.php:548
 #: admin/templates/admin-print-label.tpl.php:32
 msgid "Pickup Time"
 msgstr "Heure de retrait"
 
-#: admin/classes/class-wpc-export.php:148 admin/includes/functions.php:530
+#: admin/classes/class-wpc-export.php:148 admin/includes/functions.php:549
 #: admin/templates/shipment-metabox.tpl.php:175
 msgid "Expected Delivery Date"
 msgstr "Date de livraison souhaitée"
@@ -510,191 +510,191 @@ msgstr "-- Tous les expéditeurs --"
 msgid "-- All Receiver --"
 msgstr "-- Tous les récepteurs --"
 
-#: admin/includes/functions.php:104
+#: admin/includes/functions.php:110
 msgid "Tracking Number"
 msgstr "Numéro de suivi"
 
-#: admin/includes/functions.php:107
+#: admin/includes/functions.php:113
 msgid "Shipper Phone"
 msgstr "Téléphone de l'expéditeur"
 
-#: admin/includes/functions.php:108
+#: admin/includes/functions.php:114
 msgid "Receiver Phone"
 msgstr "Téléphone du destinataire"
 
-#: admin/includes/functions.php:109
+#: admin/includes/functions.php:115
 msgid "Admin Email"
 msgstr "Email de l'administrateur"
 
-#: admin/includes/functions.php:110
+#: admin/includes/functions.php:116
 msgid "Name of the Shipper"
 msgstr "Nom de l'expéditeur"
 
-#: admin/includes/functions.php:111
+#: admin/includes/functions.php:117
 msgid "Name of the Receiver"
 msgstr "Nom du destinataire"
 
-#: admin/includes/functions.php:113 admin/includes/functions.php:464
+#: admin/includes/functions.php:119 admin/includes/functions.php:483
 #: admin/includes/hooks.php:407
 msgid "Location"
 msgstr "Emplacement"
 
-#: admin/includes/functions.php:114
+#: admin/includes/functions.php:120
 msgid "Website Name"
 msgstr "Nom du site"
 
-#: admin/includes/functions.php:115
+#: admin/includes/functions.php:121
 msgid "Website URL"
 msgstr "URL du site"
 
-#: admin/includes/functions.php:116
+#: admin/includes/functions.php:122
 msgid "Registered Client Email"
 msgstr "Expéditeur enregistré"
 
-#: admin/includes/functions.php:123
+#: admin/includes/functions.php:129
 msgid "Pending"
 msgstr "En attente"
 
-#: admin/includes/functions.php:124
+#: admin/includes/functions.php:130
 msgid "Picked up"
 msgstr "Ramassé"
 
-#: admin/includes/functions.php:125
+#: admin/includes/functions.php:131
 msgid "On Hold"
 msgstr "En attente"
 
-#: admin/includes/functions.php:126
+#: admin/includes/functions.php:132
 msgid "Out for delivery"
 msgstr "Sortie pour livraison"
 
-#: admin/includes/functions.php:127
+#: admin/includes/functions.php:133
 msgid "In Transit"
 msgstr "En transit"
 
-#: admin/includes/functions.php:128
+#: admin/includes/functions.php:134
 msgid "Enroute"
 msgstr "Enroute"
 
-#: admin/includes/functions.php:129
+#: admin/includes/functions.php:135
 msgid "Cancelled"
 msgstr "Annulé"
 
-#: admin/includes/functions.php:130
+#: admin/includes/functions.php:136
 msgid "Delivered"
 msgstr "Délivré"
 
-#: admin/includes/functions.php:131
+#: admin/includes/functions.php:137
 msgid "Returned"
 msgstr "Retourné"
 
-#: admin/includes/functions.php:141
+#: admin/includes/functions.php:147
 msgid "-- Select Type --"
 msgstr "-- Sélectionner le type --"
 
-#: admin/includes/functions.php:346
+#: admin/includes/functions.php:365
 msgid "Previous"
 msgstr "Précédent"
 
-#: admin/includes/functions.php:347
+#: admin/includes/functions.php:366
 msgid "Next"
 msgstr "Suiv"
 
-#: admin/includes/functions.php:348
+#: admin/includes/functions.php:367
 msgid "Shipments"
 msgstr "Expéditions"
 
-#: admin/includes/functions.php:385
+#: admin/includes/functions.php:404
 msgid "First"
 msgstr "Premier"
 
-#: admin/includes/functions.php:387
+#: admin/includes/functions.php:406
 msgid "previous"
 msgstr "précédent"
 
-#: admin/includes/functions.php:400
+#: admin/includes/functions.php:419
 msgid "next"
 msgstr "suivant"
 
-#: admin/includes/functions.php:403
+#: admin/includes/functions.php:422
 msgid "Last"
 msgstr "Dernier"
 
 #. Plugin Name of the plugin/theme
-#: admin/includes/functions.php:419
+#: admin/includes/functions.php:438
 msgid "WPCargo"
 msgstr "WPCargo"
 
-#: admin/includes/functions.php:422
+#: admin/includes/functions.php:441
 msgid "General Settings"
 msgstr "Réglages généraux"
 
-#: admin/includes/functions.php:425
+#: admin/includes/functions.php:444
 msgid "Client Email Settings"
 msgstr "Paramètres d’email client"
 
-#: admin/includes/functions.php:428
+#: admin/includes/functions.php:447
 msgid "Admin Email Settings"
 msgstr "Paramètres de l'email admin"
 
-#: admin/includes/functions.php:431
+#: admin/includes/functions.php:450
 msgid "Shipment Settings"
 msgstr "Paramètres d'expédition"
 
-#: admin/includes/functions.php:434
+#: admin/includes/functions.php:453
 msgid "Reports"
 msgstr "Rapports"
 
-#: admin/includes/functions.php:437
+#: admin/includes/functions.php:456
 msgid "Map Settings"
 msgstr "Paramètres de la carte"
 
-#: admin/includes/functions.php:440
+#: admin/includes/functions.php:459
 msgid "Print Layout"
 msgstr "Mise en page d’impression"
 
-#: admin/includes/functions.php:443
+#: admin/includes/functions.php:462
 msgid "Shipment Label"
 msgstr "Libellé d'expédition"
 
-#: admin/includes/functions.php:446 admin/templates/shipment-metabox.tpl.php:2
+#: admin/includes/functions.php:465 admin/templates/shipment-metabox.tpl.php:2
 msgid "Shipment Details"
 msgstr "Détails de l'envoi"
 
-#: admin/includes/functions.php:452 admin/includes/hooks.php:406
+#: admin/includes/functions.php:471 admin/includes/hooks.php:406
 msgid "Date"
 msgstr "Date"
 
-#: admin/includes/functions.php:458
+#: admin/includes/functions.php:477
 msgid "Time"
 msgstr "Heure"
 
-#: admin/includes/functions.php:470 admin/includes/hooks.php:408
+#: admin/includes/functions.php:489 admin/includes/hooks.php:408
 #: admin/templates/admin-print-label.tpl.php:69 templates/account.tpl.php:21
 #: templates/report.tpl.php:23
 msgid "Status"
 msgstr "Statut"
 
-#: admin/includes/functions.php:476
+#: admin/includes/functions.php:495
 msgid "Updated By"
 msgstr "Mis à jour par"
 
-#: admin/includes/functions.php:548
+#: admin/includes/functions.php:567
 msgid "From: "
 msgstr "De : "
 
-#: admin/includes/functions.php:552
+#: admin/includes/functions.php:571
 msgid "Dear"
 msgstr "Cher"
 
-#: admin/includes/functions.php:553
+#: admin/includes/functions.php:572
 msgid "Shipment number "
 msgstr "Numéro d’expédition"
 
-#: admin/includes/functions.php:553
+#: admin/includes/functions.php:572
 msgid " has been assigned to you."
 msgstr "vous a été assigné."
 
-#: admin/includes/functions.php:558
+#: admin/includes/functions.php:577
 msgid "Assign Shipment Notification"
 msgstr "Attribuer la notification d’expédition"
 
@@ -730,7 +730,7 @@ msgstr "E-mail"
 msgid "RECEIVER DETAILS:"
 msgstr "Détails de l'expéditeur"
 
-#: admin/includes/hooks.php:560
+#: admin/includes/hooks.php:563
 msgid "PACKAGE DETAILS:"
 msgstr "Détails du forfait"
 
@@ -1340,15 +1340,15 @@ msgstr "Formule"
 msgid "Volumetric Weight."
 msgstr "Poids volumetricrique."
 
-#: admin/templates/settings-option.tpl.php:145 includes/packages.php:159
+#: admin/templates/settings-option.tpl.php:145 includes/packages.php:184
 msgid "Length"
 msgstr "Longueur"
 
-#: admin/templates/settings-option.tpl.php:145 includes/packages.php:165
+#: admin/templates/settings-option.tpl.php:145 includes/packages.php:190
 msgid "Width"
 msgstr "Largeur"
 
-#: admin/templates/settings-option.tpl.php:145 includes/packages.php:171
+#: admin/templates/settings-option.tpl.php:145 includes/packages.php:196
 msgid "Height"
 msgstr "Hauteur"
 
@@ -1505,19 +1505,19 @@ msgstr "Poids total du volume :"
 msgid "Total Actual Weight :"
 msgstr "Poids réel total :"
 
-#: includes/packages.php:139
+#: includes/packages.php:164
 msgid "Qty."
 msgstr "Qté."
 
-#: includes/packages.php:145
+#: includes/packages.php:170
 msgid "Piece Type"
 msgstr "Type de pièce"
 
-#: includes/packages.php:151
+#: includes/packages.php:176
 msgid "Description"
 msgstr "Description"
 
-#: includes/packages.php:178
+#: includes/packages.php:203
 msgid "Weight "
 msgstr "Težina"
 
@@ -1574,7 +1574,7 @@ msgstr "Désignation"
 msgid "No shipment found!"
 msgstr "Envoi non trouvé"
 
-#: templates/package.tpl.php:42
+#: templates/package.tpl.php:40
 msgid "Data empty"
 msgstr "Données vides"
 
