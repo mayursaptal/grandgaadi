@@ -138,9 +138,10 @@ if (@$_GET['driverData']) {
 
         $last_update = end($data);
 
-
-
-
+        $last_date = $last_update['date'];
+        $last_date = date('d-m-Y' , strtotime($last_date));
+        $end_date = date('d-m-Y' , strtotime($end_date));
+        $start_date = date('d-m-Y' , strtotime($start_date));
 
 
 
@@ -175,37 +176,9 @@ if (@$_GET['driverData']) {
             'cod_amount' => @$meta['cod_amount'][0] ? @$meta['cod_amount'][0] : 0,
 
             'remarks' => $last_update['remarks'] ? $last_update['remarks'] : '-',
+            'date_last' => $last_date,
 
         );
-    }
-
-
-
-    if ($_GET['download']) {
-
-        $spreadsheet = new Spreadsheet();
-
-        $sheet = $spreadsheet->getActiveSheet();
-
-        $sheet->fromArray($header, NULL, 'A1');
-
-
-
-        // redirect output to client browser
-
-        header('Content-Disposition: attachment;filename="myfile.xlsx"');
-
-        header('Cache-Control: max-age=0');
-
-
-
-        $writer = new Xlsx($spreadsheet);
-
-        $writer->save('php://output');
-
-
-
-        exit();
     }
 }
 
@@ -353,7 +326,7 @@ $drivers = get_users($args);
                     <th class="table-header">Cod Amount</th>
 
                     <th class="table-header">Remark</th>
-
+                 
 
 
                 </tr>
@@ -397,7 +370,6 @@ $drivers = get_users($args);
                         <td><?php echo  $value['cod_amount'] ?></td>
 
                         <td><?php echo  $value['remarks'] ?></td>
-
 
 
                     </tr>
@@ -566,24 +538,24 @@ $drivers = get_users($args);
 
 
 <style id="table_style" type="text/css">
-    body
-    {
+    body {
         font-family: Arial;
         font-size: 10pt;
     }
-    table
-    {
+
+    table {
         border: 1px solid #ccc;
         border-collapse: collapse;
     }
-    table th
-    {
+
+    table th {
         background-color: #F7F7F7;
         color: #333;
         font-weight: bold;
     }
-    table th, table td
-    {
+
+    table th,
+    table td {
         padding: 5px;
         border: 1px solid #ccc;
     }
@@ -594,21 +566,21 @@ $drivers = get_users($args);
         var divToPrint = $('#printthistable');
         var printWindow = window.open('', '');
         printWindow.document.write('<html><head><title>Table Contents</title>');
-         //Print the Table CSS.
+        //Print the Table CSS.
 
         var table_style = document.getElementById("table_style").innerHTML;
         printWindow.document.write('<style type = "text/css">');
         printWindow.document.write(table_style);
         printWindow.document.write('</style>');
         printWindow.document.write('</head>');
- 
- 
+
+
         //Print the DIV contents i.e. the HTML Table.
         printWindow.document.write('<body>');
         var divContents = document.getElementById("printthistable").innerHTML;
         printWindow.document.write(divContents);
         printWindow.document.write('</body>');
- 
+
         printWindow.document.write('</html>');
         printWindow.document.close();
         printWindow.print();

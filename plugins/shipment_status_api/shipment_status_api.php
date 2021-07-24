@@ -1013,7 +1013,10 @@ if (@$_GET['clientData']) {
 
         $last_update = end($data);
 
-
+        $last_date = $last_update['date'];
+        $last_date = date('d-m-Y', strtotime($last_date));
+        $end_date = date('d-m-Y', strtotime($end_date));
+        $start_date = date('d-m-Y', strtotime($start_date));
 
         if (strtotime($last_date)  > strtotime($end_date)) {
 
@@ -1295,8 +1298,10 @@ if (@$_GET['driverData']) {
         $last_date = $post->post_date;
 
         $last_update = end($data);
-
-
+        $last_date = $last_update['date'];
+        $last_date = date('d-m-Y', strtotime($last_date));
+        $end_date = date('d-m-Y', strtotime($end_date));
+        $start_date = date('d-m-Y', strtotime($start_date));
 
         if (strtotime($last_date)  > strtotime($end_date)) {
 
@@ -1433,7 +1438,7 @@ if (@$_GET['dispatchData']) {
 
                 'key'     => 'wpcargo_driver',
 
-                'value'   => $_GET['drive'],
+                'value'   => $_GET['driver'],
 
                 'compare' => '=',
 
@@ -1552,9 +1557,11 @@ if (@$_GET['dispatchData']) {
         $last_update = end($data);
 
 
+        $last_date = $last_update['date'];
 
-
-
+        $last_date = date('d-m-Y', strtotime($last_date));
+        $end_date = date('d-m-Y', strtotime($end_date));
+        $start_date = date('d-m-Y', strtotime($start_date));
 
 
         if (strtotime($last_date)  > strtotime($end_date)) {

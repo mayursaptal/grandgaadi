@@ -141,6 +141,11 @@ if (@$_GET['ssi_download']) {
         $last_date = @$meta['wpcargo_pickup_date_picker'][0];
         $last_date = $post->post_date;
         $last_update = end($data);
+
+        $last_date = date('d-m-Y' , strtotime($last_date));
+        $end_date = date('d-m-Y' , strtotime($end_date));
+        $start_date = date('d-m-Y' , strtotime($start_date));
+
         // 		$last_date = $last_update['date'];
 
         if (strtotime($last_date)  > strtotime($end_date)) {

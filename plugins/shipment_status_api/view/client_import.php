@@ -134,8 +134,10 @@ if (@$_GET['clientData']) {
 
         $last_update = end($data);
 
-
-
+        $last_date = $last_update['date'];
+        $last_date = date('d-m-Y' , strtotime($last_date));
+        $end_date = date('d-m-Y' , strtotime($end_date));
+        $start_date = date('d-m-Y' , strtotime($start_date));
 
 
 

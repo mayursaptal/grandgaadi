@@ -24,23 +24,23 @@ if (@$_GET['dispatchData']) {
 
             array(
 
-                'key'     => 'registered_shipper',
+                'key'     => 'wpcargo_driver',
 
-                'value'   => $_GET['drive'],
+                'value'   => $_GET['driver'],
 
                 'compare' => '=',
 
             ),
 
-            array(
+            // array(
 
-                'key'     => 'wpcargo_status',
+            //     'key'     => 'wpcargo_status',
 
-                'compare' => '=',
+            //     'compare' => '=',
 
-                'value'   => 'OUT FOR DELIVERY',
+            //     'value'   => 'OUT FOR DELIVERY',
 
-            )
+            // )
 
         )
 
@@ -87,7 +87,6 @@ if (@$_GET['dispatchData']) {
     foreach ($users  as $user) {
 
         $user_id[$user->ID] = $user->display_name;
-
     }
 
 
@@ -96,7 +95,7 @@ if (@$_GET['dispatchData']) {
 
     $countor = array();
 
-
+    $count = 1;
 
     foreach ($posts as $post) {
 
@@ -113,7 +112,6 @@ if (@$_GET['dispatchData']) {
         if (!is_array($data)) {
 
             $data = unserialize($data);
-
         }
 
 
@@ -139,26 +137,30 @@ if (@$_GET['dispatchData']) {
         $last_update = end($data);
 
 
+        $last_date = $last_update['date'];
 
+        $last_date = date('d-m-Y' , strtotime($last_date));
+        $end_date = date('d-m-Y' , strtotime($end_date));
+        $start_date = date('d-m-Y' , strtotime($start_date));
 
 
         if (strtotime($last_date)  > strtotime($end_date)) {
 
             continue;
-
         }
-
-
-
-
 
         if (strtotime($last_date)  < strtotime($start_date)) {
 
             continue;
-
         }
 
 
+
+
+
+        if( trim(@$meta['wpcargo_status'][0]) != 'OUT FOR DELIVERY'){
+            continue;
+        }
 
         $countor[$meta['wpcargo_status'][0]]['count'] = $countor[$meta['wpcargo_status'][0]]['count'] + 1;
 
@@ -173,6 +175,7 @@ if (@$_GET['dispatchData']) {
 
 
         $header[] = array(
+            'count' => $count++,
 
             'reference_number'   =>   @$meta['reference_number'][0],
 
@@ -187,36 +190,11 @@ if (@$_GET['dispatchData']) {
             'wpc-multiple-package' => unserialize(unserialize(@$meta['wpc-multiple-package'][0]))[0]['wpc-pm-description'],
 
             'cod_amount' =>  @$meta['cod_amount'][0],
+            'date_last' => $last_date ,
 
         );
-
     }
 
-    if ($_GET['download']) {
-
-        $spreadsheet = new Spreadsheet();
-
-        $sheet = $spreadsheet->getActiveSheet();
-
-        $sheet->fromArray($header, NULL, 'A1');
-
-
-
-        header('Content-Disposition: attachment;filename="myfile.xlsx"');
-
-        header('Cache-Control: max-age=0');
-
-
-
-        $writer = new Xlsx($spreadsheet);
-
-        $writer->save('php://output');
-
-
-
-        exit();
-
-    }
 
 }
 
@@ -340,19 +318,18 @@ $drivers = get_users($args);
 
             <thead>
 
-                <tr class="">
 
-                    <br>
-
-                    <br>
-
-
-
-                </tr>
 
                 <tr>
 
-                    <th class="form-check">
+
+                    <th >
+
+                        SL NO
+
+                    </th>
+
+                    <th >
 
                         ID
 
@@ -373,7 +350,7 @@ $drivers = get_users($args);
                     <th class="table-header">Cod Amount</th>
 
                     <th class="table-header">Receiver Sign</th>
-
+                 
 
 
                 </tr>
@@ -389,6 +366,14 @@ $drivers = get_users($args);
                 ?>
 
                     <tr>
+
+                        <td>
+
+                            <?php echo  $val['count'] ?>
+
+                        </td>
+
+
 
                         <td>
 
@@ -437,7 +422,7 @@ $drivers = get_users($args);
                             <?php echo  $val['remarks'] ?>
 
                         </td>
-
+                        
                     </tr>
 
                 <?php } ?>
@@ -453,7 +438,6 @@ $drivers = get_users($args);
 
 
 <style>
-
     h2 {
 
         margin-bottom: 30px;
@@ -557,13 +541,11 @@ $drivers = get_users($args);
         }
 
     }
-
 </style>
 
 
 
 <script>
-
     function myFunction(event) {
 
         console.log("Dispatch");
@@ -591,28 +573,27 @@ $drivers = get_users($args);
 
 
     }
-
 </script>
 
 <style id="table_style" type="text/css">
-    body
-    {
+    body {
         font-family: Arial;
         font-size: 10pt;
     }
-    table
-    {
+
+    table {
         border: 1px solid #ccc;
         border-collapse: collapse;
     }
-    table th
-    {
+
+    table th {
         background-color: #F7F7F7;
         color: #333;
         font-weight: bold;
     }
-    table th, table td
-    {
+
+    table th,
+    table td {
         padding: 5px;
         border: 1px solid #ccc;
     }
